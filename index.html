@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TOUR São Miguel Arcanjo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#29763B", // Verde
+            "secondary": "#194C9B", // Azul
+            "background-light": "#FFFFFF",
+            "background-dark": "#101010",
+            "text-light": "#121613",
+            "text-dark": "#E5E5E5",
+            "text-muted-light": "#6c757d",
+            "text-muted-dark": "#9ca3af",
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-center whitespace-nowrap border-b border-solid border-gray-200/80 dark:border-gray-800/80 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="flex items-center justify-between w-full max-w-6xl px-4 py-3">
+<div class="flex items-center gap-3 text-secondary">
+<div class="size-6">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-secondary text-lg font-bold tracking-tight">TOUR São Miguel Arcanjo</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Início</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">História</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">O Que Fazer</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Onde Ficar</a>
+<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Contato</a>
+</nav>
+<button class="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow">
+<div class="flex flex-col items-center w-full">
+<div class="w-full max-w-6xl px-4 py-8 md:py-12">
+<!-- HeaderImage (Carousel) -->
+<div class="w-full">
+<div class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[400px] md:min-h-[500px]" data-alt="Panoramic view of a vineyard in São Miguel Arcanjo at sunset" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 35%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDIjCg2kpHu4WrFwqr9d4cjZZkUH_Fl-Xn67RK21oRw87Dx1rv_xMBUXQpU5DXrXCHMOWHKcXZllzHsU8yyHbUzjfBZqQeFXyKSEPrN-HWYLsA_KEsGcUhKMPBooJ98b_Opq6psc5aCQ62pGWeia-JlIACASFC3z0KzZ4M_n58PeFO0lLKE-BWjTqJmeQNf62d_8v2mudGihDwJjuAMDyxHUh8K76dKENhWnGmrRAxsL4fg90phnuFWrrUsFi-HRzQlyhjye8Qr-kU");'>
+<div class="flex justify-center gap-2 p-5">
+<div class="size-2 rounded-full bg-white"></div>
+<div class="size-2 rounded-full bg-white/50"></div>
+<div class="size-2 rounded-full bg-white/50"></div>
+<div class="size-2 rounded-full bg-white/50"></div>
+</div>
+</div>
+</div>
+<!-- Headline & Body Text Section (História) -->
+<section class="py-12 md:py-20 text-center max-w-3xl mx-auto">
+<h1 class="text-secondary tracking-tight text-3xl md:text-4xl font-extrabold leading-tight pb-4">Conheça São Miguel Arcanjo</h1>
+<p class="text-text-muted-light dark:text-text-muted-dark text-base md:text-lg font-normal leading-relaxed">Descubra a história da fundação da cidade, a devoção ao seu padroeiro, e o orgulho de ser reconhecida como a “Capital Mundial das Uvas Finas”.</p>
+</section>
+<!-- SectionHeader & Stats (Dados Gerais) -->
+<section class="py-12 md:py-16">
+<h2 class="text-secondary text-2xl md:text-3xl font-bold tracking-tight text-center mb-10">A Cidade em Números</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+<div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
+<div class="flex items-center justify-center size-12 bg-primary/10 rounded-full mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">public</span>
+</div>
+<h3 class="text-lg font-bold text-text-light dark:text-text-dark">Área</h3>
+<p class="text-2xl font-bold text-primary">902,3 km²</p>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">(IBGE)</p>
+</div>
+<div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
+<div class="flex items-center justify-center size-12 bg-primary/10 rounded-full mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">groups</span>
+</div>
+<h3 class="text-lg font-bold text-text-light dark:text-text-dark">População</h3>
+<p class="text-2xl font-bold text-primary">32.493 hab.</p>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">(Est. 2021)</p>
+</div>
+<div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
+<div class="flex items-center justify-center size-12 bg-primary/10 rounded-full mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">landscape</span>
+</div>
+<h3 class="text-lg font-bold text-text-light dark:text-text-dark">Altitude</h3>
+<p class="text-2xl font-bold text-primary">660 m</p>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">(Média)</p>
+</div>
+<div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
+<div class="flex items-center justify-center size-12 bg-primary/10 rounded-full mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">thermostat</span>
+</div>
+<h3 class="text-lg font-bold text-text-light dark:text-text-dark">Clima</h3>
+<p class="text-2xl font-bold text-primary">Cfa</p>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">(Subtropical úmido)</p>
+</div>
+</div>
+</section>
+<!-- Interactive Distance Calculator Section -->
+<section class="py-12 md:py-20">
+<div class="bg-secondary text-white rounded-xl p-8 md:p-12 max-w-4xl mx-auto text-center">
+<h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Planeje sua Viagem</h2>
+<p class="text-white/80 mb-8 max-w-2xl mx-auto">Quer saber a que distância você está deste paraíso? Insira sua cidade de origem e descubra.</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto">
+<input class="w-full flex-grow px-4 py-3 rounded-lg border-none text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-primary" placeholder="Digite sua cidade" type="text"/>
+<button class="w-full sm:w-auto bg-primary text-white font-bold py-3 px-6 rounded-lg whitespace-nowrap hover:bg-opacity-90 transition-colors">Calcular Distância</button>
+</div>
+<div class="mt-8 text-center flex flex-col items-center gap-4">
+<div class="text-lg">
+<span class="text-white/70">Distância aproximada:</span>
+<span class="text-4xl font-bold ml-2">250 km</span>
+</div>
+<a class="inline-flex items-center gap-2 bg-white/10 text-white font-semibold py-2 px-5 rounded-lg hover:bg-white/20 transition-colors" href="#">
+<span class="material-symbols-outlined">map</span>
+                  Ver no Google Maps
+                </a>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-gray-100 dark:bg-gray-900">
+<div class="max-w-6xl mx-auto px-4 py-10 md:py-16">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="md:col-span-1">
+<div class="flex items-center gap-3 text-secondary mb-4">
+<div class="size-6">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-secondary text-lg font-bold tracking-tight">TOUR São Miguel Arcanjo</h2>
+</div>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Explore as belezas e tradições da Capital Mundial das Uvas Finas.</p>
+</div>
+<div class="md:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
+<div>
+<h3 class="font-bold text-text-light dark:text-text-dark mb-4">Navegação</h3>
+<ul class="space-y-2">
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">Início</a></li>
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">História</a></li>
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">O Que Fazer</a></li>
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">Onde Ficar</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-text-light dark:text-text-dark mb-4">Contato</h3>
+<ul class="space-y-2">
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">Fale Conosco</a></li>
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">Imprensa</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-text-light dark:text-text-dark mb-4">Redes Sociais</h3>
+<div class="flex space-x-4">
+<a class="text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.644-.069 4.85-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98C23.986 15.667 24 15.259 24 12s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-10 border-t border-gray-200 dark:border-gray-700 pt-8 text-center text-sm text-text-muted-light dark:text-text-muted-dark">
+<p>© 2024 TOUR São Miguel Arcanjo. Todos os direitos reservados.</p>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
