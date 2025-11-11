@@ -1,253 +1,189 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html class="light" lang="pt-BR">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Turismo Religioso</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#29763b",
-            "background-light": "#ffffff",
-            "background-dark": "#141e16",
-            accent: "#194C9B",
-            "text-light": "#333333",
-            "text-dark": "#f6f8f6",
-            "text-subtle-light": "#666666",
-            "text-subtle-dark": "#a0a0a0",
-          },
-          fontFamily: {
-            display: ["Plus Jakarta Sans", "sans-serif"]
-          },
-        },
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TOUR - Turismo Religioso</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24;
+  }
+</style>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#29753b",
+        "background-light": "#ffffff",
+        "background-dark": "#141e16",
+        "accent-blue": "#194C9B",
+        "text-primary-light": "#121613",
+        "text-secondary-light": "#6a816f",
+        "text-primary-dark": "#f6f8f6",
+        "text-secondary-dark": "#a0b3a3",
+        "border-light": "#f1f4f2",
+        "border-dark": "#2a3c2e"
       },
-    };
-  </script>
-  <style>
-    .group:hover .group-hover\:block { display: block; }
-  </style>
+      fontFamily: { "display": ["Plus Jakarta Sans", "sans-serif"] },
+      borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+    },
+  },
+};
+</script>
 </head>
 
-<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<body class="font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark">
+<div class="relative flex min-h-screen w-full flex-col">
 
-  <!-- HEADER -->
-  <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm w-full">
-    <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
-
-      <!-- LOGO + TEXTO -->
-      <div class="flex items-center gap-1">
-        <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
-        <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
-          <span style="color:#29763B;">TOUR</span>
-          <span style="color:#333333;"> São Miguel Arcanjo</span>
-        </h2>
-      </div>
-
-      <!-- NAVBAR -->
-      <div class="hidden md:flex flex-1 items-center justify-end gap-8">
-        <nav class="flex items-center gap-9">
-          <a href="index.html" class="nav-link">Início</a>
-
-          <!-- Dropdown Turismo -->
-          <div class="relative" id="menu-turismo-wrapper">
-            <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
-              class="nav-link flex items-center gap-1 focus:outline-none">
-              Turismo
-              <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
-                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-
-            <div id="turismo-menu"
-              class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50"
-              role="menu" aria-label="submenu turismo">
-              <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
-              <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
-              <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
-              <a href="cultural.html" class="dropdown-item block" role="menuitem">Étnico</a>
-            </div>
+<!-- HEADER -->
+<header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
+  <div class="flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
+    <div class="flex items-center gap-1.5">
+      <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
+      <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+        <span style="color:#29763B;">TOUR</span>
+        <span style="color:#333333;"> São Miguel Arcanjo</span>
+      </h2>
+    </div>
+    <div class="hidden md:flex flex-1 items-center justify-end gap-8">
+      <nav class="flex items-center gap-9">
+        <a href="index.html" class="nav-link">Início</a>
+        <div class="relative" id="menu-turismo-wrapper">
+          <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false" class="nav-link flex items-center gap-1 focus:outline-none">
+            Turismo
+            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div id="turismo-menu" class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50" role="menu" aria-label="submenu turismo">
+            <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
+            <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
+            <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
+            <a href="cultural.html" class="dropdown-item block" role="menuitem">Étnico</a>
           </div>
+        </div>
+        <a href="hotelaria.html" class="nav-link">Hotelaria</a>
+        <a href="gastronomia.html" class="nav-link">Gastronomia</a>
+        <a href="agenda.html" class="nav-link">Agenda</a>
+        <a href="sobre.html" class="nav-link">Sobre nós</a>
+      </nav>
+      <a href="contato.html" class="flex min-w-[84px] items-center justify-center h-10 px-4 bg-primary text-white text-sm font-bold rounded-lg hover:bg-primary/90 transition-colors">Suporte</a>
+    </div>
+    <button class="md:hidden text-text-dark dark:text-white"><span class="material-symbols-outlined">menu</span></button>
+  </div>
+</header>
 
-          <a href="hotelaria.html" class="nav-link">Hotelaria</a>
-          <a href="gastronomia.html" class="nav-link">Gastronomia</a>
-          <a href="agenda.html" class="nav-link">Agenda</a>
-          <a href="sobre.html" class="nav-link">Sobre nós</a>
-        </nav>
+<style>
+.nav-link { color: #333333; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+.nav-link:hover { color: #194C9B; }
+.nav-link.active { color: #194C9B; font-weight: 700; }
+.dropdown-item { padding: 0.5rem 0.75rem; font-size: 0.925rem; color: #333; display: block; text-decoration: none; transition: background-color 0.15s, color 0.15s; }
+.dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
+</style>
 
-        <!-- Botão Suporte -->
-        <a href="contato.html"
-          class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-          <span class="truncate">Suporte</span>
-        </a>
+<script>
+(function() {
+  const toggle = document.getElementById('turismo-toggle');
+  const menu = document.getElementById('turismo-menu');
+  toggle.addEventListener('click', e => { e.stopPropagation(); menu.classList.toggle('hidden'); });
+  document.addEventListener('click', () => menu.classList.add('hidden'));
+  document.addEventListener('keydown', e => e.key === 'Escape' && menu.classList.add('hidden'));
+  const current = window.location.pathname.split('/').pop();
+  document.querySelectorAll('nav .nav-link').forEach(a => { if(a.getAttribute('href')===current) a.classList.add('active'); });
+  document.querySelectorAll('a[href]').forEach(link => { link.addEventListener('click', e => { const target = link.getAttribute('href'); if(target===current){ e.preventDefault(); window.location.reload(); } }); });
+})();
+</script>
+
+<main class="flex flex-1 justify-center py-10 sm:py-16">
+  <div class="flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-center justify-between gap-6 py-4">
+      <div class="flex max-w-3xl flex-col gap-3">
+        <p class="text-accent-blue dark:text-primary text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">Turismo Religioso</p>
+        <p class="text-text-secondary-light dark:text-text-secondary-dark text-lg font-normal leading-relaxed">
+          Explore igrejas históricas, santuários e experiências de fé que refletem a cultura e tradição da região.
+        </p>
       </div>
+    </div>
 
-      <!-- MENU MOBILE -->
-      <button class="md:hidden text-text-dark dark:text-white">
-        <span class="material-symbols-outlined">menu</span>
+        <!-- Chips -->
+    <div class="flex gap-3 py-6 overflow-x-auto">
+      <button class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary/20 dark:bg-primary/30 px-5">
+        <p class="text-primary dark:text-white text-sm font-bold leading-normal">Todos</p>
+      </button>
+      <button class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-border-light dark:bg-border-dark px-5 hover:bg-primary/20 dark:hover:bg-primary/30">
+        <p class="text-text-primary-light dark:text-text-primary-dark text-sm font-medium leading-normal">Gratuitos</p>
+      </button>
+      <button class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-border-light dark:bg-border-dark px-5 hover:bg-primary/20 dark:hover:bg-primary/30">
+        <p class="text-text-primary-light dark:text-text-primary-dark text-sm font-medium leading-normal">Pagos</p>
       </button>
     </div>
-  </header>
 
-  <!-- STYLES -->
-  <style>
-    .nav-link {
-      color: #333333;
-      font-size: 0.875rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-link:hover { color: #194C9B; }
-    .nav-link.active { color: #194C9B; font-weight: 700; }
-
-    .dropdown-item {
-      padding: 0.5rem 0.75rem;
-      font-size: 0.925rem;
-      color: #333;
-      transition: background-color 0.15s, color 0.15s;
-      white-space: nowrap;
-      display: block;
-      text-decoration: none;
-    }
-    .dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
-  </style>
-
-  <!-- SCRIPT DROPDOWN -->
-  <script>
-    (function () {
-      const toggle = document.getElementById('turismo-toggle');
-      const menu = document.getElementById('turismo-menu');
-      function toggleMenu() {
-        menu.classList.toggle('hidden');
-      }
-      toggle.addEventListener('click', e => {
-        e.stopPropagation();
-        toggleMenu();
-      });
-      document.addEventListener('click', () => menu.classList.add('hidden'));
-      document.addEventListener('keydown', e => e.key === 'Escape' && menu.classList.add('hidden'));
-
-      // marca a aba atual
-      const current = window.location.pathname.split('/').pop();
-      document.querySelectorAll('nav .nav-link').forEach(a => {
-        if (a.getAttribute('href') === current) a.classList.add('active');
-      });
-
-      // recarrega se clicar na mesma página
-      document.querySelectorAll('a[href]').forEach(link => {
-        link.addEventListener('click', e => {
-          const target = link.getAttribute('href');
-          const current = window.location.pathname.split('/').pop();
-          if (target === current) {
-            e.preventDefault();
-            window.location.reload();
-          }
-        });
-      });
-    })();
-  </script>
-
-  <!-- CONTEÚDO -->
-  <main class="py-12 md:py-20">
-    <div class="flex flex-col gap-12">
-      <div class="flex flex-wrap justify-between gap-6 px-4 text-center md:text-left">
-        <div class="flex w-full flex-col gap-4 items-center md:items-start max-w-3xl mx-auto md:mx-0">
-          <h1 class="text-accent dark:text-blue-300 text-4xl lg:text-5xl font-extrabold leading-tight tracking-[-0.033em]">Turismo Religioso</h1>
-          <p class="text-text-subtle-light dark:text-text-subtle-dark text-lg font-normal leading-relaxed">Descubra a riqueza natural e as paisagens deslumbrantes que nossa cidade oferece. Aventure-se por parques, trilhas e cachoeiras inesquecíveis.</p>
+    <!-- Grid Cards -->
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 py-4">
+      <!-- Card Example -->
+      <div class="group flex flex-col gap-4 rounded-lg border border-transparent p-2 transition-all hover:border-border-light dark:hover:border-border-dark hover:bg-background-light dark:hover:bg-border-dark/20">
+        <div class="w-full overflow-hidden rounded-lg">
+          <div class="h-56 w-full bg-cover bg-center transition-transform duration-300 ease-in-out group-hover:scale-105" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC3_YXaM7NEUm8uAW1ACp-Sccy5MH9eduHYgGr8RTdH8EEZGRveeMCAgZFo9oSfRuIeY1GKz638C0fPExvsZRaLfPEYdnJ7QubEX-4cF-8PDjYosGrjS-vltsLzarL3pRwzsIAzxs5fNsCTMJZ-PgWfwG9mzt0ZMngblGYeRIJPVPx0yqnKW8Vo8Hvj5DgmQmGsgpa38siVfjPPLavyk2xdX_v4xeKBBJTF1F7CuJBq-KbMWEclfZdmMZ7gZqWYc60mixzRw");'></div>
         </div>
-      </div>
-
-      <!-- Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-        <!-- Card 1 -->
-        <div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-background-light dark:bg-zinc-900 overflow-hidden shadow-sm transition-all hover:shadow-lg">
-          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
-            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDkXr2hnIE6fWdCLhPFnYx8sCxG4u5rRnqQsqqt-cj2xoqDXAjbj7j9sRugwekEp_MbR73mwoTd3E_QyblgLbOx9r_WPNho9ztNHcAjleCXFOr72-0nEEQs1HhH45u3tKYEogdw8XJAcfIPfBDEpLvzZKsB403NLXrN1tlvTvnpeoGomRgkETIFP1DyBQIdHIaxcaM-BIK_RqQJY5q6W3avJne6jALMr3zhxYXbil5EuHNFCDlvstumwj9tyLyiB_QzvMwLv1lC0g");'></div>
-          <div class="p-5 flex flex-col flex-grow">
-            <h3 class="text-accent text-xl font-bold">Parque Estadual Carlos Botelho</h3>
-            <p class="text-text-subtle-light text-sm mt-2 mb-4 flex-grow">Uma das áreas mais importantes de Mata Atlântica preservada do Brasil, ideal para observação de aves e caminhadas.</p>
-            <div class="flex flex-col gap-3 text-sm border-t border-gray-200 pt-4">
-              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">location_on</span><span>S. Miguel Arcanjo, SP</span></div>
-              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">schedule</span><span>Diariamente, 8h - 17h</span></div>
-              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">local_activity</span><span>R$ 15,00</span></div>
-            </div>
-            <a class="mt-6 w-full text-center bg-primary text-white text-sm font-semibold py-2.5 px-4 rounded-lg hover:bg-primary/90" href="#">Saiba Mais</a>
+        <div class="flex flex-col gap-2 px-2">
+          <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Santuário de Nossa Senhora</p>
+          <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">Um local de devoção e história, com arquitetura preservada.</p>
+          <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark text-sm">
+            <span class="material-symbols-outlined text-base">location_on</span>
+            <span>Centro, S. Miguel Arcanjo</span>
           </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-background-light dark:bg-zinc-900 overflow-hidden shadow-sm transition-all hover:shadow-lg">
-          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
-            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD0mK4GAmYkvrt3bNranTsZLUUsSNSRqUQU2lNgjTIGVKIS_t0qFV_vpNEDGnFBNN6tfXhz4kqQ-GGPurfdQTe-LQeO2Xw6oRUkf_9Exd0g73WztNuGzY7827124kjmeodYLAHsT8JkUEcrOLmYCsHzrBjCuIliUQIv5mSEkyDD-mVkdAgv4RGMFf1XF236NgtzBDGqXK1exD7xoHgRQnLoG_akTWw4UY9-vJlr4_Bkuh99S5ZWBjbNkRaXSl28jySSx5bYq0E08Fc");'></div>
-          <div class="p-5 flex flex-col flex-grow">
-            <h3 class="text-accent text-xl font-bold">Parque da Onça Parda</h3>
-            <p class="text-text-subtle-light text-sm mt-2 mb-4 flex-grow">Um refúgio dedicado à conservação da fauna e flora nativas, com trilhas educativas e centro de visitantes.</p>
-            <div class="flex flex-col gap-3 text-sm border-t border-gray-200 pt-4">
-              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">location_on</span><span>Zona Rural, S. Miguel</span></div>
-              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">schedule</span><span>Sáb-Dom, 9h - 16h</span></div>
-              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">local_activity</span><span>Grátis</span></div>
-            </div>
-            <a class="mt-6 w-full text-center bg-primary text-white text-sm font-semibold py-2.5 px-4 rounded-lg hover:bg-primary/90" href="#">Saiba Mais</a>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-background-light dark:bg-zinc-900 overflow-hidden shadow-sm transition-all hover:shadow-lg">
-          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
-            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBg34MQITMcvxYwX8YiFp_yj8XrDVNVNDJWIjrwp_oSnXPrf6tPp5RoVvMV3aw_0-bfQMDOYML1_g7a5zRnwkeIijQL02EQ8qaeiS7ji4hH942UA6dxL1i0CgOi50aHV-S6ivm4ss423b1K-Gq9EKehTbMstQctlCr7QwQwXxEQYNgMW5xfUQsYGRnkLgUvEnmKGXDyFEGKt1OdpryJ3YVbFa7CzTDJ60MZ3opoaCMQBHJwt7cfJUMWCmyiX1FwpVKBxnoXzxM6CPQ");'></div>
-          <div class="p-5 flex flex-col flex-grow">
-            <h3 class="text-accent text-xl font-bold">Cachoeira do Alemão</h3>
-            <p class="text-text-subtle-light text-sm mt-2 mb-4 flex-grow">Uma bela queda d'água perfeita para relaxar e se conectar com a natureza, com poços para banho.</p>
-            <div class="flex flex-col gap-3 text-sm border-t border-gray-200 pt-4">
-              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">location_on</span><span>Estrada da Cachoeira</span></div>
-              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">schedule</span><span>Aberto 24h</span></div>
-              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">local_activity</span><span>Acesso Livre</span></div>
-            </div>
-            <a class="mt-6 w-full text-center bg-primary text-white text-sm font-semibold py-2.5 px-4 rounded-lg hover:bg-primary/90" href="#">Saiba Mais</a>
+          <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark text-sm">
+            <span class="material-symbols-outlined text-base">schedule</span>
+            <span>08h - 18h</span>
           </div>
         </div>
       </div>
+
+      <!-- Replicar mais cards seguindo o mesmo padrão -->
     </div>
-  </main>
-<!-- Pagination -->
-<div class="flex items-center justify-center p-4 pt-8">
-<a class="flex size-10 items-center justify-center text-text-secondary-light dark:text-text-secondary-dark rounded-full hover:bg-border-light dark:hover:bg-border-dark" href="#">
-<span class="material-symbols-outlined text-2xl">chevron_left</span>
-</a>
-<a class="text-sm font-bold leading-normal flex size-10 items-center justify-center text-primary dark:text-white rounded-full bg-primary/20 dark:bg-primary/30" href="#">1</a>
-<a class="flex size-10 items-center justify-center text-text-secondary-light dark:text-text-secondary-dark rounded-full hover:bg-border-light dark:hover:bg-border-dark" href="#">
-<span class="material-symbols-outlined text-2xl">chevron_right</span>
-</a>
-</div>
-</div>
+
+    <!-- Pagination -->
+    <div class="flex items-center justify-center p-4 pt-8">
+      <a class="flex size-10 items-center justify-center text-text-secondary-light dark:text-text-secondary-dark rounded-full hover:bg-border-light dark:hover:bg-border-dark" href="#">
+        <span class="material-symbols-outlined text-2xl">chevron_left</span>
+      </a>
+      <a class="text-sm font-bold leading-normal flex size-10 items-center justify-center text-primary dark:text-white rounded-full bg-primary/20 dark:bg-primary/30" href="#">1</a>
+      <a class="flex size-10 items-center justify-center text-text-secondary-light dark:text-text-secondary-dark rounded-full hover:bg-border-light dark:hover:bg-border-dark" href="#">
+        <span class="material-symbols-outlined text-2xl">chevron_right</span>
+      </a>
+    </div>
+
+  </div>
 </main>
-  <!-- Footer -->
+
+<!-- Footer -->
 <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
-    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
+  <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
     <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="#">Sobre nós</a>
     <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="#">Política de Privacidade</a>
     <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="#">Suporte</a>
-    </div>
-    <div class="flex flex-wrap justify-center gap-6">
+  </div>
+  <div class="flex flex-wrap justify-center gap-6">
     <a class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary" href="#">
-    <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+      <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
     </a>
     <a class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary" href="#">
-    <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+      <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
     </a>
-    <a class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary" href="#">
-    </a>
-    </div>
-    <p class="text-text-subtle-light dark:text-text-subtle-dark text-sm font-normal leading-normal">© 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.</p>
-    </footer>
+  </div>
+  <p class="text-text-subtle-light dark:text-text-subtle-dark text-sm font-normal leading-normal">© 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.</p>
+</footer>
 
+</div>
 </body>
 </html>
