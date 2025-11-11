@@ -45,29 +45,139 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
 <div class="relative flex min-h-screen w-full flex-col group/design-root">
-<!-- TopNavBar -->
-<header class="sticky top-0 z-50 flex items-center justify-center whitespace-nowrap border-b border-solid border-gray-200/80 dark:border-gray-800/80 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
-<div class="flex items-center justify-between w-full max-w-6xl px-4 py-3">
-<div class="flex items-center gap-3 text-secondary">
-<div class="size-6">
-<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
-</svg>
+<!-- TopNavBar (com dropdown por CLICK e reload nos links) -->
+<header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
+  <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
+
+    <!-- LOGO + TEXTO -->
+<div class="flex items-center gap-1.5">
+  <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
+  <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+    <span style="color:#29763B;">TOUR</span>
+    <span style="color:#333333;"> São Miguel Arcanjo</span>
+  </h2>
 </div>
-<h2 class="text-secondary text-lg font-bold tracking-tight">TOUR São Miguel Arcanjo</h2>
-</div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Início</a>
-<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">História</a>
-<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">O Que Fazer</a>
-<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Onde Ficar</a>
-<a class="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Contato</a>
-</nav>
-<button class="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
+
+    <!-- NAVBAR -->
+    <div class="hidden md:flex flex-1 items-center justify-end gap-8">
+      <nav class="flex items-center gap-9">
+
+        <a href="index.html" class="nav-link">Início</a>
+
+        <!-- Dropdown Turismo -->
+        <div class="relative" id="menu-turismo-wrapper">
+          <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
+            class="nav-link flex items-center gap-1 focus:outline-none">
+            Turismo
+            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div id="turismo-menu"
+            class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50"
+            role="menu" aria-label="submenu turismo">
+            <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
+            <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
+            <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
+            <a href="etnico.html" class="dropdown-item block" role="menuitem">Étnico</a>
+          </div>
+        </div>
+
+        <a href="hotelaria.html" class="nav-link">Hotelaria</a>
+        <a href="gastronomia.html" class="nav-link">Gastronomia</a>
+        <a href="agenda.html" class="nav-link">Agenda</a>
+        <a href="sobre.html" class="nav-link">Sobre nós</a>
+      </nav>
+
+      <!-- Botão Suporte -->
+      <a href="contato.html"
+        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+        <span class="truncate">Suporte</span>
+      </a>
+    </div>
+
+    <!-- MENU MOBILE -->
+    <button class="md:hidden text-text-dark dark:text-white">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
 </header>
+
+<!-- STYLES -->
+<style>
+  .nav-link {
+    color: #333333;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: #194C9B; }
+  .nav-link.active { color: #194C9B; font-weight: 700; }
+
+  .dropdown-item {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.925rem;
+    color: #333;
+    transition: background-color 0.15s, color 0.15s;
+    white-space: nowrap;
+    display: block;
+    text-decoration: none;
+  }
+  .dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
+</style>
+
+<!-- SCRIPT -->
+<script>
+  (function () {
+    const toggle = document.getElementById('turismo-toggle');
+    const menu = document.getElementById('turismo-menu');
+    const wrapper = document.getElementById('menu-turismo-wrapper');
+
+    function openMenu() {
+      menu.classList.remove('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu() {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+    function toggleMenu() {
+      const isOpen = !menu.classList.contains('hidden');
+      if (isOpen) closeMenu();
+      else openMenu();
+    }
+
+    toggle.addEventListener('click', e => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    menu.addEventListener('click', e => e.stopPropagation());
+    document.addEventListener('click', () => closeMenu());
+    document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
+    window.addEventListener('resize', closeMenu);
+
+    // marca a aba atual automaticamente
+    const current = window.location.pathname.split('/').pop();
+    document.querySelectorAll('nav .nav-link').forEach(a => {
+      if (a.getAttribute('href') === current) a.classList.add('active');
+    });
+
+    // força reload se clicar na mesma página
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', e => {
+        const target = link.getAttribute('href');
+        const current = window.location.pathname.split('/').pop();
+        if (target === current) {
+          e.preventDefault();
+          window.location.reload();
+        }
+      });
+    });
+  })();
+</script>
 <main class="flex-grow">
 <div class="flex flex-col items-center w-full">
 <div class="w-full max-w-6xl px-4 py-8 md:py-12">
