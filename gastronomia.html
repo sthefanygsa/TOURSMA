@@ -1,364 +1,404 @@
 <!DOCTYPE html>
-
-<html class="light" lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>TOUR - Gastronomia</title>
-<link rel="icon" type="image/png" href="assets/img/logo_coracao_verde.png">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<style>
-      .material-symbols-outlined {
-        font-variation-settings:
+<html class="light" lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>TOUR - Gastronomia</title>
+  <link rel="icon" type="image/png" href="assets/img/logo_coracao_verde.png">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
         'FILL' 0,
         'wght' 400,
         'GRAD' 0,
         'opsz' 24
-      }
-    </style>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "primary": "#29753b",
-              "background-light": "#FFFFFF",
-              "background-dark": "#141e16",
-              "accent-blue": "#194C9B",
-              "text-primary-light": "#121613",
-              "text-secondary-light": "#6a816f",
-              "text-primary-dark": "#f6f8f6",
-              "text-secondary-dark": "#a0b3a3",
-              "border-light": "#f1f4f2",
-              "border-dark": "#2a3c2e"
-            },
-            fontFamily: {
-              "display": ["Plus Jakarta Sans", "sans-serif"]
-            },
-            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+    }
+  </style>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#29753b",
+            "background-light": "#FFFFFF",
+            "background-dark": "#141e16",
+            "accent-blue": "#194C9B",
+            "text-primary-light": "#121613",
+            "text-secondary-light": "#6a816f",
+            "text-primary-dark": "#f6f8f6",
+            "text-secondary-dark": "#a0b3a3",
+            "border-light": "#f1f4f2",
+            "border-dark": "#2a3c2e"
           },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
         },
-      }
-    </script>
+      },
+    }
+  </script>
 </head>
+
 <body class="font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark">
-<div class="relative flex min-h-screen w-full flex-col">
-<!-- TopNavBar (com dropdown por CLICK e reload nos links) -->
-<header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
-  <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
+  <div class="relative flex min-h-screen w-full flex-col">
+    <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
+      <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
+        <div class="flex items-center gap-1.5">
+          <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
+          <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+            <span style="color:#29763B;">TOUR</span>
+            <span style="color:#333333;"> São Miguel Arcanjo</span>
+          </h2>
+        </div>
+        <div class="hidden md:flex flex-1 items-center justify-end gap-8">
+          <nav class="flex items-center gap-9">
+            <a href="index.html" class="nav-link">Início</a>
+            <div class="relative" id="menu-turismo-wrapper">
+              <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false" class="nav-link flex items-center gap-1 focus:outline-none">
+                Turismo
+                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="turismo-menu" class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50" role="menu" aria-label="submenu turismo">
+                <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
+                <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
+                <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
+                <a href="cultural.html" class="dropdown-item block" role="menuitem">Étnico</a>
+              </div>
+            </div>
+            <a href="hotelaria.html" class="nav-link">Hotelaria</a>
+            <a href="gastronomia.html" class="nav-link">Gastronomia</a>
+            <a href="agenda.html" class="nav-link">Agenda</a>
+            <a href="sobre.html" class="nav-link">Sobre nós</a>
+          </nav>
+          <a href="contato.html" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+            <span class="truncate">Suporte</span>
+          </a>
+        </div>
+        <button class="md:hidden text-text-dark dark:text-white">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </header>
 
-    <!-- LOGO + TEXTO -->
-<div class="flex items-center gap-1.5">
-  <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
-  <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
-    <span style="color:#29763B;">TOUR</span>
-    <span style="color:#333333;"> São Miguel Arcanjo</span>
-  </h2>
-</div>
+    <style>
+      .nav-link { color: #333333; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+      .nav-link:hover { color: #194C9B; }
+      .nav-link.active { color: #194C9B; font-weight: 700; }
+      .dropdown-item { padding: 0.5rem 0.75rem; font-size: 0.925rem; color: #333; transition: background-color 0.15s, color 0.15s; white-space: nowrap; display: block; text-decoration: none; }
+      .dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
+    </style>
 
-    <!-- NAVBAR -->
-    <div class="hidden md:flex flex-1 items-center justify-end gap-8">
-      <nav class="flex items-center gap-9">
-
-        <a href="index.html" class="nav-link">Início</a>
-
-        <!-- Dropdown Turismo -->
-        <div class="relative" id="menu-turismo-wrapper">
-          <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
-            class="nav-link flex items-center gap-1 focus:outline-none">
-            Turismo
-            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
-              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-
-          <div id="turismo-menu"
-            class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50"
-            role="menu" aria-label="submenu turismo">
-            <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
-            <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
-            <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
-            <a href="cultural.html" class="dropdown-item block" role="menuitem">Étnico</a>
+    <script>
+      (function () {
+        const toggle = document.getElementById('turismo-toggle');
+        const menu = document.getElementById('turismo-menu');
+        if (toggle && menu) {
+          function openMenu() { menu.classList.remove('hidden'); toggle.setAttribute('aria-expanded', 'true'); }
+          function closeMenu() { menu.classList.add('hidden'); toggle.setAttribute('aria-expanded', 'false'); }
+          function toggleMenu() { if (!menu.classList.contains('hidden')) closeMenu(); else openMenu(); }
+          toggle.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
+          menu.addEventListener('click', e => e.stopPropagation());
+          document.addEventListener('click', () => closeMenu());
+          document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
+          window.addEventListener('resize', closeMenu);
+        }
+        const current = window.location.pathname.split('/').pop();
+        document.querySelectorAll('nav .nav-link').forEach(a => { if (a.getAttribute('href') === current) a.classList.add('active'); });
+        document.querySelectorAll('a[href]').forEach(link => {
+          link.addEventListener('click', e => {
+            const target = link.getAttribute('href');
+            const current = window.location.pathname.split('/').pop();
+            if (target === current) { e.preventDefault(); window.location.reload(); }
+          });
+        });
+      })();
+    </script>
+    
+    <main class="flex flex-col gap-8 py-10 px-6 max-w-7xl w-full mx-auto">
+      <div class="flex flex-wrap justify-between gap-4">
+        <div class="flex flex-col gap-2">
+          <p class="text-4xl font-black tracking-tighter" style="color:#194C9B;">
+            Onde Comer em São Miguel Arcanjo
+          </p>
+          <p class="text-text-secondary dark:text-gray-400 text-base font-normal leading-normal">Descubra os melhores sabores da nossa cidade</p>
+        </div>
+      </div>
+      
+      <div class="flex gap-3 flex-wrap">
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-5 pr-5 text-white text-sm font-medium leading-normal transition-all duration-200" data-filter="all">Todos</button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="Restaurante">Restaurantes</button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="Lanchonete">Lanchonetes</button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="Padaria">Padarias</button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="Mercado">Mercados</button>
+      </div>
+      
+      <div id="establishment-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Restaurante">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Prato de comida regional" style="background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="p-4 pt-0 flex flex-col gap-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Restaurante</span>
+            <p class="text-secondary dark:text-white text-lg font-bold">Restaurante Sabor da Terra</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Culinária típica regional</p>
+            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+              <p class="text-text-secondary dark:text-gray-400">
+                Uma descrição mais longa sobre o restaurante, seus pratos principais e o ambiente. Perfeito para um almoço em família.
+              </p>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">location_on</span>
+                <span>Rua Principal, 123</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">schedule</span>
+                <span>Ter - Dom: 11h às 22h</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">call</span>
+                <span>(15) 99999-1111</span>
+              </div>
+            </div>
+            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+              Saiba mais
+            </button>
           </div>
         </div>
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Lanchonete">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Hambúrguer suculento" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="p-4 pt-0 flex flex-col gap-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Lanchonete</span>
+            <p class="text-secondary dark:text-white text-lg font-bold">Lanchonete do Zé</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Lanches rápidos e saborosos</p>
+            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+              <p class="text-text-secondary dark:text-gray-400">
+                Famosa pelos seus hambúrgueres artesanais e porções generosas. Ambiente descontraído.
+              </p>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">location_on</span>
+                <span>Av. Central, 456</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">schedule</span>
+                <span>Seg - Sáb: 08h às 20h</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">call</span>
+                <span>(15) 99999-2222</span>
+              </div>
+            </div>
+            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+              Saiba mais
+            </button>
+          </div>
+        </div>
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Padaria">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Cesta de pães frescos" style="background-image: url('https://images.unsplash.com/photo-1509735837563-2a17f460e-f2?auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="p-4 pt-0 flex flex-col gap-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Padaria</span>
+            <p class="text-secondary dark:text-white text-lg font-bold">Padaria Pão Quente</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Pães frescos e café da manhã</p>
+            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+              <p class="text-text-secondary dark:text-gray-400">
+                Além do pão francês sempre quentinho, serve um buffet de café da manhã completo nos finais de semana.
+              </p>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">location_on</span>
+                <span>Praça da Matriz, 78</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">schedule</span>
+                <span>Seg - Dom: 06h às 19h</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">call</span>
+                <span>(15) 99999-3333</span>
+              </div>
+            </div>
+            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+              Saiba mais
+            </button>
+          </div>
+        </div>
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Mercado">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Banca de frutas e vegetais" style="background-image: url('https://images.unsplash.com/photo-1588913685601-e62c1b48f49b?auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="p-4 pt-0 flex flex-col gap-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Mercado</span>
+            <p class="text-secondary dark:text-white text-lg font-bold">Mercado Central</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Produtos frescos e locais</p>
+            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+              <p class="text-text-secondary dark:text-gray-400">
+                Aqui você encontra frutas, verduras e legumes direto do produtor, além de queijos e embutidos artesanais da região.
+              </p>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">location_on</span>
+                <span>Rua do Comércio, 90</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">schedule</span>
+                <span>Seg - Sex: 07h às 18h</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">call</span>
+                <span>(15) 99999-4444</span>
+              </div>
+            </div>
+            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+              Saiba mais
+            </button>
+          </div>
+        </div>
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Restaurante">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Pizza saindo do forno a lenha" style="background-image: url('https://images.unsplash.com/photo-1590947132387-155cc02f3212?auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="p-4 pt-0 flex flex-col gap-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Restaurante</span>
+            <p class="text-secondary dark:text-white text-lg font-bold">Pizzaria Forno a Lenha</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">As melhores pizzas da cidade</p>
+            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+              <p class="text-text-secondary dark:text-gray-400">
+                Pizzas com massa de fermentação natural e ingredientes selecionados. Opções veganas disponíveis.
+              </p> <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">location_on</span>
+                <span>Rua das Flores, 321</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">schedule</span>
+                <span>Qua - Dom: 18h às 23h</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">call</span>
+                <span>(15) 99999-5555</span>
+              </div>
+            </div>
+            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+              Saiba mais
+            </button>
+          </div>
+        </div>
+        
+      </div> <div class="flex items-center justify-center p-4 pt-8">
+        <a class="flex size-10 items-center justify-center text-text-secondary-light dark:text-text-secondary-dark rounded-full hover:bg-border-light dark:hover:bg-border-dark" href="#">
+          <span class="material-symbols-outlined text-2xl">chevron_left</span>
+        </a>
+        <a class="text-sm font-bold leading-normal flex size-10 items-center justify-center text-primary dark:text-white rounded-full bg-primary/20 dark:bg-primary/30" href="#">1</a>
+        <a class="flex size-10 items-center justify-center text-text-secondary-light dark:text-text-secondary-dark rounded-full hover:bg-border-light dark:hover:bg-border-dark" href="#">
+          <span class="material-symbols-outlined text-2xl">chevron_right</span>
+        </a>
+      </div>
 
-        <a href="hotelaria.html" class="nav-link">Hotelaria</a>
-        <a href="gastronomia.html" class="nav-link">Gastronomia</a>
-        <a href="agenda.html" class="nav-link">Agenda</a>
-        <a href="sobre.html" class="nav-link">Sobre nós</a>
-      </nav>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          
+          // --- LÓGICA DOS FILTROS ---
+          const filterButtons = document.querySelectorAll('.filter-btn');
+          const cards = document.querySelectorAll('.establishment-card');
 
-      <!-- Botão Suporte -->
-      <a href="contato.html"
-        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-        <span class="truncate">Suporte</span>
-      </a>
-    </div>
+          const activeClasses = ['bg-primary', 'text-white'];
+          const inactiveClasses = [
+            'bg-gray-100', 'dark:bg-gray-800',
+            'dark:text-gray-300', 'dark:hover:bg-primary/20',
+            'dark:hover:text-white', 'text-secondary',
+            'hover:bg-primary/10', 'hover:text-primary'
+          ];
 
-    <!-- MENU MOBILE -->
-    <button class="md:hidden text-text-dark dark:text-white">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
-  </div>
-</header>
+          filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              const filter = button.dataset.filter;
+              // Atualiza botões
+              filterButtons.forEach(btn => {
+                btn.classList.remove(...activeClasses);
+                btn.classList.add(...inactiveClasses.filter(c => !btn.classList.contains(c)));
+              });
+              button.classList.add(...activeClasses);
+              button.classList.remove(...inactiveClasses);
+              // Filtra os cards
+              cards.forEach(card => {
+                const category = card.dataset.category;
+                if (filter === 'all' || filter === category) {
+                  card.style.display = 'flex';
+                } else {
+                  card.style.display = 'none';
+                }
+              });
+            });
+          });
 
-<!-- STYLES -->
-<style>
-  .nav-link {
-    color: #333333;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-link:hover { color: #194C9B; }
-  .nav-link.active { color: #194C9B; font-weight: 700; }
+          // --- LÓGICA DO "SAIBA MAIS" (ACORDEÃO) ---
+          const toggleButtons = document.querySelectorAll('.toggle-info-btn');
 
-  .dropdown-item {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.925rem;
-    color: #333;
-    transition: background-color 0.15s, color 0.15s;
-    white-space: nowrap;
-    display: block;
-    text-decoration: none;
-  }
-  .dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
-</style>
+          toggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              // Encontra o card "pai" mais próximo
+              const card = button.closest('.establishment-card');
+              // Encontra o conteúdo escondido dentro deste card específico
+              const hiddenContent = card.querySelector('.hidden-info');
 
-<!-- SCRIPT -->
-<script>
-  (function () {
-    const toggle = document.getElementById('turismo-toggle');
-    const menu = document.getElementById('turismo-menu');
-    const wrapper = document.getElementById('menu-turismo-wrapper');
+              if (hiddenContent) {
+                // Alterna a classe 'hidden' do Tailwind
+                hiddenContent.classList.toggle('hidden');
+                // Verifica se o conteúdo ESTÁ escondido AGORA
+                const isHidden = hiddenContent.classList.contains('hidden');
+                // Muda o texto do botão
+                button.textContent = isHidden ? 'Saiba mais' : 'Ver menos';
+              }
+            });
+          });
 
-    function openMenu() {
-      menu.classList.remove('hidden');
-      toggle.setAttribute('aria-expanded', 'true');
-    }
-    function closeMenu() {
-      menu.classList.add('hidden');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-    function toggleMenu() {
-      const isOpen = !menu.classList.contains('hidden');
-      if (isOpen) closeMenu();
-      else openMenu();
-    }
+        });
+      </script>
 
-    toggle.addEventListener('click', e => {
-      e.stopPropagation();
-      toggleMenu();
-    });
+    </main> <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
+      <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
+        <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
+        <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="politicas.html">Política de Privacidade</a>
+        <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="contato.html">Suporte</a>
+      </div>
 
-    menu.addEventListener('click', e => e.stopPropagation());
-    document.addEventListener('click', () => closeMenu());
-    document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
-    window.addEventListener('resize', closeMenu);
+      <div class="flex flex-wrap justify-center gap-6">
+        <a
+          class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
+          href="https://www.facebook.com/toursaomiguelarcanjo/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          </svg>
+        </a>
 
-    // marca a aba atual automaticamente
-    const current = window.location.pathname.split('/').pop();
-    document.querySelectorAll('nav .nav-link').forEach(a => {
-      if (a.getAttribute('href') === current) a.classList.add('active');
-    });
+        <a
+          class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
+          href="https://www.instagram.com/toursaomiguelarcanjo/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"
+            xmlns="http://www.w3.org/2000/svg">
+            <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+          </svg>
+        </a>
+      </div>
 
-    // força reload se clicar na mesma página
-    document.querySelectorAll('a[href]').forEach(link => {
-      link.addEventListener('click', e => {
-        const target = link.getAttribute('href');
-        const current = window.location.pathname.split('/').pop();
-        if (target === current) {
-          e.preventDefault();
-          window.location.reload();
-        }
-      });
-    });
-  })();
-</script>
-<main class="flex flex-col gap-8 py-10 px-6">
-<!-- PageHeading Component -->
-<div class="flex flex-wrap justify-between gap-4">
-<div class="flex flex-col gap-2">
-<p class="text-4xl font-black tracking-tighter" style="color:#194C9B;">
-  Onde Comer em São Miguel Arcanjo
-</p>
-<p class="text-text-secondary dark:text-gray-400 text-base font-normal leading-normal">Descubra os melhores sabores da nossa cidade</p>
-</div>
-</div>
-<!-- Chips Component -->
-<div class="flex gap-3 flex-wrap">
-<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-5 pr-5 text-white text-sm font-medium leading-normal transition-all duration-200">Todos</button>
-<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200">Restaurantes</button>
-<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200">Lanchonetes</button>
-<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200">Padarias</button>
-<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200">Mercados</button>
-</div>
-<!-- ImageGrid (Establishment Cards) Component -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-<!-- Card 1 -->
-<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Prato de comida regional em uma mesa de madeira rústica" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB7veE_viy3d6C49Sh-hktShOvGvYw9hYSiTgzzbgSm8Atzm8cIb3Fid7Q7Zffnmcmeizle4Gpc8cX6BHvYpih1YstxoiLPextIcGezrBs4qcikCn-Vx7ZqDpE8L1VJQXyxb4M5_K_VODRq4ZvuY4skD9GiqvVt--2ICi6hcFdDJlGePMbCrUreVoVrmfYMNqzLRk4bbgSeqXlhsHHY1VdCxJh2h2cywxk-MBf9hV-oMNsvdKxhzOoN-FgyFAXR-SXsYEN9JRcX1Gc');"></div>
-<div class="p-4 pt-0 flex flex-col gap-3">
-<span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Restaurante</span>
-<p class="text-secondary dark:text-white text-lg font-bold">Restaurante Sabor da Terra</p>
-<p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Culinária típica regional</p>
-<div class="border-t border-gray-200 dark:border-gray-700 pt-3 flex flex-col gap-2 text-sm">
-<div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-<span class="material-symbols-outlined text-base text-primary">location_on</span>
-<span>Rua Principal, 123</span>
-</div>
-<div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-<span class="material-symbols-outlined text-base text-primary">schedule</span>
-<span>Ter - Dom: 11h às 22h</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Card 2 -->
-<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Hambúrguer suculento com batatas fritas em uma tábua de madeira" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDndp0hRGIel0IdBBQM1nL5GHHnVNED_ax3DvG06teIW1ga7wdKaSHWolhCPxNZHMfaqAivl64GEEdnWzIMucgw11NZYICOH7jRlE2cXaL_ntksnp25kIj6QQxJHR1C5aUZUnNdNp-F-4gDMqI7i7_1XlW4ohM16xXCtjHFVPWqJYsyoYKfcyCRWHgH6WbYTZ5m1O1SeU93G06S9VBnt492MMGddRi8b1Vg2_Jo1WXCCP-nrGUv0pD5mDJsEBZaUwI_3e_N0o0_gwc');"></div>
-<div class="p-4 pt-0 flex flex-col gap-3">
-<span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Lanchonete</span>
-<p class="text-secondary dark:text-white text-lg font-bold">Lanchonete do Zé</p>
-<p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Lanches rápidos e saborosos</p>
-<div class="border-t border-gray-200 dark:border-gray-700 pt-3 flex flex-col gap-2 text-sm">
-<div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-<span class="material-symbols-outlined text-base text-primary">location_on</span>
-<span>Av. Central, 456</span>
-</div>
-<div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-<span class="material-symbols-outlined text-base text-primary">schedule</span>
-<span>Seg - Sáb: 08h às 20h</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Card 3 -->
-<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Cesta de pães variados e frescos com uma xícara de café ao lado" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDs7L70EgC3BgIM91-ZxFeOILhxYbcKgY988IgOoK9i3dwZvj14GcZWxD4mD95zdO3SuSn71m1wzO2lRl467QZosGmWWdE_Zr91iez1spCjJD23iQYRy0ZP_j6DxBgpq_5yrlkbNuqWPXD9z3uUaAFg0x7fGHu__CEn9YFjeRTY7is6Eqijq9pAxptDfOQZrgsKCizqTAAgUAX6HkPVazEw3zKxBfgKNXScLzXtwmHzO9KDyYyyp6s5CPZVU8CThcOO-NH5BwrIwas');"></div>
-<div class="p-4 pt-0 flex flex-col gap-3">
-<span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Padaria</span>
-<p class="text-secondary dark:text-white text-lg font-bold">Padaria Pão Quente</p>
-<p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Pães frescos e café da manhã</p>
-<div class="border-t border-gray-200 dark:border-gray-700 pt-3 flex flex-col gap-2 text-sm">
-<div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-<span class="material-symbols-outlined text-base text-primary">location_on</span>
-<span>Praça da Matriz, 78</span>
-</div>
-<div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-<span class="material-symbols-outlined text-base text-primary">schedule</span>
-<span>Seg - Dom: 06h às 19h</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Card 4 -->
-<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Banca de frutas e vegetais frescos e coloridos em um mercado" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJomHp9eFwx02cI6fpDlmuAOS_OQ4hRpMpITDqpSVGfnVjWxTpg3Qzyx-xSAHlahIybuWnSZ7ze8EwD-ErHbQSgA3gpNsb9FgFw-VJoWSYAN6b7gBIKNoEh4sdRmmJCg7Z-c84c_1wwzF_73HLgn_YhB-epZWrgpaTDiSRAvciL8rkgyNl8D-wBU2g0mzprW4KOzamU7muOaIIFrm3IDf7_WFfLFydais8LmBAhldjPaMdKW4kSDjrU1yeQOq2XbMF4-uRlUP8Qys');"></div>
-<div class="p-4 pt-0 flex flex-col gap-3">
-<span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Mercado</span>
-<p class="text-secondary dark:text-white text-lg font-bold">Mercado Central</p>
-<p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Produtos frescos e locais</p>
-<div class="border-t border-gray-200 dark:border-gray-700 pt-3 flex flex-col gap-2 text-sm">
-<div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-<span class="material-symbols-outlined text-base text-primary">location_on</span>
-<span>Rua do Comércio, 90</span>
-</div>
-<div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-<span class="material-symbols-outlined text-base text-primary">schedule</span>
-<span>Seg - Sex: 07h às 18h</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Card 5 -->
-<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Pizza de pepperoni saindo de um forno a lenha" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDQySh2tfm1rax0X-rlSmHhXDC3lgoGSn2lysNG5xHMHgCouWOkgaHYicUBslFzwq_nY33T4714BhpPWo-e0b4_LVVu4ahGOkqwmqK0gUBxTQjIECyNUwgoyOmdroY7wN0Ocnm_5odDUrqFwGg1nH0yRysFkp5IZJfCz0rfy_ZvnWFPTMlOQk4SJn263tjEsl4XCo9-9kcmDFnl-CLFQnG_rBpY2zobbmz_gGkr6hOGVI_prEN5KdAkUvtJAskd-3pAiOEmujemXDs');"></div>
-<div class="p-4 pt-0 flex flex-col gap-3">
-<span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Restaurante</span>
-<p class="text-secondary dark:text-white text-lg font-bold">Pizzaria Forno a Lenha</p>
-<p class="text-text-secondary dark:text-gray-400 text-sm font-normal">As melhores pizzas da cidade</p>
-<div class="border-t border-gray-200 dark:border-gray-700 pt-3 flex flex-col gap-2 text-sm">
-<div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-<span class="material-symbols-outlined text-base text-primary">location_on</span>
-<span>Rua das Flores, 321</span>
-</div>
-<div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-<span class="material-symbols-outlined text-base text-primary">schedule</span>
-<span>Qua - Dom: 18h às 23h</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Card 6 -->
-<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Xícara de café com latte art e uma fatia de bolo de chocolate" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAIiQeaDQ3OsxPzDsAby4-bMyTMkZPG4P5FmJmlDuNrFCZz89chn-QGhdlXtj0t64R4shS6kOnI1K8hOQ3wci8f26Y2nSTBEYW1Oso59NBwDspW_ovnTocEU9kX6f_SVmUiFSMXQWkYujqisokkIz4aFxaKKyE-j5SBDZbwObwDEZJmx1xm4VxzZykBIYxVWoeUow6HtkMwHsPgeCtLL_Ipq2MlU7PEvylb_-XHU1_11BFNpXur7RnrUVhWGct0cPF17S2NW8GwIhI');"></div>
-<div class="p-4 pt-0 flex flex-col gap-3">
-<span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Cafeteria</span>
-<p class="text-secondary dark:text-white text-lg font-bold">Café Aconchego</p>
-<p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Bolos artesanais e cafés especiais</p>
-<div class="border-t border-gray-200 dark:border-gray-700 pt-3 flex flex-col gap-2 text-sm">
-<div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-<span class="material-symbols-outlined text-base text-primary">location_on</span>
-<span>Alameda dos Anjos, 55</span>
-</div>
-<div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-<span class="material-symbols-outlined text-base text-primary">schedule</span>
-<span>Ter - Dom: 14h às 20h</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer -->
-<footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
-  <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
-    <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
-    <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="politicas.html">Política de Privacidade</a>
-    <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="contato.html">Suporte</a>
-  </div>
+      <p class="text-text-subtle-light dark:text-text-subtle-dark text-sm font-normal leading-normal">
+        © 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.
+      </p>
+    </footer>
 
-  <div class="flex flex-wrap justify-center gap-6">
-    <!-- Facebook -->
-    <a
-      class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
-      href="https://www.facebook.com/toursaomiguelarcanjo/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
-        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-      </svg>
-    </a>
-
-    <!-- Instagram -->
-    <a
-      class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
-      href="https://www.instagram.com/toursaomiguelarcanjo/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
-        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"
-        xmlns="http://www.w3.org/2000/svg">
-        <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-      </svg>
-    </a>
-  </div>
-
-  <p class="text-text-subtle-light dark:text-text-subtle-dark text-sm font-normal leading-normal">
-    © 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.
-  </p>
-</footer>
-</div>
-</body></html>
+  </div> </body>
+</html>
