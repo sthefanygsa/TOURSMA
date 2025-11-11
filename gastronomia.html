@@ -3,33 +3,12 @@
 <html class="light" lang="pt-BR"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Onde Comer em São Miguel Arcanjo</title>
+<title>TOUR - Turismo Rural</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "primary": "#29763B",
-              "secondary": "#194C9B",
-              "background-light": "#FFFFFF",
-              "background-dark": "#101010",
-              "text-primary": "#194C9B",
-              "text-secondary": "#6c757d",
-            },
-            fontFamily: {
-              "display": ["Plus Jakarta Sans", "sans-serif"]
-            },
-            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
-          },
-        },
-      }
-    </script>
 <style>
       .material-symbols-outlined {
         font-variation-settings:
@@ -39,12 +18,34 @@
         'opsz' 24
       }
     </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#29753b",
+              "background-light": "#FFFFFF",
+              "background-dark": "#141e16",
+              "accent-blue": "#194C9B",
+              "text-primary-light": "#121613",
+              "text-secondary-light": "#6a816f",
+              "text-primary-dark": "#f6f8f6",
+              "text-secondary-dark": "#a0b3a3",
+              "border-light": "#f1f4f2",
+              "border-dark": "#2a3c2e"
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-text-primary dark:text-gray-200">
-<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<div class="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 flex flex-1 justify-center py-5">
-<div class="layout-content-container flex flex-col max-w-6xl flex-1">
+<body class="font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark">
+<div class="relative flex min-h-screen w-full flex-col">
 <!-- TopNavBar (com dropdown por CLICK e reload nos links) -->
 <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
   <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
@@ -182,7 +183,9 @@
 <!-- PageHeading Component -->
 <div class="flex flex-wrap justify-between gap-4">
 <div class="flex flex-col gap-2">
-<p class="text-secondary dark:text-white text-4xl font-black tracking-tighter">Onde Comer em São Miguel Arcanjo</p>
+<p class="text-4xl font-black tracking-tighter" style="color:#194C9B;">
+  Onde Comer em São Miguel Arcanjo
+</p>
 <p class="text-text-secondary dark:text-gray-400 text-base font-normal leading-normal">Descubra os melhores sabores da nossa cidade</p>
 </div>
 </div>
@@ -312,33 +315,24 @@
 </div>
 </div>
 </main>
+<!-- Footer -->
 <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
-  <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-gray-600 dark:text-gray-400">
+    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
     <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="#">Sobre nós</a>
     <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="#">Política de Privacidade</a>
     <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="#">Suporte</a>
-  </div>
-  <div class="flex flex-wrap justify-center gap-6">
-    <a class="text-gray-600 dark:text-gray-400 transition-colors hover:text-primary" href="#">
-      <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
-        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"
-        xmlns="http://www.w3.org/2000/svg"><path
-          d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6">
+    <a class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary" href="#">
+    <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
     </a>
-    <a class="text-gray-600 dark:text-gray-400 transition-colors hover:text-primary" href="#">
-      <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
-        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"
-        xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2"
-          y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5"
-          x2="17.51" y1="6.5" y2="6.5"></line></svg>
+    <a class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary" href="#">
+    <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
     </a>
-  </div>
-  <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">
-    © 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.
-  </p>
-</footer>
-</div>
-</div>
-</div>
+    <a class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary" href="#">
+    </a>
+    </div>
+    <p class="text-text-subtle-light dark:text-text-subtle-dark text-sm font-normal leading-normal">© 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.</p>
+    </footer>
 </div>
 </body></html>
