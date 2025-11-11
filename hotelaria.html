@@ -15,13 +15,12 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#194C9B",
-                        "secondary": "#29763B",
+                        "primary": "#194C9B", // Azul (para cabeçalhos, etc)
+                        "secondary": "#29763B", // Verde (para botões)
                         "background-light": "#FFFFFF",
                         "background-dark": "#0A101A",
                         "text-light": "#333333",
                         "text-dark": "#E0E0E0",
-                        // Ajustado para ter as cores certas como no Ecologico
                         "text-subtle-light": "#666666",
                         "text-subtle-dark": "#a0a0a0"
                     },
@@ -51,9 +50,11 @@
 
 <body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
 
+    <!-- HEADER -->
     <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm w-full">
         <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
 
+            <!-- LOGO + TEXTO -->
             <div class="flex items-center gap-1.5">
                 <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
                 <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
@@ -62,11 +63,13 @@
                 </h2>
             </div>
 
+            <!-- NAVBAR -->
             <div class="hidden md:flex flex-1 items-center justify-end gap-8">
                 <nav class="flex items-center gap-9">
 
                     <a href="index.html" class="nav-link">Início</a>
 
+                    <!-- Dropdown Turismo -->
                     <div class="relative" id="menu-turismo-wrapper">
                         <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false" class="nav-link flex items-center gap-1 focus:outline-none">
                             Turismo
@@ -89,17 +92,20 @@
                     <a href="sobre.html" class="nav-link">Sobre nós</a>
                 </nav>
 
-                <a href="contato.html" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                <!-- Botão Suporte (CORRIGIDO) -->
+                <a href="contato.html" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-secondary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-secondary/90 transition-colors">
                     <span class="truncate">Suporte</span>
                 </a>
             </div>
 
+            <!-- MENU MOBILE -->
             <button class="md:hidden text-text-dark dark:text-white">
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
     </header>
 
+    <!-- STYLES NAVBAR -->
     <style>
         .nav-link {
             color: #333333;
@@ -133,6 +139,7 @@
         }
     </style>
 
+    <!-- SCRIPT NAVBAR -->
     <script>
         (function() {
             const toggle = document.getElementById('turismo-toggle');
@@ -185,9 +192,11 @@
         })();
     </script>
     
+    <!-- CONTEÚDO (Estrutura idêntica ao Ecológico) -->
     <main class="py-12 md:py-20">
         <div class="flex flex-col gap-12">
         
+            <!-- Cabeçalho da Página (Centralizado, mas dentro do fluxo) -->
             <div class="flex flex-wrap justify-between gap-6 px-4 text-center md:text-left">
                 <div class="flex w-full flex-col gap-4 items-center md:items-start max-w-3xl mx-auto md:mx-0">
                     <h1 class="text-primary dark:text-blue-300 text-4xl lg:text-5xl font-extrabold leading-tight tracking-[-0.033em]">Encontre sua hospedagem ideal</h1>
@@ -197,8 +206,10 @@
                 </div>
             </div>
 
+            <!-- Cards (Grid idêntico ao Ecológico) -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
                 
+                <!-- Card 1 -->
                 <div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-background-light dark:bg-zinc-900 overflow-hidden shadow-sm transition-all hover:shadow-lg">
                     <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Fachada do Hotel Exemplo A com jardins" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAIvEvJ__rwAJnSAXjRzQ1jqlR7bce7OUC5qXWKt-M4aLDMrzHU_CPFW8QQgAlRKYFbDePKC1mdQGZ_GYTdQYEUlrSiP1tLzwji_wyjl-F6oSBGt7iBUiRSdvNCL_x5ATlNzHcFbygWLksh3g-JCXu9JMgpQxsJ2qmcCwh3n8N7iWX0WPCw19Y35AXKnSx42e6-eIS0xzDnD8k2XTY3c9JQ5xIJma445RVXGX0tY-JXosGCjNHZsqz4AgWX0B54ybfwFpqhmXal_co");'></div>
                     <div class="p-5 flex flex-col flex-grow">
@@ -214,9 +225,10 @@
                                 <span>Check-in: 14:00 | Check-out: 12:00</span>
                             </div>
                         </div>
-                        </div>
+                    </div>
                 </div>
                 
+                <!-- Card 2 -->
                 <div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-background-light dark:bg-zinc-900 overflow-hidden shadow-sm transition-all hover:shadow-lg">
                     <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Varanda da Pousada Exemplo B com vista para as montanhas" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCq1tNIRcXdhnGCa9RL38G_RLe76bpeIip5ZPxJj44LieZyymot_a-OJVqvuKpS0eiJO69ggjL4fkE9_5WssODtiMRLyXpI1kqifUQ8Kh3rVtZHO8BXTvrqi3uMGZ8O0f5JjQYb7RDPxy_ljUIfeb69fpYEjZRAIscy1LthNxtDScCC_1ehXOZG-hyR8yu5nILMeEwIVizzqButUK3EkL3H2-27Vj_lgT8qnELDB0UkpN0kYlo0VbJuM0UBT5TX91OisQ0licgxkFE");'></div>
                     <div class="p-5 flex flex-col flex-grow">
@@ -235,6 +247,7 @@
                     </div>
                 </div>
 
+                <!-- Card 3 -->
                 <div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-background-light dark:bg-zinc-900 overflow-hidden shadow-sm transition-all hover:shadow-lg">
                     <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Piscina do Hotel Fazenda Exemplo C cercada por natureza" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCaFk6rAGzo-AX9xAz3p2e26-l5a99wt_4I8S7dvL_LFl2q0rOpycd08sRj3AYxVfUcwtc1oM7PXAjpTbNzZ3hwd_bHKSr5GFlUItpgB7-4SQRjB7i2LtSD0VY5UfT8F1L0XLs63lwPc_NI5HKvHjlt8iMBY5mYesB8jUjKzFyuMs0oyfM7lkBjwO-66LWaap73dWXnqzl8YptAbQhKNBi_B9cFML6QnR9xlHpHLOrDp7XFgjV4gxAtmGaLhzCoovl6aqA1Gfd2QDc");'></div>
                     <div class="p-5 flex flex-col flex-grow">
@@ -253,6 +266,7 @@
                     </div>
                 </div>
 
+                <!-- Card 4 -->
                 <div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-background-light dark:bg-zinc-900 overflow-hidden shadow-sm transition-all hover:shadow-lg">
                     <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Quarto aconchegante da Pousada Aconchego" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwWPGyo1RaeBw0dJwywycEPqL1F0sRp0vAULCpU6cjzz0cqVunAPcb_JELiEleOjWuSQrmpZHrbmxGzWhbPTXliPnc78qG8kXkl7z-AGGg-o5u89foHYUrpvj9I9VdZLPU6tmdMTbuJiYWjIS6ARzlp7EXC1jnZQnFXhRXEafIXAMzFBO0Jm_UqVPX5hUQKd3OSOcpGJenOwZ_ANN4n4N9Qv_mHxCaiTtZnruRngX1jMyB_b7bv9pOGvUSR_Q3kJYXi099BW_RnY0");'></div>
                     <div class="p-5 flex flex-col flex-grow">
@@ -271,6 +285,7 @@
                     </div>
                 </div>
 
+                <!-- Card 5 -->
                 <div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-background-light dark:bg-zinc-900 overflow-hidden shadow-sm transition-all hover:shadow-lg">
                     <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Piscina do Hotel Central Park ao entardecer" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANXN8F-VM6OJgaZV3h2Rb9vrYt3LDh9gV3xg0RjQ7cv_cknwi3oZnzwpkX4_HAvUl1HWL9bRWO0r2gz-WlryWlovpcAD3ijRRxfhQ3O25WZPyP6GiuJ9sYu-bj0Fkluu_R69xjRqAR0mxhDGunQuKc1X4lxhfiI5zrylAgvE7fIA_QltoybK-uLrnEMf98gmF6ALGsEJ6yOjM_yg3KWNK4lErazeNlprsXT_Zj8qqbvt_pIvGqrRuS79wsd910g0l5o60fKt4F5gs");'></div>
                     <div class="p-5 flex flex-col flex-grow">
@@ -289,6 +304,7 @@
                     </div>
                 </div>
 
+                <!-- Card 6 -->
                 <div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-background-light dark:bg-zinc-900 overflow-hidden shadow-sm transition-all hover:shadow-lg">
                     <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Chalé de madeira Recanto Verde em meio à floresta" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsAqnxLorg8QXNghKvOUU8znyGMAkDYRRA7CL7YLd9tDIMzQ3x-L2DkWeqz5hWFLmE4jofPuHDed1f1dzeIAFZfylRzD0alxEcOobE8VhDkbqgcNpAQMjccTPHm0lE6107jWy7kLGSwJZcp0zEB_HNlrRExMNv1Hhj4NPQmzpq6Y1ZwTN8qKyhKWZclAmsK-sYAxl5O-Km3mvKByn2nc6mNxynU6eFatOagy2QgfhohSyowEGCWtAHszoSgf8pFyC6_jW4xqKT-0Y");'></div>
                     <div class="p-5 flex flex-col flex-grow">
@@ -311,6 +327,7 @@
         </div>
     </main>
     
+    <!-- Footer -->
     <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
         <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
             <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="#">Sobre nós</a>
