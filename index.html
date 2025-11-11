@@ -276,28 +276,107 @@ comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias reg
 </section>
 <!-- Interactive Distance Calculator Section -->
 <section class="py-12 md:py-20">
-<div class="bg-secondary text-white rounded-xl p-8 md:p-12 max-w-4xl mx-auto text-center">
-<h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Planeje sua Viagem</h2>
-<p class="text-white/80 mb-8 max-w-2xl mx-auto">Quer saber a que distância você está deste paraíso? Insira sua cidade de origem e descubra.</p>
-<div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto">
-<input class="w-full flex-grow px-4 py-3 rounded-lg border-none text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-primary" placeholder="Digite sua cidade" type="text"/>
-<button class="w-full sm:w-auto bg-primary text-white font-bold py-3 px-6 rounded-lg whitespace-nowrap hover:bg-opacity-90 transition-colors">Calcular Distância</button>
-</div>
-<div class="mt-8 text-center flex flex-col items-center gap-4">
-<div class="text-lg">
-<span class="text-white/70">Distância aproximada:</span>
-<span class="text-4xl font-bold ml-2">0 km</span>
-</div>
-<a class="inline-flex items-center gap-2 bg-white/10 text-white font-semibold py-2 px-5 rounded-lg hover:bg-white/20 transition-colors" href="#">
-<span class="material-symbols-outlined">map</span>
-                  Ver no Google Maps
-                </a>
-</div>
-</div>
+  <div class="bg-[#194C9B] text-white rounded-xl p-8 md:p-12 max-w-4xl mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Planeje sua Viagem</h2>
+    <p class="text-white/80 mb-8 max-w-2xl mx-auto">
+      Quer saber a que distância você está deste paraíso? Insira sua cidade de origem e descubra.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto">
+      <input
+        id="cidadeInput"
+        class="w-full flex-grow px-4 py-3 rounded-lg border-none text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-primary"
+        placeholder="Digite sua cidade"
+        type="text"
+      />
+      <button
+        id="calcularBtn"
+        class="w-full sm:w-auto bg-white text-[#194C9B] font-bold py-3 px-6 rounded-lg whitespace-nowrap hover:bg-opacity-90 transition-colors"
+      >
+        Calcular Distância
+      </button>
+      <button
+        id="resetarBtn"
+        class="w-full sm:w-auto bg-white/20 text-white font-bold py-3 px-6 rounded-lg whitespace-nowrap hover:bg-white/30 transition-colors"
+      >
+        Zerar
+      </button>
+    </div>
+
+    <div class="mt-8 text-center flex flex-col items-center gap-4">
+      <div class="text-lg">
+        <span class="text-white/70">Distância aproximada:</span>
+        <span id="resultado" class="text-4xl font-bold ml-2">0 km</span>
+      </div>
+      <a
+        id="mapaLink"
+        target="_blank"
+        class="inline-flex items-center gap-2 bg-white/10 text-white font-semibold py-2 px-5 rounded-lg hover:bg-white/20 transition-colors"
+        href="#"
+      >
+        <span class="material-symbols-outlined">map</span>
+        Ver no Google Maps
+      </a>
+    </div>
+  </div>
 </section>
-</div>
-</div>
-</main>
+
+<script>
+  const btn = document.getElementById("calcularBtn");
+  const resetarBtn = document.getElementById("resetarBtn");
+  const input = document.getElementById("cidadeInput");
+  const resultado = document.getElementById("resultado");
+  const mapaLink = document.getElementById("mapaLink");
+
+  const saoMiguel = { lat: -23.8793, lng: -47.9935 }; // São Miguel Arcanjo - SP
+
+  async function pegarCoordenadas(cidade) {
+    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+      cidade
+    )}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.length > 0) {
+      return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
+    } else {
+      throw new Error("Cidade não encontrada");
+    }
+  }
+
+  function calcularDistancia(coord1, coord2) {
+    const R = 6371; // raio da Terra em km
+    const dLat = ((coord2.lat - coord1.lat) * Math.PI) / 180;
+    const dLon = ((coord2.lng - coord1.lng) * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) ** 2 +
+      Math.cos((coord1.lat * Math.PI) / 180) *
+        Math.cos((coord2.lat * Math.PI) / 180) *
+        Math.sin(dLon / 2) ** 2;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
+
+  btn.addEventListener("click", async () => {
+    const cidade = input.value.trim();
+    if (!cidade) return alert("Digite o nome da sua cidade!");
+
+    try {
+      const origem = await pegarCoordenadas(cidade);
+      const distancia = calcularDistancia(origem, saoMiguel);
+      resultado.textContent = `${distancia.toFixed(1)} km`;
+      mapaLink.href = `https://www.google.com/maps/dir/${origem.lat},${origem.lng}/${saoMiguel.lat},${saoMiguel.lng}`;
+    } catch (e) {
+      alert("Não consegui encontrar essa cidade 😕");
+    }
+  });
+
+  resetarBtn.addEventListener("click", () => {
+    input.value = "";
+    resultado.textContent = "0 km";
+    mapaLink.href = "#";
+  });
+</script>
+
 <!-- Footer -->
 <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
     <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
