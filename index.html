@@ -181,17 +181,48 @@
 <main class="flex-grow">
 <div class="flex flex-col items-center w-full">
 <div class="w-full max-w-6xl px-4 py-8 md:py-12">
-<!-- HeaderImage (Carousel) -->
-<div class="w-full">
-<div class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[400px] md:min-h-[500px]" data-alt="Panoramic view of a vineyard in São Miguel Arcanjo at sunset" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 35%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDIjCg2kpHu4WrFwqr9d4cjZZkUH_Fl-Xn67RK21oRw87Dx1rv_xMBUXQpU5DXrXCHMOWHKcXZllzHsU8yyHbUzjfBZqQeFXyKSEPrN-HWYLsA_KEsGcUhKMPBooJ98b_Opq6psc5aCQ62pGWeia-JlIACASFC3z0KzZ4M_n58PeFO0lLKE-BWjTqJmeQNf62d_8v2mudGihDwJjuAMDyxHUh8K76dKENhWnGmrRAxsL4fg90phnuFWrrUsFi-HRzQlyhjye8Qr-kU");'>
-<div class="flex justify-center gap-2 p-5">
-<div class="size-2 rounded-full bg-white"></div>
-<div class="size-2 rounded-full bg-white/50"></div>
-<div class="size-2 rounded-full bg-white/50"></div>
-<div class="size-2 rounded-full bg-white/50"></div>
+<!-- HeaderImage (Carousel Automático) -->
+<div class="w-full relative">
+  <div
+    id="carousel"
+    class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[400px] md:min-h-[500px] transition-all duration-1000 ease-in-out"
+    style='background-image: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url("assets/img/img_carrossel_2_cidade.jpg");'
+  >
+    <!-- Indicadores -->
+    <div class="flex justify-center gap-2 p-5">
+      <div class="dot size-2 rounded-full bg-white"></div>
+      <div class="dot size-2 rounded-full bg-white/50"></div>
+      <div class="dot size-2 rounded-full bg-white/50"></div>
+      <div class="dot size-2 rounded-full bg-white/50"></div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
+
+<!-- Script -->
+<script>
+  const imagens = [
+    "assets/img/img_carrossel_2_cidade.jpg",
+    "assets/img/img_carrossel_1_basílica.jpg",
+    "assets/img/img_carrossel_3_gruta.jpg",
+    "assets/img/img_carrossel_4_cachoeira.jpg"
+  ];
+
+  let index = 0;
+  const carousel = document.getElementById("carousel");
+  const dots = document.querySelectorAll(".dot");
+
+  function mudarImagem() {
+    index = (index + 1) % imagens.length;
+    carousel.style.backgroundImage = `linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url('${imagens[index]}')`;
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("bg-white", i === index);
+      dot.classList.toggle("bg-white/50", i !== index);
+    });
+  }
+
+  setInterval(mudarImagem, 4000); // troca a cada 4 segundos
+</script>
 <!-- Headline & Body Text Section (História) -->
 <section class="py-12 md:py-20 text-center max-w-3xl mx-auto">
 <h1 class="text-secondary tracking-tight text-3xl md:text-4xl font-extrabold leading-tight pb-4">Conheça São Miguel Arcanjo</h1>
