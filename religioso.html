@@ -1,258 +1,235 @@
 <!DOCTYPE html>
-
-<html class="light" lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Turismo Religioso - TOUR São Miguel Arcanjo</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<style type="text/tailwindcss">
-    @layer utilities {
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      }
-    }
-  </style>
-<script id="tailwind-config">
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Turismo Religioso</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
       theme: {
         extend: {
           colors: {
-            "primary": "#194c9a",
-            "background-light": "#FFFFFF",
-            "background-dark": "#121720",
-            "action": "#29763B",
+            primary: "#29763b",
+            "background-light": "#ffffff",
+            "background-dark": "#141e16",
+            accent: "#194C9B",
             "text-light": "#333333",
-            "text-dark": "#f6f7f8",
-            "subtext-light": "#657286",
-            "subtext-dark": "#94a3b8"
+            "text-dark": "#f6f8f6",
+            "text-subtle-light": "#666666",
+            "text-subtle-dark": "#a0a0a0",
           },
           fontFamily: {
-            "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+            display: ["Plus Jakarta Sans", "sans-serif"]
           },
-          borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
         },
       },
-    }
+    };
   </script>
+  <style>
+    .group:hover .group-hover\:block { display: block; }
+  </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<div class="flex flex-1 justify-center">
-<div class="layout-content-container flex flex-col w-full max-w-6xl flex-1 px-4 sm:px-6 lg:px-8">
-<!-- TopNavBar (com dropdown por CLICK e reload nos links) -->
-<header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
-  <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
 
-    <!-- LOGO + TEXTO -->
-<div class="flex items-center gap-1.5">
-  <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
-  <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
-    <span style="color:#29763B;">TOUR</span>
-    <span style="color:#333333;"> São Miguel Arcanjo</span>
-  </h2>
-</div>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
 
-    <!-- NAVBAR -->
-    <div class="hidden md:flex flex-1 items-center justify-end gap-8">
-      <nav class="flex items-center gap-9">
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm w-full">
+    <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
 
-        <a href="index.html" class="nav-link">Início</a>
+      <!-- LOGO + TEXTO -->
+      <div class="flex items-center gap-1">
+        <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
+        <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+          <span style="color:#29763B;">TOUR</span>
+          <span style="color:#333333;"> São Miguel Arcanjo</span>
+        </h2>
+      </div>
 
-        <!-- Dropdown Turismo -->
-        <div class="relative" id="menu-turismo-wrapper">
-          <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
-            class="nav-link flex items-center gap-1 focus:outline-none">
-            Turismo
-            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
-              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
+      <!-- NAVBAR -->
+      <div class="hidden md:flex flex-1 items-center justify-end gap-8">
+        <nav class="flex items-center gap-9">
+          <a href="index.html" class="nav-link">Início</a>
 
-          <div id="turismo-menu"
-            class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50"
-            role="menu" aria-label="submenu turismo">
-            <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
-            <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
-            <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
-            <a href="etnico.html" class="dropdown-item block" role="menuitem">Étnico</a>
+          <!-- Dropdown Turismo -->
+          <div class="relative" id="menu-turismo-wrapper">
+            <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
+              class="nav-link flex items-center gap-1 focus:outline-none">
+              Turismo
+              <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <div id="turismo-menu"
+              class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50"
+              role="menu" aria-label="submenu turismo">
+              <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
+              <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
+              <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
+              <a href="cultural.html" class="dropdown-item block" role="menuitem">Étnico</a>
+            </div>
+          </div>
+
+          <a href="hotelaria.html" class="nav-link">Hotelaria</a>
+          <a href="gastronomia.html" class="nav-link">Gastronomia</a>
+          <a href="agenda.html" class="nav-link">Agenda</a>
+          <a href="sobre.html" class="nav-link">Sobre nós</a>
+        </nav>
+
+        <!-- Botão Suporte -->
+        <a href="contato.html"
+          class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+          <span class="truncate">Suporte</span>
+        </a>
+      </div>
+
+      <!-- MENU MOBILE -->
+      <button class="md:hidden text-text-dark dark:text-white">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- STYLES -->
+  <style>
+    .nav-link {
+      color: #333333;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: #194C9B; }
+    .nav-link.active { color: #194C9B; font-weight: 700; }
+
+    .dropdown-item {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.925rem;
+      color: #333;
+      transition: background-color 0.15s, color 0.15s;
+      white-space: nowrap;
+      display: block;
+      text-decoration: none;
+    }
+    .dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
+  </style>
+
+  <!-- SCRIPT DROPDOWN -->
+  <script>
+    (function () {
+      const toggle = document.getElementById('turismo-toggle');
+      const menu = document.getElementById('turismo-menu');
+      function toggleMenu() {
+        menu.classList.toggle('hidden');
+      }
+      toggle.addEventListener('click', e => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+      document.addEventListener('click', () => menu.classList.add('hidden'));
+      document.addEventListener('keydown', e => e.key === 'Escape' && menu.classList.add('hidden'));
+
+      // marca a aba atual
+      const current = window.location.pathname.split('/').pop();
+      document.querySelectorAll('nav .nav-link').forEach(a => {
+        if (a.getAttribute('href') === current) a.classList.add('active');
+      });
+
+      // recarrega se clicar na mesma página
+      document.querySelectorAll('a[href]').forEach(link => {
+        link.addEventListener('click', e => {
+          const target = link.getAttribute('href');
+          const current = window.location.pathname.split('/').pop();
+          if (target === current) {
+            e.preventDefault();
+            window.location.reload();
+          }
+        });
+      });
+    })();
+  </script>
+
+  <!-- CONTEÚDO -->
+  <main class="py-12 md:py-20">
+    <div class="flex flex-col gap-12">
+      <div class="flex flex-wrap justify-between gap-6 px-4 text-center md:text-left">
+        <div class="flex w-full flex-col gap-4 items-center md:items-start max-w-3xl mx-auto md:mx-0">
+          <h1 class="text-accent dark:text-blue-300 text-4xl lg:text-5xl font-extrabold leading-tight tracking-[-0.033em]">Turismo Religioso</h1>
+          <p class="text-text-subtle-light dark:text-text-subtle-dark text-lg font-normal leading-relaxed">Descubra a riqueza natural e as paisagens deslumbrantes que nossa cidade oferece. Aventure-se por parques, trilhas e cachoeiras inesquecíveis.</p>
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+        <!-- Card 1 -->
+        <div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-background-light dark:bg-zinc-900 overflow-hidden shadow-sm transition-all hover:shadow-lg">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDkXr2hnIE6fWdCLhPFnYx8sCxG4u5rRnqQsqqt-cj2xoqDXAjbj7j9sRugwekEp_MbR73mwoTd3E_QyblgLbOx9r_WPNho9ztNHcAjleCXFOr72-0nEEQs1HhH45u3tKYEogdw8XJAcfIPfBDEpLvzZKsB403NLXrN1tlvTvnpeoGomRgkETIFP1DyBQIdHIaxcaM-BIK_RqQJY5q6W3avJne6jALMr3zhxYXbil5EuHNFCDlvstumwj9tyLyiB_QzvMwLv1lC0g");'></div>
+          <div class="p-5 flex flex-col flex-grow">
+            <h3 class="text-accent text-xl font-bold">Parque Estadual Carlos Botelho</h3>
+            <p class="text-text-subtle-light text-sm mt-2 mb-4 flex-grow">Uma das áreas mais importantes de Mata Atlântica preservada do Brasil, ideal para observação de aves e caminhadas.</p>
+            <div class="flex flex-col gap-3 text-sm border-t border-gray-200 pt-4">
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">location_on</span><span>S. Miguel Arcanjo, SP</span></div>
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">schedule</span><span>Diariamente, 8h - 17h</span></div>
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">local_activity</span><span>R$ 15,00</span></div>
+            </div>
+            <a class="mt-6 w-full text-center bg-primary text-white text-sm font-semibold py-2.5 px-4 rounded-lg hover:bg-primary/90" href="#">Saiba Mais</a>
           </div>
         </div>
 
-        <a href="hotelaria.html" class="nav-link">Hotelaria</a>
-        <a href="gastronomia.html" class="nav-link">Gastronomia</a>
-        <a href="agenda.html" class="nav-link">Agenda</a>
-        <a href="sobre.html" class="nav-link">Sobre nós</a>
-      </nav>
+        <!-- Card 2 -->
+        <div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-background-light dark:bg-zinc-900 overflow-hidden shadow-sm transition-all hover:shadow-lg">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD0mK4GAmYkvrt3bNranTsZLUUsSNSRqUQU2lNgjTIGVKIS_t0qFV_vpNEDGnFBNN6tfXhz4kqQ-GGPurfdQTe-LQeO2Xw6oRUkf_9Exd0g73WztNuGzY7827124kjmeodYLAHsT8JkUEcrOLmYCsHzrBjCuIliUQIv5mSEkyDD-mVkdAgv4RGMFf1XF236NgtzBDGqXK1exD7xoHgRQnLoG_akTWw4UY9-vJlr4_Bkuh99S5ZWBjbNkRaXSl28jySSx5bYq0E08Fc");'></div>
+          <div class="p-5 flex flex-col flex-grow">
+            <h3 class="text-accent text-xl font-bold">Parque da Onça Parda</h3>
+            <p class="text-text-subtle-light text-sm mt-2 mb-4 flex-grow">Um refúgio dedicado à conservação da fauna e flora nativas, com trilhas educativas e centro de visitantes.</p>
+            <div class="flex flex-col gap-3 text-sm border-t border-gray-200 pt-4">
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">location_on</span><span>Zona Rural, S. Miguel</span></div>
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">schedule</span><span>Sáb-Dom, 9h - 16h</span></div>
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">local_activity</span><span>Grátis</span></div>
+            </div>
+            <a class="mt-6 w-full text-center bg-primary text-white text-sm font-semibold py-2.5 px-4 rounded-lg hover:bg-primary/90" href="#">Saiba Mais</a>
+          </div>
+        </div>
 
-      <!-- Botão Suporte -->
-      <a href="contato.html"
-        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-        <span class="truncate">Suporte</span>
-      </a>
+        <!-- Card 3 -->
+        <div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-800/80 bg-background-light dark:bg-zinc-900 overflow-hidden shadow-sm transition-all hover:shadow-lg">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBg34MQITMcvxYwX8YiFp_yj8XrDVNVNDJWIjrwp_oSnXPrf6tPp5RoVvMV3aw_0-bfQMDOYML1_g7a5zRnwkeIijQL02EQ8qaeiS7ji4hH942UA6dxL1i0CgOi50aHV-S6ivm4ss423b1K-Gq9EKehTbMstQctlCr7QwQwXxEQYNgMW5xfUQsYGRnkLgUvEnmKGXDyFEGKt1OdpryJ3YVbFa7CzTDJ60MZ3opoaCMQBHJwt7cfJUMWCmyiX1FwpVKBxnoXzxM6CPQ");'></div>
+          <div class="p-5 flex flex-col flex-grow">
+            <h3 class="text-accent text-xl font-bold">Cachoeira do Alemão</h3>
+            <p class="text-text-subtle-light text-sm mt-2 mb-4 flex-grow">Uma bela queda d'água perfeita para relaxar e se conectar com a natureza, com poços para banho.</p>
+            <div class="flex flex-col gap-3 text-sm border-t border-gray-200 pt-4">
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">location_on</span><span>Estrada da Cachoeira</span></div>
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">schedule</span><span>Aberto 24h</span></div>
+              <div class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">local_activity</span><span>Acesso Livre</span></div>
+            </div>
+            <a class="mt-6 w-full text-center bg-primary text-white text-sm font-semibold py-2.5 px-4 rounded-lg hover:bg-primary/90" href="#">Saiba Mais</a>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <!-- MENU MOBILE -->
-    <button class="md:hidden text-text-dark dark:text-white">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
-  </div>
-</header>
-
-<!-- STYLES -->
-<style>
-  .nav-link {
-    color: #333333;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-link:hover { color: #194C9B; }
-  .nav-link.active { color: #194C9B; font-weight: 700; }
-
-  .dropdown-item {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.925rem;
-    color: #333;
-    transition: background-color 0.15s, color 0.15s;
-    white-space: nowrap;
-    display: block;
-    text-decoration: none;
-  }
-  .dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
-</style>
-
-<!-- SCRIPT -->
-<script>
-  (function () {
-    const toggle = document.getElementById('turismo-toggle');
-    const menu = document.getElementById('turismo-menu');
-    const wrapper = document.getElementById('menu-turismo-wrapper');
-
-    function openMenu() {
-      menu.classList.remove('hidden');
-      toggle.setAttribute('aria-expanded', 'true');
-    }
-    function closeMenu() {
-      menu.classList.add('hidden');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-    function toggleMenu() {
-      const isOpen = !menu.classList.contains('hidden');
-      if (isOpen) closeMenu();
-      else openMenu();
-    }
-
-    toggle.addEventListener('click', e => {
-      e.stopPropagation();
-      toggleMenu();
-    });
-
-    menu.addEventListener('click', e => e.stopPropagation());
-    document.addEventListener('click', () => closeMenu());
-    document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
-    window.addEventListener('resize', closeMenu);
-
-    // marca a aba atual automaticamente
-    const current = window.location.pathname.split('/').pop();
-    document.querySelectorAll('nav .nav-link').forEach(a => {
-      if (a.getAttribute('href') === current) a.classList.add('active');
-    });
-
-    // força reload se clicar na mesma página
-    document.querySelectorAll('a[href]').forEach(link => {
-      link.addEventListener('click', e => {
-        const target = link.getAttribute('href');
-        const current = window.location.pathname.split('/').pop();
-        if (target === current) {
-          e.preventDefault();
-          window.location.reload();
-        }
-      });
-    });
-  })();
-</script>
-<main class="py-10 md:py-16">
-<div class="flex flex-col gap-12 md:gap-16">
-<div class="flex flex-wrap justify-between gap-6 items-center px-4">
-<div class="flex flex-col gap-3 max-w-2xl">
-<p class="text-primary text-4xl md:text-5xl font-black tracking-tighter">Turismo Religioso</p>
-<p class="text-subtext-light dark:text-subtext-dark text-base md:text-lg">
-                    Descubra a fé e as tradições que moldam a história e a cultura de São Miguel Arcanjo através de suas igrejas, capelas, grutas e eventos sagrados.
-                  </p>
-</div>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-<div class="flex flex-col gap-4 group overflow-hidden rounded-lg bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-800 transition-all hover:shadow-xl hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Fachada da Igreja Matriz de São Miguel Arcanjo em um dia ensolarado" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBLcbpEXPzIRRkf6Djj7P3Y5nNOnfbuFiGhO3b6lz0O-_qh888sCHu17EOf3iwIxJijSAnDsw2kRzFgALdEdiqf8-eJ6Ye0y__V5op_RYUDZNSdza0nmU4x0MrhoZ4tDHC8nqeodLXp5A_gb3NLDUtTqUFsxIc7o5iGCbT6GInNPXeR1qbvqe3fplzWT1YouPKUAjKcqweyt2E_Hj-NquTkjPN7zBr5X6-BKDr5nMr-kPcqPm1__xgQsCsVBuwt3UXOBQUTIo6yEtE");'></div>
-<div class="p-5 pt-0 flex flex-col flex-grow">
-<h3 class="text-lg font-bold">Igreja Matriz de São Miguel Arcanjo</h3>
-<p class="text-subtext-light dark:text-subtext-dark text-sm mt-1 mb-4 flex-grow">O coração da fé na cidade, um marco arquitetônico e espiritual de grande importância histórica.</p>
-<a class="inline-flex items-center justify-center text-sm font-semibold text-white bg-action hover:bg-action/90 px-4 py-2 rounded-md transition-colors w-full" href="#">
-                      Saiba Mais
-                    </a>
-</div>
-</div>
-<div class="flex flex-col gap-4 group overflow-hidden rounded-lg bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-800 transition-all hover:shadow-xl hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Gruta de pedra com uma estátua religiosa cercada por vegetação verde" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDWUj_by6v3zlF95e2rOhH84ZQx77_xW8BagLgQ-Zl93-RWndkPi5fVqqzYULqKaxZk6ZDlE82ABKec7ikfGXhrLZiVDJE7iM5wGoEQ7SQtDRlB1G2nqvB9w8Fy1buGpn2NCXECns4S5-5ZSICoPOUO8adA7xA-R-RSz8b_ptwQaenvJKbXauXMQQ3rBBGVO2LnfVfcxq3z-dVYMwlb_3COSnGyImDvKGwScdyaRHqmrEHjbFtoz8REFjLo7b6c_-_ovlQIQFlzvmA");'></div>
-<div class="p-5 pt-0 flex flex-col flex-grow">
-<h3 class="text-lg font-bold">Gruta Nossa Senhora de Lourdes</h3>
-<p class="text-subtext-light dark:text-subtext-dark text-sm mt-1 mb-4 flex-grow">Um local de peregrinação e oração em meio à natureza, ideal para momentos de reflexão e paz.</p>
-<a class="inline-flex items-center justify-center text-sm font-semibold text-white bg-action hover:bg-action/90 px-4 py-2 rounded-md transition-colors w-full" href="#">
-                      Saiba Mais
-                    </a>
-</div>
-</div>
-<div class="flex flex-col gap-4 group overflow-hidden rounded-lg bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-800 transition-all hover:shadow-xl hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Imagem de uma procissão religiosa com muitas pessoas participando em uma rua decorada" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDljLv4o2Rnux3gIL9X1NxCScdzLvBF2pkFL3dGEp8vdi6Diw2X-LNhCOdEvRbKc1g6UZVHE6zt3yt4BmdzDx3Hcn3b926_lFtS1c1nY1k3CBfykmIC7jR3XuRaQAMcTaaFm1YouNnpenBbHgW2jU1oux7DyDTxRL_T27xOEMeeNnd0WY-hY_-YZMbHD-4a5gzizjnQdGP36lhyf4vZHq01dpGm9RbQiqlTicCCm1j2doYMh3X-VJ4Hbj-BbvRpTTdr5CACCV6sFyY");'></div>
-<div class="p-5 pt-0 flex flex-col flex-grow">
-<h3 class="text-lg font-bold">Festa do Padroeiro</h3>
-<p class="text-subtext-light dark:text-subtext-dark text-sm mt-1 mb-4 flex-grow">A principal celebração religiosa e cultural da cidade, repleta de fé, música e tradição.</p>
-<a class="inline-flex items-center justify-center text-sm font-semibold text-white bg-action hover:bg-action/90 px-4 py-2 rounded-md transition-colors w-full" href="#">
-                      Saiba Mais
-                    </a>
-</div>
-</div>
-<div class="flex flex-col gap-4 group overflow-hidden rounded-lg bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-800 transition-all hover:shadow-xl hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Interior de uma capela pequena e charmosa, com bancos de madeira e um altar simples" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDGXdMYcl63a39BZu_98XRZgQaks0fGqFWA-n0ooLPXusjWdPoS3zX0Vv9cVAI683RCTYX-A-UBtklS0bqCQeWFQ_aHrNP3vGyULfPGPRELFAgto6-KDp20605kgxPT47P9Dc8rMUw4qnISed_c1WbQ_nKuSChfIZ8bha460tX3DSqWudEtqlsI8xN0jDv23iTdUcHvawNrd9WF6TzB064XEvaxktVbQ2USU0OVzhdOI_MlWgF60Ty6Aj3jztiP08O1RhIRtHJfF6g");'></div>
-<div class="p-5 pt-0 flex flex-col flex-grow">
-<h3 class="text-lg font-bold">Capela Santo Expedito</h3>
-<p class="text-subtext-light dark:text-subtext-dark text-sm mt-1 mb-4 flex-grow">Uma charmosa capela de bairro, ponto de encontro e devoção da comunidade local.</p>
-<a class="inline-flex items-center justify-center text-sm font-semibold text-white bg-action hover:bg-action/90 px-4 py-2 rounded-md transition-colors w-full" href="#">
-                      Saiba Mais
-                    </a>
-</div>
-</div>
-<div class="flex flex-col gap-4 group overflow-hidden rounded-lg bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-800 transition-all hover:shadow-xl hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Santuário moderno com arquitetura arrojada e vitrais coloridos" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_8KUM8zklu8b6y0vvYTvJi7b4zC3vvF8z4WTUwX2mKwLtEA39vRT91K33_tEj_BZkRRQ-TujY3maysd0nyLYA4BtLADbjrQoKPUjDlogT9Wy6yzGG47a675VU5_5dPAPHMmkH5hhCmWmeDqaH_sQMqMyMikUhiNL3UzjLUb4CC0rVTwsHuin6uzvi84Mr5qxdZfAfuZXdocemUito7e6AoPQ6mDeHoLBaXUzumusV7TeyRwTCdUZ1RXzjFkn8obdfet-wmhqB_pk");'></div>
-<div class="p-5 pt-0 flex flex-col flex-grow">
-<h3 class="text-lg font-bold">Santuário da Divina Misericórdia</h3>
-<p class="text-subtext-light dark:text-subtext-dark text-sm mt-1 mb-4 flex-grow">Um espaço contemporâneo de devoção e encontro com o sagrado, atraindo fiéis de toda a região.</p>
-<a class="inline-flex items-center justify-center text-sm font-semibold text-white bg-action hover:bg-action/90 px-4 py-2 rounded-md transition-colors w-full" href="#">
-                      Saiba Mais
-                    </a>
-</div>
-</div>
-<div class="flex flex-col gap-4 group overflow-hidden rounded-lg bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-800 transition-all hover:shadow-xl hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Rua coberta com tapetes coloridos feitos de serragem para a procissão de Corpus Christi" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDN_2m16sGXYfYpncUldyvDrcl8ZoMeLsXKMkJdn0QdnHTZIZLppV-LFyA4sqsKF9y34s58OwTZ_R10iSOevyP15cxTLCAeK2waxuf9XrmOG8RY-Qjdl4_SXcU-WGuNTVr8ntyNk2QzJeySr6BAcL037gaTkI_08E5MmPbie3-XLbOJlPxtboDS5HTkoeORcrmjH_5ozZH4vdSpiC-Wmu_1dIsmfdoUM0AYcIw9DOmn5Tf1JX2w3Hp7SQqd1wRgBUGLc3vAmEjTNTI");'></div>
-<div class="p-5 pt-0 flex flex-col flex-grow">
-<h3 class="text-lg font-bold">Procissão de Corpus Christi</h3>
-<p class="text-subtext-light dark:text-subtext-dark text-sm mt-1 mb-4 flex-grow">Uma das maiores manifestações de fé pública, com ruas decoradas e grande participação popular.</p>
-<a class="inline-flex items-center justify-center text-sm font-semibold text-white bg-action hover:bg-action/90 px-4 py-2 rounded-md transition-colors w-full" href="#">
-                      Saiba Mais
-                    </a>
-</div>
-</div>
+  </main>
+<!-- Pagination -->
+<div class="flex items-center justify-center p-4 pt-8">
+<a class="flex size-10 items-center justify-center text-text-secondary-light dark:text-text-secondary-dark rounded-full hover:bg-border-light dark:hover:bg-border-dark" href="#">
+<span class="material-symbols-outlined text-2xl">chevron_left</span>
+</a>
+<a class="text-sm font-bold leading-normal flex size-10 items-center justify-center text-primary dark:text-white rounded-full bg-primary/20 dark:bg-primary/30" href="#">1</a>
+<a class="flex size-10 items-center justify-center text-text-secondary-light dark:text-text-secondary-dark rounded-full hover:bg-border-light dark:hover:bg-border-dark" href="#">
+<span class="material-symbols-outlined text-2xl">chevron_right</span>
+</a>
 </div>
 </div>
 </main>
-<!-- Footer -->
+  <!-- Footer -->
 <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
     <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
     <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="#">Sobre nós</a>
@@ -271,8 +248,6 @@
     </div>
     <p class="text-text-subtle-light dark:text-text-subtle-dark text-sm font-normal leading-normal">© 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.</p>
     </footer>
-</div>
-</div>
-</div>
-</div>
-</body></html>
+
+</body>
+</html>
