@@ -46,37 +46,139 @@
 </head>
 <body class="font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark">
 <div class="relative flex min-h-screen w-full flex-col">
-<!-- TopNavBar -->
-<header class="sticky top-0 z-50 flex w-full justify-center border-b border-solid border-border-light dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
-<div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
-<div class="flex items-center gap-4">
-<div class="text-primary size-6">
-<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
-</svg>
+<!-- TopNavBar (com dropdown por CLICK e reload nos links) -->
+<header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
+  <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
+
+    <!-- LOGO + TEXTO -->
+<div class="flex items-center gap-1.5">
+  <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
+  <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+    <span style="color:#29763B;">TOUR</span>
+    <span style="color:#333333;"> São Miguel Arcanjo</span>
+  </h2>
 </div>
-<h2 class="text-lg font-bold tracking-[-0.015em] text-text-primary-light dark:text-text-primary-dark">TOUR São Miguel Arcanjo</h2>
-</div>
-<nav class="hidden items-center gap-9 lg:flex">
-<a class="text-sm font-medium leading-normal text-text-primary-light dark:text-text-primary-dark hover:text-primary dark:hover:text-primary" href="#">Início</a>
-<a class="text-sm font-medium leading-normal text-accent-blue dark:text-primary" href="#">Turismo</a>
-<a class="text-sm font-medium leading-normal text-text-primary-light dark:text-text-primary-dark hover:text-primary dark:hover:text-primary" href="#">Gastronomia</a>
-<a class="text-sm font-medium leading-normal text-text-primary-light dark:text-text-primary-dark hover:text-primary dark:hover:text-primary" href="#">Onde Ficar</a>
-<a class="text-sm font-medium leading-normal text-text-primary-light dark:text-text-primary-dark hover:text-primary dark:hover:text-primary" href="#">Contato</a>
-</nav>
-<div class="hidden items-center gap-2 lg:flex">
-<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] transition-transform hover:scale-105">
-<span class="truncate">Reservar Agora</span>
-</button>
-<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-border-light dark:bg-border-dark text-text-primary-light dark:text-text-primary-dark text-sm font-bold leading-normal tracking-[0.015em] transition-transform hover:scale-105">
-<span class="truncate">Login</span>
-</button>
-</div>
-<button class="flex items-center justify-center p-2 lg:hidden">
-<span class="material-symbols-outlined text-3xl">menu</span>
-</button>
-</div>
+
+    <!-- NAVBAR -->
+    <div class="hidden md:flex flex-1 items-center justify-end gap-8">
+      <nav class="flex items-center gap-9">
+
+        <a href="index.html" class="nav-link">Início</a>
+
+        <!-- Dropdown Turismo -->
+        <div class="relative" id="menu-turismo-wrapper">
+          <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
+            class="nav-link flex items-center gap-1 focus:outline-none">
+            Turismo
+            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div id="turismo-menu"
+            class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50"
+            role="menu" aria-label="submenu turismo">
+            <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
+            <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
+            <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
+            <a href="etnico.html" class="dropdown-item block" role="menuitem">Étnico</a>
+          </div>
+        </div>
+
+        <a href="hotelaria.html" class="nav-link">Hotelaria</a>
+        <a href="gastronomia.html" class="nav-link">Gastronomia</a>
+        <a href="agenda.html" class="nav-link">Agenda</a>
+        <a href="sobre.html" class="nav-link">Sobre nós</a>
+      </nav>
+
+      <!-- Botão Suporte -->
+      <a href="contato.html"
+        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+        <span class="truncate">Suporte</span>
+      </a>
+    </div>
+
+    <!-- MENU MOBILE -->
+    <button class="md:hidden text-text-dark dark:text-white">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
 </header>
+
+<!-- STYLES -->
+<style>
+  .nav-link {
+    color: #333333;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: #194C9B; }
+  .nav-link.active { color: #194C9B; font-weight: 700; }
+
+  .dropdown-item {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.925rem;
+    color: #333;
+    transition: background-color 0.15s, color 0.15s;
+    white-space: nowrap;
+    display: block;
+    text-decoration: none;
+  }
+  .dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
+</style>
+
+<!-- SCRIPT -->
+<script>
+  (function () {
+    const toggle = document.getElementById('turismo-toggle');
+    const menu = document.getElementById('turismo-menu');
+    const wrapper = document.getElementById('menu-turismo-wrapper');
+
+    function openMenu() {
+      menu.classList.remove('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu() {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+    function toggleMenu() {
+      const isOpen = !menu.classList.contains('hidden');
+      if (isOpen) closeMenu();
+      else openMenu();
+    }
+
+    toggle.addEventListener('click', e => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    menu.addEventListener('click', e => e.stopPropagation());
+    document.addEventListener('click', () => closeMenu());
+    document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
+    window.addEventListener('resize', closeMenu);
+
+    // marca a aba atual automaticamente
+    const current = window.location.pathname.split('/').pop();
+    document.querySelectorAll('nav .nav-link').forEach(a => {
+      if (a.getAttribute('href') === current) a.classList.add('active');
+    });
+
+    // força reload se clicar na mesma página
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', e => {
+        const target = link.getAttribute('href');
+        const current = window.location.pathname.split('/').pop();
+        if (target === current) {
+          e.preventDefault();
+          window.location.reload();
+        }
+      });
+    });
+  })();
+</script>
 <main class="flex flex-1 justify-center py-10 sm:py-16">
 <div class="flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
 <!-- PageHeading -->
