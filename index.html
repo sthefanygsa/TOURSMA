@@ -238,42 +238,88 @@ comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias reg
 </section>
 <!-- SectionHeader & Stats (Dados Gerais) -->
 <section class="py-12 md:py-16">
-<h2 class="text-secondary text-2xl md:text-3xl font-bold tracking-tight text-center mb-10">A Cidade em Números</h2>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-<div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
-<div class="flex items-center justify-center size-12 bg-primary/10 rounded-full mb-4">
-<span class="material-symbols-outlined text-primary text-3xl">public</span>
-</div>
-<h3 class="text-lg font-bold text-text-light dark:text-text-dark">Área</h3>
-<p class="text-2xl font-bold text-primary">902,3 km²</p>
-<p class="text-sm text-text-muted-light dark:text-text-muted-dark">(IBGE)</p>
-</div>
-<div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
-<div class="flex items-center justify-center size-12 bg-primary/10 rounded-full mb-4">
-<span class="material-symbols-outlined text-primary text-3xl">groups</span>
-</div>
-<h3 class="text-lg font-bold text-text-light dark:text-text-dark">População</h3>
-<p class="text-2xl font-bold text-primary">32.493 hab.</p>
-<p class="text-sm text-text-muted-light dark:text-text-muted-dark">(Est. 2021)</p>
-</div>
-<div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
-<div class="flex items-center justify-center size-12 bg-primary/10 rounded-full mb-4">
-<span class="material-symbols-outlined text-primary text-3xl">landscape</span>
-</div>
-<h3 class="text-lg font-bold text-text-light dark:text-text-dark">Altitude</h3>
-<p class="text-2xl font-bold text-primary">660 m</p>
-<p class="text-sm text-text-muted-light dark:text-text-muted-dark">(Média)</p>
-</div>
-<div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
-<div class="flex items-center justify-center size-12 bg-primary/10 rounded-full mb-4">
-<span class="material-symbols-outlined text-primary text-3xl">thermostat</span>
-</div>
-<h3 class="text-lg font-bold text-text-light dark:text-text-dark">Clima</h3>
-<p class="text-2xl font-bold text-primary">Cfa</p>
-<p class="text-sm text-text-muted-light dark:text-text-muted-dark">(Subtropical úmido)</p>
-</div>
-</div>
+  <h2 class="text-[#194C9B] text-2xl md:text-3xl font-bold tracking-tight text-center mb-10">
+    A Cidade em Números
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+    <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
+      <div class="flex items-center justify-center size-12 bg-[#194C9B]/10 rounded-full mb-4">
+        <span class="material-symbols-outlined text-[#194C9B] text-3xl">public</span>
+      </div>
+      <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Área</h3>
+      <p class="text-2xl font-bold text-[#194C9B]">902,3 km²</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">(IBGE)</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
+      <div class="flex items-center justify-center size-12 bg-[#194C9B]/10 rounded-full mb-4">
+        <span class="material-symbols-outlined text-[#194C9B] text-3xl">groups</span>
+      </div>
+      <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">População</h3>
+      <p class="text-2xl font-bold text-[#194C9B]">32.493 hab.</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">(Est. 2021)</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
+      <div class="flex items-center justify-center size-12 bg-[#194C9B]/10 rounded-full mb-4">
+        <span class="material-symbols-outlined text-[#194C9B] text-3xl">landscape</span>
+      </div>
+      <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Altitude</h3>
+      <p class="text-2xl font-bold text-[#194C9B]">660 m</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">(Média)</p>
+    </div>
+
+    <!-- Clima em tempo real -->
+    <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
+      <div class="flex items-center justify-center size-12 bg-[#194C9B]/10 rounded-full mb-4">
+        <span class="material-symbols-outlined text-[#194C9B] text-3xl">thermostat</span>
+      </div>
+      <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Clima</h3>
+      <p id="temperatura" class="text-2xl font-bold text-[#194C9B]">--°C</p>
+      <p id="condicao" class="text-sm text-gray-500 dark:text-gray-400">Carregando...</p>
+    </div>
+  </div>
 </section>
+
+<script>
+  const lat = -23.8793;
+  const lon = -47.9935;
+
+  async function carregarClima() {
+    try {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+      const res = await fetch(url);
+      const data = await res.json();
+
+      const temp = data.current_weather.temperature;
+      const codigo = data.current_weather.weathercode;
+
+      const condicoes = {
+        0: "Céu limpo ☀️",
+        1: "Principalmente limpo 🌤️",
+        2: "Parcialmente nublado ⛅",
+        3: "Nublado ☁️",
+        45: "Névoa 🌫️",
+        48: "Névoa congelante ❄️",
+        51: "Garoa leve 🌦️",
+        61: "Chuva leve 🌧️",
+        71: "Neve leve 🌨️",
+        95: "Tempestade ⛈️",
+      };
+
+      document.getElementById("temperatura").textContent = `${temp.toFixed(1)}°C`;
+      document.getElementById("condicao").textContent = condicoes[codigo] || "Condição desconhecida";
+    } catch (e) {
+      document.getElementById("condicao").textContent = "Erro ao carregar clima 😕";
+    }
+  }
+
+  carregarClima();
+  // atualiza a cada 30 minutos
+  setInterval(carregarClima, 1800000);
+</script>
+
 <!-- Interactive Distance Calculator Section -->
 <section class="py-12 md:py-20">
   <div class="bg-[#194C9B] text-white rounded-xl p-8 md:p-12 max-w-4xl mx-auto text-center">
