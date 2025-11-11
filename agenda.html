@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 
-<html lang="pt-br"><head>
+<html class="light" lang="pt-BR"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>TOUR São Miguel Arcanjo - Eventos</title>
+<title>TOUR - Turismo Rural</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#29753b",
-            "background-light": "#f6f8f6",
-            "background-dark": "#141e16",
-          },
-          fontFamily: {
-            "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
-          },
-          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-        },
-      },
-    }
-  </script>
 <style>
-    .material-symbols-outlined {
-      font-variation-settings:
-      'FILL' 0,
-      'wght' 400,
-      'GRAD' 0,
-      'opsz' 24
-    }
-  </style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#29753b",
+              "background-light": "#FFFFFF",
+              "background-dark": "#141e16",
+              "accent-blue": "#194C9B",
+              "text-primary-light": "#121613",
+              "text-secondary-light": "#6a816f",
+              "text-primary-dark": "#f6f8f6",
+              "text-secondary-dark": "#a0b3a3",
+              "border-light": "#f1f4f2",
+              "border-dark": "#2a3c2e"
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
 </head>
-<body class="font-display">
-<div class="relative flex min-h-screen w-full flex-col bg-[#FFFFFF] group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
+<body class="font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark">
+<div class="relative flex min-h-screen w-full flex-col">
 <!-- TopNavBar (com dropdown por CLICK e reload nos links) -->
 <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
   <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
@@ -173,8 +179,8 @@
     });
   })();
 </script>
-<main class="flex flex-1 justify-center py-5 lg:py-10">
-<div class="layout-content-container flex flex-col w-full max-w-6xl flex-1 px-4 sm:px-6 lg:px-8">
+<main class="flex flex-1 justify-center py-10 sm:py-16">
+<div class="flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
 <!-- Carousel Section -->
 <section class="w-full mb-12">
 <h2 class="text-[#194C9B] text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-5 pt-5 text-center">Destaques do Mês</h2>
@@ -325,6 +331,18 @@
 </section>
 </div>
 </main>
+<!-- Pagination -->
+<div class="flex items-center justify-center p-4 pt-8">
+<a class="flex size-10 items-center justify-center text-text-secondary-light dark:text-text-secondary-dark rounded-full hover:bg-border-light dark:hover:bg-border-dark" href="#">
+<span class="material-symbols-outlined text-2xl">chevron_left</span>
+</a>
+<a class="text-sm font-bold leading-normal flex size-10 items-center justify-center text-primary dark:text-white rounded-full bg-primary/20 dark:bg-primary/30" href="#">1</a>
+<a class="flex size-10 items-center justify-center text-text-secondary-light dark:text-text-secondary-dark rounded-full hover:bg-border-light dark:hover:bg-border-dark" href="#">
+<span class="material-symbols-outlined text-2xl">chevron_right</span>
+</a>
+</div>
+</div>
+</main>
 <!-- Footer -->
 <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
     <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
@@ -344,6 +362,5 @@
     </div>
     <p class="text-text-subtle-light dark:text-text-subtle-dark text-sm font-normal leading-normal">© 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.</p>
     </footer>
-</div>
 </div>
 </body></html>
