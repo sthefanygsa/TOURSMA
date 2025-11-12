@@ -1,45 +1,51 @@
-# TOUR São Miguel Arcanjo
+TOUR São Miguel Arcanjo
 
-Site institucional da **TOUR São Miguel Arcanjo**, mostrando turismo, hotelaria, gastronomia, agenda e contato da cidade.
+Site institucional da TOUR São Miguel Arcanjo, apresentando turismo, hotelaria, gastronomia, agenda de eventos e contato da cidade.
 
-## 📝 Descrição
+📝 Descrição
 
-Este projeto foi desenvolvido com HTML, CSS (Tailwind) e um pouco de JavaScript. O objetivo é criar um site responsivo, moderno e funcional, destacando os atrativos turísticos de São Miguel Arcanjo.
+Projeto desenvolvido com HTML, Tailwind CSS e um pouco de JavaScript, com foco em criar um site moderno, responsivo e funcional, destacando os atrativos turísticos de São Miguel Arcanjo.
 
-Funcionalidades principais:
+✨ Funcionalidades principais
 
 - Navbar com dropdown no menu “Turismo”
-- Marca a página atual automaticamente
-- Se clicar na mesma página, recarrega a página
-- Layout responsivo para desktop e mobile
+
+- Indicação automática da página atual
+
+- Recarrega a página ao clicar novamente no mesmo link
+
+- Layout totalmente responsivo (desktop e mobile)
+
 - Seções: Nossa História, Fundadores, Missão, Visão e Valores, Contato e Localização
-- Footer com links e redes sociais
 
-## 💻 Tecnologias
+- Footer com links úteis e redes sociais
 
-- [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [CSS3](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
-- [Tailwind CSS](https://tailwindcss.com/)
+💻 Tecnologias utilizadas
+
+- HTML5
+
+- CSS3
+
+- Tailwind CSS
+
 - JavaScript (Vanilla)
 
+🚀 Como usar
 
-## 🚀 Como usar
+Clone o repositório:
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
-2. Abra o index.html no navegador.
+git clone https://github.com/stehfanygsa/TOURSMA.git
+
+
+Abra o arquivo index.html diretamente no navegador.
 
 📌 Observações
 
-- O site é totalmente responsivo.
+As imagens estão salvas na pasta assets/img/
 
-- As imagens estão linkadas externamente (ex.: Google Drive ou URLs públicas).
-
-- Scripts do dropdown e marcação de página atual estão em JS puro.
+Scripts do dropdown e da marcação da página atual foram feitos em JavaScript puro
 
 🖇 Autor
 
 Sthefany Alves
-<p>Contato: sthefanygsa@gmail.com</p>
-
+📧 Contato: sthefanygsa@gmail.com
