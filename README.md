@@ -12,7 +12,7 @@ Projeto desenvolvido com HTML, Tailwind CSS e um pouco de JavaScript, com foco e
 
 - Layout intuitivo, bonito e moderno, pensado para facilitar a navegação.
 
-- Design limpo e moderno, destacando o turismo local.
+- Design limpo, destacando o turismo local.
 
 💻 Tecnologias utilizadas
 
