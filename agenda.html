@@ -8,7 +8,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <style>
       .material-symbols-outlined {
@@ -47,12 +47,10 @@
 </head>
 <body class="font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark">
 <div class="relative flex min-h-screen w-full flex-col">
-<!-- TopNavBar (com dropdown por CLICK e reload nos links) -->
 <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
   <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
 
-    <!-- LOGO + TEXTO -->
-<div class="flex items-center gap-1.5">
+    <div class="flex items-center gap-1.5">
   <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
   <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
     <span style="color:#29763B;">TOUR</span>
@@ -60,13 +58,11 @@
   </h2>
 </div>
 
-    <!-- NAVBAR -->
     <div class="hidden md:flex flex-1 items-center justify-end gap-8">
       <nav class="flex items-center gap-9">
 
         <a href="index.html" class="nav-link">Início</a>
 
-        <!-- Dropdown Turismo -->
         <div class="relative" id="menu-turismo-wrapper">
           <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
             class="nav-link flex items-center gap-1 focus:outline-none">
@@ -93,21 +89,18 @@
         <a href="sobre.html" class="nav-link">Sobre nós</a>
       </nav>
 
-      <!-- Botão Suporte -->
       <a href="contato.html"
         class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
         <span class="truncate">Suporte</span>
       </a>
     </div>
 
-    <!-- MENU MOBILE -->
     <button class="md:hidden text-text-dark dark:text-white">
       <span class="material-symbols-outlined">menu</span>
     </button>
   </div>
 </header>
 
-<!-- STYLES -->
 <style>
   .nav-link {
     color: #333333;
@@ -130,7 +123,6 @@
   .dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
 </style>
 
-<!-- SCRIPT -->
 <script>
   (function () {
     const toggle = document.getElementById('turismo-toggle');
@@ -182,13 +174,13 @@
 </script>
 <main class="flex flex-1 justify-center py-10 sm:py-16">
 <div class="flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
-<!-- Carousel Section -->
 <section class="w-full mb-12">
 <h2 class="text-4xl lg:text-5xl font-black leading-tight tracking-tighter text-center" style="color:#194C9B;">
   Destaques do Mês
 </h2>
-<div class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden snap-x snap-mandatory">
+<div class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory">
 <div class="flex items-stretch p-4 gap-6 w-full">
+
 <div class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-white shadow-lg min-w-72 snap-center">
 <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl flex flex-col" data-alt="Pessoas colhendo uvas em um vinhedo ensolarado" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCGF00SzxHq8NxmMUSB_7eaZXY5P9WWVomMUCf-BZJc5rceWuG_v9VmSX47Wk8fcydgjhyo3UjJSsLfbFGiZtaqiD3v2W7rOgkBoFdWm1_6Utx8VP3aVeZNNhyBuyEQRgB9dFwxr_RSHiFzEIQUP6eDKVCZqLMXP4xhgMIlgQ2WMaKQHuJ5oIifFXWroFA9PiTGzVMMniBXO8HPZfOlx8tjScI_X7_03Nvm4XvAOuJIXAdYBMGn2QodnoVOu-1uuroHUWQZkeijlyc");'></div>
 <div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
@@ -196,11 +188,19 @@
 <p class="text-gray-800 text-lg font-bold leading-normal">Festa da Uva</p>
 <p class="text-gray-600 text-sm font-normal leading-normal mt-1">Celebre a colheita com vinhos e comidas típicas.</p>
 </div>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#29763B] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
+<div class="saiba-mais-content hidden pt-4 border-t border-gray-200 mt-2">
+    <p class="text-sm text-gray-700">
+        <strong>Data:</strong> 10-12 de Outubro<br>
+        <strong>Local:</strong> Vinícola Sol Nascente<br>
+        Venha participar da tradicional pisa da uva, desfrutar de música ao vivo e provar os melhores vinhos da região.
+    </p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#29763B] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors saiba-mais-toggle">
 <span class="truncate">Saiba Mais</span>
 </button>
 </div>
 </div>
+
 <div class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-white shadow-lg min-w-72 snap-center">
 <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl flex flex-col" data-alt="Palco com luzes coloridas durante um festival de música à noite" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBI59VZHLXtGpGgRCo8M2xuM9KgkUqQirfLrlATUUIA60l6VL30TxGmQEX9F6KkTZLig2KWQiRA3j4fOq6DIKOm49lcy9HAFdiy5tu5ZYd3I5_cdtCDkJhD16h6UPFxxVxbmFzxXwppptyA4Ph1gFB8_R-M7pEgswQj4_vP7dO2-Ih8esaOat75bnrfov36VWKiFzhqWDjFx__3TjzUUyN6vjmnJXtsBdQkenRssLMeBVahDVhJO5hg0viBMihB9JM_Oncih4mtRok");'></div>
 <div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
@@ -208,11 +208,19 @@
 <p class="text-gray-800 text-lg font-bold leading-normal">Festival de Inverno</p>
 <p class="text-gray-600 text-sm font-normal leading-normal mt-1">Música, gastronomia e o melhor do frio da serra.</p>
 </div>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#29763B] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
+<div class="saiba-mais-content hidden pt-4 border-t border-gray-200 mt-2">
+    <p class="text-sm text-gray-700">
+        <strong>Data:</strong> 15-18 de Julho<br>
+        <strong>Local:</strong> Praça Central<br>
+        Shows com bandas locais, fondue, vinhos e chocolate quente para aquecer sua noite.
+    </p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#29763B] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors saiba-mais-toggle">
 <span class="truncate">Saiba Mais</span>
 </button>
 </div>
 </div>
+
 <div class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-white shadow-lg min-w-72 snap-center">
 <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl flex flex-col" data-alt="Galeria de arte com pessoas observando quadros em uma exposição" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKtqpzPJ26vC35ez3JLmOo7MzHbjs5tgkUDTnurN-Fv6HqZMZtGZXLNTxDTnsOZwALU5rA1u7BBGoWIXi-_LoVPlqnJHyrodcx4DU9LnmHa-DtFJRYpum0UzEXnhZy5IBY9FWqYQi5zul-rz_iWOieyR66xwbOlBdLWnGL4Tzy_AdB0M-2kPn83r5H3pR375tFa_OgeBQah5POVfBwxfJekC0ClVNNLQdJPtH4qybUO6FhMPb0tG_Hd2i6NMyv6K1jAm9O3mkoIpQ");'></div>
 <div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
@@ -220,19 +228,25 @@
 <p class="text-gray-800 text-lg font-bold leading-normal">Semana Cultural</p>
 <p class="text-gray-600 text-sm font-normal leading-normal mt-1">Exposições de arte, teatro e shows ao vivo.</p>
 </div>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#29763B] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
+<div class="saiba-mais-content hidden pt-4 border-t border-gray-200 mt-2">
+    <p class="text-sm text-gray-700">
+        <strong>Data:</strong> 01-07 de Setembro<br>
+        <strong>Local:</strong> Centro de Convenções<br>
+        Uma semana inteira dedicada à arte, com oficinas, palestras e apresentações de artistas renomados.
+    </p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#29763B] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors saiba-mais-toggle">
 <span class="truncate">Saiba Mais</span>
 </button>
 </div>
 </div>
+
 </div>
 </div>
 </section>
-<!-- Calendar Section -->
 <section class="w-full">
 <h2 class="text-[#194C9B] text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-5 pt-5 text-center">Explore nosso Calendário de Eventos</h2>
 <div class="flex flex-col lg:flex-row items-start justify-center gap-8 lg:gap-12 mt-6">
-<!-- CalendarPicker -->
 <div class="w-full lg:w-auto flex justify-center">
 <div class="flex min-w-72 max-w-[400px] flex-1 flex-col gap-0.5 bg-white p-4 rounded-xl shadow-lg">
 <div class="flex items-center p-1 justify-between">
@@ -244,7 +258,7 @@
 <span class="material-symbols-outlined text-gray-700 text-xl">chevron_right</span>
 </button>
 </div>
-<div class="grid grid-cols-7 gap-1 mt-2">
+<div class="grid grid-cols-7 gap-1 mt-2" id="calendar-grid">
 <p class="text-gray-500 text-sm font-bold leading-normal flex h-10 w-full items-center justify-center">D</p>
 <p class="text-gray-500 text-sm font-bold leading-normal flex h-10 w-full items-center justify-center">S</p>
 <p class="text-gray-500 text-sm font-bold leading-normal flex h-10 w-full items-center justify-center">T</p>
@@ -256,7 +270,7 @@
 <button class="h-10 w-full text-gray-800 text-sm font-medium leading-normal hover:bg-gray-100 rounded-full"><div class="flex size-full items-center justify-center rounded-full">2</div></button>
 <button class="h-10 w-full text-gray-800 text-sm font-medium leading-normal hover:bg-gray-100 rounded-full"><div class="flex size-full items-center justify-center rounded-full">3</div></button>
 <button class="h-10 w-full text-gray-800 text-sm font-medium leading-normal hover:bg-gray-100 rounded-full"><div class="flex size-full items-center justify-center rounded-full relative">4<span class="absolute bottom-1.5 h-1 w-1 rounded-full bg-[#194C9B]"></span></div></button>
-<button class="h-10 w-full text-white text-sm font-bold leading-normal"><div class="flex size-full items-center justify-center rounded-full bg-[#29763B] shadow-md">5</div></button>
+<button class="h-10 w-full text-white text-sm font-bold leading-normal rounded-full day-selected"><div class="flex size-full items-center justify-center rounded-full bg-[#29763B] shadow-md">5</div></button>
 <button class="h-10 w-full text-gray-800 text-sm font-medium leading-normal hover:bg-gray-100 rounded-full"><div class="flex size-full items-center justify-center rounded-full">6</div></button>
 <button class="h-10 w-full text-gray-800 text-sm font-medium leading-normal hover:bg-gray-100 rounded-full"><div class="flex size-full items-center justify-center rounded-full">7</div></button>
 <button class="h-10 w-full text-gray-800 text-sm font-medium leading-normal hover:bg-gray-100 rounded-full"><div class="flex size-full items-center justify-center rounded-full">8</div></button>
@@ -286,55 +300,15 @@
 </div>
 </div>
 </div>
-<!-- Event List -->
 <div class="flex-1 w-full max-w-lg lg:max-w-none">
-<h3 class="text-xl font-bold text-gray-800 mb-4">Eventos para 5 de Outubro</h3>
-<div class="space-y-4">
-<!-- Event Card -->
-<div class="bg-white p-5 rounded-xl shadow-lg border border-gray-100">
-<h4 class="font-bold text-lg text-[#194C9B]">Concerto na Praça Matriz</h4>
-<div class="flex items-center text-gray-600 mt-2 text-sm">
-<span class="material-symbols-outlined text-base mr-2">location_on</span>
-<span>Praça Matriz, Centro</span>
-</div>
-<div class="flex items-center text-gray-600 mt-1 text-sm">
-<span class="material-symbols-outlined text-base mr-2">schedule</span>
-<span>19:00 - 21:00</span>
-</div>
-<p class="text-gray-700 mt-3 text-sm">
-                      Aproveite uma noite agradável com música ao vivo da orquestra local, apresentando clássicos da música brasileira.
-                    </p>
-</div>
-<!-- Event Card -->
-<div class="bg-white p-5 rounded-xl shadow-lg border border-gray-100">
-<h4 class="font-bold text-lg text-[#194C9B]">Feira de Artesanato Local</h4>
-<div class="flex items-center text-gray-600 mt-2 text-sm">
-<span class="material-symbols-outlined text-base mr-2">location_on</span>
-<span>Ginásio Municipal de Esportes</span>
-</div>
-<div class="flex items-center text-gray-600 mt-1 text-sm">
-<span class="material-symbols-outlined text-base mr-2">schedule</span>
-<span>09:00 - 17:00</span>
-</div>
-<p class="text-gray-700 mt-3 text-sm">
-                      Descubra o talento dos artesãos da nossa cidade e encontre peças únicas para decorar sua casa ou presentear.
-                    </p>
-</div>
-<!-- Empty State Example -->
-<!-- 
-                  <div class="bg-gray-50 p-6 rounded-xl text-center border-2 border-dashed">
-                      <span class="material-symbols-outlined text-5xl text-gray-400">event_busy</span>
-                      <p class="text-gray-600 mt-2 font-medium">Nenhum evento programado para este dia.</p>
-                      <p class="text-gray-500 text-sm">Explore outra data!</p>
-                  </div>
-                  -->
+<h3 class="text-xl font-bold text-gray-800 mb-4" id="event-list-title">Eventos para 5 de Outubro</h3>
+<div class="space-y-4" id="event-list-container">
 </div>
 </div>
 </div>
 </section>
 </div>
 </main>
-<!-- Pagination -->
 <div class="flex items-center justify-center p-4 pt-8">
 <a class="flex size-10 items-center justify-center text-text-secondary-light dark:text-text-secondary-dark rounded-full hover:bg-border-light dark:hover:bg-border-dark" href="#">
 <span class="material-symbols-outlined text-2xl">chevron_left</span>
@@ -346,7 +320,6 @@
 </div>
 </div>
 </main>
-<!-- Footer -->
 <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
   <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
     <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
@@ -355,7 +328,6 @@
   </div>
 
   <div class="flex flex-wrap justify-center gap-6">
-    <!-- Facebook -->
     <a
       class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
       href="https://www.facebook.com/toursaomiguelarcanjo/"
@@ -369,7 +341,6 @@
       </svg>
     </a>
 
-    <!-- Instagram -->
     <a
       class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
       href="https://www.instagram.com/toursaomiguelarcanjo/"
@@ -391,4 +362,159 @@
   </p>
 </footer>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Lógica dos Botões "Saiba Mais" ---
+    const saibaMaisButtons = document.querySelectorAll('.saiba-mais-toggle');
+    
+    saibaMaisButtons.forEach(button => {
+        // O conteúdo está ANTES do botão no HTML
+        const content = button.previousElementSibling;
+        
+        button.addEventListener('click', () => {
+            if (content && content.classList.contains('saiba-mais-content')) {
+                // Alterna a visibilidade do conteúdo
+                content.classList.toggle('hidden');
+                
+                // Muda o texto do botão
+                const buttonText = button.querySelector('span');
+                if (content.classList.contains('hidden')) {
+                    buttonText.textContent = 'Saiba Mais';
+                } else {
+                    buttonText.textContent = 'Mostrar Menos';
+                }
+            }
+        });
+    });
+
+    // --- Lógica do Calendário ---
+    const calendarGrid = document.getElementById('calendar-grid');
+    const dayButtons = calendarGrid.querySelectorAll('button');
+    const eventListContainer = document.getElementById('event-list-container');
+    const eventListTitle = document.getElementById('event-list-title');
+
+    // 1. Dados dos Eventos (Simulação)
+    const mockEvents = {
+        '4': [
+            {
+                title: 'Exposição de Fotografia',
+                location: 'Museu Histórico',
+                time: '10:00 - 18:00',
+                description: 'Mostra "Olhares de São Miguel", com fotos da natureza local.'
+            }
+        ],
+        '5': [
+            {
+                title: 'Concerto na Praça Matriz',
+                location: 'Praça Matriz, Centro',
+                time: '19:00 - 21:00',
+                description: 'Aproveite uma noite agradável com música ao vivo da orquestra local, apresentando clássicos da música brasileira.'
+            },
+            {
+                title: 'Feira de Artesanato Local',
+                location: 'Ginásio Municipal de Esportes',
+                time: '09:00 - 17:00',
+                description: 'Descubra o talento dos artesãos da nossa cidade e encontre peças únicas para decorar sua casa ou presentear.'
+            }
+        ],
+        '11': [
+             {
+                title: 'Festival Gastronômico',
+                location: 'Parque de Exposições',
+                time: '18:00 - 23:00',
+                description: 'Sabores da terra: experimente pratos típicos da culinária tropeira.'
+            }
+        ],
+        '25': [
+             {
+                title: 'Caminhada Ecológica',
+                location: 'Trilha do Mirante',
+                time: '08:00 - 12:00',
+                description: 'Passeio guiado pela mata atlântica, com vista panorâmica da cidade.'
+            }
+        ]
+    };
+
+    // 2. Templates HTML
+    const createEventCardHTML = (event) => `
+        <div class="bg-white p-5 rounded-xl shadow-lg border border-gray-100 animate-fade-in">
+            <h4 class="font-bold text-lg text-[#194C9B]">${event.title}</h4>
+            <div class="flex items-center text-gray-600 mt-2 text-sm">
+                <span class="material-symbols-outlined text-base mr-2">location_on</span>
+                <span>${event.location}</span>
+            </div>
+            <div class="flex items-center text-gray-600 mt-1 text-sm">
+                <span class="material-symbols-outlined text-base mr-2">schedule</span>
+                <span>${event.time}</span>
+            </div>
+            <p class="text-gray-700 mt-3 text-sm">${event.description}</p>
+        </div>
+    `;
+
+    const emptyStateHTML = `
+        <div class="bg-gray-50 p-6 rounded-xl text-center border-2 border-dashed">
+            <span class="material-symbols-outlined text-5xl text-gray-400">event_busy</span>
+            <p class="text-gray-600 mt-2 font-medium">Nenhum evento programado para este dia.</p>
+            <p class="text-gray-500 text-sm">Explore outra data!</p>
+        </div>
+    `;
+
+    // 3. Função para exibir eventos
+    function showEventsForDay(day) {
+        // Se 'day' for null (ex: nenhum dia selecionado), usa um array vazio
+        const dayEvents = day ? (mockEvents[day] || []) : [];
+        
+        eventListTitle.textContent = day ? `Eventos para ${day} de Outubro` : 'Selecione um dia';
+        eventListContainer.innerHTML = ''; // Limpa eventos anteriores
+
+        if (dayEvents.length > 0) {
+            dayEvents.forEach(event => {
+                eventListContainer.innerHTML += createEventCardHTML(event);
+            });
+        } else {
+            eventListContainer.innerHTML = emptyStateHTML;
+        }
+    }
+
+    // 4. Função para atualizar o dia selecionado
+    function updateSelectedDay(clickedButton) {
+        // Encontra e desmarca o botão atualmente selecionado
+        const currentSelectedBtn = calendarGrid.querySelector('button.day-selected');
+        if (currentSelectedBtn) {
+            currentSelectedBtn.classList.remove('day-selected', 'text-white', 'font-bold');
+            currentSelectedBtn.classList.add('text-gray-800', 'font-medium', 'hover:bg-gray-100');
+            currentSelectedBtn.querySelector('div').classList.remove('bg-[#29763B]', 'shadow-md');
+        }
+        
+        // Marca o novo botão como selecionado
+        clickedButton.classList.add('day-selected', 'text-white', 'font-bold');
+        clickedButton.classList.remove('text-gray-800', 'font-medium', 'hover:bg-gray-100');
+        clickedButton.querySelector('div').classList.add('bg-[#29763B]', 'shadow-md');
+    }
+
+    // 5. Adiciona os listeners de clique aos botões
+    dayButtons.forEach(button => {
+        // Ignora os botões de dias do mês anterior (cinzas)
+        if (button.classList.contains('text-gray-400')) {
+            button.disabled = true;
+            return;
+        }
+
+        button.addEventListener('click', () => {
+            // Pega apenas o número do dia (ignora o pontinho de evento)
+            const day = button.textContent.trim().match(/^\d+/)[0]; 
+            if (day) {
+                updateSelectedDay(button);
+                showEventsForDay(day);
+            }
+        });
+    });
+
+    // 6. Inicialização: Mostra os eventos do dia 5 (que está selecionado por padrão)
+    showEventsForDay('5');
+});
+</script>
+
 </body></html>
