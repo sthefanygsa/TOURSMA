@@ -10,7 +10,7 @@ Projeto desenvolvido com HTML, Tailwind CSS e um pouco de JavaScript, com foco e
 
 - Reúne todas as informações essenciais sobre a cidade em um só lugar.
 
-- Layout intuitivo, bonito e responsivo, pensado para facilitar a navegação.
+- Layout intuitivo, bonito e moderno, pensado para facilitar a navegação.
 
 - Design limpo e moderno, destacando o turismo local.
 
@@ -28,7 +28,7 @@ Projeto desenvolvido com HTML, Tailwind CSS e um pouco de JavaScript, com foco e
 
 1. Clone o repositório:
 
-git clone https://github.com/stehfanygsa/TOURSMA.git
+git clone https://github.com/sthefanygsa/TOURSMA.git
 
 
 2. Abra o arquivo index.html diretamente no navegador.
