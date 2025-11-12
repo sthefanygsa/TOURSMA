@@ -153,13 +153,11 @@
     document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
     window.addEventListener('resize', closeMenu);
 
-    // marca a aba atual automaticamente
     const current = window.location.pathname.split('/').pop();
     document.querySelectorAll('nav .nav-link').forEach(a => {
       if (a.getAttribute('href') === current) a.classList.add('active');
     });
 
-    // força reload se clicar na mesma página
     document.querySelectorAll('a[href]').forEach(link => {
       link.addEventListener('click', e => {
         const target = link.getAttribute('href');
@@ -369,19 +367,15 @@ style='background-image: url("assets/img/semanacultural.jpg");'></div><div class
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Lógica dos Botões "Saiba Mais" ---
     const saibaMaisButtons = document.querySelectorAll('.saiba-mais-toggle');
     
     saibaMaisButtons.forEach(button => {
-        // O conteúdo está ANTES do botão no HTML
         const content = button.previousElementSibling;
         
         button.addEventListener('click', () => {
             if (content && content.classList.contains('saiba-mais-content')) {
-                // Alterna a visibilidade do conteúdo
                 content.classList.toggle('hidden');
                 
-                // Muda o texto do botão
                 const buttonText = button.querySelector('span');
                 if (content.classList.contains('hidden')) {
                     buttonText.textContent = 'Saiba Mais';
@@ -392,13 +386,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Lógica do Calendário ---
     const calendarGrid = document.getElementById('calendar-grid');
     const dayButtons = calendarGrid.querySelectorAll('button');
     const eventListContainer = document.getElementById('event-list-container');
     const eventListTitle = document.getElementById('event-list-title');
 
-    // 1. Dados dos Eventos (Simulação)
     const mockEvents = {
         '4': [
             {
@@ -440,7 +432,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     };
 
-    // 2. Templates HTML
     const createEventCardHTML = (event) => `
         <div class="bg-white p-5 rounded-xl shadow-lg border border-gray-100 animate-fade-in">
             <h4 class="font-bold text-lg text-[#194C9B]">${event.title}</h4>
@@ -464,13 +455,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    // 3. Função para exibir eventos
     function showEventsForDay(day) {
-        // Se 'day' for null (ex: nenhum dia selecionado), usa um array vazio
         const dayEvents = day ? (mockEvents[day] || []) : [];
         
         eventListTitle.textContent = day ? `Eventos para ${day} de Outubro` : 'Selecione um dia';
-        eventListContainer.innerHTML = ''; // Limpa eventos anteriores
+        eventListContainer.innerHTML = ''; 
 
         if (dayEvents.length > 0) {
             dayEvents.forEach(event => {
@@ -481,9 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 4. Função para atualizar o dia selecionado
     function updateSelectedDay(clickedButton) {
-        // Encontra e desmarca o botão atualmente selecionado
         const currentSelectedBtn = calendarGrid.querySelector('button.day-selected');
         if (currentSelectedBtn) {
             currentSelectedBtn.classList.remove('day-selected', 'text-white', 'font-bold');
@@ -491,22 +478,18 @@ document.addEventListener('DOMContentLoaded', () => {
             currentSelectedBtn.querySelector('div').classList.remove('bg-[#29763B]', 'shadow-md');
         }
         
-        // Marca o novo botão como selecionado
         clickedButton.classList.add('day-selected', 'text-white', 'font-bold');
         clickedButton.classList.remove('text-gray-800', 'font-medium', 'hover:bg-gray-100');
         clickedButton.querySelector('div').classList.add('bg-[#29763B]', 'shadow-md');
     }
 
-    // 5. Adiciona os listeners de clique aos botões
     dayButtons.forEach(button => {
-        // Ignora os botões de dias do mês anterior (cinzas)
         if (button.classList.contains('text-gray-400')) {
             button.disabled = true;
             return;
         }
 
         button.addEventListener('click', () => {
-            // Pega apenas o número do dia (ignora o pontinho de evento)
             const day = button.textContent.trim().match(/^\d+/)[0]; 
             if (day) {
                 updateSelectedDay(button);
@@ -514,10 +497,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // 6. Inicialização: Mostra os eventos do dia 5 (que está selecionado por padrão)
     showEventsForDay('5');
 });
 </script>
-
 </body></html>
