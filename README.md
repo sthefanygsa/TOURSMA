@@ -4,21 +4,15 @@ Site institucional da TOUR São Miguel Arcanjo, apresentando turismo, hotelaria,
 
 📝 Descrição
 
-Projeto desenvolvido com HTML, Tailwind CSS e um pouco de JavaScript, com foco em criar um site moderno, responsivo e funcional, destacando os atrativos turísticos de São Miguel Arcanjo.
+Projeto desenvolvido com HTML, Tailwind CSS e um pouco de JavaScript, com foco em criar um site moderno, prático e funcional, destacando os principais atrativos turísticos de São Miguel Arcanjo.
 
 ✨ Funcionalidades principais
 
-- Navbar com dropdown no menu “Turismo”
+- Reúne todas as informações essenciais sobre a cidade em um só lugar.
 
-- Indicação automática da página atual
+- Layout intuitivo, bonito e responsivo, pensado para facilitar a navegação.
 
-- Recarrega a página ao clicar novamente no mesmo link
-
-- Layout totalmente responsivo (desktop e mobile)
-
-- Seções: Nossa História, Fundadores, Missão, Visão e Valores, Contato e Localização
-
-- Footer com links úteis e redes sociais
+- Design limpo e moderno, destacando o turismo local.
 
 💻 Tecnologias utilizadas
 
@@ -32,20 +26,18 @@ Projeto desenvolvido com HTML, Tailwind CSS e um pouco de JavaScript, com foco e
 
 🚀 Como usar
 
-Clone o repositório:
+1. Clone o repositório:
 
 git clone https://github.com/stehfanygsa/TOURSMA.git
 
 
-Abra o arquivo index.html diretamente no navegador.
+2. Abra o arquivo index.html diretamente no navegador.
 
 📌 Observações
 
-As imagens estão salvas na pasta assets/img/
-
-Scripts do dropdown e da marcação da página atual foram feitos em JavaScript puro
+- As imagens estão salvas na pasta assets/img/.
 
 🖇 Autor
 
 Sthefany Alves
-📧 Contato: sthefanygsa@gmail.com
+📧 sthefanygsa@gmail.com
