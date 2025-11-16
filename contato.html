@@ -1,321 +1,360 @@
 <!DOCTYPE html>
-
-<html class="light" lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>TOUR - Suporte</title>
-<link rel="icon" type="image/png" href="assets/img/logo_coracao_verde.png">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "primary": "#29753b",
-              "background-light": "#f6f8f6",
-              "background-dark": "#141e16",
-              "accent-blue": "#194C9B",
-              "text-dark": "#333333",
-              "border-light": "#CCCCCC",
-            },
-            fontFamily: {
-              "display": ["Plus Jakarta Sans", "sans-serif"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+<html class="light" lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>TOUR - Suporte</title>
+  <link rel="icon" type="image/png" href="assets/img/logo_coracao_verde.png">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#29753b",
+            "background-light": "#f6f8f6",
+            "background-dark": "#141e16",
+            "accent-blue": "#194C9B",
+            "text-dark": "#333333",
+            "border-light": "#CCCCCC",
           },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
         },
-      }
-    </script>
-<style>
-      body {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-      }
-      .material-symbols-outlined {
-        font-variation-settings:
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings:
         'FILL' 0,
         'wght' 400,
         'GRAD' 0,
         'opsz' 24
-      }
-    </style>
+    }
+  </style>
 </head>
+
 <body class="bg-white dark:bg-background-dark font-display">
-<div class="relative flex min-h-screen w-full flex-col">
-<!-- TopNavBar (com dropdown por CLICK e reload nos links) -->
-<header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
-  <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
+  <div class="relative flex min-h-screen w-full flex-col">
+    <header
+      class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
+      <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
 
-    <!-- LOGO + TEXTO -->
-<div class="flex items-center gap-1.5">
-  <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
-  <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
-    <span style="color:#29763B;">TOUR</span>
-    <span style="color:#333333;"> São Miguel Arcanjo</span>
-  </h2>
-</div>
-
-    <!-- NAVBAR -->
-    <div class="hidden md:flex flex-1 items-center justify-end gap-8">
-      <nav class="flex items-center gap-9">
-
-        <a href="index.html" class="nav-link">Início</a>
-
-        <!-- Dropdown Turismo -->
-        <div class="relative" id="menu-turismo-wrapper">
-          <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
-            class="nav-link flex items-center gap-1 focus:outline-none">
-            Turismo
-            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
-              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-
-          <div id="turismo-menu"
-            class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50"
-            role="menu" aria-label="submenu turismo">
-            <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
-            <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
-            <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
-            <a href="cultural.html" class="dropdown-item block" role="menuitem">Étnico</a>
-          </div>
+        <div class="flex items-center gap-1.5">
+          <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
+          <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+            <span style="color:#29763B;">TOUR</span>
+            <span style="color:#333333;"> São Miguel Arcanjo</span>
+          </h2>
         </div>
 
-        <a href="hotelaria.html" class="nav-link">Hotelaria</a>
-        <a href="gastronomia.html" class="nav-link">Gastronomia</a>
-        <a href="agenda.html" class="nav-link">Agenda</a>
-        <a href="telefones.html" class="nav-link">Telefones</a>
-        <a href="sobre.html" class="nav-link">Sobre nós</a>
-      </nav>
+        <div class="hidden md:flex flex-1 items-center justify-end gap-8">
+          <nav class="flex items-center gap-9">
 
-      <!-- Botão Suporte -->
-      <a href="contato.html"
-        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-        <span class="truncate">Suporte</span>
-      </a>
-    </div>
+            <a href="index.html" class="nav-link">Início</a>
 
-    <!-- MENU MOBILE -->
-    <button class="md:hidden text-text-dark dark:text-white">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
-  </div>
-</header>
+            <div class="relative" id="menu-turismo-wrapper">
+              <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
+                class="nav-link flex items-center gap-1 focus:outline-none">
+                Turismo
+                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
+                  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
 
-<!-- STYLES -->
-<style>
-  .nav-link {
-    color: #333333;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-link:hover { color: #194C9B; }
-  .nav-link.active { color: #194C9B; font-weight: 700; }
+              <div id="turismo-menu"
+                class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50"
+                role="menu" aria-label="submenu turismo">
+                <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
+                <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
+                <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
+                <a href="cultural.html" class="dropdown-item block" role="menuitem">Étnico</a>
+              </div>
+            </div>
 
-  .dropdown-item {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.925rem;
-    color: #333;
-    transition: background-color 0.15s, color 0.15s;
-    white-space: nowrap;
-    display: block;
-    text-decoration: none;
-  }
-  .dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
-</style>
+            <a href="hotelaria.html" class="nav-link">Hotelaria</a>
+            <a href="gastronomia.html" class="nav-link">Gastronomia</a>
+            <a href="agenda.html" class="nav-link">Agenda</a>
+            <a href="telefones.html" class="nav-link">Telefones</a>
+            <a href="sobre.html" class="nav-link">Sobre nós</a>
+          </nav>
 
-<!-- SCRIPT -->
-<script>
-  (function () {
-    const toggle = document.getElementById('turismo-toggle');
-    const menu = document.getElementById('turismo-menu');
-    const wrapper = document.getElementById('menu-turismo-wrapper');
+          <a href="contato.html"
+            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+            <span class="truncate">Suporte</span>
+          </a>
+        </div>
 
-    function openMenu() {
-      menu.classList.remove('hidden');
-      toggle.setAttribute('aria-expanded', 'true');
-    }
-    function closeMenu() {
-      menu.classList.add('hidden');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-    function toggleMenu() {
-      const isOpen = !menu.classList.contains('hidden');
-      if (isOpen) closeMenu();
-      else openMenu();
-    }
+        <button class="md:hidden text-text-dark dark:text-white">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </header>
 
-    toggle.addEventListener('click', e => {
-      e.stopPropagation();
-      toggleMenu();
-    });
+    <style>
+      .nav-link {
+        color: #333333;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
 
-    menu.addEventListener('click', e => e.stopPropagation());
-    document.addEventListener('click', () => closeMenu());
-    document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
-    window.addEventListener('resize', closeMenu);
+      .nav-link:hover {
+        color: #194C9B;
+      }
 
-    // marca a aba atual automaticamente
-    const current = window.location.pathname.split('/').pop();
-    document.querySelectorAll('nav .nav-link').forEach(a => {
-      if (a.getAttribute('href') === current) a.classList.add('active');
-    });
+      .nav-link.active {
+        color: #194C9B;
+        font-weight: 700;
+      }
 
-    // força reload se clicar na mesma página
-    document.querySelectorAll('a[href]').forEach(link => {
-      link.addEventListener('click', e => {
-        const target = link.getAttribute('href');
-        const current = window.location.pathname.split('/').pop();
-        if (target === current) {
-          e.preventDefault();
-          window.location.reload();
+      .dropdown-item {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.925rem;
+        color: #333;
+        transition: background-color 0.15s, color 0.15s;
+        white-space: nowrap;
+        display: block;
+        text-decoration: none;
+      }
+
+      .dropdown-item:hover {
+        background-color: #f2f5fa;
+        color: #194C9B;
+      }
+    </style>
+
+    <script>
+      (function () {
+        const toggle = document.getElementById('turismo-toggle');
+        const menu = document.getElementById('turismo-menu');
+        const wrapper = document.getElementById('menu-turismo-wrapper');
+
+        function openMenu() {
+          menu.classList.remove('hidden');
+          toggle.setAttribute('aria-expanded', 'true');
         }
+        function closeMenu() {
+          menu.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+        function toggleMenu() {
+          const isOpen = !menu.classList.contains('hidden');
+          if (isOpen) closeMenu();
+          else openMenu();
+        }
+
+        toggle.addEventListener('click', e => {
+          e.stopPropagation();
+          toggleMenu();
+        });
+
+        menu.addEventListener('click', e => e.stopPropagation());
+        document.addEventListener('click', () => closeMenu());
+        document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
+        window.addEventListener('resize', closeMenu);
+
+        // marca a aba atual automaticamente
+        const current = window.location.pathname.split('/').pop();
+        document.querySelectorAll('nav .nav-link').forEach(a => {
+          if (a.getAttribute('href') === current) a.classList.add('active');
+        });
+
+        // força reload se clicar na mesma página
+        document.querySelectorAll('a[href]').forEach(link => {
+          link.addEventListener('click', e => {
+            const target = link.getAttribute('href');
+            const current = window.location.pathname.split('/').pop();
+            if (target === current) {
+              e.preventDefault();
+              window.location.reload();
+            }
+          });
+        });
+      })();
+    </script>
+    <main class="flex-grow">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div class="flex flex-col">
+            <div class="mb-8">
+              <h1 class="text-accent-blue dark:text-blue-400 text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">
+                Fale Conosco</h1>
+              <p class="mt-3 text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Adoraríamos ouvir de
+                você. Preencha o formulário abaixo ou utilize um dos nossos canais de contato.</p>
+            </div>
+            <form action="#" class="space-y-6" method="POST">
+              <div>
+                <label class="block text-text-dark dark:text-gray-300 text-base font-medium leading-normal pb-2"
+                  for="nome">Nome</label>
+                <input
+                  class="form-input block w-full resize-none overflow-hidden rounded-lg text-text-dark dark:text-white dark:bg-gray-800 focus:outline-0 focus:ring-2 focus:ring-accent-blue border border-border-light dark:border-gray-600 focus:border-accent-blue h-14 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal"
+                  id="nome" name="nome" placeholder="Digite seu nome completo" type="text" />
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-text-dark dark:text-gray-300 text-base font-medium leading-normal pb-2"
+                    for="email">E-mail</label>
+                  <input
+                    class="form-input block w-full resize-none overflow-hidden rounded-lg text-text-dark dark:text-white dark:bg-gray-800 focus:outline-0 focus:ring-2 focus:ring-accent-blue border border-border-light dark:border-gray-600 focus:border-accent-blue h-14 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal"
+                    id="email" name="email" placeholder="seuemail@exemplo.com" type="email" />
+                </div>
+                <div>
+                  <label class="block text-text-dark dark:text-gray-300 text-base font-medium leading-normal pb-2"
+                    for="telefone">Telefone</label>
+                  <input
+                    class="form-input block w-full resize-none overflow-hidden rounded-lg text-text-dark dark:text-white dark:bg-gray-800 focus:outline-0 focus:ring-2 focus:ring-accent-blue border border-border-light dark:border-gray-600 focus:border-accent-blue h-14 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal"
+                    id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" type="tel" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-text-dark dark:text-gray-300 text-base font-medium leading-normal pb-2"
+                  for="mensagem">Mensagem</label>
+                <textarea
+                  class="form-textarea block w-full resize-none overflow-hidden rounded-lg text-text-dark dark:text-white dark:bg-gray-800 focus:outline-0 focus:ring-2 focus:ring-accent-blue border border-border-light dark:border-gray-600 focus:border-accent-blue min-h-36 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal"
+                  id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." rows="6"></textarea>
+              </div>
+              <div>
+                <button
+                  class="w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
+                  type="submit">
+                  <span class="truncate">Enviar Mensagem</span>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="flex flex-col lg:pl-10">
+            <div class="rounded-xl bg-background-light dark:bg-gray-800 p-8 lg:p-12 h-full">
+              <h2 class="text-accent-blue dark:text-blue-400 text-2xl sm:text-3xl font-bold leading-tight">Outras Formas
+                de Contato</h2>
+              <p class="mt-3 text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Entre em contato
+                conosco diretamente através dos canais abaixo.</p>
+              <div class="mt-10 space-y-8">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex-shrink-0 flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-green-300">
+                    <span class="material-symbols-outlined">call</span>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-bold text-text-dark dark:text-white">Telefone</h3>
+                    <p class="text-gray-500 dark:text-gray-400">+55 (15) 99999-8888</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex-shrink-0 flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-green-300">
+                    <span class="material-symbols-outlined">mail</span>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-bold text-text-dark dark:text-white">E-mail</h3>
+                    <p class="text-gray-500 dark:text-gray-400">contato@toursaomiguel.com</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex-shrink-0 flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-green-300">
+                    <span class="material-symbols-outlined">location_on</span>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-bold text-text-dark dark:text-white">Endereço</h3>
+                    <p class="text-gray-500 dark:text-gray-400">São Miguel Arcanjo, SP, Brasil</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-12 pt-8 border-t border-border-light/50 dark:border-gray-700">
+                <h3 class="text-lg font-bold text-text-dark dark:text-white">Siga-nos</h3>
+                <div class="flex items-center gap-4 mt-4">
+                  <a class="text-gray-500 dark:text-gray-400 hover:text-accent-blue dark:hover:text-white transition-colors"
+                    data-alt="Facebook icon" href="https://www.facebook.com/toursaomiguelarcanjo/">
+                    <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+                      <path clip-rule="evenodd"
+                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                        fill-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                  <a class="text-gray-500 dark:text-gray-400 hover:text-accent-blue dark:hover:text-white transition-colors"
+                    data-alt="Instagram icon" href="https://www.instagram.com/toursaomiguelarcanjo/">
+                    <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
+                      <path clip-rule="evenodd"
+                        d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.792 2.792c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-2.792 2.792c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.792-2.792c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 012.792-2.792c.636-.247 1.363.416 2.427.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-9.75a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z"
+                        fill-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer
+      class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
+      <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
+        <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
+        <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="politicas.html">Política de
+          Privacidade</a>
+        <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="contato.html">Suporte</a>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-6">
+        <a class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
+          href="https://www.facebook.com/toursaomiguelarcanjo/" target="_blank" rel="noopener noreferrer">
+          <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          </svg>
+        </a>
+
+        <a class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
+          href="https://www.instagram.com/toursaomiguelarcanjo/" target="_blank" rel="noopener noreferrer">
+          <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"
+            xmlns="http://www.w3.org/2000/svg">
+            <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+          </svg>
+        </a>
+      </div>
+
+      <p class="text-text-subtle-light dark:text-text-subtle-dark text-sm font-normal leading-normal">
+        © 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // Seleciona o formulário de contato (usei o 'method="POST"' como seletor)
+    const contactForm = document.querySelector('form[method="POST"]');
+
+    if (contactForm) {
+      // Adiciona um "ouvinte" para o evento 'submit'
+      contactForm.addEventListener('submit', function (event) {
+        
+        // 1. Impede a ação padrão (que seria enviar o formulário)
+        event.preventDefault();
+
+        // 2. Redireciona o usuário de volta para a página 'contato.html'
+        // Isso dá a impressão de que a página recarregou.
+        window.location.href = 'contato.html';
       });
-    });
-  })();
-</script>
-<!-- Main Content -->
-<main class="flex-grow">
-<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-<!-- Left Column: Form -->
-<div class="flex flex-col">
-<!-- PageHeading -->
-<div class="mb-8">
-<h1 class="text-accent-blue dark:text-blue-400 text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">Fale Conosco</h1>
-<p class="mt-3 text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Adoraríamos ouvir de você. Preencha o formulário abaixo ou utilize um dos nossos canais de contato.</p>
-</div>
-<!-- Contact Form -->
-<form action="#" class="space-y-6" method="POST">
-<!-- TextField: Nome -->
-<div>
-<label class="block text-text-dark dark:text-gray-300 text-base font-medium leading-normal pb-2" for="nome">Nome</label>
-<input class="form-input block w-full resize-none overflow-hidden rounded-lg text-text-dark dark:text-white dark:bg-gray-800 focus:outline-0 focus:ring-2 focus:ring-accent-blue border border-border-light dark:border-gray-600 focus:border-accent-blue h-14 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal" id="nome" name="nome" placeholder="Digite seu nome completo" type="text"/>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-<!-- TextField: E-mail -->
-<div>
-<label class="block text-text-dark dark:text-gray-300 text-base font-medium leading-normal pb-2" for="email">E-mail</label>
-<input class="form-input block w-full resize-none overflow-hidden rounded-lg text-text-dark dark:text-white dark:bg-gray-800 focus:outline-0 focus:ring-2 focus:ring-accent-blue border border-border-light dark:border-gray-600 focus:border-accent-blue h-14 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal" id="email" name="email" placeholder="seuemail@exemplo.com" type="email"/>
-</div>
-<!-- TextField: Telefone -->
-<div>
-<label class="block text-text-dark dark:text-gray-300 text-base font-medium leading-normal pb-2" for="telefone">Telefone</label>
-<input class="form-input block w-full resize-none overflow-hidden rounded-lg text-text-dark dark:text-white dark:bg-gray-800 focus:outline-0 focus:ring-2 focus:ring-accent-blue border border-border-light dark:border-gray-600 focus:border-accent-blue h-14 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" type="tel"/>
-</div>
-</div>
-<!-- TextField: Mensagem -->
-<div>
-<label class="block text-text-dark dark:text-gray-300 text-base font-medium leading-normal pb-2" for="mensagem">Mensagem</label>
-<textarea class="form-textarea block w-full resize-none overflow-hidden rounded-lg text-text-dark dark:text-white dark:bg-gray-800 focus:outline-0 focus:ring-2 focus:ring-accent-blue border border-border-light dark:border-gray-600 focus:border-accent-blue min-h-36 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal" id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." rows="6"></textarea>
-</div>
-<!-- Submit Button -->
-<div>
-<button class="w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" type="submit">
-<span class="truncate">Enviar Mensagem</span>
-</button>
-</div>
-</form>
-</div>
-<!-- Right Column: Direct Contact -->
-<div class="flex flex-col lg:pl-10">
-<div class="rounded-xl bg-background-light dark:bg-gray-800 p-8 lg:p-12 h-full">
-<h2 class="text-accent-blue dark:text-blue-400 text-2xl sm:text-3xl font-bold leading-tight">Outras Formas de Contato</h2>
-<p class="mt-3 text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Entre em contato conosco diretamente através dos canais abaixo.</p>
-<div class="mt-10 space-y-8">
-<div class="flex items-start gap-4">
-<div class="flex-shrink-0 flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-green-300">
-<span class="material-symbols-outlined">call</span>
-</div>
-<div>
-<h3 class="text-lg font-bold text-text-dark dark:text-white">Telefone</h3>
-<p class="text-gray-500 dark:text-gray-400">+55 (15) 99999-8888</p>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<div class="flex-shrink-0 flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-green-300">
-<span class="material-symbols-outlined">mail</span>
-</div>
-<div>
-<h3 class="text-lg font-bold text-text-dark dark:text-white">E-mail</h3>
-<p class="text-gray-500 dark:text-gray-400">contato@toursaomiguel.com</p>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<div class="flex-shrink-0 flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-green-300">
-<span class="material-symbols-outlined">location_on</span>
-</div>
-<div>
-<h3 class="text-lg font-bold text-text-dark dark:text-white">Endereço</h3>
-<p class="text-gray-500 dark:text-gray-400">São Miguel Arcanjo, SP, Brasil</p>
-</div>
-</div>
-</div>
-<div class="mt-12 pt-8 border-t border-border-light/50 dark:border-gray-700">
-<h3 class="text-lg font-bold text-text-dark dark:text-white">Siga-nos</h3>
-<div class="flex items-center gap-4 mt-4">
-<a class="text-gray-500 dark:text-gray-400 hover:text-accent-blue dark:hover:text-white transition-colors" data-alt="Facebook icon" href="https://www.facebook.com/toursaomiguelarcanjo/">
-<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg>
-</a>
-<a class="text-gray-500 dark:text-gray-400 hover:text-accent-blue dark:hover:text-white transition-colors" data-alt="Instagram icon" href="https://www.instagram.com/toursaomiguelarcanjo/">
-<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.792 2.792c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-2.792 2.792c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.792-2.792c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 012.792-2.792c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-9.75a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z" fill-rule="evenodd"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer -->
-<footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
-  <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
-    <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
-    <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="politicas.html">Política de Privacidade</a>
-    <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="contato.html">Suporte</a>
-  </div>
-
-  <div class="flex flex-wrap justify-center gap-6">
-    <!-- Facebook -->
-    <a
-      class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
-      href="https://www.facebook.com/toursaomiguelarcanjo/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
-        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-      </svg>
-    </a>
-
-    <!-- Instagram -->
-    <a
-      class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
-      href="https://www.instagram.com/toursaomiguelarcanjo/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
-        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"
-        xmlns="http://www.w3.org/2000/svg">
-        <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-      </svg>
-    </a>
-  </div>
-
-  <p class="text-text-subtle-light dark:text-text-subtle-dark text-sm font-normal leading-normal">
-    © 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.
-  </p>
-</footer>
-</div>
-</body></html>
+    }
+  </script>
+  </body>
+</html>
