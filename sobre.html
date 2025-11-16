@@ -47,11 +47,9 @@
 </head>
 <body class="font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark">
 <div class="relative flex min-h-screen w-full flex-col">
-<!-- TopNavBar (com dropdown por CLICK e reload nos links) -->
 <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
   <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
 
-    <!-- LOGO + TEXTO -->
     <div class="flex items-center gap-1.5">
       <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
       <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
@@ -60,13 +58,11 @@
       </h2>
     </div>
 
-    <!-- NAVBAR -->
     <div class="hidden md:flex flex-1 items-center justify-end gap-8">
       <nav class="flex items-center gap-9">
 
         <a href="index.html" class="nav-link">Início</a>
 
-        <!-- Dropdown Turismo -->
         <div class="relative" id="menu-turismo-wrapper">
           <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
             class="nav-link flex items-center gap-1 focus:outline-none">
@@ -94,21 +90,18 @@
         <a href="sobre.html" class="nav-link">Sobre nós</a>
       </nav>
 
-      <!-- Botão Suporte -->
       <a href="contato.html"
         class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
         <span class="truncate">Suporte</span>
       </a>
     </div>
 
-    <!-- MENU MOBILE -->
     <button class="md:hidden text-text-dark dark:text-white">
       <span class="material-symbols-outlined">menu</span>
     </button>
   </div>
 </header>
 
-<!-- STYLES -->
 <style>
   .nav-link {
     color: #333333;
@@ -131,7 +124,6 @@
   .dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
 </style>
 
-<!-- SCRIPT -->
 <script>
   (function () {
     const toggle = document.getElementById('turismo-toggle');
@@ -161,13 +153,11 @@
     document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
     window.addEventListener('resize', closeMenu);
 
-    // marca a aba atual automaticamente
     const current = window.location.pathname.split('/').pop();
     document.querySelectorAll('nav .nav-link').forEach(a => {
       if (a.getAttribute('href') === current) a.classList.add('active');
     });
 
-    // força reload se clicar na mesma página
     document.querySelectorAll('a[href]').forEach(link => {
       link.addEventListener('click', e => {
         const target = link.getAttribute('href');
@@ -183,7 +173,6 @@
 
 <main class="flex flex-1 justify-center py-10 sm:py-16">
 <div class="flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
-<!-- PageHeading -->
 <div class="flex flex-wrap justify-between text-center py-10">
   <div class="flex w-full flex-col items-center gap-6">
     <h1 class="text-4xl lg:text-5xl font-black leading-tight tracking-tighter" style="color:#194C9B;">
@@ -195,17 +184,14 @@
   </div>
 </div>
 
-<!-- BodyText -->
 <p class="text-body-text-light dark:text-body-text-dark text-base font-normal leading-relaxed text-center max-w-4xl mx-auto mb-16">
   Fundada com o objetivo de proporcionar experiências autênticas e inesquecíveis, a TOUR São Miguel Arcanjo se dedica a criar roteiros que conectam visitantes com a cultura, natureza e história local. Nossa equipe é composta por guias apaixonados que conhecem cada detalhe da região e estão prontos para transformar sua viagem em uma memória preciosa. Acreditamos no turismo sustentável e no impacto positivo que ele pode gerar para a comunidade.
 </p>
 
-<!-- SectionHeader: Founders -->
 <h2 class="text-3xl font-bold leading-tight tracking-tight text-center mb-10" style="color:#194C9B;">
   Conheça Nossos Fundadores
 </h2>
 
-<!-- Founder -->
 <div class="flex justify-center mb-16">
   <div class="flex flex-col items-center gap-6 text-center">
     <div class="w-44 h-44 mb-4">
@@ -223,7 +209,6 @@
     </div>
   </div>
 </div>
-<!-- Mission, Vision, Values Section -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center pt-8">
 <div class="flex flex-col items-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl">
 <span class="material-symbols-outlined text-primary text-4xl mb-4">rocket_launch</span>
@@ -241,7 +226,6 @@
 <p class="text-body-text-light dark:text-body-text-dark text-sm leading-relaxed">Sustentabilidade, Autenticidade, Paixão pelo que fazemos, Excelência no atendimento e Respeito pela cultura e comunidade local.</p>
 </div>
 </div>
-<!-- Contact & Location Section -->
 <div class="pt-8">
 <h2 class="text-3xl font-bold leading-tight tracking-tight text-center mb-8" style="color:#194C9B;">
   Onde nos Encontrar
@@ -299,7 +283,6 @@
 </div>
 </div>
 </main>
-<!-- Footer -->
 <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
   <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
     <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
@@ -308,7 +291,6 @@
   </div>
 
   <div class="flex flex-wrap justify-center gap-6">
-    <!-- Facebook -->
     <a
       class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
       href="https://www.facebook.com/toursaomiguelarcanjo/"
@@ -322,7 +304,6 @@
       </svg>
     </a>
 
-    <!-- Instagram -->
     <a
       class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
       href="https://www.instagram.com/toursaomiguelarcanjo/"

@@ -6,10 +6,8 @@
   <title>TOUR - Política de Privacidade</title>
   <link rel="icon" type="image/png" href="assets/img/logo_coracao_verde.png">
 
-  <!-- Tailwind (CDN) + plugins -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
-  <!-- Tailwind config (cores e fontes semelhantes ao site) -->
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
@@ -30,7 +28,6 @@
     }
   </script>
 
-  <!-- Google Fonts + Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
@@ -52,11 +49,9 @@
 
 <body class="bg-background-light text-[#121613] dark:bg-background-dark dark:text-text-primary-dark">
 
-<!-- TopNavBar -->
 <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
   <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
 
-    <!-- LOGO + TEXTO -->
     <div class="flex items-center gap-1.5">
       <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
       <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
@@ -65,12 +60,10 @@
       </h2>
     </div>
 
-    <!-- NAVBAR -->
     <div class="hidden md:flex flex-1 items-center justify-end gap-8">
       <nav class="flex items-center gap-9">
         <a href="index.html" class="nav-link">Início</a>
 
-        <!-- Dropdown Turismo -->
         <div class="relative" id="menu-turismo-wrapper">
           <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
             class="nav-link flex items-center gap-1 focus:outline-none">
@@ -98,21 +91,18 @@
         <a href="sobre.html" class="nav-link">Sobre nós</a>
       </nav>
 
-      <!-- Botão Suporte -->
       <a href="contato.html"
         class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
         <span class="truncate">Suporte</span>
       </a>
     </div>
 
-    <!-- MENU MOBILE -->
     <button class="md:hidden text-text-dark dark:text-white">
       <span class="material-symbols-outlined">menu</span>
     </button>
   </div>
 </header>
 
-<!-- STYLES (pequenas regras locais) -->
 <style>
   .nav-link {
     color: #333333;
@@ -135,7 +125,6 @@
   .dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
 </style>
 
-<!-- SCRIPT (menu + marca aba ativa) -->
 <script>
   (function () {
     const toggle = document.getElementById('turismo-toggle');
@@ -152,7 +141,6 @@
       document.addEventListener('keydown', e => e.key === 'Escape' && menu.classList.add('hidden'));
     }
 
-    // marca a aba atual
     const current = window.location.pathname.split('/').pop();
     document.querySelectorAll('nav .nav-link').forEach(a => {
       if (a.getAttribute('href') === current) a.classList.add('active');
@@ -160,7 +148,6 @@
   })();
 </script>
 
-<!-- CONTEÚDO -->
 <main class="flex flex-1 justify-center py-10 sm:py-16">
   <div class="flex w-full max-w-4xl flex-col px-4 sm:px-6 lg:px-8 leading-relaxed">
 
@@ -203,7 +190,6 @@
   </div>
 </main>
 
-<!-- Footer -->
 <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
   <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
     <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
@@ -212,7 +198,6 @@
   </div>
 
   <div class="flex flex-wrap justify-center gap-6">
-    <!-- Facebook -->
     <a
       class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
       href="https://www.facebook.com/toursaomiguelarcanjo/"
@@ -226,7 +211,6 @@
       </svg>
     </a>
 
-    <!-- Instagram -->
     <a
       class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
       href="https://www.instagram.com/toursaomiguelarcanjo/"

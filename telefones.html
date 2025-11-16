@@ -515,7 +515,6 @@
       <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-          // --- LÓGICA DOS FILTROS ---
           const filterButtons = document.querySelectorAll('.filter-btn');
           const cards = document.querySelectorAll('.establishment-card');
 
@@ -531,7 +530,6 @@
             button.addEventListener('click', () => {
               const filter = button.dataset.filter;
 
-              // Atualiza botões
               filterButtons.forEach(btn => {
                 btn.classList.remove(...activeClasses);
                 btn.classList.add(...inactiveClasses.filter(c => !btn.classList.contains(c)));
@@ -540,11 +538,9 @@
               button.classList.remove(...inactiveClasses.filter(c => button.classList.contains(c)));
 
 
-              // Filtra os cards
               cards.forEach(card => {
                 const category = card.dataset.category;
                 if (filter === 'all' || filter === category) {
-                  // Usamos 'flex' pois os cards são 'flex flex-col'
                   card.style.display = 'flex';
                 } else {
                   card.style.display = 'none';
@@ -553,12 +549,10 @@
             });
           });
 
-          // --- LÓGICA DO BOTÃO COPIAR (AGORA REMOVE CARACTERES NÃO-NUMÉRICOS) ---
           const copyButtons = document.querySelectorAll('.copy-btn');
           copyButtons.forEach(button => {
             button.addEventListener('click', () => {
               const rawText = button.dataset.copy;
-              // Remove todos os caracteres que não são dígitos (0-9)
               const textToCopy = rawText.replace(/\D/g, ''); 
               
               if (textToCopy && navigator.clipboard) {

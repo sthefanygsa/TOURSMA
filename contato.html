@@ -169,13 +169,11 @@
         document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
         window.addEventListener('resize', closeMenu);
 
-        // marca a aba atual automaticamente
         const current = window.location.pathname.split('/').pop();
         document.querySelectorAll('nav .nav-link').forEach(a => {
           if (a.getAttribute('href') === current) a.classList.add('active');
         });
 
-        // força reload se clicar na mesma página
         document.querySelectorAll('a[href]').forEach(link => {
           link.addEventListener('click', e => {
             const target = link.getAttribute('href');
@@ -340,18 +338,13 @@
   </div>
 
   <script>
-    // Seleciona o formulário de contato (usei o 'method="POST"' como seletor)
     const contactForm = document.querySelector('form[method="POST"]');
 
     if (contactForm) {
-      // Adiciona um "ouvinte" para o evento 'submit'
       contactForm.addEventListener('submit', function (event) {
         
-        // 1. Impede a ação padrão (que seria enviar o formulário)
         event.preventDefault();
 
-        // 2. Redireciona o usuário de volta para a página 'contato.html'
-        // Isso dá a impressão de que a página recarregou.
         window.location.href = 'contato.html';
       });
     }

@@ -16,8 +16,8 @@
       theme: {
         extend: {
           colors: {
-            "primary": "#29763B", // Verde
-            "secondary": "#194C9B", // Azul
+            "primary": "#29763B", 
+            "secondary": "#194C9B", 
             "background-light": "#FFFFFF",
             "background-dark": "#101010",
             "text-light": "#121613",
@@ -46,11 +46,9 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
 <div class="relative flex min-h-screen w-full flex-col group/design-root">
-<!-- TopNavBar (com dropdown por CLICK e reload nos links) -->
 <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
   <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
 
-    <!-- LOGO + TEXTO -->
 <div class="flex items-center gap-1.5">
   <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
   <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
@@ -59,13 +57,11 @@
   </h2>
 </div>
 
-    <!-- NAVBAR -->
     <div class="hidden md:flex flex-1 items-center justify-end gap-8">
       <nav class="flex items-center gap-9">
 
         <a href="index.html" class="nav-link">Início</a>
 
-        <!-- Dropdown Turismo -->
         <div class="relative" id="menu-turismo-wrapper">
           <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
             class="nav-link flex items-center gap-1 focus:outline-none">
@@ -93,21 +89,18 @@
         <a href="sobre.html" class="nav-link">Sobre nós</a>
       </nav>
 
-      <!-- Botão Suporte -->
       <a href="contato.html"
         class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
         <span class="truncate">Suporte</span>
       </a>
     </div>
 
-    <!-- MENU MOBILE -->
     <button class="md:hidden text-text-dark dark:text-white">
       <span class="material-symbols-outlined">menu</span>
     </button>
   </div>
 </header>
 
-<!-- STYLES -->
 <style>
   .nav-link {
     color: #333333;
@@ -130,7 +123,6 @@
   .dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
 </style>
 
-<!-- SCRIPT -->
 <script>
   (function () {
     const toggle = document.getElementById('turismo-toggle');
@@ -161,13 +153,11 @@
     document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
     window.addEventListener('resize', closeMenu);
 
-    // marca a aba atual automaticamente
     const current = window.location.pathname.split('/').pop();
     document.querySelectorAll('nav .nav-link').forEach(a => {
       if (a.getAttribute('href') === current) a.classList.add('active');
     });
 
-    // força reload se clicar na mesma página
     document.querySelectorAll('a[href]').forEach(link => {
       link.addEventListener('click', e => {
         const target = link.getAttribute('href');
@@ -183,14 +173,12 @@
 <main class="flex-grow">
 <div class="flex flex-col items-center w-full">
 <div class="w-full max-w-6xl px-4 py-8 md:py-12">
-<!-- HeaderImage (Carousel Automático) -->
 <div class="w-full relative">
   <div
     id="carousel"
     class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[400px] md:min-h-[500px] transition-all duration-1000 ease-in-out"
     style='background-image: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url("assets/img/img_carrossel_2_cidade.jpg");'
   >
-    <!-- Indicadores -->
     <div class="flex justify-center gap-2 p-5">
       <div class="dot size-2 rounded-full bg-white"></div>
       <div class="dot size-2 rounded-full bg-white/50"></div>
@@ -200,7 +188,6 @@
   </div>
 </div>
 
-<!-- Script -->
 <script>
   const imagens = [
     "assets/img/img_carrossel_2_cidade.jpg",
@@ -223,9 +210,8 @@
     });
   }
 
-  setInterval(mudarImagem, 4000); // troca a cada 4 segundos
+  setInterval(mudarImagem, 4000); 
 </script>
-<!-- Headline & Body Text Section (História) -->
 <section class="py-12 md:py-20 text-center max-w-3xl mx-auto">
 <h1 class="text-secondary tracking-tight text-3xl md:text-4xl font-extrabold leading-tight pb-4">Conheça São Miguel Arcanjo</h1>
 <p class="text-text-muted-light dark:text-text-muted-dark text-base md:text-lg font-normal leading-relaxed"> Fundada em 1º de abril de 1889, São Miguel Arcanjo recebeu seu nome em homenagem a uma capela construída
@@ -238,7 +224,6 @@ reconhecido em 2006 como a Capital Mundial das Uvas Finas.
  Durante os meses de fevereiro e março, a cidade celebra a tradicional Festa da Uva, e em 29 de setembro,
 comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias regiões.</p>
 </section>
-<!-- SectionHeader & Stats (Dados Gerais) -->
 <section class="py-12 md:py-16">
   <h2 class="text-[#194C9B] text-2xl md:text-3xl font-bold tracking-tight text-center mb-10">
     A Cidade em Números
@@ -272,7 +257,6 @@ comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias reg
       <p class="text-sm text-gray-500 dark:text-gray-400">(Média)</p>
     </div>
 
-    <!-- Clima em tempo real -->
     <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
       <div class="flex items-center justify-center size-12 bg-[#194C9B]/10 rounded-full mb-4">
         <span class="material-symbols-outlined text-[#194C9B] text-3xl">thermostat</span>
@@ -318,11 +302,9 @@ comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias reg
   }
 
   carregarClima();
-  // atualiza a cada 30 minutos
   setInterval(carregarClima, 1800000);
 </script>
 
-<!-- Interactive Distance Calculator Section -->
 <section class="py-12 md:py-20">
   <div class="bg-[#194C9B] text-white rounded-xl p-8 md:p-12 max-w-4xl mx-auto text-center">
     <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Planeje sua Viagem</h2>
@@ -376,7 +358,7 @@ comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias reg
   const resultado = document.getElementById("resultado");
   const mapaLink = document.getElementById("mapaLink");
 
-  const saoMiguel = { lat: -23.8793, lng: -47.9935 }; // São Miguel Arcanjo - SP
+  const saoMiguel = { lat: -23.8793, lng: -47.9935 }; 
 
   async function pegarCoordenadas(cidade) {
     const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
@@ -392,7 +374,7 @@ comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias reg
   }
 
   function calcularDistancia(coord1, coord2) {
-    const R = 6371; // raio da Terra em km
+    const R = 6371; 
     const dLat = ((coord2.lat - coord1.lat) * Math.PI) / 180;
     const dLon = ((coord2.lng - coord1.lng) * Math.PI) / 180;
     const a =
@@ -425,7 +407,6 @@ comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias reg
   });
 </script>
 
-<!-- Footer -->
 <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
   <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
     <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
@@ -434,7 +415,6 @@ comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias reg
   </div>
 
   <div class="flex flex-wrap justify-center gap-6">
-    <!-- Facebook -->
     <a
       class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
       href="https://www.facebook.com/toursaomiguelarcanjo/"
@@ -448,7 +428,6 @@ comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias reg
       </svg>
     </a>
 
-    <!-- Instagram -->
     <a
       class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
       href="https://www.instagram.com/toursaomiguelarcanjo/"
