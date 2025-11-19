@@ -50,41 +50,52 @@ O trabalho foi realizado como um projeto interdisciplinar entre duas matérias. 
 ##  Estrutura de Pastas
 
 ```bash
-TOURSMA/
-├── assets/
-│   ├── img/
-│   │   ├── basilica.jpg
-│   │   ├── cachoeira.jpg
-│   │   ├── cafetal.jpg
-│   │   ├── capela.jpg
-│   │   ├── chacara.jpg
-│   │   ├── colonia_japonesa.jpg
-│   │   ├── fazenda.jpg
-│   │   ├── festadauva.jpg
-│   │   ├── festivaldeinverno.jpg
-│   │   ├── folclorico.jpg
-│   │   ├── gruta.jpg
-│   │   ├── hotel.jpg
-│   │   ├── img_carrossel_1_basílica.jpg
-│   │   ├── img_carrossel_2_cidade.jpg
-│   │   ├── img_carrossel_3_gruta.jpg
-│   │   ├── img_carrossel_4_cachoeira.jpg
-│   │   ├── indigena.jpg
-│   │   ├── lanchonete.jpg
-│   │   ├── logo_coracao_branco.png
-│   │   ├── logo_coracao_verde.png
-│   │   ├── mercado.jpg
-│   │   ├── padaria.jpg
-│   │   ├── parque_cb.jpg
-│   │   ├── pizzaria.jpg
-│   │   ├── pousada.jpg
-│   │   ├── queijaria.jpg
-│   │   ├── restaurante.jpg
-│   │   ├── semanacultural.jpg
-│   │   ├── trilha.jpg
-│   │   └── vinicola.jpg
-│   └── colors.md (paleta de cores usadas)
-│    
+TOUR/
+├── TOURSMA/
+│   ├── assets/
+│   │   └── img/
+│   │       ├── basilica.jpg
+│   │       ├── cachoeira.jpg
+│   │       ├── cafetal.jpg
+│   │       ├── capela.jpg
+│   │       ├── chacara.jpg
+│   │       ├── colonia_japonesa.jpg
+│   │       ├── fazenda.jpg
+│   │       ├── festadauva.jpg
+│   │       ├── festivaldeinverno.jpg
+│   │       ├── folclorico.jpg
+│   │       ├── gruta.jpg
+│   │       ├── hotel.jpg
+│   │       ├── img_carrossel_1_basílica.jpg
+│   │       ├── img_carrossel_2_cidade.jpg
+│   │       ├── img_carrossel_3_gruta.jpg
+│   │       ├── img_carrossel_4_cachoeira.jpg
+│   │       ├── indigena.jpg
+│   │       ├── lanchonete.jpg
+│   │       ├── logo_coracao_branco.png
+│   │       ├── logo_coracao_verde.png
+│   │       ├── mercado.jpg
+│   │       ├── padaria.jpg
+│   │       ├── parque_cb.jpg
+│   │       ├── pizzaria.jpg
+│   │       ├── pousada.jpg
+│   │       ├── queijaria.jpg
+│   │       ├── restaurante.jpg
+│   │       ├── semanacultural.jpg
+│   │       ├── trilha.jpg
+│   │       └── vinicola.jpg
+│   ├── colors.md
+│   └── plantuml/
+│       ├── agenda_calendario.puml
+│       ├── diagrama_geral.puml
+│       ├── gastronomia.puml
+│       ├── hotelaria.puml
+│       ├── pagina_inicial.puml
+│       ├── sobre_nos.puml
+│       ├── suporte.puml
+│       ├── telefones.puml
+│       └── turismo.puml
+│
 ├── agenda.html
 ├── contato.html
 ├── cultural.html
