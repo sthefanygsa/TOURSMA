@@ -1,6 +1,6 @@
 # <img src="assets/img/logo_coracao_branco.png" alt="Logo TOUR São Miguel Arcanjo" width="40" /> TOUR São Miguel Arcanjo
 
-![Versão](https://img.shields.io/badge/version-0.3.61-white)
+![Versão](https://img.shields.io/badge/version-0.3.69-white)
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-white)
 ![Licença](https://img.shields.io/badge/license-MIT-white)
 
