@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TOUR - Gerenciar Imagens</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#49e619",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#152211",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+        .material-symbols-outlined.fill {
+             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex-shrink-0 w-64 bg-[#1a2c16] p-4 flex flex-col justify-between">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 p-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar with green gradient" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAFPj0ZHADqn8xxUWsGd8V7YLt87XDuaEMrHByXjnvWkB6QojDMeh2JGC0-edeqJ2FAZtbCWTl0wKZWYxaZK5QUcTmZgVkYBJqLHyODDr57oNKF8EddzNUF4PXJpqIemtgGTkBeavT1f9T5EbLHyMqm-D32TeKRPB_sBGU7n5ojibiSjUR1GwLknNrxyWsy1o1NGrR0zuFN3BiVrpENyyoIblVYUKS-JB7vT7Zb4hH3sQNMFIoENopFhsI-FV7rpTS2Em_rclJxnIJI");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal">Admin</h1>
+<p class="text-white/60 text-sm font-normal leading-normal">Tour São Miguel</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-full text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<p class="text-sm font-medium leading-normal">Agenda</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full bg-primary/20 text-white" href="#">
+<span class="material-symbols-outlined fill">image</span>
+<p class="text-sm font-medium leading-normal">Gerenciar Imagens</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">article</span>
+<p class="text-sm font-medium leading-normal">Conteúdo</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full text-white/70 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Configurações</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-primary text-background-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Sair</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="max-w-7xl mx-auto">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-3 mb-6">
+<div class="flex min-w-72 flex-col gap-2">
+<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em]">Gerenciar Imagens</h1>
+<p class="text-white/60 text-base font-normal leading-normal">Edite e substitua as imagens das seções do site.</p>
+</div>
+</div>
+<!-- Chips -->
+<div class="flex gap-3 py-3 border-b border-white/10 mb-6">
+<div class="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary text-background-dark px-4">
+<p class="text-sm font-medium leading-normal">Página Inicial</p>
+</div>
+<div class="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white px-4">
+<p class="text-sm font-medium leading-normal">Ecológico</p>
+</div>
+<div class="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white px-4">
+<p class="text-sm font-medium leading-normal">Religioso</p>
+</div>
+<div class="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white px-4">
+<p class="text-sm font-medium leading-normal">Rural</p>
+</div>
+<div class="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white px-4">
+<p class="text-sm font-medium leading-normal">Étnico</p>
+</div>
+<div class="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white px-4">
+<p class="text-sm font-medium leading-normal">Hotelaria</p>
+</div>
+<div class="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white px-4">
+<p class="text-sm font-medium leading-normal">Gastronomia</p>
+</div>
+<div class="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white px-4">
+<p class="text-sm font-medium leading-normal">Agenda</p>
+</div>
+<div class="flex h-9 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white px-4">
+<p class="text-sm font-medium leading-normal">Sobre nós</p>
+</div>
+</div>
+<!-- SectionHeader -->
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-1 pb-4 pt-2">Página Inicial</h3>
+<!-- ImageGrid -->
+<div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-6">
+<div class="flex flex-col gap-4 p-4 bg-white/5 rounded-lg border border-white/10">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded" data-alt="Vibrant panoramic view of a lush green valley" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8QDYFvW4RONJf6hyHc2T3J40EOUylH4tzhXYaRR2N64t12Un6TOSIfj_P45TANNIWF1g7n8toGX4RcJSN_b-ZzezWIvUdHhcIoELRl9AsphOKZnbTYC8jjg6IqTeOkYxrr4NuTGpGriHSM0v65N_D8ZVpcJgfX-20AOMmMeDkd5WJUC74Ws5OUhsRfggUrHlVjNTo4R_QvNB6FsWlV5Q0YFP86IjjvfcDdTA3wTDfMqZxEMX3FZ0CyWzuHGttjWRd844KyEo3qV6F");'></div>
+<div>
+<p class="text-white text-base font-medium leading-normal">Banner Principal 1</p>
+<p class="text-white/60 text-sm font-normal leading-normal">1920x1080px</p>
+</div>
+<div class="flex gap-2">
+<button class="flex flex-1 items-center justify-center gap-2 rounded-full h-10 px-4 bg-white/10 hover:bg-white/20 transition-colors text-white text-sm font-medium">
+<span class="material-symbols-outlined" style="font-size: 20px;">edit</span>
+                                Editar
+                            </button>
+<button class="flex flex-1 items-center justify-center gap-2 rounded-full h-10 px-4 bg-white/10 hover:bg-white/20 transition-colors text-white text-sm font-medium">
+<span class="material-symbols-outlined" style="font-size: 20px;">cached</span>
+                                Substituir
+                            </button>
+</div>
+</div>
+<div class="flex flex-col gap-4 p-4 bg-white/5 rounded-lg border border-white/10">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded" data-alt="Close-up of a waterfall in a tropical forest" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhqIDThHPKqJjJCaXpAEaPrIzsIJBVde1PjNzt515azZNAcNWVvHvHLhMHW3fGIDOPBN-AbkL8pnMtHxPHS6CbK-Rn3CZO5GDaZc-i1am8lea_47EmEb4VocjHMEUln_A5Ixj9NiDC9Ggpqh02XTu1yw-jb34fIokGmYa79OWmD31D5DkdzOIUjCiEroxb4IER6o8FyW-bCsTlq0oJZtxuZ2CLSRJCMLg_TWCEFQDjQlu6kQ3y3sFIoQNRQ-_dkHP8TV5QLWPVv_Mw");'></div>
+<div>
+<p class="text-white text-base font-medium leading-normal">Banner Principal 2</p>
+<p class="text-white/60 text-sm font-normal leading-normal">1920x1080px</p>
+</div>
+<div class="flex gap-2">
+<button class="flex flex-1 items-center justify-center gap-2 rounded-full h-10 px-4 bg-white/10 hover:bg-white/20 transition-colors text-white text-sm font-medium">
+<span class="material-symbols-outlined" style="font-size: 20px;">edit</span>
+                                Editar
+                            </button>
+<button class="flex flex-1 items-center justify-center gap-2 rounded-full h-10 px-4 bg-white/10 hover:bg-white/20 transition-colors text-white text-sm font-medium">
+<span class="material-symbols-outlined" style="font-size: 20px;">cached</span>
+                                Substituir
+                            </button>
+</div>
+</div>
+<div class="flex flex-col gap-4 p-4 bg-white/5 rounded-lg border border-white/10">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded" data-alt="People exploring a scenic hiking trail at sunset" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAwwRFRACyLBv0JPaHoZ-8VylKMMgWgKq-W2Y6vTY_FKoCdnlBjyRtn0QstBdRSvYKRd33gxXPeb_3HdO_S1ze3j3396T_Y_Xqm0CKC6ogbOP-nAHJHoHQprGWFCDpVWJOifFH3FP3XaVPJdN5Ts6GUgsxFJbRtCJpFxjAde5E8gzQqOQdRhNqJZ4z1qYIQ2hSMQFMSiVG5XUumfdgtsbyXiFZX60cXktji8GI_iM1TB6z42i36qFHc6pxTZMJoBx3pqxQcU5w9pseL");'></div>
+<div>
+<p class="text-white text-base font-medium leading-normal">Destaque Turismo</p>
+<p class="text-white/60 text-sm font-normal leading-normal">800x600px</p>
+</div>
+<div class="flex gap-2">
+<button class="flex flex-1 items-center justify-center gap-2 rounded-full h-10 px-4 bg-white/10 hover:bg-white/20 transition-colors text-white text-sm font-medium">
+<span class="material-symbols-outlined" style="font-size: 20px;">edit</span>
+                                Editar
+                            </button>
+<button class="flex flex-1 items-center justify-center gap-2 rounded-full h-10 px-4 bg-white/10 hover:bg-white/20 transition-colors text-white text-sm font-medium">
+<span class="material-symbols-outlined" style="font-size: 20px;">cached</span>
+                                Substituir
+                            </button>
+</div>
+</div>
+<div class="flex flex-col gap-4 p-4 bg-white/5 rounded-lg border border-white/10">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded" data-alt="A modern and luxurious hotel room interior view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuACYmb6nCz1867woKFI9HKZt90IaH_6FXX4u8JZVdy25HLZPg4MVtLrieW6SEY36jQptGwdAc4KwZAl2BwLlQyjweU6DsgHIlFdshlEazgBoS9JjKzrE8PgIHRS5e4iQc6UVhzV5IPAcmHENxi7KH2v89U1Nb0sPpBH0H5QwVeho3Qhv7WICS1xZkjBM627aLpgVo0V-89xd67DK5g4ZmsjFNIrt2lZDhDxNzbxI0XVahFulZgGBOj9hRQsCk28ORdJg7yTJD0hJ4qQ");'></div>
+<div>
+<p class="text-white text-base font-medium leading-normal">Destaque Hotelaria</p>
+<p class="text-white/60 text-sm font-normal leading-normal">800x600px</p>
+</div>
+<div class="flex gap-2">
+<button class="flex flex-1 items-center justify-center gap-2 rounded-full h-10 px-4 bg-white/10 hover:bg-white/20 transition-colors text-white text-sm font-medium">
+<span class="material-symbols-outlined" style="font-size: 20px;">edit</span>
+                                Editar
+                            </button>
+<button class="flex flex-1 items-center justify-center gap-2 rounded-full h-10 px-4 bg-white/10 hover:bg-white/20 transition-colors text-white text-sm font-medium">
+<span class="material-symbols-outlined" style="font-size: 20px;">cached</span>
+                                Substituir
+                            </button>
+</div>
+</div>
+</div>
+<!-- Save Changes CTA Bar -->
+<div class="sticky bottom-0 mt-12 py-4 bg-background-dark/80 backdrop-blur-sm">
+<div class="max-w-7xl mx-auto flex justify-end">
+<button class="flex min-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-background-dark text-base font-bold leading-normal tracking-[-0.015em] hover:bg-primary/90 transition-colors disabled:bg-white/20 disabled:text-white/50 disabled:cursor-not-allowed" disabled="">
+<span class="truncate">Salvar Alterações</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

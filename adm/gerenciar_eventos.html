@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TOUR - Gerenciar Eventos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#f9f506",
+              "background-light": "#f8f8f5",
+              "background-dark": "#23220f",
+            },
+            fontFamily: {
+              "display": ["Spline Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+      .material-symbols-outlined.fill {
+        font-variation-settings: 'FILL' 1;
+      }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<aside class="flex flex-col w-64 p-4 bg-white dark:bg-background-dark/50 border-r border-gray-200 dark:border-white/10 shrink-0">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Profile picture of Augusto" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDe_oeU52ZfpLy5ZANohkHOHoSzWYQQqynTxCq8MdUuokx74DQgsE6bp4JxJ5X2FayejCU1QVsMDtU4byhH0igML2TP3s98bHgRMVBKrMAnO2G186iCqA7FglBc2jsyZDyoj6BtdfqNfYMopOWGg7aq1DQPOs522ov8WfAmajLW3mQCfD3sunvDK2La1_lFfU2fQb5eeTK4O6N8PItQUnJvhM4TeHY0ms32bnxbpr17YaA4ykB0dOOSzzvjH4YLg3TZ51WBTpPFt5Y");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#181811] dark:text-white text-base font-semibold leading-normal">Augusto</h1>
+<p class="text-[#8c8b5f] dark:text-gray-400 text-sm font-normal leading-normal">Administrador</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-8">
+<a class="flex items-center gap-3 px-3 py-2 rounded-full text-[#181811] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full bg-primary/20 dark:bg-primary/30 text-[#181811] dark:text-white" href="#">
+<span class="material-symbols-outlined fill">calendar_month</span>
+<p class="text-sm font-medium leading-normal">Eventos</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full text-[#181811] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10" href="#">
+<span class="material-symbols-outlined">article</span>
+<p class="text-sm font-medium leading-normal">Conteúdo</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full text-[#181811] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10" href="#">
+<span class="material-symbols-outlined">image</span>
+<p class="text-sm font-medium leading-normal">Imagens</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-full text-[#181811] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Configurações</p>
+</a>
+</nav>
+<div class="mt-auto">
+<button class="flex w-full min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#f5f5f0] dark:bg-white/10 text-[#181811] dark:text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 dark:hover:bg-white/20">
+<span class="truncate">Sair</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="max-w-7xl mx-auto">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between items-center gap-4 mb-8">
+<div class="flex flex-col">
+<p class="text-[#181811] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Edição de Eventos</p>
+<p class="text-[#8c8b5f] dark:text-gray-400 text-base font-normal leading-normal mt-1">Adicione, edite ou remova eventos da agenda da cidade.</p>
+</div>
+</div>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+<!-- Left Column: Form -->
+<div class="lg:col-span-2 flex flex-col gap-6">
+<div class="bg-white dark:bg-background-dark/50 p-6 rounded-lg border border-gray-200 dark:border-white/10">
+<h2 class="text-[#181811] dark:text-white tracking-light text-xl font-bold leading-tight pb-6">Adicionar Novo Evento</h2>
+<div class="flex flex-col gap-4">
+<!-- TextField: Título do Evento -->
+<label class="flex flex-col w-full">
+<p class="text-[#181811] dark:text-gray-200 text-sm font-medium leading-normal pb-2">Título do Evento</p>
+<input class="form-input flex w-full resize-none overflow-hidden rounded-full text-[#181811] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-200 dark:border-white/10 bg-background-light dark:bg-background-dark h-12 placeholder:text-[#8c8b5f] dark:placeholder:text-gray-500 px-4 text-sm font-normal leading-normal" placeholder="Ex: Festival de Inverno" value=""/>
+</label>
+<!-- TextField: Descrição -->
+<label class="flex flex-col w-full">
+<p class="text-[#181811] dark:text-gray-200 text-sm font-medium leading-normal pb-2">Descrição</p>
+<textarea class="form-input flex w-full resize-y overflow-hidden rounded-xl text-[#181811] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-200 dark:border-white/10 bg-background-light dark:bg-background-dark min-h-32 placeholder:text-[#8c8b5f] dark:placeholder:text-gray-500 p-4 text-sm font-normal leading-normal" placeholder="Descreva os detalhes do evento..."></textarea>
+</label>
+<!-- Date & Time Fields -->
+<div class="grid grid-cols-2 gap-4">
+<label class="flex flex-col w-full">
+<p class="text-[#181811] dark:text-gray-200 text-sm font-medium leading-normal pb-2">Data</p>
+<input class="form-input flex w-full resize-none overflow-hidden rounded-full text-[#181811] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-200 dark:border-white/10 bg-background-light dark:bg-background-dark h-12 placeholder:text-[#8c8b5f] dark:placeholder:text-gray-500 px-4 text-sm font-normal leading-normal" type="date" value="2024-08-15"/>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-[#181811] dark:text-gray-200 text-sm font-medium leading-normal pb-2">Hora</p>
+<input class="form-input flex w-full resize-none overflow-hidden rounded-full text-[#181811] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-200 dark:border-white/10 bg-background-light dark:bg-background-dark h-12 placeholder:text-[#8c8b5f] dark:placeholder:text-gray-500 px-4 text-sm font-normal leading-normal" type="time" value="19:00"/>
+</label>
+</div>
+<!-- TextField: Local -->
+<label class="flex flex-col w-full">
+<p class="text-[#181811] dark:text-gray-200 text-sm font-medium leading-normal pb-2">Local</p>
+<input class="form-input flex w-full resize-none overflow-hidden rounded-full text-[#181811] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-200 dark:border-white/10 bg-background-light dark:bg-background-dark h-12 placeholder:text-[#8c8b5f] dark:placeholder:text-gray-500 px-4 text-sm font-normal leading-normal" placeholder="Ex: Praça da Matriz" value=""/>
+</label>
+<!-- Image Uploader -->
+<div class="flex flex-col w-full">
+<p class="text-[#181811] dark:text-gray-200 text-sm font-medium leading-normal pb-2">Imagem do Evento</p>
+<div class="flex items-center justify-center w-full">
+<label class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 dark:border-white/20 border-dashed rounded-lg cursor-pointer bg-background-light dark:bg-background-dark hover:bg-gray-100 dark:hover:bg-white/10" for="dropzone-file">
+<div class="flex flex-col items-center justify-center pt-5 pb-6">
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">cloud_upload</span>
+<p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Clique para enviar</span> ou arraste e solte</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG (MAX. 800x400px)</p>
+</div>
+<input class="hidden" id="dropzone-file" type="file"/>
+</label>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-3 pt-4">
+<button class="flex-1 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-11 px-4 bg-primary text-[#181811] text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Salvar Evento</span>
+</button>
+<button class="flex-1 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-11 px-4 bg-gray-200 dark:bg-white/10 text-[#181811] dark:text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Cancelar</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Events List -->
+<div class="lg:col-span-3">
+<h2 class="text-[#181811] dark:text-white tracking-light text-xl font-bold leading-tight pb-6">Eventos Cadastrados</h2>
+<div class="flex flex-col gap-4">
+<!-- Event Card 1 -->
+<div class="flex items-center gap-4 p-4 bg-white dark:bg-background-dark/50 rounded-lg border border-gray-200 dark:border-white/10">
+<div class="w-24 h-24 bg-cover bg-center rounded-lg shrink-0" data-alt="Vibrant abstract geometric pattern in green and blue" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBFxmAyFuY_s3krlFD-TMj2iPmXvDLS6X0EEpjvStqldz0puFm4yWJh9qnwK-bO0uLQlwCTn_xZoG9OJhP_MD-jAFr06huqNHC6fPvbV8GvLd7y1qg8wYWzeDUjpsijuNkdRe7yaXsOOCVFx_llDkxeze1dgk1xKHkcEjXia1792lcfcSoas4JZ7BPXDpguus3hd0NywYJ30C3SV6Sm-Ug8OqNnUMIKOicfrotgo7wTNsTOp1r7jcvnLSo9rLoURtWIwCsrOUGpP8o');"></div>
+<div class="flex-1 min-w-0">
+<p class="text-lg font-bold text-[#181811] dark:text-white truncate">Festival de Inverno 2024</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">15 de Agosto, 2024 - 19:00</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 truncate">Praça da Matriz</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center size-10 rounded-full bg-gray-100 dark:bg-white/10 text-[#181811] dark:text-white hover:bg-gray-200 dark:hover:bg-white/20">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="flex items-center justify-center size-10 rounded-full bg-gray-100 dark:bg-white/10 text-red-500 hover:bg-red-100 dark:hover:bg-red-500/20">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+<!-- Event Card 2 -->
+<div class="flex items-center gap-4 p-4 bg-white dark:bg-background-dark/50 rounded-lg border border-gray-200 dark:border-white/10">
+<div class="w-24 h-24 bg-cover bg-center rounded-lg shrink-0" data-alt="Bright yellow and cyan abstract shapes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6tWQIDTsgfqlz0VIpibtQd8rlZNxv1tQKQZhviPNg1HyMDyN89ANkm8ZFDLxqKSGSW08Qr17fe98461nyPFe72BpIWq4Q2C0hJl5KN8meV33zwUsRGxLfPaIzbFo406oOnBhmjgs-1-uLPJlrIEpAY5fDHV0h920cKSXyGzO1tOebqnoLkv0XTvyxbhcr7DMQnm3NbU0EsLzV1Q1iA5D25rxe566yDb9cBQUKMbSSZJC1AqtY4bdn6ACLZDtBBL2qovo-c9yANCI');"></div>
+<div class="flex-1 min-w-0">
+<p class="text-lg font-bold text-[#181811] dark:text-white truncate">Feira de Artesanato Local</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">22 de Setembro, 2024 - 09:00</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 truncate">Centro de Convenções</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center size-10 rounded-full bg-gray-100 dark:bg-white/10 text-[#181811] dark:text-white hover:bg-gray-200 dark:hover:bg-white/20">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="flex items-center justify-center size-10 rounded-full bg-gray-100 dark:bg-white/10 text-red-500 hover:bg-red-100 dark:hover:bg-red-500/20">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+<!-- Event Card 3 -->
+<div class="flex items-center gap-4 p-4 bg-white dark:bg-background-dark/50 rounded-lg border border-gray-200 dark:border-white/10">
+<div class="w-24 h-24 bg-cover bg-center rounded-lg shrink-0" data-alt="Pastel-colored fluid art with swirls of pink and blue" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5s-eacts2IYuzeLb9Wwz5zKORZnOjxaaNndd3yWsschXePT6KgUExcnq9NsHtRXOzrqbltbCf-tfpFcuVYAr0uXJZe0EOWJR5O5XQf5yZLja8TBo8h3Su0oEAtx-HCWP2WzzSWpZX17Itr10b-mNiV0jwHktLKL7R9d5iR0xod49hqtdxbbq1VA7ZPuHqN6w5qrMLTbx0fxOKJWruvLVGok1Y_kxJf2zMtVIxmC-rPV-yOILvK0N7CXI1tQRV6uvf3bfRWx6O9Uk');"></div>
+<div class="flex-1 min-w-0">
+<p class="text-lg font-bold text-[#181811] dark:text-white truncate">Concerto da Orquestra Municipal</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">05 de Outubro, 2024 - 20:30</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 truncate">Teatro Municipal</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center size-10 rounded-full bg-gray-100 dark:bg-white/10 text-[#181811] dark:text-white hover:bg-gray-200 dark:hover:bg-white/20">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="flex items-center justify-center size-10 rounded-full bg-gray-100 dark:bg-white/10 text-red-500 hover:bg-red-100 dark:hover:bg-red-500/20">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
