@@ -1,0 +1,16 @@
+@startuml
+
+actor "Usuário" as U
+
+rectangle "Módulo de Turismo" {
+
+    usecase "Filtrar locais\n(pago / gratuito)" as UC1
+    usecase "Visualizar cards de locais" as UC2
+    usecase "Abrir detalhes do local\n(‘Saiba Mais’)" as UC3
+}
+
+U --> UC1
+U --> UC2
+U --> UC3
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+
+actor "Usuário" as U
+
+rectangle "Sobre Nós" {
+    usecase "Visualizar informações gerais" as UC1
+    usecase "Interagir com mapa\n(Google Maps API)" as UC2
+}
+
+U --> UC1
+U --> UC2
+
+@enduml
