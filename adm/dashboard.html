@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TOUR - Dashboard Administrativo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class", 
+      theme: {
+        extend: {
+          colors: {
+            "brand-green": "#29763B",
+            "brand-blue": "#194C9B",
+            "brand-white": "#FFFFFF",
+            "brand-black": "#121613",
+            "brand-dark-gray": "#333333",
+            "brand-gray": "#666666",
+            
+            "primary": "#29763B",      
+            "secondary": "#194C9B",   
+            
+            "background": "#FFFFFF",       
+            "content": "#F3F4F6",          
+            
+            "text-base": "#121613",        
+            "text-subtle": "#666666",      
+            
+            "border": "#E5E7EB",           
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "sans-serif"] 
+          },
+          borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+        },
+      },
+    }
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0" rel="stylesheet"/>
+
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+</style>
+</head>
+
+<body class="bg-background font-display text-text-base transition-colors duration-300">
+<script>
+    const token = localStorage.getItem('tour_token');
+    const userName = localStorage.getItem('tour_user_name') || 'Augusto'; 
+
+   if (!token) {
+  window.location.href = 'login.html';
+}
+    
+    function logout() {
+        localStorage.setItem('tour_token', 'logado');
+        localStorage.setItem('tour_user_name', 'Augusto');
+        window.location.href = 'dashboard.html';
+
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.user-name').forEach(el => el.textContent = userName.split(' ')[0]);
+    });
+</script>
+
+<div class="relative flex min-h-screen w-full">
+
+<aside class="flex flex-col w-64 p-4 bg-background border-r border-border">
+    <div class="flex items-center gap-3 p-2 mb-8">
+        <div class="size-8 bg-primary rounded-lg flex items-center justify-center shadow-md shadow-primary/20">
+            <span class="material-symbols-outlined text-white text-xl">landscape</span>
+        </div>
+        <h1 class="text-lg font-bold tracking-[-0.015em] text-text-base">TOUR São Miguel Arcanjo</h1>
+    </div>
+
+    <div class="flex-grow">
+        <nav class="flex flex-col gap-1">
+            <a class="flex items-center gap-3 px-4 py-2 rounded-lg bg-content" href="#">
+                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                <p class="text-sm font-bold text-primary">Dashboard</p>
+            </a>
+            
+            <a class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-content transition-colors group" href="#">
+                <span class="material-symbols-outlined text-text-subtle group-hover:text-text-base transition-colors">photo_library</span>
+                <p class="text-sm font-medium text-text-subtle group-hover:text-text-base transition-colors">Gerenciamento de Imagens</p>
+            </a>
+            
+            <a class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-content transition-colors group" href="#">
+                <span class="material-symbols-outlined text-text-subtle group-hover:text-text-base transition-colors">calendar_month</span>
+                <p class="text-sm font-medium text-text-subtle group-hover:text-text-base transition-colors">Edição de Eventos</p>
+            </a>
+            
+            <a class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-content transition-colors group" href="#">
+                <span class="material-symbols-outlined text-text-subtle group-hover:text-text-base transition-colors">article</span>
+                <p class="text-sm font-medium text-text-subtle group-hover:text-text-base transition-colors">Gerenciamento de Páginas</p>
+            </a>
+        </nav>
+    </div>
+
+    <div class="flex flex-col gap-2 mt-auto">
+        <a class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-content transition-colors group" href="#">
+            <span class="material-symbols-outlined text-text-subtle group-hover:text-text-base transition-colors">settings</span>
+            <p class="text-sm font-medium text-text-subtle group-hover:text-text-base transition-colors">Configurações</p>
+        </a>
+        
+        <div class="flex items-center gap-3 p-2 mt-4 border-t border-border pt-4">
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-primary" style='background-image: url("https://i.pravatar.cc/150?img=11");'></div>
+            <div class="flex flex-col">
+                <h1 class="text-base font-medium leading-normal text-text-base user-name">Augusto Medeiros</h1>
+                <p class="text-xs font-normal leading-normal text-text-subtle">Administrador</p>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<main class="flex-1 flex flex-col bg-background">
+    <header class="flex items-center justify-between whitespace-nowrap border-b border-border px-10 py-4 bg-background sticky top-0 z-10">
+        <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] text-text-base">Visão Geral</h2>
+        <div class="flex items-center gap-4">
+            <button class="flex items-center justify-center size-10 rounded-full bg-content border border-border hover:border-secondary hover:text-secondary transition-all">
+                <span class="material-symbols-outlined text-xl">notifications</span>
+            </button>
+            <button onclick="logout()" class="flex items-center justify-center size-10 rounded-full bg-content border border-border hover:bg-secondary hover:border-secondary hover:text-white transition-all group">
+                <span class="material-symbols-outlined text-xl">logout</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="flex-1 p-10 overflow-y-auto">
+        
+        <div class="flex flex-wrap justify-between gap-3 mb-8">
+            <div class="flex flex-col">
+                <p class="text-4xl font-black leading-tight tracking-[-0.033em] text-text-base">Olá, <span class="user-name">Augusto Medeiros</span></p>
+                <p class="text-text-subtle mt-1">Aqui está o resumo do turismo em São Miguel Arcanjo hoje.</p>
+            </div>
+            <button class="flex items-center gap-2 bg-primary hover:bg-[#226331] text-white px-5 py-2 rounded-lg font-bold transition-colors shadow-lg shadow-primary/20">
+                <span class="material-symbols-outlined">add</span>
+                Novo Evento
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="flex flex-col justify-between h-32 rounded-lg p-6 bg-content border border-border hover:border-primary transition-colors cursor-pointer group">
+                <div class="flex justify-between items-start">
+                    <p class="text-base font-medium text-text-subtle group-hover:text-text-base transition-colors">Total de Imagens</p>
+                    <span class="material-symbols-outlined text-primary">image</span>
+                </div>
+                <p class="tracking-light text-4xl font-bold leading-tight text-text-base">29</p>
+            </div>
+
+            <div class="flex flex-col justify-between h-32 rounded-lg p-6 bg-content border border-border hover:border-primary transition-colors cursor-pointer group">
+                 <div class="flex justify-between items-start">
+                    <p class="text-base font-medium text-text-subtle group-hover:text-text-base transition-colors">Próximos Eventos</p>
+                    <span class="material-symbols-outlined text-secondary">event</span>
+                </div>
+                <p class="tracking-light text-4xl font-bold leading-tight text-text-base">8</p>
+            </div>
+
+            <div class="flex flex-col justify-between h-32 rounded-lg p-6 bg-content border border-border hover:border-primary transition-colors cursor-pointer group">
+                 <div class="flex justify-between items-start">
+                    <p class="text-base font-medium text-text-subtle group-hover:text-text-base transition-colors">Páginas Publicadas</p>
+                    <span class="material-symbols-outlined text-primary">web</span>
+                </div>
+                <p class="tracking-light text-4xl font-bold leading-tight text-text-base">24</p>
+            </div>
+        </div>
+
+        <div class="mt-12">
+            <h2 class="text-[22px] font-bold leading-tight tracking-[-0.015em] pb-5 pt-5 text-text-base border-b border-border mb-4">Atividade Recente</h2>
+            
+            <div class="bg-content border border-border rounded-lg p-2">
+                <ul class="divide-y divide-border">
+                    
+                    <li class="flex items-center justify-between p-4 hover:bg-background transition-colors rounded-md">
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center justify-center size-12 bg-primary/10 rounded-full border border-primary/20">
+                                <span class="material-symbols-outlined text-primary">event_available</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-text-base">Evento 'Festa do Padroeiro' atualizado</p>
+                                <p class="text-sm text-text-subtle">Conteúdo e data foram modificados por Augusto.</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-medium text-text-subtle bg-background px-2 py-1 rounded border border-border">2h atrás</span>
+                    </li>
+
+                    <li class="flex items-center justify-between p-4 hover:bg-background transition-colors rounded-md">
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center justify-center size-12 bg-secondary/10 rounded-full border border-secondary/20">
+                                <span class="material-symbols-outlined text-secondary">add_photo_alternate</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-text-base">Galeria 'Cachoeiras'</p>
+                                <p class="text-sm text-text-subtle">Nova imagem enviada para a galeria pública.</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-medium text-text-subtle bg-background px-2 py-1 rounded border border-border">1d atrás</span>
+                    </li>
+
+                    <li class="flex items-center justify-between p-4 hover:bg-background transition-colors rounded-md">
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center justify-center size-12 bg-primary/10 rounded-full border border-primary/20">
+                                <span class="material-symbols-outlined text-primary">publish</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-text-base">Página 'Sobre Nós'</p>
+                                <p class="text-sm text-text-subtle">Status alterado para Publicado.</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-medium text-text-subtle bg-background px-2 py-1 rounded border border-border">3d atrás</span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+</div>
+</body>
+</html>
