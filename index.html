@@ -1,452 +1,202 @@
 <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>TOUR - Início</title>
+    <link rel="icon" type="image/png" href="assets/img/logo_coracao_verde.png">
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="assets/css/index.css">
 
-<html lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>TOUR - Início</title>
-<link rel="icon" type="image/png" href="assets/img/logo_coracao_verde.png">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#29763B", 
-            "secondary": "#194C9B", 
-            "background-light": "#FFFFFF",
-            "background-dark": "#101010",
-            "text-light": "#121613",
-            "text-dark": "#E5E5E5",
-            "text-muted-light": "#6c757d",
-            "text-muted-dark": "#9ca3af",
-          },
-          fontFamily: {
-            "display": ["Plus Jakarta Sans", "sans-serif"]
-          },
-          borderRadius: {
-            "DEFAULT": "0.5rem",
-            "lg": "0.75rem",
-            "xl": "1rem",
-            "full": "9999px"
-          },
-        },
-      },
-    }
-  </script>
-<style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-  </style>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <script src="assets/js/index.js" defer></script>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
-<div class="relative flex min-h-screen w-full flex-col group/design-root">
-<header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
-  <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
+    <div class="relative flex min-h-screen w-full flex-col group/design-root">
+        
+        <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
+            <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
+                
+                <div class="flex items-center gap-1.5">
+                    <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
+                    <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+                        <span class="text-primary">TOUR</span>
+                        <span class="text-[#333333]">São Miguel Arcanjo</span>
+                    </h2>
+                </div>
 
-<div class="flex items-center gap-1.5">
-  <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
-  <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
-    <span style="color:#29763B;">TOUR</span>
-    <span style="color:#333333;"> São Miguel Arcanjo</span>
-  </h2>
-</div>
+                <div class="hidden md:flex flex-1 items-center justify-end gap-8">
+                    <nav class="flex items-center gap-9">
+                        <a href="index.html" class="nav-link">Início</a>
 
-    <div class="hidden md:flex flex-1 items-center justify-end gap-8">
-      <nav class="flex items-center gap-9">
+                        <div class="relative" id="menu-turismo-wrapper">
+                            <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false" class="nav-link flex items-center gap-1 focus:outline-none">
+                                Turismo
+                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
 
-        <a href="index.html" class="nav-link">Início</a>
+                            <div id="turismo-menu" class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50" role="menu" aria-label="submenu turismo">
+                                <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
+                                <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
+                                <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
+                            </div>
+                        </div>
 
-        <div class="relative" id="menu-turismo-wrapper">
-          <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
-            class="nav-link flex items-center gap-1 focus:outline-none">
-            Turismo
-            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
-              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
+                        <a href="hotelaria.html" class="nav-link">Hotelaria</a>
+                        <a href="gastronomia.html" class="nav-link">Gastronomia</a>
+                        <a href="agenda.html" class="nav-link">Agenda</a>
+                        <a href="telefones.html" class="nav-link">Telefones</a>
+                        <a href="sobre.html" class="nav-link">Sobre nós</a>
+                    </nav>
 
-          <div id="turismo-menu"
-            class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50"
-            role="menu" aria-label="submenu turismo">
-            <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
-            <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
-            <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
-          </div>
-        </div>
+                    <a href="contato.html" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                        <span class="truncate">Suporte</span>
+                    </a>
+                </div>
 
-        <a href="hotelaria.html" class="nav-link">Hotelaria</a>
-        <a href="gastronomia.html" class="nav-link">Gastronomia</a>
-        <a href="agenda.html" class="nav-link">Agenda</a>
-        <a href="telefones.html" class="nav-link">Telefones</a>
-        <a href="sobre.html" class="nav-link">Sobre nós</a>
-      </nav>
+                <button class="md:hidden text-text-dark dark:text-white">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </header>
 
-      <a href="contato.html"
-        class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-        <span class="truncate">Suporte</span>
-      </a>
+        <main class="flex-grow">
+            <div class="flex flex-col items-center w-full">
+                <div class="w-full max-w-6xl px-4 py-8 md:py-12">
+                    
+                    <div class="w-full relative">
+                        <div id="carousel" class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[400px] md:min-h-[500px] transition-all duration-1000 ease-in-out" style='background-image: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url("assets/img/img_carrossel_2_cidade.jpg");'>
+                            <div class="flex justify-center gap-2 p-5">
+                                <div class="dot size-2 rounded-full bg-white"></div>
+                                <div class="dot size-2 rounded-full bg-white/50"></div>
+                                <div class="dot size-2 rounded-full bg-white/50"></div>
+                                <div class="dot size-2 rounded-full bg-white/50"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <section class="py-12 md:py-20 text-center max-w-3xl mx-auto">
+                        <h1 class="text-secondary tracking-tight text-3xl md:text-4xl font-extrabold leading-tight pb-4">Conheça São Miguel Arcanjo</h1>
+                        <p class="text-text-muted-light dark:text-text-muted-dark text-base md:text-lg font-normal leading-relaxed">
+                            Fundada em 1º de abril de 1889, São Miguel Arcanjo recebeu seu nome em homenagem a uma capela construída para São Miguel Arcanjo.
+                            Os fundadores foram o Tenente Urias Emygdio Nogueira de Barros e suas filhas Dona Maximina Nogueira Terra e Dona Tereza Augusta Nogueira, responsáveis pela construção e doação do terreno da capela.
+                            Com o pioneirismo de Massuto Fujiwara, o município tornou-se referência na produção de uvas finas, sendo reconhecido em 2006 como a Capital Mundial das Uvas Finas.
+                            Durante os meses de fevereiro e março, a cidade celebra a tradicional Festa da Uva, e em 29 de setembro, comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias regiões.
+                        </p>
+                    </section>
+
+                    <section class="py-12 md:py-16">
+                        <h2 class="text-[#194C9B] text-2xl md:text-3xl font-bold tracking-tight text-center mb-10">
+                            A Cidade em Números
+                        </h2>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                            <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
+                                <div class="flex items-center justify-center size-12 bg-[#194C9B]/10 rounded-full mb-4">
+                                    <span class="material-symbols-outlined text-[#194C9B] text-3xl">public</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Área</h3>
+                                <p class="text-2xl font-bold text-[#194C9B]">902,3 km²</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">(IBGE)</p>
+                            </div>
+
+                            <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
+                                <div class="flex items-center justify-center size-12 bg-[#194C9B]/10 rounded-full mb-4">
+                                    <span class="material-symbols-outlined text-[#194C9B] text-3xl">groups</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">População</h3>
+                                <p class="text-2xl font-bold text-[#194C9B]">32.493 hab.</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">(Est. 2021)</p>
+                            </div>
+
+                            <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
+                                <div class="flex items-center justify-center size-12 bg-[#194C9B]/10 rounded-full mb-4">
+                                    <span class="material-symbols-outlined text-[#194C9B] text-3xl">landscape</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Altitude</h3>
+                                <p class="text-2xl font-bold text-[#194C9B]">660 m</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">(Média)</p>
+                            </div>
+
+                            <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
+                                <div class="flex items-center justify-center size-12 bg-[#194C9B]/10 rounded-full mb-4">
+                                    <span class="material-symbols-outlined text-[#194C9B] text-3xl">thermostat</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Clima</h3>
+                                <p id="temperatura" class="text-2xl font-bold text-[#194C9B]">--°C</p>
+                                <p id="condicao" class="text-sm text-gray-500 dark:text-gray-400">Carregando...</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="py-12 md:py-20">
+                        <div class="bg-[#194C9B] text-white rounded-xl p-8 md:p-12 max-w-4xl mx-auto text-center">
+                            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Planeje sua Viagem</h2>
+                            <p class="text-white/80 mb-8 max-w-2xl mx-auto">
+                                Quer saber a que distância você está deste paraíso? Insira sua cidade de origem e descubra.
+                            </p>
+
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto">
+                                <input id="cidadeInput" class="w-full flex-grow px-4 py-3 rounded-lg border-none text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-primary" placeholder="Digite sua cidade" type="text" />
+                                <button id="calcularBtn" class="w-full sm:w-auto bg-white text-[#194C9B] font-bold py-3 px-6 rounded-lg whitespace-nowrap hover:bg-opacity-90 transition-colors">
+                                    Calcular Distância
+                                </button>
+                                <button id="resetarBtn" class="w-full sm:w-auto bg-white/20 text-white font-bold py-3 px-6 rounded-lg whitespace-nowrap hover:bg-white/30 transition-colors">
+                                    Zerar
+                                </button>
+                            </div>
+
+                            <div class="mt-8 text-center flex flex-col items-center gap-4">
+                                <div class="text-lg">
+                                    <span class="text-white/70">Distância aproximada:</span>
+                                    <span id="resultado" class="text-4xl font-bold ml-2">0 km</span>
+                                </div>
+                                <a id="mapaLink" target="_blank" class="inline-flex items-center gap-2 bg-white/10 text-white font-semibold py-2 px-5 rounded-lg hover:bg-white/20 transition-colors" href="#">
+                                    <span class="material-symbols-outlined">map</span>
+                                    Ver no Google Maps
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
+            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
+                <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
+                <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="politicas.html">Política de Privacidade</a>
+                <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="contato.html">Suporte</a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6">
+                <a class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary" href="https://www.facebook.com/toursaomiguelarcanjo/" target="_blank" rel="noopener noreferrer">
+                    <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                </a>
+
+                <a class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary" href="https://www.instagram.com/toursaomiguelarcanjo/" target="_blank" rel="noopener noreferrer">
+                    <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                    </svg>
+                </a>
+            </div>
+
+            <p class="text-text-subtle-light dark:text-text-subtle-dark text-sm font-normal leading-normal">
+                © 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.
+            </p>
+        </footer>
     </div>
-
-    <button class="md:hidden text-text-dark dark:text-white">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
-  </div>
-</header>
-
-<style>
-  .nav-link {
-    color: #333333;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-link:hover { color: #194C9B; }
-  .nav-link.active { color: #194C9B; font-weight: 700; }
-
-  .dropdown-item {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.925rem;
-    color: #333;
-    transition: background-color 0.15s, color 0.15s;
-    white-space: nowrap;
-    display: block;
-    text-decoration: none;
-  }
-  .dropdown-item:hover { background-color: #f2f5fa; color: #194C9B; }
-</style>
-
-<script>
-  (function () {
-    const toggle = document.getElementById('turismo-toggle');
-    const menu = document.getElementById('turismo-menu');
-    const wrapper = document.getElementById('menu-turismo-wrapper');
-
-    function openMenu() {
-      menu.classList.remove('hidden');
-      toggle.setAttribute('aria-expanded', 'true');
-    }
-    function closeMenu() {
-      menu.classList.add('hidden');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-    function toggleMenu() {
-      const isOpen = !menu.classList.contains('hidden');
-      if (isOpen) closeMenu();
-      else openMenu();
-    }
-
-    toggle.addEventListener('click', e => {
-      e.stopPropagation();
-      toggleMenu();
-    });
-
-    menu.addEventListener('click', e => e.stopPropagation());
-    document.addEventListener('click', () => closeMenu());
-    document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
-    window.addEventListener('resize', closeMenu);
-
-    const current = window.location.pathname.split('/').pop();
-    document.querySelectorAll('nav .nav-link').forEach(a => {
-      if (a.getAttribute('href') === current) a.classList.add('active');
-    });
-
-    document.querySelectorAll('a[href]').forEach(link => {
-      link.addEventListener('click', e => {
-        const target = link.getAttribute('href');
-        const current = window.location.pathname.split('/').pop();
-        if (target === current) {
-          e.preventDefault();
-          window.location.reload();
-        }
-      });
-    });
-  })();
-</script>
-<main class="flex-grow">
-<div class="flex flex-col items-center w-full">
-<div class="w-full max-w-6xl px-4 py-8 md:py-12">
-<div class="w-full relative">
-  <div
-    id="carousel"
-    class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[400px] md:min-h-[500px] transition-all duration-1000 ease-in-out"
-    style='background-image: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url("assets/img/img_carrossel_2_cidade.jpg");'
-  >
-    <div class="flex justify-center gap-2 p-5">
-      <div class="dot size-2 rounded-full bg-white"></div>
-      <div class="dot size-2 rounded-full bg-white/50"></div>
-      <div class="dot size-2 rounded-full bg-white/50"></div>
-      <div class="dot size-2 rounded-full bg-white/50"></div>
-    </div>
-  </div>
-</div>
-
-<script>
-  const imagens = [
-    "assets/img/img_carrossel_2_cidade.jpg",
-    "assets/img/img_carrossel_1_basílica.jpg",
-    "assets/img/img_carrossel_3_gruta.jpg",
-    "assets/img/img_carrossel_4_cachoeira.jpg"
-  ];
-
-  let index = 0;
-  const carousel = document.getElementById("carousel");
-  const dots = document.querySelectorAll(".dot");
-
-  function mudarImagem() {
-    index = (index + 1) % imagens.length;
-    carousel.style.backgroundImage = `linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url('${imagens[index]}')`;
-
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("bg-white", i === index);
-      dot.classList.toggle("bg-white/50", i !== index);
-    });
-  }
-
-  setInterval(mudarImagem, 4000); 
-</script>
-<section class="py-12 md:py-20 text-center max-w-3xl mx-auto">
-<h1 class="text-secondary tracking-tight text-3xl md:text-4xl font-extrabold leading-tight pb-4">Conheça São Miguel Arcanjo</h1>
-<p class="text-text-muted-light dark:text-text-muted-dark text-base md:text-lg font-normal leading-relaxed"> Fundada em 1º de abril de 1889, São Miguel Arcanjo recebeu seu nome em homenagem a uma capela construída
-para São Miguel Arcanjo.
- Os fundadores foram o Tenente Urias Emygdio Nogueira de Barros e suas filhas Dona Maximina Nogueira Terra e
-Dona Tereza Augusta Nogueira, responsáveis pela construção e doação do terreno da capela.
-
- Com o pioneirismo de Massuto Fujiwara, o município tornou-se referência na produção de uvas finas, sendo
-reconhecido em 2006 como a Capital Mundial das Uvas Finas.
- Durante os meses de fevereiro e março, a cidade celebra a tradicional Festa da Uva, e em 29 de setembro,
-comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias regiões.</p>
-</section>
-<section class="py-12 md:py-16">
-  <h2 class="text-[#194C9B] text-2xl md:text-3xl font-bold tracking-tight text-center mb-10">
-    A Cidade em Números
-  </h2>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-    <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
-      <div class="flex items-center justify-center size-12 bg-[#194C9B]/10 rounded-full mb-4">
-        <span class="material-symbols-outlined text-[#194C9B] text-3xl">public</span>
-      </div>
-      <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Área</h3>
-      <p class="text-2xl font-bold text-[#194C9B]">902,3 km²</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">(IBGE)</p>
-    </div>
-
-    <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
-      <div class="flex items-center justify-center size-12 bg-[#194C9B]/10 rounded-full mb-4">
-        <span class="material-symbols-outlined text-[#194C9B] text-3xl">groups</span>
-      </div>
-      <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">População</h3>
-      <p class="text-2xl font-bold text-[#194C9B]">32.493 hab.</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">(Est. 2021)</p>
-    </div>
-
-    <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
-      <div class="flex items-center justify-center size-12 bg-[#194C9B]/10 rounded-full mb-4">
-        <span class="material-symbols-outlined text-[#194C9B] text-3xl">landscape</span>
-      </div>
-      <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Altitude</h3>
-      <p class="text-2xl font-bold text-[#194C9B]">660 m</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">(Média)</p>
-    </div>
-
-    <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
-      <div class="flex items-center justify-center size-12 bg-[#194C9B]/10 rounded-full mb-4">
-        <span class="material-symbols-outlined text-[#194C9B] text-3xl">thermostat</span>
-      </div>
-      <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">Clima</h3>
-      <p id="temperatura" class="text-2xl font-bold text-[#194C9B]">--°C</p>
-      <p id="condicao" class="text-sm text-gray-500 dark:text-gray-400">Carregando...</p>
-    </div>
-  </div>
-</section>
-
-<script>
-  const lat = -23.8793;
-  const lon = -47.9935;
-
-  async function carregarClima() {
-    try {
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
-      const res = await fetch(url);
-      const data = await res.json();
-
-      const temp = data.current_weather.temperature;
-      const codigo = data.current_weather.weathercode;
-
-      const condicoes = {
-        0: "Céu limpo ☀️",
-        1: "Principalmente limpo 🌤️",
-        2: "Parcialmente nublado ⛅",
-        3: "Nublado ☁️",
-        45: "Névoa 🌫️",
-        48: "Névoa congelante ❄️",
-        51: "Garoa leve 🌦️",
-        61: "Chuva leve 🌧️",
-        71: "Neve leve 🌨️",
-        95: "Tempestade ⛈️",
-      };
-
-      document.getElementById("temperatura").textContent = `${temp.toFixed(1)}°C`;
-      document.getElementById("condicao").textContent = condicoes[codigo] || "Condição desconhecida";
-    } catch (e) {
-      document.getElementById("condicao").textContent = "Erro ao carregar clima 😕";
-    }
-  }
-
-  carregarClima();
-  setInterval(carregarClima, 1800000);
-</script>
-
-<section class="py-12 md:py-20">
-  <div class="bg-[#194C9B] text-white rounded-xl p-8 md:p-12 max-w-4xl mx-auto text-center">
-    <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Planeje sua Viagem</h2>
-    <p class="text-white/80 mb-8 max-w-2xl mx-auto">
-      Quer saber a que distância você está deste paraíso? Insira sua cidade de origem e descubra.
-    </p>
-
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto">
-      <input
-        id="cidadeInput"
-        class="w-full flex-grow px-4 py-3 rounded-lg border-none text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-primary"
-        placeholder="Digite sua cidade"
-        type="text"
-      />
-      <button
-        id="calcularBtn"
-        class="w-full sm:w-auto bg-white text-[#194C9B] font-bold py-3 px-6 rounded-lg whitespace-nowrap hover:bg-opacity-90 transition-colors"
-      >
-        Calcular Distância
-      </button>
-      <button
-        id="resetarBtn"
-        class="w-full sm:w-auto bg-white/20 text-white font-bold py-3 px-6 rounded-lg whitespace-nowrap hover:bg-white/30 transition-colors"
-      >
-        Zerar
-      </button>
-    </div>
-
-    <div class="mt-8 text-center flex flex-col items-center gap-4">
-      <div class="text-lg">
-        <span class="text-white/70">Distância aproximada:</span>
-        <span id="resultado" class="text-4xl font-bold ml-2">0 km</span>
-      </div>
-      <a
-        id="mapaLink"
-        target="_blank"
-        class="inline-flex items-center gap-2 bg-white/10 text-white font-semibold py-2 px-5 rounded-lg hover:bg-white/20 transition-colors"
-        href="#"
-      >
-        <span class="material-symbols-outlined">map</span>
-        Ver no Google Maps
-      </a>
-    </div>
-  </div>
-</section>
-
-<script>
-  const btn = document.getElementById("calcularBtn");
-  const resetarBtn = document.getElementById("resetarBtn");
-  const input = document.getElementById("cidadeInput");
-  const resultado = document.getElementById("resultado");
-  const mapaLink = document.getElementById("mapaLink");
-
-  const saoMiguel = { lat: -23.8793, lng: -47.9935 }; 
-
-  async function pegarCoordenadas(cidade) {
-    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-      cidade
-    )}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    if (data.length > 0) {
-      return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
-    } else {
-      throw new Error("Cidade não encontrada");
-    }
-  }
-
-  function calcularDistancia(coord1, coord2) {
-    const R = 6371; 
-    const dLat = ((coord2.lat - coord1.lat) * Math.PI) / 180;
-    const dLon = ((coord2.lng - coord1.lng) * Math.PI) / 180;
-    const a =
-      Math.sin(dLat / 2) ** 2 +
-      Math.cos((coord1.lat * Math.PI) / 180) *
-        Math.cos((coord2.lat * Math.PI) / 180) *
-        Math.sin(dLon / 2) ** 2;
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c;
-  }
-
-  btn.addEventListener("click", async () => {
-    const cidade = input.value.trim();
-    if (!cidade) return alert("Digite o nome da sua cidade!");
-
-    try {
-      const origem = await pegarCoordenadas(cidade);
-      const distancia = calcularDistancia(origem, saoMiguel);
-      resultado.textContent = `${distancia.toFixed(1)} km`;
-      mapaLink.href = `https://www.google.com/maps/dir/${origem.lat},${origem.lng}/${saoMiguel.lat},${saoMiguel.lng}`;
-    } catch (e) {
-      alert("Não consegui encontrar essa cidade 😕");
-    }
-  });
-
-  resetarBtn.addEventListener("click", () => {
-    input.value = "";
-    resultado.textContent = "0 km";
-    mapaLink.href = "#";
-  });
-</script>
-
-<footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
-  <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
-    <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
-    <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="politicas.html">Política de Privacidade</a>
-    <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="contato.html">Suporte</a>
-  </div>
-
-  <div class="flex flex-wrap justify-center gap-6">
-    <a
-      class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
-      href="https://www.facebook.com/toursaomiguelarcanjo/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
-        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-      </svg>
-    </a>
-
-    <a
-      class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary"
-      href="https://www.instagram.com/toursaomiguelarcanjo/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
-        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24"
-        xmlns="http://www.w3.org/2000/svg">
-        <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-      </svg>
-    </a>
-  </div>
-
-  <p class="text-text-subtle-light dark:text-text-subtle-dark text-sm font-normal leading-normal">
-    © 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.
-  </p>
-</footer>
-
-</div>
-</body></html>
+</body>
+</html>

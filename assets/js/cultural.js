@@ -1,4 +1,3 @@
-// --- Configuração do Tailwind CSS ---
 tailwind.config = {
   darkMode: "class",
   theme: {
@@ -23,10 +22,8 @@ tailwind.config = {
   },
 };
 
-// --- Lógica da Página ---
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Controle do Menu de Navegação (Mobile e Dropdown)
   const toggle = document.getElementById('turismo-toggle');
   const menu = document.getElementById('turismo-menu');
   const wrapper = document.getElementById('menu-turismo-wrapper');
@@ -57,25 +54,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menu.addEventListener('click', e => e.stopPropagation());
     
-    // Fechar menu ao clicar fora
     document.addEventListener('click', () => closeMenu());
-    // Fechar menu com tecla ESC
     document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
-    // Fechar menu ao redimensionar tela
     window.addEventListener('resize', closeMenu);
   }
 
-  // 2. Lógica de Link Ativo (Highlight no Menu)
   const current = window.location.pathname.split('/').pop();
 
   document.querySelectorAll('nav .nav-link').forEach(a => {
-    // Adiciona classe active se o href corresponder à página atual
     if (a.getAttribute('href') === current) {
       a.classList.add('active');
     }
   });
 
-  // Verifica se um item do dropdown está ativo para destacar o pai ("Turismo")
   const dropdownParentToggle = document.getElementById('turismo-toggle');
   const dropdownItems = document.querySelectorAll('#turismo-menu a');
   dropdownItems.forEach(a => {
@@ -84,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Prevenir recarregamento desnecessário se clicar no link da página atual
   document.querySelectorAll('a[href]').forEach(link => {
     link.addEventListener('click', e => {
       const target = link.getAttribute('href');
@@ -96,11 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Lógica dos Filtros (Todos/Gratuitos/Pagos)
   const filterButtons = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.establishment-card');
 
-  // Classes para estado ativo vs inativo
   const activeClasses = ['bg-primary', 'text-white'];
   const inactiveClasses = [
     'bg-gray-100', 'dark:bg-gray-800',
@@ -113,18 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', () => {
       const filter = button.dataset.filter;
 
-      // Atualiza visual dos botões
       filterButtons.forEach(btn => {
         btn.classList.remove(...activeClasses);
-        // Adiciona classes inativas apenas se não estiverem presentes
         btn.classList.add(...inactiveClasses.filter(c => !btn.classList.contains(c)));
       });
       
-      // Ativa o botão clicado
       button.classList.add(...activeClasses);
       button.classList.remove(...inactiveClasses);
 
-      // Filtra os cards
       cards.forEach(card => {
         const category = card.dataset.category;
         if (filter === 'all' || filter === category) {
@@ -136,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. Lógica do botão "Saiba mais" (Expandir info)
   const toggleButtons = document.querySelectorAll('.toggle-info-btn');
 
   toggleButtons.forEach(button => {
