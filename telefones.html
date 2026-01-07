@@ -1,520 +1,485 @@
 <!DOCTYPE html>
 <html class="light" lang="pt-BR">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>TOUR - Diretório Local</title>
-    <link rel="icon" type="image/png" href="assets/img/logo_coracao_verde.png">
-    
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>TOUR - Diretório Local</title>
+  <link rel="icon" type="image/png" href="assets/img/logo_coracao_verde.png">
 
-    <link rel="stylesheet" href="assets/css/telefones.css">
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
-    <script src="assets/js/telefones.js"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" href="assets/css/telefones.css">
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script src="assets/js/telefones.js" defer></script>
 </head>
 
 <body class="font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark">
-<div class="relative flex min-h-screen w-full flex-col">
+  <div class="relative flex min-h-screen w-full flex-col">
     
     <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
-        <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
-
-            <div class="flex items-center gap-1.5">
-                <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
-                <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
-                    <span style="color:#29763B;">TOUR</span>
-                    <span style="color:#333333;"> São Miguel Arcanjo</span>
-                </h2>
-            </div>
-
-            <div class="hidden md:flex flex-1 items-center justify-end gap-8">
-                <nav class="flex items-center gap-9">
-                    <a href="index.html" class="nav-link">Início</a>
-
-                    <div class="relative" id="menu-turismo-wrapper">
-                        <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false"
-                                class="nav-link flex items-center gap-1 focus:outline-none">
-                            Turismo
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
-                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        <div id="turismo-menu"
-                             class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50"
-                             role="menu" aria-label="submenu turismo">
-                            <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
-                            <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
-                            <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
-                            <a href="cultural.html" class="dropdown-item block" role="menuitem">Étnico</a>
-                        </div>
-                    </div>
-
-                    <a href="hotelaria.html" class="nav-link">Hotelaria</a>
-                    <a href="gastronomia.html" class="nav-link">Gastronomia</a>
-                    <a href="agenda.html" class="nav-link">Agenda</a>
-                    <a href="telefones.html" class="nav-link">Telefones</a>
-                    <a href="sobre.html" class="nav-link">Sobre nós</a>
-                </nav>
-
-                <a href="contato.html"
-                   class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-                    <span class="truncate">Suporte</span>
-                </a>
-            </div>
-
-            <button class="md:hidden text-text-dark dark:text-white">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
+      <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
+        <div class="flex items-center gap-1.5">
+          <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
+          <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+            <span style="color:#29763B;">TOUR</span>
+            <span style="color:#333333;"> São Miguel Arcanjo</span>
+          </h2>
         </div>
+        
+        <div class="hidden md:flex flex-1 items-center justify-end gap-8">
+          <nav class="flex items-center gap-9">
+            <a href="index.html" class="nav-link">Início</a>
+            <div class="relative" id="menu-turismo-wrapper">
+              <button id="turismo-toggle" aria-haspopup="true" aria-expanded="false" class="nav-link flex items-center gap-1 focus:outline-none">
+                Turismo
+                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="turismo-menu" class="hidden absolute left-0 mt-2 w-44 flex-col rounded-lg border border-gray-200 bg-white shadow-md z-50" role="menu" aria-label="submenu turismo">
+                <a href="ecologico.html" class="dropdown-item block" role="menuitem">Ecológico</a>
+                <a href="religioso.html" class="dropdown-item block" role="menuitem">Religioso</a>
+                <a href="rural.html" class="dropdown-item block" role="menuitem">Rural</a>
+                <a href="cultural.html" class="dropdown-item block" role="menuitem">Étnico</a>
+              </div>
+            </div>
+            <a href="hotelaria.html" class="nav-link">Hotelaria</a>
+            <a href="gastronomia.html" class="nav-link">Gastronomia</a>
+            <a href="agenda.html" class="nav-link">Agenda</a>
+            <a href="telefones.html" class="nav-link active">Telefones</a>
+            <a href="sobre.html" class="nav-link">Sobre nós</a>
+          </nav>
+          <a href="contato.html" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+            <span class="truncate">Suporte</span>
+          </a>
+        </div>
+        
+        <button class="md:hidden text-text-dark dark:text-white">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
     </header>
 
     <main class="flex flex-col gap-8 py-10 px-6 max-w-7xl w-full mx-auto">
-        
-        <div class="flex flex-wrap items-center justify-between gap-6 py-4">
-            <div class="flex max-w-3xl flex-col gap-3">
-                <p class="text-accent-blue dark:text-primary text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">Telefones Úteis</p>
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-lg font-normal leading-relaxed">
-                    Um guia essencial de contatos e informações para residentes e visitantes de São Miguel Arcanjo.
-                </p>
+      
+      <div class="flex flex-wrap items-center justify-between gap-6 py-4">
+        <div class="flex max-w-3xl flex-col gap-3">
+          <p class="text-accent-blue dark:text-primary text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">Telefones Úteis</p>
+          <p class="text-text-secondary-light dark:text-text-secondary-dark text-lg font-normal leading-relaxed">
+            Um guia essencial de contatos e informações para residentes e visitantes de São Miguel Arcanjo.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex gap-3 flex-wrap">
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-5 text-white text-sm font-medium leading-normal transition-all duration-200" data-filter="all">
+          Todos
+        </button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="emergencia">
+          Emergência
+        </button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="saude">
+          Saúde
+        </button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="publicos">
+          Órgãos Públicos
+        </button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="transporte">
+          Transporte
+        </button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="farmacias">
+          Farmácias
+        </button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="servicos">
+          Serviços
+        </button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="mapa">
+          Mapa
+        </button>
+      </div>
+
+      <div id="establishment-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 py-4">
+
+        <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark" data-category="emergencia">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-3xl">local_police</span>
             </div>
+            <div class="flex flex-col">
+              <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Polícia Militar 190</p>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary">Emergência</span>
+            </div>
+          </div>
+          <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
+            Atendimento 24h para ocorrências.
+          </p>
+          <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="190">
+            <span class="material-symbols-outlined text-base">content_copy</span>
+            Copiar 190
+          </button>
         </div>
 
-        <div class="flex gap-3 flex-wrap">
-            <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-5 text-white text-sm font-medium leading-normal transition-all duration-200"
-                    data-filter="all">
-                Todos
-            </button>
-            <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200"
-                    data-filter="emergencia">
-                Emergência
-            </button>
-            <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200"
-                    data-filter="saude">
-                Saúde
-            </button>
-            <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200"
-                    data-filter="publicos">
-                Órgãos Públicos
-            </button>
-            <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200"
-                    data-filter="transporte">
-                Transporte
-            </button>
-            <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200"
-                    data-filter="farmacias">
-                Farmácias
-            </button>
-            <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200"
-                    data-filter="servicos">
-                Serviços
-            </button>
-            <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white px-4 text-secondary-light hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200"
-                    data-filter="mapa">
-                Mapa
-            </button>
+        <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark" data-category="emergencia">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-3xl">fire_truck</span>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Bombeiros 193</p>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary">Emergência</span>
+            </div>
+          </div>
+          <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
+            Atendimento 24h para incêndios e resgates.
+          </p>
+          <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="193">
+            <span class="material-symbols-outlined text-base">content_copy</span>
+            Copiar Telefone
+          </button>
         </div>
 
-        <div id="establishment-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 py-4">
-
-            <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark"
-                 data-category="emergencia">
-                <div class="flex items-center gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-3xl">local_police</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Polícia Militar 190</p>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-primary">Emergência</span>
-                    </div>
-                </div>
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
-                    Atendimento 24h para ocorrências.
-                </p>
-                <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="190">
-                    <span class="material-symbols-outlined text-base">content_copy</span>
-                    Copiar 190
-                </button>
+        <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark" data-category="emergencia">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-3xl">ambulance</span>
             </div>
-
-            <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark"
-                 data-category="emergencia">
-                <div class="flex items-center gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-3xl">fire_truck</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Bombeiros 193</p>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-primary">Emergência</span>
-                    </div>
-                </div>
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
-                    Atendimento 24h para incêndios e resgates.
-                </p>
-                <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="193">
-                    <span class="material-symbols-outlined text-base">content_copy</span>
-                    Copiar Telefone
-                </button>
+            <div class="flex flex-col">
+              <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">SAMU 192</p>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary">Emergência</span>
             </div>
-
-            <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark"
-                 data-category="emergencia">
-                <div class="flex items-center gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-3xl">ambulance</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">SAMU 192</p>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-primary">Emergência</span>
-                    </div>
-                </div>
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
-                    Serviço de Atendimento Móvel de Urgência.
-                </p>
-                <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="192">
-                    <span class="material-symbols-outlined text-base">content_copy</span>
-                    Copiar Telefone
-                </button>
-            </div>
-
-            <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark"
-                 data-category="emergencia">
-                <div class="flex items-center gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-3xl">flood</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Defesa Civil - 199</p>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-primary">Emergência</span>
-                    </div>
-                </div>
-                <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                        <span>Rua Principal, 123 Centro</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">call</span>
-                        <span>(15) 3279-1234</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">schedule</span>
-                        <span>Atendimento 24h</span>
-                    </div>
-                </div>
-                <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="199">
-                    <span class="material-symbols-outlined text-base">content_copy</span>
-                    Copiar Telefone
-                </button>
-            </div>
-
-            <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark"
-                 data-category="saude">
-                <div class="flex items-center gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-3xl">local_hospital</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Hospital Municipal</p>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-primary">Saúde</span>
-                    </div>
-                </div>
-                <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                        <span>Rua Principal, 123 Centro</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">call</span>
-                        <span>(15) 3279-1234</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">schedule</span>
-                        <span>Atendimento 24h</span>
-                    </div>
-                </div>
-                <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="(15) 3279-1234">
-                    <span class="material-symbols-outlined text-base">content_copy</span>
-                    Copiar Telefone
-                </button>
-            </div>
-
-            <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark"
-                 data-category="saude">
-                <div class="flex items-center gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-3xl">vaccines</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Posto de Saúde (UBS)</p>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-primary">Saúde</span>
-                    </div>
-                </div>
-                <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                        <span>Av. dos Plátanos, 456 - Jardim</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">call</span>
-                        <span>(15) 3279-5678</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">schedule</span>
-                        <span>Seg-Sex, 8h-17h</span>
-                    </div>
-                </div>
-                <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="(15) 3279-5678">
-                    <span class="material-symbols-outlined text-base">content_copy</span>
-                    Copiar Telefone
-                </button>
-            </div>
-
-            <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark"
-                 data-category="publicos">
-                <div class="flex items-center gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-3xl">domain</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Prefeitura Municipal</p>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-primary">Órgãos Públicos</span>
-                    </div>
-                </div>
-                <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                        <span>Praça da Matriz, 50 - Centro</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">call</span>
-                        <span>(15) 3279-1111</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">schedule</span>
-                        <span>Seg-Sex, 9h-16h</span>
-                    </div>
-                </div>
-                <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="(15) 3279-1111">
-                    <span class="material-symbols-outlined text-base">content_copy</span>
-                    Copiar Telefone
-                </button>
-            </div>
-
-            <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark"
-                 data-category="publicos">
-                <div class="flex items-center gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-3xl">local_post_office</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Correios - Agência</p>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-primary">Órgãos Públicos</span>
-                    </div>
-                </div>
-                <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                        <span>Rua do Comércio, 789 - Centro</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">call</span>
-                        <span>0800 725 0100</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">schedule</span>
-                        <span>Seg-Sex, 9h-17h</span>
-                    </div>
-                </div>
-                <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="0800 725 0100">
-                    <span class="material-symbols-outlined text-base">content_copy</span>
-                    Copiar Telefone
-                </button>
-            </div>
-
-            <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark"
-                 data-category="transporte">
-                <div class="flex items-center gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-3xl">directions_bus</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Terminal Rodoviário</p>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-primary">Transporte</span>
-                    </div>
-                </div>
-                <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                        <span>Praça da Rodoviária, s/n</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">call</span>
-                        <span>(15) 3279-9000</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">schedule</span>
-                        <span>Diariamente, 6h-23h</span>
-                    </div>
-                </div>
-                <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="(15) 3279-9000">
-                    <span class="material-symbols-outlined text-base">content_copy</span>
-                    Copiar Telefone
-                </button>
-            </div>
-
-            <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark"
-                 data-category="farmacias">
-                <div class="flex items-center gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-3xl">vaccines</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Farmácia</p>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-primary">Farmácias</span>
-                    </div>
-                </div>
-                <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                        <span>Av. dos Plátanos, 456 - Jardim</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">call</span>
-                        <span>(15) 3279-5678</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">schedule</span>
-                        <span>Seg-Sex, 8h-17h</span>
-                    </div>
-                </div>
-                <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="(15) 3279-5678">
-                    <span class="material-symbols-outlined text-base">content_copy</span>
-                    Copiar Telefone
-                </button>
-            </div>
-
-            <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark"
-                 data-category="servicos">
-                <div class="flex items-center gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-3xl">electrical_services</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">CPFL (Energia)</p>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-primary">Serviços</span>
-                    </div>
-                </div>
-                <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">call</span>
-                        <span>Atendimento: 0800 010 2570</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">call</span>
-                        <span>Emergência: 0800 0xx xxxx (24h)</span>
-                    </div>
-                </div>
-                <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="0800 010 2570">
-                    <span class="material-symbols-outlined text-base">content_copy</span>
-                    Copiar Telefone
-                </button>
-            </div>
-
-            <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark"
-                 data-category="servicos">
-                <div class="flex items-center gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-3xl">water_drop</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Sabesp (Água)</p>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-primary">Serviços</span>
-                    </div>
-                </div>
-                <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">call</span>
-                        <span>Atendimento: 0800 055 0195</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                        <span class="material-symbols-outlined text-base text-primary">call</span>
-                        <span>Emergência: 195 (24h)</span>
-                    </div>
-                </div>
-                <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="0800 055 0195">
-                    <span class="material-symbols-outlined text-base">content_copy</span>
-                    Copiar Telefone
-                </button>
-            </div>
-
-            <div class="establishment-card group flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark sm:col-span-2 lg:col-span-3"
-                 data-category="mapa">
-                <div class="flex items-center gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                        <span class="material-symbols-outlined text-3xl">map</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Localização Central</p>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-primary">Mapa</span>
-                    </div>
-                </div>
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
-                    Mapa interativo do centro de São Miguel Arcanjo.
-                </p>
-                <div class="aspect-video w-full overflow-hidden rounded-lg border border-border-light dark:border-border-dark mt-2">
-                    <iframe
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117075.48003610991!2d-48.06733276633633!3d-23.585257904291885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5e315352c6f11%3A0xf639a067310d7a04!2sSão%20Miguel%20Arcanjo%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
-                            style="border:0;"
-                            width="100%"
-                            height="100%">
-                    </iframe>
-                </div>
-            </div>
-
+          </div>
+          <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
+            Serviço de Atendimento Móvel de Urgência.
+          </p>
+          <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="192">
+            <span class="material-symbols-outlined text-base">content_copy</span>
+            Copiar Telefone
+          </button>
         </div>
 
+        <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark" data-category="emergencia">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-3xl">flood</span>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Defesa Civil - 199</p>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary">Emergência</span>
+            </div>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">location_on</span>
+              <span>Rua Principal, 123 - Centro</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">call</span>
+              <span>(15) 3279-1234</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">schedule</span>
+              <span>Atendimento 24h</span>
+            </div>
+          </div>
+          <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="199">
+            <span class="material-symbols-outlined text-base">content_copy</span>
+            Copiar Telefone
+          </button>
+        </div>
+
+        <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark" data-category="saude">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-3xl">local_hospital</span>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Hospital Municipal</p>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary">Saúde</span>
+            </div>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">location_on</span>
+              <span>Rua Principal, 123 - Centro</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">call</span>
+              <span>(15) 3279-1234</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">schedule</span>
+              <span>Atendimento 24h</span>
+            </div>
+          </div>
+          <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="(15) 3279-1234">
+            <span class="material-symbols-outlined text-base">content_copy</span>
+            Copiar Telefone
+          </button>
+        </div>
+
+        <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark" data-category="saude">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-3xl">vaccines</span>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Posto de Saúde (UBS)</p>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary">Saúde</span>
+            </div>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">location_on</span>
+              <span>Av. dos Plátanos, 456 - Jardim</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">call</span>
+              <span>(15) 3279-5678</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">schedule</span>
+              <span>Seg-Sex, 8h-17h</span>
+            </div>
+          </div>
+          <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="(15) 3279-5678">
+            <span class="material-symbols-outlined text-base">content_copy</span>
+            Copiar Telefone
+          </button>
+        </div>
+
+        <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark" data-category="publicos">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-3xl">domain</span>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Prefeitura Municipal</p>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary">Órgãos Públicos</span>
+            </div>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">location_on</span>
+              <span>Praça da Matriz, 50 - Centro</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">call</span>
+              <span>(15) 3279-1111</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">schedule</span>
+              <span>Seg-Sex, 9h-16h</span>
+            </div>
+          </div>
+          <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="(15) 3279-1111">
+            <span class="material-symbols-outlined text-base">content_copy</span>
+            Copiar Telefone
+          </button>
+        </div>
+
+        <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark" data-category="publicos">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-3xl">local_post_office</span>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Correios - Agência</p>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary">Órgãos Públicos</span>
+            </div>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">location_on</span>
+              <span>Rua do Comércio, 789 - Centro</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">call</span>
+              <span>0800 725 0100</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">schedule</span>
+              <span>Seg-Sex, 9h-17h</span>
+            </div>
+          </div>
+          <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="0800 725 0100">
+            <span class="material-symbols-outlined text-base">content_copy</span>
+            Copiar Telefone
+          </button>
+        </div>
+
+        <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark" data-category="transporte">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-3xl">directions_bus</span>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Terminal Rodoviário</p>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary">Transporte</span>
+            </div>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">location_on</span>
+              <span>Praça da Rodoviária, s/n</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">call</span>
+              <span>(15) 3279-9000</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">schedule</span>
+              <span>Diariamente, 6h-23h</span>
+            </div>
+          </div>
+          <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="(15) 3279-9000">
+            <span class="material-symbols-outlined text-base">content_copy</span>
+            Copiar Telefone
+          </button>
+        </div>
+
+        <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark" data-category="farmacias">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-3xl">vaccines</span>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Farmácia</p>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary">Farmácias</span>
+            </div>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">location_on</span>
+              <span>Av. dos Plátanos, 456 - Jardim</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">call</span>
+              <span>(15) 3279-5678</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">schedule</span>
+              <span>Seg-Sex, 8h-17h</span>
+            </div>
+          </div>
+          <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="(15) 3279-5678">
+            <span class="material-symbols-outlined text-base">content_copy</span>
+            Copiar Telefone
+          </button>
+        </div>
+
+        <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark" data-category="servicos">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-3xl">electrical_services</span>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">CPFL (Energia)</p>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary">Serviços</span>
+            </div>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">call</span>
+              <span>Atendimento: 0800 010 2570</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">call</span>
+              <span>Emergência: 0800 0xx xxxx (24h)</span>
+            </div>
+          </div>
+          <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="0800 010 2570">
+            <span class="material-symbols-outlined text-base">content_copy</span>
+            Copiar Telefone
+          </button>
+        </div>
+
+        <div class="establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark" data-category="servicos">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-3xl">water_drop</span>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Sabesp (Água)</p>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary">Serviços</span>
+            </div>
+          </div>
+          <div class="pt-3 mt-3 border-t border-border-light dark:border-border-dark flex flex-col gap-3 text-sm">
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">call</span>
+              <span>Atendimento: 0800 055 0195</span>
+            </div>
+            <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <span class="material-symbols-outlined text-base text-primary">call</span>
+              <span>Emergência: 195 (24h)</span>
+            </div>
+          </div>
+          <button class="copy-btn mt-2 w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 text-text-secondary-light px-4 py-2 rounded-lg text-sm font-bold transition-colors" data-copy="0800 055 0195">
+            <span class="material-symbols-outlined text-base">content_copy</span>
+            Copiar Telefone
+          </button>
+        </div>
+
+        <div class="establishment-card group flex flex-col gap-4 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark sm:col-span-2 lg:col-span-3" data-category="mapa">
+          <div class="flex items-center gap-4">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-3xl">map</span>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Localização Central</p>
+              <span class="text-xs font-semibold uppercase tracking-wider text-primary">Mapa</span>
+            </div>
+          </div>
+          <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
+            Mapa interativo do centro de São Miguel Arcanjo.
+          </p>
+          <div class="aspect-video w-full overflow-hidden rounded-lg border border-border-light dark:border-border-dark mt-2">
+            <iframe
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.888764835956!2d-47.9946464!3d-23.5744474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5cc8911505c21%3A0x7000808080808080!2sS%C3%A3o%20Miguel%20Arcanjo%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+              style="border:0;"
+              width="100%"
+              height="100%">
+            </iframe>
+          </div>
+        </div>
+
+      </div> 
     </main>
 
     <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
-        <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-secondary-light dark:text-text-secondary-dark">
-            <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
-            <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="politicas.html">Política de Privacidade</a>
-            <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="contato.html">Suporte</a>
-        </div>
+      <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-secondary-light dark:text-text-secondary-dark">
+        <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
+        <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="politicas.html">Política de Privacidade</a>
+        <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="contato.html">Suporte</a>
+      </div>
 
-        <div class="flex flex-wrap justify-center gap-6">
-            <a class="text-text-secondary-light dark:text-text-secondary-dark transition-colors hover:text-primary"
-               href="https://www.facebook.com/toursaomiguelarcanjo/" target="_blank" rel="noopener noreferrer">
-                <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                     stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
-            </a>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a class="text-text-secondary-light dark:text-text-secondary-dark transition-colors hover:text-primary" href="https://www.facebook.com/toursaomiguelarcanjo/" target="_blank" rel="noopener noreferrer">
+          <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          </svg>
+        </a>
 
-            <a class="text-text-secondary-light dark:text-text-secondary-dark transition-colors hover:text-primary"
-               href="https://www.instagram.com/toursaomiguelarcanjo/" target="_blank" rel="noopener noreferrer">
-                <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round"
-                     stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-                </svg>
-            </a>
-        </div>
+        <a class="text-text-secondary-light dark:text-text-secondary-dark transition-colors hover:text-primary" href="https://www.instagram.com/toursaomiguelarcanjo/" target="_blank" rel="noopener noreferrer">
+          <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+          </svg>
+        </a>
+      </div>
 
-        <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
-            © 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.
-        </p>
+      <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
+        © 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.
+      </p>
     </footer>
-</div>
+  </div>
 </body>
 </html>

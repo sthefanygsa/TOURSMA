@@ -17,54 +17,46 @@ tailwind.config = {
       fontFamily: {
         "display": ["Plus Jakarta Sans", "sans-serif"]
       },
-      borderRadius: {
-        "DEFAULT": "0.5rem", 
-        "lg": "0.75rem", 
-        "xl": "1rem", 
-        "full": "9999px"
-      },
+      borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
     },
   },
-};
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('turismo-toggle');
   const menu = document.getElementById('turismo-menu');
 
-  function openMenu() {
-    menu.classList.remove('hidden');
-    toggle.setAttribute('aria-expanded', 'true');
-  }
+  if (toggle && menu) {
+    function openMenu() {
+      menu.classList.remove('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
 
-  function closeMenu() {
-    menu.classList.add('hidden');
-    toggle.setAttribute('aria-expanded', 'false');
-  }
+    function closeMenu() {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
 
-  function toggleMenu() {
-    const isOpen = !menu.classList.contains('hidden');
-    if (isOpen) closeMenu();
-    else openMenu();
-  }
+    function toggleMenu() {
+      const isOpen = !menu.classList.contains('hidden');
+      if (isOpen) closeMenu();
+      else openMenu();
+    }
 
-  if (toggle) {
     toggle.addEventListener('click', e => {
       e.stopPropagation();
       toggleMenu();
     });
-  }
 
-  if (menu) {
     menu.addEventListener('click', e => e.stopPropagation());
+    document.addEventListener('click', () => closeMenu());
+    document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
+    window.addEventListener('resize', closeMenu);
   }
 
-  document.addEventListener('click', () => closeMenu());
-  document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
-  window.addEventListener('resize', closeMenu);
-
-  const currentPath = window.location.pathname.split('/').pop();
+  const current = window.location.pathname.split('/').pop();
   document.querySelectorAll('nav .nav-link').forEach(a => {
-    if (a.getAttribute('href') === currentPath) a.classList.add('active');
+    if (a.getAttribute('href') === current) a.classList.add('active');
   });
 
   document.querySelectorAll('a[href]').forEach(link => {
