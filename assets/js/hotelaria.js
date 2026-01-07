@@ -1,3 +1,6 @@
+// ------------------------------------------------------------------
+// 1. Configuração do Tailwind CSS
+// ------------------------------------------------------------------
 tailwind.config = {
   darkMode: "class",
   theme: {
@@ -22,10 +25,17 @@ tailwind.config = {
   },
 };
 
+// ------------------------------------------------------------------
+// 2. Lógica da Página (Menus, Filtros, Interações)
+// ------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
+
+  // === Lógica do Menu Dropdown e Links Ativos ===
   const toggle = document.getElementById('turismo-toggle');
   const menu = document.getElementById('turismo-menu');
+  const menuWrapper = document.getElementById('menu-turismo-wrapper');
 
+  // Funções de controle do menu
   function openMenu() {
     menu.classList.remove('hidden');
     toggle.setAttribute('aria-expanded', 'true');
@@ -37,49 +47,60 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function toggleMenu() {
-    if (!menu.classList.contains('hidden')) {
-      closeMenu();
-    } else {
+    if (menu.classList.contains('hidden')) {
       openMenu();
+    } else {
+      closeMenu();
     }
   }
 
+  // Event Listeners do Menu
   if (toggle && menu) {
-    toggle.addEventListener('click', e => {
+    toggle.addEventListener('click', (e) => {
       e.stopPropagation();
       toggleMenu();
     });
-    menu.addEventListener('click', e => e.stopPropagation());
-    
+
+    menu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    // Fechar ao clicar fora
     document.addEventListener('click', () => closeMenu());
-    
-    document.addEventListener('keydown', e => {
+
+    // Fechar ao apertar ESC
+    document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeMenu();
     });
-    
+
+    // Fechar ao redimensionar a tela
     window.addEventListener('resize', closeMenu);
   }
 
+  // === Lógica de Link Ativo (Highlight da página atual) ===
   const currentPath = window.location.pathname.split('/').pop();
-  document.querySelectorAll('nav .nav-link').forEach(a => {
-    if (a.getAttribute('href') === currentPath) {
-      a.classList.add('active');
+  
+  // Marca o link da navbar principal
+  document.querySelectorAll('nav .nav-link').forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active');
     }
   });
 
+  // Previne recarregamento desnecessário se clicar na página atual
   document.querySelectorAll('a[href]').forEach(link => {
     link.addEventListener('click', e => {
       const target = link.getAttribute('href');
-      const current = window.location.pathname.split('/').pop();
+      // Recalcula o path caso mude dinamicamente
+      const current = window.location.pathname.split('/').pop(); 
       if (target === current) {
         e.preventDefault();
         window.location.reload();
       }
     });
   });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
+  // === Lógica de Filtros (Zona Urbana / Rural) ===
   const filterButtons = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.establishment-card');
 
@@ -95,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', () => {
       const filter = button.dataset.filter;
 
+      // Atualiza estilo dos botões
       filterButtons.forEach(btn => {
         btn.classList.remove(...activeClasses);
         btn.classList.add(...inactiveClasses.filter(c => !btn.classList.contains(c)));
@@ -102,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
       button.classList.add(...activeClasses);
       button.classList.remove(...inactiveClasses);
 
+      // Filtra os cards
       cards.forEach(card => {
         const category = card.dataset.category;
         if (filter === 'all' || filter === category) {
@@ -113,9 +136,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const toggleButtons = document.querySelectorAll('.toggle-info-btn');
+  // === Lógica do Botão "Saiba Mais" (Expandir info) ===
+  const toggleInfoButtons = document.querySelectorAll('.toggle-info-btn');
 
-  toggleButtons.forEach(button => {
+  toggleInfoButtons.forEach(button => {
     button.addEventListener('click', () => {
       const card = button.closest('.establishment-card');
       const hiddenContent = card.querySelector('.hidden-info');

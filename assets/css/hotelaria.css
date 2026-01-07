@@ -1,3 +1,4 @@
+/* Configuração dos Ícones Material Symbols */
 .material-symbols-outlined {
   font-variation-settings:
     'FILL' 0,
@@ -6,34 +7,35 @@
     'opsz' 24;
 }
 
-.nav-link {
-  color: #333333;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: color 0.2s;
-  text-decoration: none;
+/* Links da Navegação Principal */
+.nav-link { 
+  color: #333333; 
+  font-size: 0.875rem; 
+  font-weight: 500; 
+  transition: color 0.2s; 
 }
 
-.nav-link:hover {
-  color: #194C9B;
+.nav-link:hover { 
+  color: #194C9B; 
 }
 
-.nav-link.active {
-  color: #194C9B;
-  font-weight: 700;
+.nav-link.active { 
+  color: #194C9B; 
+  font-weight: 700; 
 }
 
-.dropdown-item {
-  padding: 0.5rem 0.75rem;
-  font-size: 0.925rem;
-  color: #333;
-  transition: background-color 0.15s, color 0.15s;
-  white-space: nowrap;
-  display: block;
-  text-decoration: none;
+/* Itens do Dropdown Menu */
+.dropdown-item { 
+  padding: 0.5rem 0.75rem; 
+  font-size: 0.925rem; 
+  color: #333; 
+  transition: background-color 0.15s, color 0.15s; 
+  white-space: nowrap; 
+  display: block; 
+  text-decoration: none; 
 }
 
-.dropdown-item:hover {
-  background-color: #f2f5fa;
-  color: #194C9B;
+.dropdown-item:hover { 
+  background-color: #f2f5fa; 
+  color: #194C9B; 
 }
