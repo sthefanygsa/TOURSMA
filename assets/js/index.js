@@ -1,4 +1,4 @@
-tailwind.config = {
+window.tailwind.config = {
     darkMode: "class",
     theme: {
         extend: {
@@ -28,6 +28,8 @@ tailwind.config = {
 document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.getElementById('turismo-toggle');
     const menu = document.getElementById('turismo-menu');
+    const mobileBtn = document.getElementById('menu-mobile-btn');
+    const mobileMenu = document.getElementById('menu-mobile');
     
     function openMenu() {
         if(menu) {
@@ -62,9 +64,51 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.addEventListener('click', e => e.stopPropagation());
     }
 
-    document.addEventListener('click', () => closeMenu());
-    document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
-    window.addEventListener('resize', closeMenu);
+    if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                mobileBtn.innerHTML = '<span class="material-symbols-outlined text-2xl block">close</span>';
+            } else {
+                mobileMenu.classList.remove('flex');
+                mobileMenu.classList.add('hidden');
+                mobileBtn.innerHTML = '<span class="material-symbols-outlined text-2xl block">menu</span>';
+            }
+        });
+        
+        mobileMenu.addEventListener('click', e => e.stopPropagation());
+    }
+
+    document.addEventListener('click', () => {
+        closeMenu();
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('flex');
+            mobileMenu.classList.add('hidden');
+            if (mobileBtn) mobileBtn.innerHTML = '<span class="material-symbols-outlined text-2xl block">menu</span>';
+        }
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            closeMenu();
+            if (mobileMenu) {
+                mobileMenu.classList.remove('flex');
+                mobileMenu.classList.add('hidden');
+                if (mobileBtn) mobileBtn.innerHTML = '<span class="material-symbols-outlined text-2xl block">menu</span>';
+            }
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        closeMenu();
+        if (mobileMenu) {
+            mobileMenu.classList.remove('flex');
+            mobileMenu.classList.add('hidden');
+            if (mobileBtn) mobileBtn.innerHTML = '<span class="material-symbols-outlined text-2xl block">menu</span>';
+        }
+    });
 
     const current = window.location.pathname.split('/').pop();
     document.querySelectorAll('nav .nav-link').forEach(a => {
@@ -128,22 +172,22 @@ async function carregarClima() {
         const codigo = data.current_weather.weathercode;
 
         const condicoes = {
-            0: "Céu limpo ☀️",
-            1: "Principalmente limpo 🌤️",
-            2: "Parcialmente nublado ⛅",
-            3: "Nublado ☁️",
-            45: "Névoa 🌫️",
-            48: "Névoa congelante ❄️",
-            51: "Garoa leve 🌦️",
-            61: "Chuva leve 🌧️",
-            71: "Neve leve 🌨️",
-            95: "Tempestade ⛈️",
+            0: "Céu limpo",
+            1: "Principalmente limpo",
+            2: "Parcialmente nublado",
+            3: "Nublado",
+            45: "Névoa",
+            48: "Névoa congelante",
+            51: "Garoa leve",
+            61: "Chuva leve",
+            71: "Neve leve",
+            95: "Tempestade",
         };
 
         tempElement.textContent = `${temp.toFixed(1)}°C`;
         condElement.textContent = condicoes[codigo] || "Condição desconhecida";
     } catch (e) {
-        condElement.textContent = "Erro ao carregar clima 😕";
+        condElement.textContent = "Erro ao carregar clima!";
     }
 }
 
@@ -197,7 +241,7 @@ if(btnCalc && inputCidade) {
                 mapaLink.href = `https://www.google.com/maps/dir/?api=1&origin=${origem.lat},${origem.lng}&destination=${saoMiguel.lat},${saoMiguel.lng}`;
             }
         } catch (e) {
-            alert("Não consegui encontrar essa cidade 😕");
+            alert("Não consegui encontrar essa cidade! Por favor, tente novamente.");
         }
     });
 }
