@@ -1,3 +1,4 @@
+// 1. Configurações Globais do Tailwind CDN
 window.tailwind.config = {
     darkMode: "class",
     theme: {
@@ -25,12 +26,14 @@ window.tailwind.config = {
     },
 };
 
+// 2. Inicialização dos Componentes Globais da Interface (Menus e Navegação)
 document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.getElementById('turismo-toggle');
     const menu = document.getElementById('turismo-menu');
     const mobileBtn = document.getElementById('menu-mobile-btn');
     const mobileMenu = document.getElementById('menu-mobile');
     
+    // Dropdown de Turismo (Menu Desktop)
     if (toggle && menu) {
         toggle.addEventListener('click', e => {
             e.stopPropagation();
@@ -46,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.addEventListener('click', e => e.stopPropagation());
     }
 
+    // Menu Hambúrguer (Menu Mobile)
     if (mobileBtn && mobileMenu) {
         mobileBtn.addEventListener('click', e => {
             e.stopPropagation();
@@ -62,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.addEventListener('click', e => e.stopPropagation());
     }
 
+    // Fechamento Global ao Clicar Fora dos Elementos
     document.addEventListener('click', () => {
         if (menu) menu.classList.add('hidden');
         if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
@@ -71,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Fechamento Global ao Redimensionar a Janela (Evita quebras de Layout)
     window.addEventListener('resize', () => {
         if (menu) menu.classList.add('hidden');
         if (mobileMenu) {
@@ -80,12 +86,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Indicação Visual de Página Ativa na Navbar Principal
     const current = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a').forEach(a => {
-        if (a.getAttribute('href') === current) a.classList.add('active');
+    document.querySelectorAll('.nav-link').forEach(a => {
+        if (a.getAttribute('href') === current) {
+            a.classList.add('active');
+        }
     });
 });
 
+// 3. Componente Dinâmico: Carrossel de Imagens (Apenas para a Home)
 const carousel = document.getElementById("carousel");
 if (carousel) {
     const imagens = [
@@ -108,6 +118,7 @@ if (carousel) {
     setInterval(mudarImagem, 4000);
 }
 
+// 4. Componente Dinâmico: API de Clima (Apenas para a Home)
 const tempElement = document.getElementById("temperatura");
 const condElement = document.getElementById("condicao");
 if (tempElement && condElement) {
@@ -136,6 +147,7 @@ if (tempElement && condElement) {
     setInterval(carregarClima, 1800000);
 }
 
+// 5. Componente Dinâmico: Calculadora de Distância (Apenas para a Home)
 const btnCalc = document.getElementById("calcularBtn");
 const inputCidade = document.getElementById("cidadeInput");
 if (btnCalc && inputCidade) {
@@ -164,10 +176,10 @@ if (btnCalc && inputCidade) {
         const cidade = inputCidade.value.trim();
         if (!cidade) return alert("Digite o nome da sua cidade!");
         try {
-            const origem = await pegarCoordenadas(cidade);
-            const distancia = calcularDistancia(origem, saoMiguel);
+            const origen = await pegarCoordenadas(cidade);
+            const distancia = calcularDistancia(origen, saoMiguel);
             if (resultadoDist) resultadoDist.textContent = `${distancia.toFixed(1)} km`;
-            if (mapaLink) mapaLink.href = `https://www.google.com/maps/dir/?api=1&origin=${origem.lat},${origem.lng}&destination=${saoMiguel.lat},${saoMiguel.lng}`;
+            if (mapaLink) mapaLink.href = `https://www.google.com/maps/dir/?api=1&origin=${origen.lat},${origen.lng}&destination=${saoMiguel.lat},${saoMiguel.lng}`;
         } catch (e) {
             alert("Não consegui encontrar essa cidade! Tente novamente.");
         }
