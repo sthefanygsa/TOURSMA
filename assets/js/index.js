@@ -31,36 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileBtn = document.getElementById('menu-mobile-btn');
     const mobileMenu = document.getElementById('menu-mobile');
     
-    function openMenu() {
-        if(menu) {
-            menu.classList.remove('hidden');
-            if(toggle) toggle.setAttribute('aria-expanded', 'true');
-        }
-    }
-    
-    function closeMenu() {
-        if(menu) {
-            menu.classList.add('hidden');
-            if(toggle) toggle.setAttribute('aria-expanded', 'false');
-        }
-    }
-    
-    function toggleMenu() {
-        if(menu) {
-            const isOpen = !menu.classList.contains('hidden');
-            if (isOpen) closeMenu();
-            else openMenu();
-        }
-    }
-
-    if(toggle) {
+    if (toggle && menu) {
         toggle.addEventListener('click', e => {
             e.stopPropagation();
-            toggleMenu();
+            const isOpen = !menu.classList.contains('hidden');
+            if (isOpen) {
+                menu.classList.add('hidden');
+                toggle.setAttribute('aria-expanded', 'false');
+            } else {
+                menu.classList.remove('hidden');
+                toggle.setAttribute('aria-expanded', 'true');
+            }
         });
-    }
-
-    if(menu) {
         menu.addEventListener('click', e => e.stopPropagation());
     }
 
@@ -77,12 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileBtn.innerHTML = '<span class="material-symbols-outlined text-2xl block">menu</span>';
             }
         });
-        
         mobileMenu.addEventListener('click', e => e.stopPropagation());
     }
 
     document.addEventListener('click', () => {
-        closeMenu();
+        if (menu) menu.classList.add('hidden');
         if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
             mobileMenu.classList.remove('flex');
             mobileMenu.classList.add('hidden');
@@ -90,19 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') {
-            closeMenu();
-            if (mobileMenu) {
-                mobileMenu.classList.remove('flex');
-                mobileMenu.classList.add('hidden');
-                if (mobileBtn) mobileBtn.innerHTML = '<span class="material-symbols-outlined text-2xl block">menu</span>';
-            }
-        }
-    });
-
     window.addEventListener('resize', () => {
-        closeMenu();
+        if (menu) menu.classList.add('hidden');
         if (mobileMenu) {
             mobileMenu.classList.remove('flex');
             mobileMenu.classList.add('hidden');
@@ -110,146 +80,104 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const current = window.location.pathname.split('/').pop();
-    document.querySelectorAll('nav .nav-link').forEach(a => {
+    const current = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a => {
         if (a.getAttribute('href') === current) a.classList.add('active');
-    });
-
-    document.querySelectorAll('a[href]').forEach(link => {
-        link.addEventListener('click', e => {
-            const target = link.getAttribute('href');
-            const currentPath = window.location.pathname.split('/').pop();
-            if (target === currentPath) {
-                e.preventDefault();
-                window.location.reload();
-            }
-        });
     });
 });
 
-const imagens = [
-    "assets/img/img_carrossel_2_cidade.jpg",
-    "assets/img/img_carrossel_1_basílica.jpg",
-    "assets/img/img_carrossel_3_gruta.jpg",
-    "assets/img/img_carrossel_4_cachoeira.jpg"
-];
-
-let index = 0;
 const carousel = document.getElementById("carousel");
-const dots = document.querySelectorAll(".dot");
+if (carousel) {
+    const imagens = [
+        "assets/img/img_carrossel_2_cidade.jpg",
+        "assets/img/img_carrossel_1_basílica.jpg",
+        "assets/img/img_carrossel_3_gruta.jpg",
+        "assets/img/img_carrossel_4_cachoeira.jpg"
+    ];
+    let index = 0;
+    const dots = document.querySelectorAll(".dot");
 
-function mudarImagem() {
-    if (!carousel) return;
-    
-    index = (index + 1) % imagens.length;
-    carousel.style.backgroundImage = `linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url('${imagens[index]}')`;
-
-    dots.forEach((dot, i) => {
-        dot.classList.toggle("bg-white", i === index);
-        dot.classList.toggle("bg-white/50", i !== index);
-    });
-}
-
-if(carousel) {
+    function mudarImagem() {
+        index = (index + 1) % imagens.length;
+        carousel.style.backgroundImage = `linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url('${imagens[index]}')`;
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("bg-white", i === index);
+            dot.classList.toggle("bg-white/50", i !== index);
+        });
+    }
     setInterval(mudarImagem, 4000);
 }
 
-const lat = -23.8793;
-const lon = -47.9935;
+const tempElement = document.getElementById("temperatura");
+const condElement = document.getElementById("condicao");
+if (tempElement && condElement) {
+    const lat = -23.8793;
+    const lon = -47.9935;
 
-async function carregarClima() {
-    const tempElement = document.getElementById("temperatura");
-    const condElement = document.getElementById("condicao");
-    
-    if(!tempElement || !condElement) return;
-
-    try {
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
-        const res = await fetch(url);
-        const data = await res.json();
-
-        const temp = data.current_weather.temperature;
-        const codigo = data.current_weather.weathercode;
-
-        const condicoes = {
-            0: "Céu limpo",
-            1: "Principalmente limpo",
-            2: "Parcialmente nublado",
-            3: "Nublado",
-            45: "Névoa",
-            48: "Névoa congelante",
-            51: "Garoa leve",
-            61: "Chuva leve",
-            71: "Neve leve",
-            95: "Tempestade",
-        };
-
-        tempElement.textContent = `${temp.toFixed(1)}°C`;
-        condElement.textContent = condicoes[codigo] || "Condição desconhecida";
-    } catch (e) {
-        condElement.textContent = "Erro ao carregar clima!";
+    async function carregarClima() {
+        try {
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+            const res = await fetch(url);
+            const data = await res.json();
+            const temp = data.current_weather.temperature;
+            const codigo = data.current_weather.weathercode;
+            const condicoes = {
+                0: "Céu limpo", 1: "Principalmente limpo", 2: "Parcialmente nublado",
+                3: "Nublado", 45: "Névoa", 48: "Névoa congelante",
+                51: "Garoa leve", 61: "Chuva leve", 71: "Neve leve", 95: "Tempestade"
+            };
+            tempElement.textContent = `${temp.toFixed(1)}°C`;
+            condElement.textContent = condicoes[codigo] || "Condição desconhecida";
+        } catch (e) {
+            condElement.textContent = "Erro ao carregar clima!";
+        }
     }
+    carregarClima();
+    setInterval(carregarClima, 1800000);
 }
-
-carregarClima();
-setInterval(carregarClima, 1800000); 
 
 const btnCalc = document.getElementById("calcularBtn");
-const resetarBtn = document.getElementById("resetarBtn");
 const inputCidade = document.getElementById("cidadeInput");
-const resultadoDist = document.getElementById("resultado");
-const mapaLink = document.getElementById("mapaLink");
+if (btnCalc && inputCidade) {
+    const resetarBtn = document.getElementById("resetarBtn");
+    const resultadoDist = document.getElementById("resultado");
+    const mapaLink = document.getElementById("mapaLink");
+    const saoMiguel = { lat: -23.8793, lng: -47.9935 };
 
-const saoMiguel = { lat: -23.8793, lng: -47.9935 }; 
-
-async function pegarCoordenadas(cidade) {
-    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(cidade)}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    if (data.length > 0) {
-        return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
-    } else {
+    async function pegarCoordenadas(cidade) {
+        const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(cidade)}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        if (data.length > 0) return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
         throw new Error("Cidade não encontrada");
     }
-}
 
-function calcularDistancia(coord1, coord2) {
-    const R = 6371; 
-    const dLat = ((coord2.lat - coord1.lat) * Math.PI) / 180;
-    const dLon = ((coord2.lng - coord1.lng) * Math.PI) / 180;
-    const a =
-        Math.sin(dLat / 2) ** 2 +
-        Math.cos((coord1.lat * Math.PI) / 180) *
-        Math.cos((coord2.lat * Math.PI) / 180) *
-        Math.sin(dLon / 2) ** 2;
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c;
-}
+    function calcularDistancia(coord1, coord2) {
+        const R = 6371;
+        const dLat = ((coord2.lat - coord1.lat) * Math.PI) / 180;
+        const dLon = ((coord2.lng - coord1.lng) * Math.PI) / 180;
+        const a = Math.sin(dLat / 2) ** 2 + Math.cos((coord1.lat * Math.PI) / 180) * Math.cos((coord2.lat * Math.PI) / 180) * Math.sin(dLon / 2) ** 2;
+        return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
 
-if(btnCalc && inputCidade) {
     btnCalc.addEventListener("click", async () => {
         const cidade = inputCidade.value.trim();
         if (!cidade) return alert("Digite o nome da sua cidade!");
-
         try {
             const origem = await pegarCoordenadas(cidade);
             const distancia = calcularDistancia(origem, saoMiguel);
-            
-            if(resultadoDist) resultadoDist.textContent = `${distancia.toFixed(1)} km`;
-            
-            if(mapaLink) {
-                mapaLink.href = `https://www.google.com/maps/dir/?api=1&origin=${origem.lat},${origem.lng}&destination=${saoMiguel.lat},${saoMiguel.lng}`;
-            }
+            if (resultadoDist) resultadoDist.textContent = `${distancia.toFixed(1)} km`;
+            if (mapaLink) mapaLink.href = `https://www.google.com/maps/dir/?api=1&origin=${origem.lat},${origem.lng}&destination=${saoMiguel.lat},${saoMiguel.lng}`;
         } catch (e) {
-            alert("Não consegui encontrar essa cidade! Por favor, tente novamente.");
+            alert("Não consegui encontrar essa cidade! Tente novamente.");
         }
     });
-}
 
-if(resetarBtn) {
-    resetarBtn.addEventListener("click", () => {
-        if(inputCidade) inputCidade.value = "";
-        if(resultadoDist) resultadoDist.textContent = "0 km";
-        if(mapaLink) mapaLink.href = "#";
-    });
+    if (resetarBtn) {
+        resetarBtn.addEventListener("click", () => {
+            inputCidade.value = "";
+            if (resultadoDist) resultadoDist.textContent = "0 km";
+            if (mapaLink) mapaLink.href = "#";
+        });
+    }
 }
