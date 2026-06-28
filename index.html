@@ -73,15 +73,16 @@
                 <div class="w-full max-w-6xl px-4 py-8 md:py-12">
                     
                     <div class="w-full relative">
-                        <div id="carousel" class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[400px] md:min-h-[500px] transition-all duration-1000 ease-in-out" style='background-image: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url("assets/img/img_carrossel_2_cidade.jpg");'>
-                            <div class="flex justify-center gap-2 p-5">
-                                <div class="dot size-2 rounded-full bg-white"></div>
-                                <div class="dot size-2 rounded-full bg-white/50"></div>
-                                <div class="dot size-2 rounded-full bg-white/50"></div>
-                                <div class="dot size-2 rounded-full bg-white/50"></div>
-                            </div>
-                        </div>
-                    </div>
+    <div id="carousel" class="bg-gray-200 dark:bg-gray-800 bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[400px] md:min-h-[500px]" style='background-image: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url("assets/img/img_carrossel_2_cidade.jpg");'>
+        
+        <div class="flex justify-center gap-2 p-5 mt-auto">
+            <div class="dot size-2 rounded-full bg-white"></div>
+            <div class="dot size-2 rounded-full bg-white/50"></div>
+            <div class="dot size-2 rounded-full bg-white/50"></div>
+            <div class="dot size-2 rounded-full bg-white/50"></div>
+        </div>
+    </div>
+</div>
 
                     <section class="py-12 md:py-20 text-center max-w-3xl mx-auto">
                         <h1 class="text-secondary tracking-tight text-3xl md:text-4xl font-extrabold leading-tight pb-4">Conheça São Miguel Arcanjo</h1>
@@ -141,18 +142,21 @@
                         <div class="bg-[#194C9B] text-white rounded-xl p-8 md:p-12 max-w-4xl mx-auto text-center">
                             <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Planeje sua Viagem</h2>
                             <p class="text-white/80 mb-8 max-w-2xl mx-auto">
-                                Quer saber a que distância você está deste paraíso? Insira sua cidade de origem e descubra.
+                                Descubra a distância até São Miguel Arcanjo. Digite sua cidade de origem abaixo.
                             </p>
 
-                            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto">
-                                <input id="cidadeInput" class="w-full flex-grow px-4 py-3 rounded-lg border-none text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-primary" placeholder="Digite sua cidade" type="text" />
-                                <button id="calcularBtn" class="w-full sm:w-auto bg-white text-[#194C9B] font-bold py-3 px-6 rounded-lg whitespace-nowrap hover:bg-opacity-90 transition-colors">
-                                    Calcular Distância
-                                </button>
-                                <button id="resetarBtn" class="w-full sm:w-auto bg-white/20 text-white font-bold py-3 px-6 rounded-lg whitespace-nowrap hover:bg-white/30 transition-colors">
-                                    Zerar
-                                </button>
-                            </div>
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto w-full">
+    <input id="cidadeInput" class="w-full flex-grow px-4 py-3 rounded-lg border-none text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-primary" placeholder="Digite sua cidade" type="text" />
+    
+    <div class="flex gap-2 w-full sm:w-auto">
+        <button id="calcularBtn" class="flex-1 sm:flex-initial bg-white text-[#194C9B] font-bold py-3 px-4 rounded-lg whitespace-nowrap hover:bg-opacity-90 transition-colors text-sm">
+            Calcular
+        </button>
+        <button id="resetarBtn" class="bg-white/20 text-white font-bold py-3 px-4 rounded-lg whitespace-nowrap hover:bg-white/30 transition-colors text-sm">
+            Zerar
+        </button>
+    </div>
+</div>
 
                             <div class="mt-8 text-center flex flex-col items-center gap-4">
                                 <div class="text-lg">
