@@ -16,18 +16,20 @@
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
   <script src="assets/js/sobre.js" defer></script>
+  <script src="assets/js/index.js" defer></script>
 </head>
 
 <body class="font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark">
   <div class="relative flex min-h-screen w-full flex-col">
     <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
-    <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3">
+    
+    <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3 relative">
         
         <div class="flex items-center gap-1.5">
             <img src="assets/img/logo_coracao_verde.png" alt="Logo" class="w-6 h-6 relative top-[1px]">
             <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
                 <span class="text-primary">TOUR</span>
-                <span class="text-[#333333]">São Miguel Arcanjo</span>
+                <span class="text-[#333333] dark:text-white">São Miguel Arcanjo</span>
             </h2>
         </div>
 
@@ -54,7 +56,7 @@
                 <a href="gastronomia.html" class="nav-link">Gastronomia</a>
                 <a href="agenda.html" class="nav-link">Agenda</a>
                 <a href="telefones.html" class="nav-link">Telefones</a>
-                <a href="sobre.html" class="nav-link active">Sobre nós</a>
+                <a href="sobre.html" class="nav-link">Sobre nós</a>
             </nav>
 
             <a href="contato.html" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
@@ -62,9 +64,30 @@
             </a>
         </div>
 
-        <button class="md:hidden text-text-dark dark:text-white">
-            <span class="material-symbols-outlined">menu</span>
+        <button id="menu-mobile-btn" class="md:hidden text-gray-800 dark:text-white focus:outline-none z-50 p-1">
+            <span class="material-symbols-outlined text-2xl block">menu</span>
         </button>
+
+        <div id="menu-mobile" class="hidden absolute top-full left-0 w-full bg-white dark:bg-background-dark border-b border-gray-200 dark:border-gray-700 shadow-xl flex-col p-4 gap-1 md:hidden z-40">
+            <nav class="flex flex-col">
+                <a href="index.html" class="text-gray-700 dark:text-gray-200 font-semibold py-3 px-2 border-b border-gray-100 dark:border-gray-800">Início</a>
+                
+                <div class="bg-gray-50 dark:bg-gray-900/50 rounded-lg my-1 p-2 flex flex-col gap-1">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider px-2">Turismo</span>
+                    <a href="ecologico.html" class="text-gray-700 dark:text-gray-200 py-2 px-2 text-sm font-medium">Ecológico</a>
+                    <a href="religioso.html" class="text-gray-700 dark:text-gray-200 py-2 px-2 text-sm font-medium">Religioso</a>
+                    <a href="rural.html" class="text-gray-700 dark:text-gray-200 py-2 px-2 text-sm font-medium">Rural</a>
+                </div>
+
+                <a href="hotelaria.html" class="text-gray-700 dark:text-gray-200 font-semibold py-3 px-2 border-b border-gray-100 dark:border-gray-800">Hotelaria</a>
+                <a href="gastronomia.html" class="text-gray-700 dark:text-gray-200 font-semibold py-3 px-2 border-b border-gray-100 dark:border-gray-800">Gastronomia</a>
+                <a href="agenda.html" class="text-gray-700 dark:text-gray-200 font-semibold py-3 px-2 border-b border-gray-100 dark:border-gray-800">Agenda</a>
+                <a href="telefones.html" class="text-gray-700 dark:text-gray-200 font-semibold py-3 px-2 border-b border-gray-100 dark:border-gray-800">Telefones</a>
+                <a href="sobre.html" class="text-gray-700 dark:text-gray-200 font-semibold py-3 px-2 border-b border-gray-100 dark:border-gray-800">Sobre nós</a>
+                <a href="contato.html" class="bg-primary text-white text-center font-bold py-3 rounded-lg mt-4 shadow-md transition-colors hover:bg-primary/90">Contato</a>
+            </nav>
+        </div>
+
     </div>
 </header>
 
