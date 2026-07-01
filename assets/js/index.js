@@ -1,6 +1,5 @@
-// 1. Configurações Globais do Tailwind CDN
+// 1. Configurações Globais do Tailwind CDN (Dark Mode REMOVIDO)
 window.tailwind.config = {
-    darkMode: "class",
     theme: {
         extend: {
             colors: {
@@ -173,10 +172,10 @@ if (btnCalc && inputCidade) {
     }
 
     btnCalc.addEventListener("click", async () => {
-        const cidade = inputCidade.value.trim();
-        if (!cidade) return alert("Digite o nome da sua cidade!");
+        const city = inputCidade.value.trim();
+        if (!city) return alert("Digite o nome da sua cidade!");
         try {
-            const origen = await pegarCoordenadas(cidade);
+            const origen = await pegarCoordenadas(city);
             const distancia = calcularDistancia(origen, saoMiguel);
             if (resultadoDist) resultadoDist.textContent = `${distancia.toFixed(1)} km`;
             if (mapaLink) mapaLink.href = `https://www.google.com/maps/dir/?api=1&origin=${origen.lat},${origen.lng}&destination=${saoMiguel.lat},${saoMiguel.lng}`;
