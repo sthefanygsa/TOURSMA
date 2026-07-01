@@ -1,16 +1,13 @@
-// 1. Configurações Globais do Tailwind CDN (Dark Mode REMOVIDO)
+// 1. Configurações Globais do Tailwind CDN (Totalmente focado em Tema Claro)
 window.tailwind.config = {
     theme: {
         extend: {
             colors: {
                 "primary": "#29763B",
                 "secondary": "#194C9B",
-                "background-light": "#FFFFFF",
-                "background-dark": "#101010",
-                "text-light": "#121613",
-                "text-dark": "#E5E5E5",
-                "text-muted-light": "#6c757d",
-                "text-muted-dark": "#9ca3af",
+                "background": "#FFFFFF",
+                "text-main": "#121613",
+                "text-muted": "#6c757d",
             },
             fontFamily: {
                 "display": ["Plus Jakarta Sans", "sans-serif"]
