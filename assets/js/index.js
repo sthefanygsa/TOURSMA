@@ -1,13 +1,18 @@
-// 1. Configurações Globais do Tailwind CDN (Totalmente focado em Tema Claro)
 window.tailwind.config = {
+    darkMode: ["class", ".modo-escuro-bloqueado"], 
     theme: {
         extend: {
             colors: {
                 "primary": "#29763B",
                 "secondary": "#194C9B",
-                "background": "#FFFFFF",
-                "text-main": "#121613",
-                "text-muted": "#6c757d",
+                
+                "background-light": "#FFFFFF",
+                "background-dark": "#FFFFFF", 
+                
+                "text-light": "#121613",
+                "text-dark": "#121613",
+                "text-muted-light": "#6c757d",
+                "text-muted-dark": "#6c757d",
             },
             fontFamily: {
                 "display": ["Plus Jakarta Sans", "sans-serif"]
@@ -22,14 +27,12 @@ window.tailwind.config = {
     },
 };
 
-// 2. Inicialização dos Componentes Globais da Interface (Menus e Navegação)
 document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.getElementById('turismo-toggle');
     const menu = document.getElementById('turismo-menu');
     const mobileBtn = document.getElementById('menu-mobile-btn');
     const mobileMenu = document.getElementById('menu-mobile');
     
-    // Dropdown de Turismo (Menu Desktop)
     if (toggle && menu) {
         toggle.addEventListener('click', e => {
             e.stopPropagation();
@@ -45,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.addEventListener('click', e => e.stopPropagation());
     }
 
-    // Menu Hambúrguer (Menu Mobile)
     if (mobileBtn && mobileMenu) {
         mobileBtn.addEventListener('click', e => {
             e.stopPropagation();
@@ -62,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.addEventListener('click', e => e.stopPropagation());
     }
 
-    // Fechamento Global ao Clicar Fora dos Elementos
     document.addEventListener('click', () => {
         if (menu) menu.classList.add('hidden');
         if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
@@ -72,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Fechamento Global ao Redimensionar a Janela (Evita quebras de Layout)
     window.addEventListener('resize', () => {
         if (menu) menu.classList.add('hidden');
         if (mobileMenu) {
@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Indicação Visual de Página Ativa na Navbar Principal
     const current = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-link').forEach(a => {
         if (a.getAttribute('href') === current) {
@@ -91,30 +90,66 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// 3. Componente Dinâmico: Carrossel de Imagens (Apenas para a Home)
 const carousel = document.getElementById("carousel");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
 if (carousel) {
     const imagens = [
-        "assets/img/img_carrossel_2_cidade.jpg",
-        "assets/img/img_carrossel_1_basílica.jpg",
-        "assets/img/img_carrossel_3_gruta.jpg",
-        "assets/img/img_carrossel_4_cachoeira.jpg"
+        "assets/img/img5.png",
+        "assets/img/img2.png",
+        "assets/img/img3.png",
+        "assets/img/img4.png",
+        "assets/img/img1.png",
+        "assets/img/img6.jpg"
     ];
     let index = 0;
     const dots = document.querySelectorAll(".dot");
+    let intervaloCarrossel;
 
-    function mudarImagem() {
-        index = (index + 1) % imagens.length;
+    function atualizarCarrossel() {
         carousel.style.backgroundImage = `linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url('${imagens[index]}')`;
         dots.forEach((dot, i) => {
             dot.classList.toggle("bg-white", i === index);
             dot.classList.toggle("bg-white/50", i !== index);
         });
     }
-    setInterval(mudarImagem, 4000);
+
+    function proximaImagem() {
+        index = (index + 1) % imagens.length;
+        atualizarCarrossel();
+    }
+
+    function imagemAnterior() {
+        index = (index - 1 + imagens.length) % imagens.length;
+        atualizarCarrossel();
+    }
+
+    function iniciarAutoPlay() {
+        clearInterval(intervaloCarrossel);
+        intervaloCarrossel = setInterval(proximaImagem, 4000);
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", (e) => {
+            e.stopPropagation(); 
+            imagemAnterior();
+            iniciarAutoPlay(); 
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            proximaImagem();
+            iniciarAutoPlay();
+        });
+    }
+
+    atualizarCarrossel();
+    iniciarAutoPlay();
 }
 
-// 4. Componente Dinâmico: API de Clima (Apenas para a Home)
 const tempElement = document.getElementById("temperatura");
 const condElement = document.getElementById("condicao");
 if (tempElement && condElement) {
@@ -143,7 +178,6 @@ if (tempElement && condElement) {
     setInterval(carregarClima, 1800000);
 }
 
-// 5. Componente Dinâmico: Calculadora de Distância (Apenas para a Home)
 const btnCalc = document.getElementById("calcularBtn");
 const inputCidade = document.getElementById("cidadeInput");
 if (btnCalc && inputCidade) {
