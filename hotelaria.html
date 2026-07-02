@@ -25,7 +25,7 @@
 
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/hotelaria.css">
 
@@ -104,133 +104,168 @@
 </header>
 
     <main class="flex flex-col gap-8 py-10 px-6 max-w-7xl w-full mx-auto">
-      <div class="flex flex-wrap items-center justify-between gap-6 py-4">
-        <div class="flex max-w-3xl flex-col gap-3">
+      <div class="flex flex-wrap justify-between gap-4">
+        <div class="flex flex-col gap-2">
           <p class="text-4xl font-black tracking-tighter" style="color:#194C9B;">Encontre sua hospedagem ideal!</p>
           <p class="text-text-secondary-light dark:text-text-secondary-dark text-lg font-normal leading-relaxed">
-            Descubra os melhores hotéis e pousadas de São Miguel Arcanjo.
+            Descubra os melhores hotéis, pousadas e acomodações.
           </p>
         </div>
       </div>
       
       <div class="flex gap-3 flex-wrap">
-        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-5 pr-5 text-white text-sm font-medium leading-normal transition-all duration-200" data-filter="all">
-          Todos
-        </button>
-        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="zona-urbana">
-          Zona Urbana
-        </button>
-        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="zona-rural">
-          Zona Rural
-        </button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-5 pr-5 text-white text-sm font-medium leading-normal transition-all duration-200" data-filter="all">Todos</button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="Zona Urbana">Zona Urbana</button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="Zona Rural">Zona Rural</button>
       </div>
-
-      <div id="establishment-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 py-4">
-
-        <div class="establishment-card group flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg p-3 transition-all bg-white dark:bg-gray-900" data-category="zona-rural">
-          <div class="w-full overflow-hidden rounded-lg">
-            <div class="h-56 w-full bg-cover bg-center transition-transform duration-300 ease-in-out group-hover:scale-105" style='background-image: url("assets/img/pousada.jpg");'></div>
-          </div>
+      
+      <div id="establishment-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Zona Rural">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Prato de comida regional" style="background-image: url('assets/img/pousada_serra_azul.png');"></div>
           <div class="p-4 pt-0 flex flex-col gap-3">
             <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Zona Rural</span>
             <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Pousada Serra Azul</p>
-            <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
-              Aconchego e tranquilidade com vista panorâmica das montanhas.
-            </p>
-
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Aconchego e tranquilidade com vista panorâmica das montanhas.</p>
             <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
               <p class="text-text-secondary dark:text-gray-400">
-                Descrição mais longa: Café da manhã incluso e piscina aquecida. Perfeito para relaxar e aproveitar a natureza.
+                Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.
               </p>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                <span>Rua das Palmeiras, 145 - Zona Rural</span>
+                <span>Rua Principal, 123</span>
               </div>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">schedule</span>
-                <span>Check-in: 14h | Check-out: 12h</span>
+                <span>Ter - Dom: 11h às 22h</span>
               </div>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">call</span>
-                <span>(15) 99999-6666</span>
+                <span>(15) 99999-1111</span>
               </div>
             </div>
-
             <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
               Saiba mais
             </button>
           </div>
         </div>
-
-        <div class="establishment-card group flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg p-3 transition-all bg-white dark:bg-gray-900" data-category="zona-urbana">
-          <div class="w-full overflow-hidden rounded-lg">
-            <div class="h-56 w-full bg-cover bg-center transition-transform duration-300 ease-in-out group-hover:scale-105" style='background-image: url("assets/img/hotel.jpg");'></div>
-          </div>
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Zona Urbana">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Hambúrguer suculento" style="background-image: url('assets/img/hotel_central_garden.png');"></div>
           <div class="p-4 pt-0 flex flex-col gap-3">
             <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Zona Urbana</span>
             <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Hotel Central Garden</p>
-            <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
-              No coração da cidade, ideal para quem busca conforto e praticidade.
-            </p>
-
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">No coração da cidade, ideal para quem busca conforto e praticidade.</p>
             <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
               <p class="text-text-secondary dark:text-gray-400">
-                Descrição mais longa: Wi-Fi gratuito em todas as áreas e um delicioso café da manhã incluso na diária.
+                Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.
               </p>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                <span>Av. São Miguel, 230 - Centro</span>
+                <span>Av. Central, 456</span>
               </div>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">schedule</span>
-                <span>Check-in: 13h | Check-out: 11h</span>
+                <span>Seg - Sáb: 08h às 20h</span>
               </div>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">call</span>
-                <span>(15) 99999-7777</span>
+                <span>(15) 99999-2222</span>
               </div>
             </div>
-
             <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
               Saiba mais
             </button>
           </div>
         </div>
-
-        <div class="establishment-card group flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg p-3 transition-all bg-white dark:bg-gray-900" data-category="zona-rural">
-          <div class="w-full overflow-hidden rounded-lg">
-            <div class="h-56 w-full bg-cover bg-center transition-transform duration-300 ease-in-out group-hover:scale-105" style='background-image: url("assets/img/chacara.jpg");'></div>
-          </div>
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Zona Rural">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Cesta de pães frescos" style="background-image: url('assets/img/chacara_recanto_do_vinho.png');"></div>
           <div class="p-4 pt-0 flex flex-col gap-3">
             <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Zona Rural</span>
             <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Chácara Recanto do Vinho</p>
-            <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
-              Hospedagem rural com degustações e vista incrível dos vinhedos.
-            </p>
-
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Aconchego e tranquilidade com vista panorâmica das montanhas.</p>
             <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
               <p class="text-text-secondary dark:text-gray-400">
-                Descrição mais longa: Ideal pra casais e famílias. Lindos parreirais ao redor e produção própria de vinhos artesanais.
+                Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.
               </p>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                <span>Estrada do Vinho, km 9 - Zona Rural</span>
+                <span>Praça da Matriz, 78</span>
               </div>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">schedule</span>
-                <span>Check-in: 15h | Check-out: 11h</span>
+                <span>Seg - Dom: 06h às 19h</span>
               </div>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">call</span>
-                <span>(15) 99999-8888</span>
+                <span>(15) 99999-3333</span>
               </div>
             </div>
-
             <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
               Saiba mais
             </button>
           </div>
         </div>
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Zona Urbana">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Banca de frutas e vegetais" style="background-image: url('assets/img/casa_de_hospedes.png');"></div>
+          <div class="p-4 pt-0 flex flex-col gap-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Zona Urbana</span>
+            <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Casa de Hóspedes</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Aconchego e tranquilidade com vista panorâmica da cidade.</p>
+            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+              <p class="text-text-secondary dark:text-gray-400">
+                Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.
+              </p>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">location_on</span>
+                <span>Rua do Comércio, 90</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">schedule</span>
+                <span>Seg - Sex: 07h às 18h</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">call</span>
+                <span>(15) 99999-4444</span>
+              </div>
+            </div>
+            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+              Saiba mais
+            </button>
+          </div>
+        </div>
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Zona Urbana">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Pizza saindo do forno a lenha" style="background-image: url('assets/img/hotel_arcanjo.png');"></div>
+          <div class="p-4 pt-0 flex flex-col gap-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Zona Urbana</span>
+            <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Hotel Arcanjo</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Aconchego e tranquilidade com vista panorâmica da Gruta do Arcanjo</p>
+            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+              <p class="text-text-secondary dark:text-gray-400">
+                Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.
+              </p>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">location_on</span>
+                <span>Rua das Flores, 321</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">schedule</span>
+                <span>Qua - Dom: 18h às 23h</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">call</span>
+                <span>(15) 99999-5555</span>
+              </div>
+            </div>
+            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+              Saiba mais
+            </button>
+          </div>
+        </div>
+        
       </div> 
       
       <div class="flex items-center justify-center p-4 pt-8">
@@ -243,7 +278,8 @@
         </a>
       </div>
 
-    </main> 
+    </main>
+    
     <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
       <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
         <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
@@ -257,7 +293,6 @@
             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
           </svg>
         </a>
-
         <a class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary" href="https://www.instagram.com/toursaomiguelarcanjo/" target="_blank" rel="noopener noreferrer">
           <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
             <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
