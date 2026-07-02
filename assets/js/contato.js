@@ -1,14 +1,15 @@
-tailwind.config = {
-  darkMode: "class",
+window.tailwind.config = {
+  darkMode: "class", 
   theme: {
     extend: {
       colors: {
         "primary": "#29753b",
         "background-light": "#f6f8f6",
-        "background-dark": "#141e16",
+        "background-dark": "#f6f8f6", 
         "accent-blue": "#194C9B",
         "text-dark": "#333333",
         "border-light": "#CCCCCC",
+        "border-dark": "#CCCCCC"      
       },
       fontFamily: {
         "display": ["Plus Jakarta Sans", "sans-serif"]
@@ -21,47 +22,8 @@ tailwind.config = {
 (function () {
   document.addEventListener('DOMContentLoaded', () => {
     
-    const toggle = document.getElementById('turismo-toggle');
-    const menu = document.getElementById('turismo-menu');
-    const wrapper = document.getElementById('menu-turismo-wrapper');
-
-    function openMenu() {
-      if (!menu || !toggle) return;
-      menu.classList.remove('hidden');
-      toggle.setAttribute('aria-expanded', 'true');
-    }
-
-    function closeMenu() {
-      if (!menu || !toggle) return;
-      menu.classList.add('hidden');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-
-    function toggleMenu() {
-      if (!menu) return;
-      const isOpen = !menu.classList.contains('hidden');
-      if (isOpen) closeMenu();
-      else openMenu();
-    }
-
-    if (toggle) {
-      toggle.addEventListener('click', e => {
-        e.stopPropagation();
-        toggleMenu();
-      });
-    }
-
-    if (menu) {
-      menu.addEventListener('click', e => e.stopPropagation());
-    }
-
-    document.addEventListener('click', () => closeMenu());
-    document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
-    window.addEventListener('resize', closeMenu);
-
     const current = window.location.pathname.split('/').pop();
     document.querySelectorAll('nav .nav-link').forEach(a => {
-
       const href = a.getAttribute('href');
       if (href === current || (current === '' && href === 'index.html')) {
         a.classList.add('active');
@@ -80,7 +42,6 @@ tailwind.config = {
     });
 
     const contactForm = document.querySelector('form[method="POST"]');
-
     if (contactForm) {
       contactForm.addEventListener('submit', function (event) {
         event.preventDefault();
