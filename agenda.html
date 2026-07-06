@@ -109,77 +109,92 @@
                     <h2 class="text-4xl lg:text-5xl font-black leading-tight tracking-tighter text-center" style="color:#194C9B;">
                         Destaques do Mês
                     </h2>
-                    <div class="flex overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory">
-                        <div class="flex items-stretch p-4 gap-6 w-full">
-
-                            <div class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-white shadow-lg min-w-72 snap-center">
-                                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl flex flex-col" 
-                                    data-alt="Pessoas colhendo uvas em um vinhedo ensolarado" 
-                                    style='background-image: url("assets/img/festadauva.jpg");'></div>
-                                <div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
-                                    <div>
-                                        <p class="text-gray-800 text-lg font-bold leading-normal">Festa da Uva</p>
-                                        <p class="text-gray-600 text-sm font-normal leading-normal mt-1">Celebre a colheita com vinhos e comidas típicas.</p>
-                                    </div>
-                                    <div class="saiba-mais-content hidden pt-4 border-t border-gray-200 mt-2">
-                                        <p class="text-sm text-gray-700">
-                                            <strong>Data:</strong> 10-12 de Outubro<br>
-                                            <strong>Local:</strong> Vinícola Sol Nascente<br>
-                                            Venha participar da tradicional pisa da uva, desfrutar de música ao vivo e provar os melhores vinhos da região.
-                                        </p>
-                                    </div>
-                                    <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#29763B] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors saiba-mais-toggle">
-                                        <span class="truncate">Saiba Mais</span>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-white shadow-lg min-w-72 snap-center">
-                                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl flex flex-col" 
-                                    data-alt="Palco com luzes coloridas durante um festival de música à noite" 
-                                    style='background-image: url("assets/img/festivalinverno.jpg");'></div>
-                                <div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
-                                    <div>
-                                        <p class="text-gray-800 text-lg font-bold leading-normal">Festival de Inverno</p>
-                                        <p class="text-gray-600 text-sm font-normal leading-normal mt-1">Música, gastronomia e o melhor do frio da serra.</p>
-                                    </div>
-                                    <div class="saiba-mais-content hidden pt-4 border-t border-gray-200 mt-2">
-                                        <p class="text-sm text-gray-700">
-                                            <strong>Data:</strong> 15-18 de Julho<br>
-                                            <strong>Local:</strong> Praça Central<br>
-                                            Shows com bandas locais, fondue, vinhos e chocolate quente para aquecer sua noite.
-                                        </p>
-                                    </div>
-                                    <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#29763B] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors saiba-mais-toggle">
-                                        <span class="truncate">Saiba Mais</span>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="flex h-full flex-1 flex-col gap-4 rounded-xl bg-white shadow-lg min-w-72 snap-center">
-                                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl flex flex-col" 
-                                    data-alt="Galeria de arte com pessoas observando quadros em uma exposição" 
-                                    style='background-image: url("assets/img/cultural.png");'></div>
-                                <div class="flex flex-col flex-1 justify-between p-4 pt-0 gap-4">
-                                    <div>
-                                        <p class="text-gray-800 text-lg font-bold leading-normal">Semana Cultural</p>
-                                        <p class="text-gray-600 text-sm font-normal leading-normal mt-1">Exposições de arte, teatro e shows ao vivo.</p>
-                                    </div>
-                                    <div class="saiba-mais-content hidden pt-4 border-t border-gray-200 mt-2">
-                                        <p class="text-sm text-gray-700">
-                                            <strong>Data:</strong> 01-07 de Setembro<br>
-                                            <strong>Local:</strong> Centro de Convenções<br>
-                                            Uma semana inteira dedicada à arte, com oficinas, palestras e apresentações de artistas renomados.
-                                        </p>
-                                    </div>
-                                    <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#29763B] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors saiba-mais-toggle">
-                                        <span class="truncate">Saiba Mais</span>
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    <br>
+                    <div id="establishment-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Gratuitos">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Prato de comida regional" style="background-image: url('assets/img/festadauva.png');"></div>
+          <div class="p-4 pt-0 flex flex-col gap-3">
+            <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Festa da Uva</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Uma festa em comemoração à colheita da uva, com música, comida e bebida.</p>
+            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+              <p class="text-text-secondary dark:text-gray-400">
+                Uma descrição mais longa sobre a festa, seus eventos e atrações. Perfeito para uma saída em família.
+              </p>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">location_on</span>
+                <span>Rua Principal, 123</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">schedule</span>
+                <span>Ter - Dom: 11h às 22h</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">call</span>
+                <span>(15) 99999-1111</span>
+              </div>
+            </div>
+            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+              Saiba mais
+            </button>
+          </div>
+        </div>
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Pagos">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Hambúrguer suculento" style="background-image: url('assets/img/festivaldeinverno.png');"></div>
+          <div class="p-4 pt-0 flex flex-col gap-3">
+            <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Festival de Inverno</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Uma festa em comemoração à colheita da uva, com música, comida e bebida.</p>
+            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+              <p class="text-text-secondary dark:text-gray-400">
+                Uma descrição mais longa sobre o festival, seus eventos e atrações. Perfeito para uma saída em família.
+              </p>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">location_on</span>
+                <span>Av. Central, 456</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">schedule</span>
+                <span>Seg - Sáb: 08h às 20h</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">call</span>
+                <span>(15) 99999-2222</span>
+              </div>
+            </div>
+            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+              Saiba mais
+            </button>
+          </div>
+        </div>
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Gratuitos">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Cesta de pães frescos" style="background-image: url('assets/img/cultural.png');"></div>
+          <div class="p-4 pt-0 flex flex-col gap-3">
+            <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Semana Cultural</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Uma semana de eventos culturais, com apresentações de teatro, música e artes plásticas.</p>
+            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+              <p class="text-text-secondary dark:text-gray-400">
+                Uma descrição mais longa sobre a semana cultural, seus eventos e atrações. Perfeito para uma saída em família.
+              </p>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">location_on</span>
+                <span>Praça da Matriz, 78</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">schedule</span>
+                <span>Seg - Dom: 06h às 19h</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">call</span>
+                <span>(15) 99999-3333</span>
+              </div>
+            </div>
+            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+              Saiba mais
+            </button>
+          </div>
+        </div>
                 </section>
                 <section class="w-full">
                     <h2 class="text-[#194C9B] text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-5 pt-5 text-center">Explore nosso Calendário de Eventos</h2>

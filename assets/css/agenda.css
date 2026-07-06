@@ -36,3 +36,7 @@
     background-color: #f2f5fa;
     color: #194C9B;
 }
+
+#establishment-grid {
+    align-items: start;
+}
