@@ -3,20 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>TOUR - Turismo Religioso</title>
+  <title>TOUR - Religioso</title>
   <link rel="icon" type="image/png" href="assets/img/logo_coracao_verde.png">
-
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
         tailwind.config = {
-        darkMode: "class",
         theme: {
         extend: {
         colors: {
           "primary": "#29763B",
           "secondary": "#194C9B",
           "background-light": "#FFFFFF",
-          "background-dark": "#101010",
             }
             }
             }
@@ -27,7 +25,7 @@
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/religioso.css">
+  <link rel="stylesheet" href="assets/css/hotelaria.css">
   <script src="assets/js/index.js" defer></script>
 
 </head>
@@ -105,55 +103,44 @@
 </header>
 
     <main class="flex flex-col gap-8 py-10 px-6 max-w-7xl w-full mx-auto">
-      
-      <div class="flex flex-wrap items-center justify-between gap-6 py-4">
-        <div class="flex max-w-3xl flex-col gap-3">
-          <p class="text-accent-blue dark:text-primary text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">Turismo Religioso</p>
+      <div class="flex flex-wrap justify-between gap-4">
+        <div class="flex flex-col gap-2">
+          <p class="text-5xl font-black tracking-tighter" style="color:#194C9B;">Turismo Religioso</p>
           <p class="text-text-secondary-light dark:text-text-secondary-dark text-lg font-normal leading-relaxed">
-            Visite igrejas, capelas e grutas que contam a história de fé e devoção da cidade. Conheça celebrações tradicionais como a Festa do Padroeiro e as procissões locais.
+            Descubra a beleza espiritual de São Miguel Arcanjo através de experiências religiosas únicas. Explore igrejas, santuários e locais de peregrinação, conectando-se com a tradição e promovendo o respeito cultural.
           </p>
         </div>
       </div>
       
       <div class="flex gap-3 flex-wrap">
-        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-5 pr-5 text-white text-sm font-medium leading-normal transition-all duration-200" data-filter="all">
-          Todos
-        </button>
-        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="gratuito">
-          Gratuitos
-        </button>
-        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="pago">
-          Pagos
-        </button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-5 pr-5 text-white text-sm font-medium leading-normal transition-all duration-200" data-filter="all">Todos</button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="Gratuitos">Gratuitos</button>
+        <button class="filter-btn flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-white pl-5 pr-5 text-secondary hover:bg-primary/10 hover:text-primary text-sm font-medium leading-normal transition-all duration-200" data-filter="Pagos">Pagos</button>
       </div>
-
-      <div id="establishment-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 py-4">
-
-        <div class="establishment-card group flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg p-3 transition-all bg-white dark:bg-gray-900" data-category="gratuito">
-          <div class="w-full overflow-hidden rounded-lg">
-            <div class="h-56 w-full bg-cover bg-center transition-transform duration-300 ease-in-out group-hover:scale-105" style='background-image: url("assets/img/basilica.jpg");'></div>
-          </div>
+      
+      <div id="establishment-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Gratuitos">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Prato de comida regional" style="background-image: url('assets/img/basilica.png');"></div>
           <div class="p-4 pt-0 flex flex-col gap-3">
             <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Gratuito</span>
-            <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Santuário Basílica de São Miguel Arcanjo</p>
-            <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
-              O coração da fé na cidade, lar do padroeiro. Cheio de relíquias e arte sacra.
-            </p>
+            <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Basílica de São Miguel Arcanjo</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Uma das mais importantes basílicas da região.</p>
             <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
               <p class="text-text-secondary dark:text-gray-400">
-                Principal ponto de peregrinação, conhecido por sua arquitetura imponente. Recebe milhares de fiéis anualmente.
+                Uma descrição mais longa sobre a basílica, seus artefatos e a história religiosa. Perfeito para uma visita cultural e espiritual.
               </p>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                <span>Praça da Matriz, 1 - Centro</span>
+                <span>Rua Principal, 123</span>
               </div>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">schedule</span>
-                <span>Diariamente: 07h às 19h (Missas variadas)</span>
+                <span>Ter - Dom: 11h às 22h</span>
               </div>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">call</span>
-                <span>(15) 3279-1100</span>
+                <span>(15) 99999-1111</span>
               </div>
             </div>
             <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
@@ -161,65 +148,28 @@
             </button>
           </div>
         </div>
-
-        <div class="establishment-card group flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg p-3 transition-all bg-white dark:bg-gray-900" data-category="gratuito">
-          <div class="w-full overflow-hidden rounded-lg">
-            <div class="h-56 w-full bg-cover bg-center transition-transform duration-300 ease-in-out group-hover:scale-105" style='background-image: url("assets/img/gruta.jpg");'></div>
-          </div>
-          <div class="p-4 pt-0 flex flex-col gap-3">
-            <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Gratuito</span>
-            <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Gruta de Nossa Senhora de Lourdes</p>
-            <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
-              Um local de oração e tranquilidade em meio à natureza.
-            </p>
-            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
-              <p class="text-text-secondary dark:text-gray-400">
-                Pequena gruta dedicada à Nossa Senhora de Lourdes, ideal para momentos de reflexão. O acesso é feito por uma trilha curta e de fácil caminhada.
-              </p>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                <span>Estrada da Gruta, km 2 (Próximo ao Bairro do Turvo)</span>
-              </div>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                <span class="material-symbols-outlined text-base text-primary">schedule</span>
-                <span>Acesso 24h (recomendado durante o dia)</span>
-              </div>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
-                <span class="material-symbols-outlined text-base text-primary">call</span>
-                <span>(Prefeitura - CAT) (15) 3279-1122</span>
-              </div>
-            </div>
-            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
-              Saiba mais
-            </button>
-          </div>
-        </div>
-
-        <div class="establishment-card group flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg p-3 transition-all bg-white dark:bg-gray-900" data-category="pago">
-          <div class="w-full overflow-hidden rounded-lg">
-            <div class="h-56 w-full bg-cover bg-center transition-transform duration-300 ease-in-out group-hover:scale-105" style='background-image: url("assets/img/capela.jpg");'></div>
-          </div>
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Pagos">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Hambúrguer suculento" style="background-image: url('assets/img/aparicao.png');"></div>
           <div class="p-4 pt-0 flex flex-col gap-3">
             <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Pago</span>
-            <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Capela Histórica do Bairro da Grama</p>
-            <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
-              Marco da colonização e da fé dos primeiros imigrantes.
-            </p>
+            <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Aparição de São Miguel Arcanjo</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Uma das mais importantes aparições religiosas da região.</p>
             <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
               <p class="text-text-secondary dark:text-gray-400">
-                Capela centenária mantida pela comunidade. É cobrada uma taxa simbólica de manutenção. Sedia a tradicional festa de São Benedito.
+                Uma descrição mais longa sobre a aparição, seus significados e a história religiosa. Perfeito para uma visita cultural e espiritual.
               </p>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">location_on</span>
-                <span>Bairro da Grama, Zona Rural</span>
+                <span>Av. Central, 456</span>
               </div>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">schedule</span>
-                <span>Sáb, Dom e Feriados: 10h às 16h</span>
+                <span>Seg - Sáb: 08h às 20h</span>
               </div>
-              <div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
                 <span class="material-symbols-outlined text-base text-primary">call</span>
-                <span>(15) 99999-1234</span>
+                <span>(15) 99999-2222</span>
               </div>
             </div>
             <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
@@ -227,7 +177,94 @@
             </button>
           </div>
         </div>
-
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Gratuitos">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Cesta de pães frescos" style="background-image: url('assets/img/gruta.png');"></div>
+          <div class="p-4 pt-0 flex flex-col gap-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Gratuito</span>
+            <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Construção da Gruta do Arcanjo</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Uma das mais importantes construções religiosas da região.</p>
+            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+              <p class="text-text-secondary dark:text-gray-400">
+                Uma descrição mais longa sobre a gruta, seus artefatos e a história religiosa. Perfeito para uma visita cultural e espiritual.
+              </p>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">location_on</span>
+                <span>Praça da Matriz, 78</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">schedule</span>
+                <span>Seg - Dom: 06h às 19h</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">call</span>
+                <span>(15) 99999-3333</span>
+              </div>
+            </div>
+            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+              Saiba mais
+            </button>
+          </div>
+        </div>
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Gratuitos">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Banca de frutas e vegetais" style="background-image: url('assets/img/capela.png');"></div>
+          <div class="p-4 pt-0 flex flex-col gap-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Gratuito</span>
+            <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Capela do Arcanjo</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Uma das mais importantes capelas da região.</p>
+            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+              <p class="text-text-secondary dark:text-gray-400">
+                Uma descrição mais longa sobre a capela, seus artefatos e a história religiosa. Perfeito para uma visita cultural e espiritual.
+              </p>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">location_on</span>
+                <span>Rua do Comércio, 90</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">schedule</span>
+                <span>Seg - Sex: 07h às 18h</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">call</span>
+                <span>(15) 99999-4444</span>
+              </div>
+            </div>
+            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+              Saiba mais
+            </button>
+          </div>
+        </div>
+        
+        <div class="establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20" data-category="Pagos">
+          <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" data-alt="Pizza saindo do forno a lenha" style="background-image: url('assets/img/velario.png');"></div>
+          <div class="p-4 pt-0 flex flex-col gap-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">Pago</span>
+            <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">Velário</p>
+            <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">Um local de culto com significado religioso e histórico.</p>
+            <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+              <p class="text-text-secondary dark:text-gray-400">
+                Uma descrição mais longa sobre o velário, seus artefatos e a história religiosa. Perfeito para uma visita cultural e espiritual.
+              </p>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">location_on</span>
+                <span>Rua das Flores, 321</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">schedule</span>
+                <span>Qua - Dom: 18h às 23h</span>
+              </div>
+              <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+                <span class="material-symbols-outlined text-base text-primary">call</span>
+                <span>(15) 99999-5555</span>
+              </div>
+            </div>
+            <button class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+              Saiba mais
+            </button>
+          </div>
+        </div>
+        
       </div> 
       
       <div class="flex items-center justify-center p-4 pt-8">
@@ -240,7 +277,7 @@
         </a>
       </div>
 
-    </main> 
+    </main>
     
     <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
       <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
@@ -255,7 +292,6 @@
             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
           </svg>
         </a>
-
         <a class="text-text-subtle-light dark:text-text-subtle-dark transition-colors hover:text-primary" href="https://www.instagram.com/toursaomiguelarcanjo/" target="_blank" rel="noopener noreferrer">
           <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
             <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
