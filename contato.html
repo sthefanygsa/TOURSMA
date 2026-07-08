@@ -112,45 +112,31 @@
         </div>
         <br>
 
-            <form action="#" class="space-y-6" method="POST">
-              <div>
-                <label class="block text-text-dark dark:text-gray-300 text-base font-medium leading-normal pb-2"
-                  for="nome">Nome</label>
-                <input
-                  class="form-input block w-full resize-none overflow-hidden rounded-lg text-text-dark dark:text-white dark:bg-gray-800 focus:outline-0 focus:ring-2 focus:ring-accent-blue border border-border-light dark:border-gray-600 focus:border-accent-blue h-14 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal"
-                  id="nome" name="nome" placeholder="Digite seu nome completo" type="text" />
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label class="block text-text-dark dark:text-gray-300 text-base font-medium leading-normal pb-2"
-                    for="email">E-mail</label>
-                  <input
-                    class="form-input block w-full resize-none overflow-hidden rounded-lg text-text-dark dark:text-white dark:bg-gray-800 focus:outline-0 focus:ring-2 focus:ring-accent-blue border border-border-light dark:border-gray-600 focus:border-accent-blue h-14 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal"
-                    id="email" name="email" placeholder="seuemail@exemplo.com" type="email" />
-                </div>
-                <div>
-                  <label class="block text-text-dark dark:text-gray-300 text-base font-medium leading-normal pb-2"
-                    for="telefone">Telefone</label>
-                  <input
-                    class="form-input block w-full resize-none overflow-hidden rounded-lg text-text-dark dark:text-white dark:bg-gray-800 focus:outline-0 focus:ring-2 focus:ring-accent-blue border border-border-light dark:border-gray-600 focus:border-accent-blue h-14 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal"
-                    id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" type="tel" />
-                </div>
-              </div>
-              <div>
-                <label class="block text-text-dark dark:text-gray-300 text-base font-medium leading-normal pb-2"
-                  for="mensagem">Mensagem</label>
-                <textarea
-                  class="form-textarea block w-full resize-none overflow-hidden rounded-lg text-text-dark dark:text-white dark:bg-gray-800 focus:outline-0 focus:ring-2 focus:ring-accent-blue border border-border-light dark:border-gray-600 focus:border-accent-blue min-h-36 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal"
-                  id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." rows="6"></textarea>
-              </div>
-              <div>
-                <button
-                  class="w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
-                  type="submit">
-                  <span class="truncate">Enviar Mensagem</span>
-                </button>
-              </div>
-            </form>
+            <form action="https://formsubmit.co/sthefanygsa@gmail.com" method="POST" class="flex flex-col gap-4">
+    
+    <input type="hidden" name="_next" value="https://seusite.com/obrigado.html"> 
+    <input type="hidden" name="_captcha" value="false"> 
+    <input type="hidden" name="_subject" value="Novo contato: TOUR São Miguel Arcanjo">
+
+    <div>
+        <label class="block text-sm font-medium text-gray-700">Nome</label>
+        <input type="text" name="name" required class="w-full p-2 border rounded-lg mt-1">
+    </div>
+
+    <div>
+        <label class="block text-sm font-medium text-gray-700">E-mail</label>
+        <input type="email" name="email" required class="w-full p-2 border rounded-lg mt-1">
+    </div>
+
+    <div>
+        <label class="block text-sm font-medium text-gray-700">Mensagem</label>
+        <textarea name="message" required rows="4" class="w-full p-2 border rounded-lg mt-1"></textarea>
+    </div>
+
+    <button type="submit" class="bg-[#29753b] text-white font-bold p-3 rounded-lg hover:bg-opacity-90 transition-all">
+        Enviar Mensagem
+    </button>
+</form>
           </div>
           <div class="flex flex-col lg:pl-10">
             <div class="rounded-xl bg-background-light dark:bg-gray-800 p-8 lg:p-12 h-full">
