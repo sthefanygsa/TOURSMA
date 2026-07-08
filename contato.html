@@ -112,28 +112,21 @@
         </div>
         <br>
 
-            <form action="https://formsubmit.co/sthefanygsa@gmail.com" method="POST" class="flex flex-col gap-4">
-    
-    <input type="hidden" name="_next" value="https://seusite.com/obrigado.html"> 
-    <input type="hidden" name="_captcha" value="false"> 
-    <input type="hidden" name="_subject" value="Novo contato: TOUR São Miguel Arcanjo">
-
+            <form id="meu-formulario" class="flex flex-col gap-4">
     <div>
         <label class="block text-sm font-medium text-gray-700">Nome</label>
         <input type="text" name="name" required class="w-full p-2 border rounded-lg mt-1">
     </div>
-
     <div>
         <label class="block text-sm font-medium text-gray-700">E-mail</label>
         <input type="email" name="email" required class="w-full p-2 border rounded-lg mt-1">
     </div>
-
     <div>
         <label class="block text-sm font-medium text-gray-700">Mensagem</label>
         <textarea name="message" required rows="4" class="w-full p-2 border rounded-lg mt-1"></textarea>
     </div>
 
-    <button type="submit" class="bg-[#29753b] text-white font-bold p-3 rounded-lg hover:bg-opacity-90 transition-all">
+    <button type="submit" id="btn-enviar" class="bg-[#29753b] text-white font-bold p-3 rounded-lg hover:bg-opacity-90 transition-all">
         Enviar Mensagem
     </button>
 </form>

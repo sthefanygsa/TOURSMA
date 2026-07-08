@@ -261,3 +261,45 @@ document.addEventListener('DOMContentLoaded', () => {
     updateEventsDisplay(selectedDateStr, 5, "Julho", 2026);
   }
 });
+const form = document.getElementById('meu-formulario');
+  
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); 
+      
+      const btnEnviar = document.getElementById('btn-enviar');
+      const textoOriginal = btnEnviar.textContent;
+      btnEnviar.textContent = "Enviando...";
+      btnEnviar.disabled = true;
+
+      const formData = new FormData(form);
+
+      
+      const emailDestino = "sthefanygsa@gmail.com"; 
+
+      fetch(`https://formsubmit.co/ajax/${emailDestino}`, {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success === "true" || data.success === true) {
+          alert("Mensagem enviada com sucesso! Verifique sua caixa de entrada.");
+          form.reset(); 
+        } else {
+          alert("Ops! Algo deu errado no servidor.");
+        }
+      })
+      .catch(error => {
+        console.error("Erro:", error);
+        alert("Erro de conexão ao tentar enviar.");
+      })
+      .finally(() => {
+        btnEnviar.textContent = textoOriginal;
+        btnEnviar.disabled = false;
+      });
+    });
+  }
