@@ -16,8 +16,6 @@ O **TOUR São Miguel Arcanjo** é um site institucional projetado para centraliz
 
 ## Tecnologias Utilizadas
 
-O projeto foi construído utilizando boas práticas de desenvolvimento web moderno:
-
 *   [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML) - Estruturação semântica do conteúdo.
 *   [CSS3](https://developer.mozilla.org/pt-BR/docs/Web/CSS) / [Tailwind CSS](https://tailwindcss.com/) - Estilização rápida, modular e responsiva.
 *   [JavaScript (Vanilla)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) - Lógica de interface, manipulação do DOM e interatividade do calendário.
