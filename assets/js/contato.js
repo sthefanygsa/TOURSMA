@@ -69,7 +69,7 @@ window.tailwind.config = {
         .then(response => response.json())
         .then(data => {
           if (data.success === "true" || data.success === true) {
-            alert("Mensagem enviada com sucesso! Verifique sua caixa de entrada.");
+            alert("Mensagem enviada com sucesso!");
             contactForm.reset(); 
           } else {
             alert("Ops! Ocorreu um problema no servidor de envio.");
