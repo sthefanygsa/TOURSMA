@@ -6,6 +6,17 @@ O **TOUR São Miguel Arcanjo** é um site institucional projetado para centraliz
 
 ---
 
+## Pesquisa - Levantamento de Dados
+
+Para garantir um levantamento de dados reais e promover a melhoria contínua da plataforma, estamos realizando uma pesquisa com moradores e visitantes de São Miguel Arcanjo.
+
+Sua resposta é fundamental para o desenvolvimento do projeto. Responda ao formulário e ajude compartilhando com outras pessoas:
+
+- [CLIQUE AQUI PARA ACESSAR A PESQUISA](https://forms.gle/5wko8Eqv3CKWy3cA8)
+
+
+---
+
 ## Funcionalidades
 
 *   **Categorização Temática:** Páginas estruturadas para Gastronomia, Hotelaria, Turismo Ecológico, Rural e Religioso.
