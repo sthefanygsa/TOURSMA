@@ -134,14 +134,14 @@
 </main>
 
                     <section class="py-12 md:py-20 text-center max-w-3xl mx-auto">
-                        <h1 class="text-secondary tracking-tight text-3xl md:text-4xl font-extrabold leading-tight pb-4">Conheça São Miguel Arcanjo</h1>
-                        <p class="text-text-muted-light dark:text-text-muted-dark text-base md:text-lg font-normal leading-relaxed">
-                            Fundada em 1º de abril de 1889, São Miguel Arcanjo recebeu seu nome em homenagem a uma capela construída para São Miguel Arcanjo.
-                            Os fundadores foram o Tenente Urias Emygdio Nogueira de Barros e suas filhas Dona Maximina Nogueira Terra e Dona Tereza Augusta Nogueira, responsáveis pela construção e doação do terreno da capela.
-                            Com o pioneirismo de Massuto Fujiwara, o município tornou-se referência na produção de uvas finas, sendo reconhecido em 2006 como a Capital Mundial das Uvas Finas.
-                            Durante os meses de fevereiro e março, a cidade celebra a tradicional Festa da Uva, e em 29 de setembro, comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias regiões.
-                        </p>
-                    </section>
+    <h1 class="text-secondary tracking-tight text-3xl md:text-4xl font-extrabold leading-tight pb-4"id="titulo-cidade">Conheça São Miguel Arcanjo</h1>
+    <p id="historia-cidade-paragrafo" class="text-text-muted-light dark:text-text-muted-dark text-base md:text-lg font-normal leading-relaxed">
+        Fundada em 1º de abril de 1889, São Miguel Arcanjo recebeu seu nome em homenagem a uma capela construída para São Miguel Arcanjo.
+        Os fundadores foram o Tenente Urias Emygdio Nogueira de Barros e suas filhas Dona Maximina Nogueira Terra e Dona Tereza Augusta Nogueira, responsáveis pela construção e doação do terreno da capela.
+        Com o pioneirismo de Massuto Fujiwara, o município tornou-se referência na produção de uvas finas, sendo reconhecido em 2006 como a Capital Mundial das Uvas Finas.
+        Durante os meses de fevereiro e março, a cidade celebra a tradicional Festa da Uva, e em 29 de setembro, comemora o dia do padroeiro São Miguel Arcanjo, atraindo devotos de várias regiões.
+    </p>
+</section>
 
                     <section class="py-12 md:py-16">
                         <h2 class="text-[#194C9B] text-2xl md:text-3xl font-bold tracking-tight text-center mb-10">
@@ -222,6 +222,29 @@
                 </div>
             </div>
         </main>
+<script>
+  async function carregarHistoriaHome() {
+    try {
+      const response = await fetch('http://localhost:3001/api/textos/home');
+      const dados = await response.json();
+
+      if (dados.titulo) {
+        const elementoTitulo = document.querySelector('#titulo-cidade');
+        if (elementoTitulo) elementoTitulo.textContent = dados.titulo;
+      }
+
+      if (dados.historia) {
+        const elementoHistoria = document.querySelector('#historia-cidade-paragrafo');
+        if (elementoHistoria) elementoHistoria.textContent = dados.historia;
+      }
+    } catch (error) {
+      console.error('Erro ao carregar história da home:', error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', carregarHistoriaHome);
+</script>
+        
 
         <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
             <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">

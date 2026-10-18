@@ -106,11 +106,7 @@
           <div id="camposContainer" class="campos-container">
           </div>
 
-          <div class="form-actions">
-  <button type="button" id="btnRestaurar" class="btn-secondary">
-    <i data-feather="rotate-ccw"></i> Restaurar Padrão
-  </button>
-
+ <div class="form-actions">
   <button type="button" id="btnLimpar" class="btn-secondary">
     <i data-feather="trash-2"></i> Limpar Tudo
   </button>
@@ -129,42 +125,6 @@
 
   <script>
     feather.replace();
-
-    const conteudosPadrao = {
-      home: {
-        titulo: 'Bem-vindo a São Miguel Arcanjo',
-        subtitulo: 'Capital das Capelas e portal de entrada para o Parque Estadual Carlos Botelho.',
-        historia: 'São Miguel Arcanjo é um município brasileiro no estado de São Paulo, reconhecido pela sua rica biodiversidade, produção agrícola e tradições culturais e religiosas.'
-      },
-      ecologico: {
-        titulo: 'Turismo Ecológico e de Aventura',
-        descricao: 'Explore trilhas deslumbrantes, cachoeiras cristalinas e a exuberante fauna e flora da Mata Atlântica preservada.'
-      },
-      religioso: {
-        titulo: 'Rota de Fé e Devoção',
-        descricao: 'Conheça os santuários, igrejas históricas e celebrações tradicionais que fortalecem a fé e a cultura local.'
-      },
-      rural: {
-        titulo: 'Agroturismo e Vivência no Campo',
-        descricao: 'Desfrute da recepção acolhedora das fazendas locais, colheita de uvas e produtos artesanais diretamente do produtor.'
-      },
-      gastronomia: {
-        titulo: 'Sabores de São Miguel Arcanjo',
-        descricao: 'Saboreie a culinária típica tropeira, comida caipira em fogão a lenha, doces caseiros e os melhores vinhos artesanais.'
-      },
-      hotelaria: {
-        titulo: 'Onde se Hospedar',
-        descricao: 'Encontre aconchego em pousadas rurais, hotéis confortáveis e chalés em meio à natureza para sua estadia.'
-      },
-      telefones: {
-        titulo: 'Telefones e Serviços Úteis',
-        descricao: 'Lista completa de contatos de emergência, hospitais, prefeitura, guarda municipal e centros de atendimento ao turista.'
-      },
-      contato: {
-        titulo: 'Fale Conosco',
-        descricao: 'Entre em contato com a equipe de turismo para tirar dúvidas, enviar sugestões ou solicitar informações sobre a cidade.'
-      }
-    };
 
     const nomesPaginas = {
       home: 'Home / Inicial',
@@ -185,47 +145,98 @@
       selectPagina.value = paginaParam;
     }
 
-    function carregarFormulario(pagina) {
-      const container = document.getElementById('camposContainer');
-      const tituloPagina = document.getElementById('tituloPaginaAtual');
-      
-      tituloPagina.textContent = `Editando: ${nomesPaginas[pagina]}`;
-      container.innerHTML = '';
+    const API_URL = 'http://localhost:3001/api/textos';
 
-      const dadosSalvos = JSON.parse(localStorage.getItem(`textos_${pagina}`)) || conteudosPadrao[pagina];
+async function carregarFormulario(pagina) {
+  const container = document.getElementById('camposContainer');
+  const tituloPagina = document.getElementById('tituloPaginaAtual');
 
-      for (const [chave, valor] of Object.entries(dadosSalvos)) {
-        const group = document.createElement('div');
-        group.className = 'form-group';
+  tituloPagina.textContent = `Editando: ${nomesPaginas[pagina]}`;
+  container.innerHTML = '<p style="padding:10px;">Carregando dados do banco...</p>';
 
-        const label = document.createElement('label');
-        label.setAttribute('for', chave);
-        
-        let labelNome = chave.charAt(0).toUpperCase() + chave.slice(1);
-        if (chave === 'historia') labelNome = 'História / Texto Institucional';
-        if (chave === 'descricao') labelNome = 'Descrição da Página';
+  try {
+    const response = await fetch(`${API_URL}/${pagina}`);
+    const dadosBanco = await response.json();
 
-        label.textContent = labelNome;
+    const dadosParaExibir = Object.keys(dadosBanco).length > 0 
+      ? dadosBanco 
+      : conteudosPadrao[pagina];
 
-        let input;
-        if (valor.length > 80 || chave === 'historia' || chave === 'descricao') {
-          input = document.createElement('textarea');
-          input.rows = 4;
-        } else {
-          input = document.createElement('input');
-          input.type = 'text';
-        }
+    container.innerHTML = ''; 
 
-        input.id = chave;
-        input.name = chave;
-        input.value = valor;
-        input.required = true;
+    for (const [chave, valor] of Object.entries(dadosParaExibir)) {
+  if (pagina === 'home' && chave === 'subtitulo') continue;
 
-        group.appendChild(label);
-        group.appendChild(input);
-        container.appendChild(group);
+  const group = document.createElement('div');
+  group.className = 'form-group';
+
+      const label = document.createElement('label');
+      label.setAttribute('for', chave);
+
+      let labelNome = chave.charAt(0).toUpperCase() + chave.slice(1);
+      if (chave === 'historia') labelNome = 'História / Texto Institucional';
+      if (chave === 'descricao') labelNome = 'Descrição da Página';
+
+      label.textContent = labelNome;
+
+      let input;
+      if (valor.length > 80 || chave === 'historia' || chave === 'descricao') {
+        input = document.createElement('textarea');
+        input.rows = 4;
+      } else {
+        input = document.createElement('input');
+        input.type = 'text';
       }
+
+      input.id = chave;
+      input.name = chave;
+      input.value = valor;
+      input.required = true;
+
+      group.appendChild(label);
+      group.appendChild(input);
+      container.appendChild(group);
     }
+  } catch (erro) {
+    console.error('Erro ao conectar com a API:', erro);
+    container.innerHTML = '<p style="color:red; padding:10px;">Erro ao carregar os dados do servidor. Verifique se o backend está rodando!</p>';
+  }
+}
+
+document.getElementById('formTextos').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const pagina = selectPagina.value;
+  const campos = document.querySelectorAll('#camposContainer input, #camposContainer textarea');
+  const novosDados = {};
+
+  campos.forEach(campo => {
+    novosDados[campo.name] = campo.value;
+  });
+
+  try {
+    const response = await fetch(`${API_URL}/${pagina}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(novosDados)
+    });
+
+    if (response.ok) {
+      const alertSuccess = document.getElementById('alertSuccess');
+      alertSuccess.style.display = 'flex';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      setTimeout(() => {
+        alertSuccess.style.display = 'none';
+      }, 4000);
+    } else {
+      alert('Erro ao salvar no banco de dados.');
+    }
+  } catch (erro) {
+    console.error('Erro no envio:', erro);
+    alert('Não foi possível conectar ao servidor backend.');
+  }
+});
 
     carregarFormulario(selectPagina.value);
 
@@ -253,14 +264,6 @@
       setTimeout(() => {
         alertSuccess.style.display = 'none';
       }, 4000);
-    });
-
-    document.getElementById('btnRestaurar').addEventListener('click', function() {
-      if (confirm('Deseja restaurar os textos originais desta página?')) {
-        const pagina = selectPagina.value;
-        localStorage.removeItem(`textos_${pagina}`);
-        carregarFormulario(pagina);
-      }
     });
 
     const usuario = localStorage.getItem('nomeUsuario') || 'Augusto';
