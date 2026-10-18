@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOUR - Gerenciar Textos</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet" href="gerenciar_textos.css" />
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+  <script>
+    if (localStorage.getItem('usuarioLogado') !== 'true') {
+      alert('Acesso negado! Por favor, faça login primeiro.');
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <div class="dashboard-layout">
+    
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <div class="brand-icon">
+            <i data-feather="map-pin"></i>
+          </div>
+          <span>TOUR SMA</span>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="nav-item">
+            <i data-feather="grid"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="gerenciar_textos.html" class="nav-item active">
+            <i data-feather="file-text"></i>
+            <span>Gerenciar Textos</span>
+          </a>
+          <a href="gerenciar_imagens.html" class="nav-item">
+            <i data-feather="image"></i>
+            <span>Gerenciar Imagens</span>
+          </a>
+          <a href="gerenciar_eventos.html" class="nav-item">
+            <i data-feather="calendar"></i>
+            <span>Agenda de Eventos</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="user-profile">
+          <div class="user-avatar" id="avatarInicial">A</div>
+          <div class="user-info">
+            <span class="user-name" id="nomeUser">Augusto</span>
+            <span class="user-role">Administrador</span>
+          </div>
+        </div>
+        <button id="btnLogout" class="btn-logout" title="Sair do painel">
+          <i data-feather="log-out"></i>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      
+      <header class="content-header">
+        <div>
+          <a href="dashboard.html" class="back-link">
+            <i data-feather="arrow-left"></i> Voltar para a Dashboard
+          </a>
+          <h1>Gerenciar Textos do Site</h1>
+          <p class="subtitle">Selecione a página e atualize as informações de texto exibidas no site público.</p>
+        </div>
+      </header>
+
+      <section class="editor-container">
+        
+        <div class="select-page-card">
+          <label for="selectPagina">
+            <i data-feather="layout"></i> Selecionar Página para Editar:
+          </label>
+          <select id="selectPagina">
+            <option value="home">Início</option>
+            <option value="ecologico">Turismo Ecológico</option>
+            <option value="religioso">Turismo Religioso</option>
+            <option value="rural">Turismo Rural</option>
+            <option value="gastronomia">Hotelaria</option>
+            <option value="hotelaria">Gastronomia</option>
+            <option value="telefones">Telefones Úteis</option>
+            <option value="contato">Contato</option>
+          </select>
+        </div>
+
+        <div id="alertSuccess" class="alert-success" style="display: none;">
+          <i data-feather="check-circle"></i>
+          <span>Alterações salvas com sucesso! Os novos textos já estão atualizados no sistema.</span>
+        </div>
+
+        <form id="formTextos" class="form-textos-card">
+          <div class="form-card-header">
+            <h2 id="tituloPaginaAtual">Editando: Início</h2>
+            <span class="badge green">Edição de Conteúdo</span>
+          </div>
+
+          <div id="camposContainer" class="campos-container">
+          </div>
+
+          <div class="form-actions">
+  <button type="button" id="btnRestaurar" class="btn-secondary">
+    <i data-feather="rotate-ccw"></i> Restaurar Padrão
+  </button>
+
+  <button type="button" id="btnLimpar" class="btn-secondary">
+    <i data-feather="trash-2"></i> Limpar Tudo
+  </button>
+
+  <button type="submit" class="btn-primary">
+    <i data-feather="save"></i> Salvar Alterações
+  </button>
+</div>
+        </form>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    feather.replace();
+
+    const conteudosPadrao = {
+      home: {
+        titulo: 'Bem-vindo a São Miguel Arcanjo',
+        subtitulo: 'Capital das Capelas e portal de entrada para o Parque Estadual Carlos Botelho.',
+        historia: 'São Miguel Arcanjo é um município brasileiro no estado de São Paulo, reconhecido pela sua rica biodiversidade, produção agrícola e tradições culturais e religiosas.'
+      },
+      ecologico: {
+        titulo: 'Turismo Ecológico e de Aventura',
+        descricao: 'Explore trilhas deslumbrantes, cachoeiras cristalinas e a exuberante fauna e flora da Mata Atlântica preservada.'
+      },
+      religioso: {
+        titulo: 'Rota de Fé e Devoção',
+        descricao: 'Conheça os santuários, igrejas históricas e celebrações tradicionais que fortalecem a fé e a cultura local.'
+      },
+      rural: {
+        titulo: 'Agroturismo e Vivência no Campo',
+        descricao: 'Desfrute da recepção acolhedora das fazendas locais, colheita de uvas e produtos artesanais diretamente do produtor.'
+      },
+      gastronomia: {
+        titulo: 'Sabores de São Miguel Arcanjo',
+        descricao: 'Saboreie a culinária típica tropeira, comida caipira em fogão a lenha, doces caseiros e os melhores vinhos artesanais.'
+      },
+      hotelaria: {
+        titulo: 'Onde se Hospedar',
+        descricao: 'Encontre aconchego em pousadas rurais, hotéis confortáveis e chalés em meio à natureza para sua estadia.'
+      },
+      telefones: {
+        titulo: 'Telefones e Serviços Úteis',
+        descricao: 'Lista completa de contatos de emergência, hospitais, prefeitura, guarda municipal e centros de atendimento ao turista.'
+      },
+      contato: {
+        titulo: 'Fale Conosco',
+        descricao: 'Entre em contato com a equipe de turismo para tirar dúvidas, enviar sugestões ou solicitar informações sobre a cidade.'
+      }
+    };
+
+    const nomesPaginas = {
+      home: 'Home / Inicial',
+      ecologico: 'Turismo Ecológico',
+      religioso: 'Turismo Religioso',
+      rural: 'Turismo Rural',
+      gastronomia: 'Gastronomia',
+      hotelaria: 'Hotelaria',
+      telefones: 'Telefones Úteis',
+      contato: 'Contato'
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const paginaParam = urlParams.get('pagina');
+
+    const selectPagina = document.getElementById('selectPagina');
+    if (paginaParam && conteudosPadrao[paginaParam]) {
+      selectPagina.value = paginaParam;
+    }
+
+    function carregarFormulario(pagina) {
+      const container = document.getElementById('camposContainer');
+      const tituloPagina = document.getElementById('tituloPaginaAtual');
+      
+      tituloPagina.textContent = `Editando: ${nomesPaginas[pagina]}`;
+      container.innerHTML = '';
+
+      const dadosSalvos = JSON.parse(localStorage.getItem(`textos_${pagina}`)) || conteudosPadrao[pagina];
+
+      for (const [chave, valor] of Object.entries(dadosSalvos)) {
+        const group = document.createElement('div');
+        group.className = 'form-group';
+
+        const label = document.createElement('label');
+        label.setAttribute('for', chave);
+        
+        let labelNome = chave.charAt(0).toUpperCase() + chave.slice(1);
+        if (chave === 'historia') labelNome = 'História / Texto Institucional';
+        if (chave === 'descricao') labelNome = 'Descrição da Página';
+
+        label.textContent = labelNome;
+
+        let input;
+        if (valor.length > 80 || chave === 'historia' || chave === 'descricao') {
+          input = document.createElement('textarea');
+          input.rows = 4;
+        } else {
+          input = document.createElement('input');
+          input.type = 'text';
+        }
+
+        input.id = chave;
+        input.name = chave;
+        input.value = valor;
+        input.required = true;
+
+        group.appendChild(label);
+        group.appendChild(input);
+        container.appendChild(group);
+      }
+    }
+
+    carregarFormulario(selectPagina.value);
+
+    selectPagina.addEventListener('change', function() {
+      carregarFormulario(this.value);
+    });
+
+    document.getElementById('formTextos').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const pagina = selectPagina.value;
+      const campos = document.querySelectorAll('#camposContainer input, #camposContainer textarea');
+      const novosDados = {};
+
+      campos.forEach(campo => {
+        novosDados[campo.name] = campo.value;
+      });
+
+      localStorage.setItem(`textos_${pagina}`, JSON.stringify(novosDados));
+
+      const alertSuccess = document.getElementById('alertSuccess');
+      alertSuccess.style.display = 'flex';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      setTimeout(() => {
+        alertSuccess.style.display = 'none';
+      }, 4000);
+    });
+
+    document.getElementById('btnRestaurar').addEventListener('click', function() {
+      if (confirm('Deseja restaurar os textos originais desta página?')) {
+        const pagina = selectPagina.value;
+        localStorage.removeItem(`textos_${pagina}`);
+        carregarFormulario(pagina);
+      }
+    });
+
+    const usuario = localStorage.getItem('nomeUsuario') || 'Augusto';
+    document.getElementById('nomeUser').textContent = usuario;
+    document.getElementById('avatarInicial').textContent = usuario.charAt(0).toUpperCase();
+
+    document.getElementById('btnLogout').addEventListener('click', function() {
+      localStorage.removeItem('usuarioLogado');
+      localStorage.removeItem('nomeUsuario');
+      window.location.href = 'login.html';
+    });
+
+document.getElementById('btnLimpar').addEventListener('click', function() {
+  if (confirm('Deseja realmente apagar todos os campos de texto abaixo?')) {
+    const campos = document.querySelectorAll('#camposContainer input, #camposContainer textarea');
+    campos.forEach(campo => {
+      campo.value = '';
+    });
+  }
+});
+
+  </script>
+</body>
+</html>

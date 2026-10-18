@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 1. Textos fixos e institucionais das páginas
+model TextoPagina {
+  id         Int      @id @default(autoincrement())
+  pagina     String   // ex: 'home', 'ecologico', 'sobrenos'
+  chave      String   // ex: 'titulo', 'subtitulo', 'historia'
+  conteudo   String   @db.Text
+  atualizado DateTime @updatedAt
+
+  @@unique([pagina, chave])
+}
+
+// 2. Cards das páginas (Hotelaria, Gastronomia, Turismo)
+model Estabelecimento {
+  id             Int      @id @default(autoincrement())
+  categoria      String   // ex: 'hotelaria', 'gastronomia', 'ecologico'
+  nome           String
+  tagFiltro      String   // ex: 'Zona Urbana', 'Zona Rural'
+  descricaoCurta String   @db.Text
+  descricaoLonga String?  @db.Text
+  endereco       String?
+  horario        String?
+  telefone       String?
+  imagemUrl      String?  @db.Text
+  criadoEm       DateTime @default(now())
+}
+
+// 3. Eventos da Agenda
+model Evento {
+  id             Int      @id @default(autoincrement())
+  titulo         String
+  descricao      String   @db.Text
+  data           String   // ex: '2026-07-05'
+  horario        String?  // ex: '19:00 - 21:00'
+  local          String?
+  imagemUrl      String?  @db.Text
+  destaque       Boolean  @default(false)
+  criadoEm       DateTime @default(now())
+}
