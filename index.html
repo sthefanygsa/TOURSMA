@@ -223,9 +223,11 @@
             </div>
         </main>
 <script>
+
   async function carregarHistoriaHome() {
     try {
       const response = await fetch('http://localhost:3001/api/textos/home');
+      if (!response.ok) return;
       const dados = await response.json();
 
       if (dados.titulo) {
@@ -242,10 +244,62 @@
     }
   }
 
-  document.addEventListener('DOMContentLoaded', carregarHistoriaHome);
+  let listaImagens = [
+    'assets/img/img5.png',
+    'assets/img/carrossel1.jpg',
+    'assets/img/carrossel2.jpg'
+  ];
+  let indiceAtual = 0;
+
+  function atualizarImagemCarrossel() {
+    const carouselEl = document.getElementById('carousel');
+    if (carouselEl && listaImagens.length > 0) {
+      const urlImagem = listaImagens[indiceAtual];
+      carouselEl.style.backgroundImage = `linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url("${urlImagem}")`;
+    }
+  }
+
+  async function carregarCarrosselHome() {
+    try {
+      const response = await fetch('http://localhost:3001/api/imagens/home');
+      if (!response.ok) return;
+
+      const imagensBanco = await response.json();
+      const urlsNovas = Object.values(imagensBanco).filter(url => typeof url === 'string' && url.trim() !== '');
+
+      if (urlsNovas.length > 0) {
+        listaImagens = urlsNovas;
+        indiceAtual = 0;
+        atualizarImagemCarrossel();
+      }
+    } catch (error) {
+      console.error('Erro ao carregar imagens do carrossel:', error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    carregarHistoriaHome();
+    carregarCarrosselHome();
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        indiceAtual = (indiceAtual + 1) % listaImagens.length;
+        atualizarImagemCarrossel();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        indiceAtual = (indiceAtual - 1 + listaImagens.length) % listaImagens.length;
+        atualizarImagemCarrossel();
+      });
+    }
+  });
 </script>
         
-
         <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
             <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-text-subtle-light dark:text-text-subtle-dark">
                 <a class="text-sm font-medium transition-colors hover:text-primary min-w-32" href="sobre.html">Sobre nós</a>
@@ -270,7 +324,7 @@
             </div>
 
             <p class="text-text-subtle-light dark:text-text-subtle-dark text-sm font-normal leading-normal">
-                © 2025 TOUR São Miguel Arcanjo. Todos os direitos reservados.
+                © 2026 TOUR São Miguel Arcanjo. Todos os direitos reservados.
             </p>
         </footer>
     </div>

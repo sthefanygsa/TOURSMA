@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOUR - Gerenciar Imagens</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet" href="gerenciar_imagens.css">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <i data-feather="map-pin"></i>
+        </div>
+        <span class="brand-name">TOUR SMA</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item">
+          <i data-feather="grid"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="gerenciar_textos.html" class="nav-item">
+          <i data-feather="file-text"></i>
+          <span>Gerenciar Textos</span>
+        </a>
+        <a href="gerenciar_imagens.html" class="nav-item active">
+          <i data-feather="image"></i>
+          <span>Gerenciar Imagens</span>
+        </a>
+        <a href="gerenciar_eventos.html" class="nav-item">
+          <i data-feather="calendar"></i>
+          <span>Agenda de Eventos</span>
+        </a>
+      </nav>
+
+      <div class="user-profile">
+        <div class="avatar" id="avatarInicial">A</div>
+        <div class="user-info">
+          <span class="user-name" id="nomeUser">Augusto</span>
+          <span class="user-role">Administrador</span>
+        </div>
+        <button class="btn-logout" id="btnLogout" title="Sair">
+          <i data-feather="log-out"></i>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <a href="dashboard.html" class="back-link">
+        <i data-feather="arrow-left"></i> Voltar para a Dashboard
+      </a>
+
+      <header class="page-header">
+        <h1>Gerenciar Imagens do Site</h1>
+        <p>Selecione a seção e atualize as URLs das imagens exibidas no carrossel e nas galerias.</p>
+      </header>
+
+      <div id="alertSuccess" class="alert alert-success" style="display: none;">
+        <i data-feather="check-circle"></i>
+        <span>Alterações salvas com sucesso! As imagens já foram atualizadas no banco.</span>
+      </div>
+
+      <div class="card">
+        <div class="form-group select-group">
+          <label for="selectSecao">
+            <i data-feather="layout"></i> Selecionar Seção para Editar:
+          </label>
+          <select id="selectSecao">
+            <option value="home">Fotos da Home (Carrossel)</option>
+            <option value="turismo">Fotos de Turismo</option>
+            <option value="gastronomia">Fotos de Gastronomia & Hotéis</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2 id="tituloSecaoAtual">Editando: Fotos da Home (Carrossel)</h2>
+          <span class="badge">GERENCIAMENTO DE MÍDIA</span>
+        </div>
+
+        <form id="formImagens">
+          <div id="camposContainer">
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="btnLimpar" class="btn-secondary">
+              <i data-feather="trash-2"></i> Limpar Tudo
+            </button>
+            <button type="submit" class="btn-primary">
+              <i data-feather="save"></i> Salvar Alterações
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    feather.replace();
+
+    const nomesSecoes = {
+      home: 'Fotos da Home (Carrossel)',
+      turismo: 'Fotos de Turismo',
+      gastronomia: 'Fotos de Gastronomia & Hotéis'
+    };
+
+    const imagensPadrao = {
+      home: {
+        imagem1: 'assets/img/carrossel1.jpg',
+        imagem2: 'assets/img/carrossel2.jpg',
+        imagem3: 'assets/img/carrossel3.jpg'
+      },
+      turismo: {
+        imagem1: 'assets/img/turismo1.jpg',
+        imagem2: 'assets/img/turismo2.jpg'
+      },
+      gastronomia: {
+        imagem1: 'assets/img/gastronomia1.jpg'
+      }
+    };
+
+    const API_URL = 'http://localhost:3001/api/imagens';
+
+    async function carregarFormularioImagens(secao) {
+      const container = document.getElementById('camposContainer');
+      const tituloSecao = document.getElementById('tituloSecaoAtual');
+
+      tituloSecao.textContent = `Editando: ${nomesSecoes[secao]}`;
+      container.innerHTML = '<p style="padding:10px;">Carregando dados do banco...</p>';
+
+      let dadosParaExibir = imagensPadrao[secao];
+
+      try {
+        const response = await fetch(`${API_URL}/${secao}`);
+        if (response.ok) {
+          const dadosBanco = await response.json();
+          if (Object.keys(dadosBanco).length > 0) {
+            dadosParaExibir = dadosBanco;
+          }
+        }
+      } catch (error) {
+        console.warn('API de imagens ainda não conectada ou sem dados. Usando padrões:', error);
+      }
+
+      container.innerHTML = '';
+
+      for (const [chave, valor] of Object.entries(dadosParaExibir)) {
+        const group = document.createElement('div');
+        group.className = 'form-group';
+
+        const label = document.createElement('label');
+        label.setAttribute('for', chave);
+        label.textContent = `URL da ${chave.replace('imagem', 'Imagem ')}`;
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.id = chave;
+        input.name = chave;
+        input.value = valor;
+        input.placeholder = 'Digite o caminho ou URL da imagem...';
+        input.required = true;
+
+        group.appendChild(label);
+        group.appendChild(input);
+        container.appendChild(group);
+      }
+    }
+
+    const selectSecao = document.getElementById('selectSecao');
+    selectSecao.addEventListener('change', (e) => {
+      carregarFormularioImagens(e.target.value);
+    });
+
+    document.getElementById('formImagens').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const secao = selectSecao.value;
+      const campos = document.querySelectorAll('#camposContainer input');
+      const novosDados = {};
+
+      campos.forEach(campo => {
+        novosDados[campo.name] = campo.value;
+      });
+
+      try {
+        const response = await fetch(`${API_URL}/${secao}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(novosDados)
+        });
+
+        if (response.ok) {
+          const alertSuccess = document.getElementById('alertSuccess');
+          alertSuccess.style.display = 'flex';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          setTimeout(() => { alertSuccess.style.display = 'none'; }, 4000);
+        } else {
+          alert('Erro ao salvar no banco de dados.');
+        }
+      } catch (error) {
+        console.error('Erro na requisição:', error);
+        alert('Erro ao conectar com o servidor Node.');
+      }
+    });
+
+    document.getElementById('btnLimpar').addEventListener('click', function() {
+      if (confirm('Deseja realmente apagar todas as URLs de imagens desta seção?')) {
+        const campos = document.querySelectorAll('#camposContainer input');
+        campos.forEach(campo => campo.value = '');
+      }
+    });
+
+    const usuario = localStorage.getItem('nomeUsuario') || 'Augusto';
+    document.getElementById('nomeUser').textContent = usuario;
+    document.getElementById('avatarInicial').textContent = usuario.charAt(0).toUpperCase();
+
+    document.getElementById('btnLogout').addEventListener('click', function() {
+      localStorage.removeItem('usuarioLogado');
+      localStorage.removeItem('nomeUsuario');
+      window.location.href = 'login.html';
+    });
+
+    carregarFormularioImagens('home');
+  </script>
+</body>
+</html>

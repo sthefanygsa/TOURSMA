@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda de Eventos - TOUR SMA</title>
+  <link rel="stylesheet" href="gerenciar_eventos.css">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <i data-feather="map-pin"></i>
+        </div>
+        <span class="brand-name">TOUR SMA</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item">
+          <i data-feather="grid"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="gerenciar_textos.html" class="nav-item">
+          <i data-feather="file-text"></i>
+          <span>Gerenciar Textos</span>
+        </a>
+        <a href="gerenciar_imagens.html" class="nav-item">
+          <i data-feather="image"></i>
+          <span>Gerenciar Imagens</span>
+        </a>
+        <a href="gerenciar_eventos.html" class="nav-item active">
+          <i data-feather="calendar"></i>
+          <span>Agenda de Eventos</span>
+        </a>
+      </nav>
+
+      <div class="user-profile">
+        <div class="avatar" id="avatarInicial">A</div>
+        <div class="user-info">
+          <span class="user-name" id="nomeUser">Augusto</span>
+          <span class="user-role">Administrador</span>
+        </div>
+        <button class="btn-logout" id="btnLogout" title="Sair">
+          <i data-feather="log-out"></i>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <a href="dashboard.html" class="back-link">
+        <i data-feather="arrow-left"></i> Voltar para a Dashboard
+      </a>
+
+      <header class="page-header">
+        <h1>Agenda de Eventos</h1>
+        <p>Cadastre e gerencie os eventos culturais, festas locais e atrações da cidade.</p>
+      </header>
+
+      <div id="alertSuccess" class="alert alert-success" style="display: none;">
+        <i data-feather="check-circle"></i>
+        <span id="alertMessage">Evento salvo com sucesso!</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2 id="formTitle">Novo Evento</h2>
+          <span class="badge">AGENDA</span>
+        </div>
+
+        <form id="formEvento">
+          <input type="hidden" id="eventoId">
+
+          <div class="form-group">
+            <label for="titulo"><i data-feather="type"></i> Título do Evento:</label>
+            <input type="text" id="titulo" placeholder="Ex: Festa do Milho Verde" required>
+          </div>
+
+          <div class="form-group">
+            <label for="data"><i data-feather="calendar"></i> Data / Período:</label>
+            <input type="text" id="data" placeholder="Ex: 15 a 18 de Novembro ou 12/10/2026" required>
+          </div>
+
+          <div class="form-group">
+            <label for="local"><i data-feather="map-pin"></i> Local do Evento:</label>
+            <input type="text" id="local" placeholder="Ex: Praça Matriz ou Recinto de Exposições" required>
+          </div>
+
+          <div class="form-group">
+            <label for="descricao"><i data-feather="align-left"></i> Descrição / Detalhes:</label>
+            <textarea id="descricao" rows="4" placeholder="Descreva as atrações e informações do evento..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="imagemUrl"><i data-feather="image"></i> URL da Imagem / Banner:</label>
+            <input type="text" id="imagemUrl" placeholder="Ex: assets/img/festa_milho.jpg">
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="btnCancelar" class="btn-secondary" style="display: none;">
+              <i data-feather="x"></i> Cancelar Edição
+            </button>
+            <button type="submit" class="btn-primary">
+              <i data-feather="save"></i> Salvar Evento
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Eventos Cadastrados</h2>
+        </div>
+        <div id="listaEventos" class="eventos-container">
+          <p style="color: #64748b;">Carregando eventos...</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="gerenciar_eventos.js"></script>
+</body>
+</html>
