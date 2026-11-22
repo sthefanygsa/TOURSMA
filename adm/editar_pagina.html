@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TOUR - Editar Página</title>
+  <title>Editar Página - TOUR SMA</title>
   <link rel="stylesheet" href="gerenciar_eventos.css">
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
@@ -60,18 +60,18 @@
       <div class="card">
         <div class="card-header">
           <h2>1. Textos da Página</h2>
-          <span class="badge" id="badgePaginaTexto">TEXTOS</span>
+          <span class="badge" id="badgePaginaTexto">HOME</span>
         </div>
 
         <form id="formTextos">
           <div class="form-group">
-            <label for="tituloTexto"><i data-feather="type"></i> Título Principal / Destaque:</label>
-            <input type="text" id="tituloTexto" placeholder="Digite o título principal desta seção...">
+            <label for="tituloTexto"><i data-feather="type"></i> Título Principal:</label>
+            <input type="text" id="tituloTexto" placeholder="Ex: Conheça São Miguel Arcanjo">
           </div>
 
           <div class="form-group">
-            <label for="conteudoTexto"><i data-feather="align-left"></i> Texto / Descrição Completa:</label>
-            <textarea id="conteudoTexto" rows="5" placeholder="Digite o conteúdo de texto desta página..."></textarea>
+            <label for="conteudoTexto"><i data-feather="align-left"></i> História / Descrição:</label>
+            <textarea id="conteudoTexto" rows="6" placeholder="Digite o texto principal da página..."></textarea>
           </div>
 
           <div class="form-actions">
@@ -84,27 +84,16 @@
 
       <div class="card">
         <div class="card-header">
-          <h2>2. Imagens / Galeria da Página</h2>
-          <span class="badge" id="badgePaginaImagem">IMAGENS</span>
+          <h2 id="tituloBlocoImagens">2. Imagens da Página</h2>
+          <button type="button" id="btnAddImagem" class="btn-secondary">
+            <i data-feather="plus"></i> Adicionar Foto
+          </button>
         </div>
 
         <form id="formImagens">
-          <div class="form-group">
-            <label for="imagem1"><i data-feather="image"></i> Imagem 1 (Principal / Banner):</label>
-            <input type="text" id="imagem1" placeholder="Ex: assets/img/foto1.jpg ou URL da imagem">
-          </div>
+          <div id="listaCamposImagens" style="display: flex; flex-direction: column; gap: 12px;"></div>
 
-          <div class="form-group">
-            <label for="imagem2"><i data-feather="image"></i> Imagem 2 (Galeria / Destaque):</label>
-            <input type="text" id="imagem2" placeholder="Ex: assets/img/foto2.jpg ou URL da imagem">
-          </div>
-
-          <div class="form-group">
-            <label for="imagem3"><i data-feather="image"></i> Imagem 3 (Galeria / Destaque):</label>
-            <input type="text" id="imagem3" placeholder="Ex: assets/img/foto3.jpg ou URL da imagem">
-          </div>
-
-          <div class="form-actions">
+          <div class="form-actions" style="margin-top: 16px;">
             <button type="submit" class="btn-primary">
               <i data-feather="save"></i> Salvar Imagens
             </button>
