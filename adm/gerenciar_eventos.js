@@ -15,6 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const alertSuccess = document.getElementById('alertSuccess');
   const alertMessage = document.getElementById('alertMessage');
 
+  let eventosCache = [];
+
+  function escapeHTML(valor) {
+    return String(valor ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   function atualizarIcones() {
     if (window.feather) {
       window.feather.replace();
@@ -22,32 +33,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function carregarEventos() {
+    if (!listaEventos) return;
+
     try {
       const response = await fetch(API_URL);
       if (!response.ok) throw new Error('Erro ao buscar dados do servidor');
 
       const eventos = await response.json();
+      eventosCache = Array.isArray(eventos) ? eventos : [];
 
-      if (!Array.isArray(eventos) || eventos.length === 0) {
+      if (eventosCache.length === 0) {
         listaEventos.innerHTML = '<p style="color: #64748b; padding: 12px 0;">Nenhum evento cadastrado até o momento.</p>';
         return;
       }
 
-      listaEventos.innerHTML = eventos.map(e => `
+      listaEventos.innerHTML = eventosCache.map(e => `
         <div class="evento-card">
           <div class="evento-info">
-            <div class="evento-titulo">${e.titulo}</div>
+            <div class="evento-titulo">${escapeHTML(e.titulo)}</div>
             <div class="evento-meta">
-              <span class="evento-meta-item">📅 ${e.data}</span>
-              <span class="evento-meta-item">📍 ${e.local}</span>
+              <span class="evento-meta-item">📅 ${escapeHTML(e.data)}</span>
+              <span class="evento-meta-item">📍 ${escapeHTML(e.local)}</span>
             </div>
-            <div class="evento-descricao">${e.descricao}</div>
+            <div class="evento-descricao">${escapeHTML(e.descricao)}</div>
           </div>
           <div class="evento-acoes">
-            <button class="btn-secondary btn-editar" data-id="${e.id}">
+            <button type="button" class="btn-secondary btn-editar" data-id="${escapeHTML(e.id)}">
               <i data-feather="edit"></i> Editar
             </button>
-            <button class="btn-danger btn-excluir" data-id="${e.id}">
+            <button type="button" class="btn-danger btn-excluir" data-id="${escapeHTML(e.id)}">
               <i data-feather="trash-2"></i> Excluir
             </button>
           </div>
@@ -55,39 +69,42 @@ document.addEventListener('DOMContentLoaded', () => {
       `).join('');
 
       atualizarIcones();
-
-      document.querySelectorAll('.btn-editar').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const id = btn.getAttribute('data-id');
-          const evento = eventos.find(item => item.id == id);
-          if (evento) prepararEdicao(evento);
-        });
-      });
-
-      document.querySelectorAll('.btn-excluir').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const id = btn.getAttribute('data-id');
-          excluirEvento(id);
-        });
-      });
-
     } catch (error) {
       console.error('Erro ao carregar eventos:', error);
       listaEventos.innerHTML = '<p style="color: #ef4444; padding: 12px 0;">Erro ao conectar com o servidor Node.</p>';
     }
   }
 
+  // Delegação de eventos para Editar e Excluir (evita rebind a cada reload)
+  if (listaEventos) {
+    listaEventos.addEventListener('click', (e) => {
+      const btnEditar = e.target.closest('.btn-editar');
+      if (btnEditar) {
+        const id = btnEditar.getAttribute('data-id');
+        const evento = eventosCache.find(item => String(item.id) === String(id));
+        if (evento) prepararEdicao(evento);
+        return;
+      }
+
+      const btnExcluir = e.target.closest('.btn-excluir');
+      if (btnExcluir) {
+        const id = btnExcluir.getAttribute('data-id');
+        if (id) excluirEvento(id);
+      }
+    });
+  }
+
   if (formEvento) {
     formEvento.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const id = eventoIdInput.value;
+      const id = eventoIdInput ? eventoIdInput.value.trim() : '';
       const dados = {
-        titulo: tituloInput.value,
-        data: dataInput.value,
-        local: localInput.value,
-        descricao: descricaoInput.value,
-        imagemUrl: imagemUrlInput.value
+        titulo: tituloInput ? tituloInput.value.trim() : '',
+        data: dataInput ? dataInput.value.trim() : '',
+        local: localInput ? localInput.value.trim() : '',
+        descricao: descricaoInput ? descricaoInput.value.trim() : '',
+        imagemUrl: imagemUrlInput ? imagemUrlInput.value.trim() : ''
       };
 
       const metodo = id ? 'PUT' : 'POST';
@@ -118,11 +135,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!eventoIdInput) return;
 
     eventoIdInput.value = evento.id;
-    tituloInput.value = evento.titulo;
-    dataInput.value = evento.data;
-    localInput.value = evento.local;
-    descricaoInput.value = evento.descricao;
-    imagemUrlInput.value = evento.imagemUrl || '';
+    if (tituloInput) tituloInput.value = evento.titulo || '';
+    if (dataInput) dataInput.value = evento.data || '';
+    if (localInput) localInput.value = evento.local || '';
+    if (descricaoInput) descricaoInput.value = evento.descricao || '';
+    if (imagemUrlInput) imagemUrlInput.value = evento.imagemUrl || '';
 
     if (formTitle) formTitle.textContent = 'Editar Evento';
     if (btnCancelar) btnCancelar.style.display = 'inline-flex';
@@ -161,7 +178,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (alertMessage && alertSuccess) {
       alertMessage.textContent = mensagem;
       alertSuccess.style.display = 'flex';
-      setTimeout(() => { alertSuccess.style.display = 'none'; }, 4000);
+      setTimeout(() => {
+        alertSuccess.style.display = 'none';
+      }, 4000);
     }
   }
 
