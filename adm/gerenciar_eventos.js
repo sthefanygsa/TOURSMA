@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Delegação de eventos para Editar e Excluir (evita rebind a cada reload)
   if (listaEventos) {
     listaEventos.addEventListener('click', (e) => {
       const btnEditar = e.target.closest('.btn-editar');
