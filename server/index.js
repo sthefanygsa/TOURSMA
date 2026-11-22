@@ -57,16 +57,6 @@ app.post('/api/textos/:pagina', async (req, res) => {
   }
 });
 
-const PORT = 3001;
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
-
-// ==========================================
-// ROTAS DE GERENCIAMENTO DE IMAGENS
-// ==========================================
-
-// GET: Buscar imagens de uma seção específica (ex: /api/imagens/home)
 app.get('/api/imagens/:secao', async (req, res) => {
   const { secao } = req.params;
   try {
@@ -85,7 +75,6 @@ app.get('/api/imagens/:secao', async (req, res) => {
   }
 });
 
-// POST: Salvar ou atualizar imagens de uma seção
 app.post('/api/imagens/:secao', async (req, res) => {
   const { secao } = req.params;
   const novosDados = req.body;
@@ -104,11 +93,6 @@ app.post('/api/imagens/:secao', async (req, res) => {
   }
 });
 
-// ==========================================
-// ROTAS DA AGENDA DE EVENTOS
-// ==========================================
-
-// GET: Listar todos os eventos
 app.get('/api/eventos', async (req, res) => {
   try {
     const eventos = await prisma.evento.findMany({
@@ -121,7 +105,6 @@ app.get('/api/eventos', async (req, res) => {
   }
 });
 
-// POST: Criar um novo evento
 app.post('/api/eventos', async (req, res) => {
   const { titulo, data, local, descricao, imagemUrl } = req.body;
   try {
@@ -135,7 +118,6 @@ app.post('/api/eventos', async (req, res) => {
   }
 });
 
-// PUT: Editar evento
 app.put('/api/eventos/:id', async (req, res) => {
   const { id } = req.params;
   const { titulo, data, local, descricao, imagemUrl } = req.body;
@@ -151,7 +133,6 @@ app.put('/api/eventos/:id', async (req, res) => {
   }
 });
 
-// DELETE: Apagar evento
 app.delete('/api/eventos/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -163,4 +144,9 @@ app.delete('/api/eventos/:id', async (req, res) => {
     console.error('Erro ao eliminar evento:', error);
     res.status(500).json({ erro: 'Erro ao eliminar evento.' });
   }
+});
+
+const PORT = 3001;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
 });

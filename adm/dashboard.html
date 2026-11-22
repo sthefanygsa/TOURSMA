@@ -1,218 +1,206 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TOUR - Dashboard</title>
-  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet" href="gerenciar_eventos.css">
   <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 16px;
+    }
+    .dash-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+    .dash-card:hover {
+      border-color: #15803d;
+      box-shadow: 0 4px 12px rgba(21, 128, 61, 0.08);
+      transform: translateY(-2px);
+    }
+    .dash-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .dash-card h3 {
+      font-size: 1.05rem;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .dash-card p {
+      font-size: 0.85rem;
+      color: #64748b;
+      line-height: 1.4;
+    }
+  </style>
 </head>
 <body>
-
-  <script>
-    if (localStorage.getItem('usuarioLogado') !== 'true') {
-      alert('Acesso negado! Por favor, faça login primeiro.');
-      window.location.href = 'login.html';
-    }
-  </script>
-
-  <div class="dashboard-layout">
-    
+  <div class="admin-container">
+    <!-- Sidebar -->
     <aside class="sidebar">
-      <div class="sidebar-top">
-        <div class="brand">
-          <div class="brand-icon">
-            <i data-feather="map-pin"></i>
-          </div>
-          <span>TOUR SMA</span>
-        </div>
-
-        <nav class="sidebar-nav">
-          <a href="dashboard.html" class="nav-item active">
-            <i data-feather="grid"></i>
-            <span>Dashboard</span>
-          </a>
-          <a href="gerenciar_textos.html" class="nav-item">
-            <i data-feather="file-text"></i>
-            <span>Gerenciar Textos</span>
-          </a>
-          <a href="gerenciar_imagens.html" class="nav-item">
-            <i data-feather="image"></i>
-            <span>Gerenciar Imagens</span>
-          </a>
-          <a href="gerenciar_eventos.html" class="nav-item">
-            <i data-feather="calendar"></i>
-            <span>Agenda de Eventos</span>
-          </a>
-        </nav>
+      <div class="brand">
+        <div class="brand-icon"><i data-feather="map-pin"></i></div>
+        <span class="brand-name">TOUR SMA</span>
       </div>
 
-      <div class="sidebar-bottom">
-        <div class="user-profile">
-          <div class="user-avatar" id="avatarInicial">A</div>
-          <div class="user-info">
-            <span class="user-name" id="nomeUser">Augusto</span>
-            <span class="user-role">Administrador</span>
-          </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item active">
+          <i data-feather="grid"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="editar_pagina.html?pagina=home" class="nav-item">
+          <i data-feather="edit-3"></i>
+          <span>Editar Páginas</span>
+        </a>
+        <a href="gerenciar_eventos.html" class="nav-item">
+          <i data-feather="calendar"></i>
+          <span>Agenda de Eventos</span>
+        </a>
+      </nav>
+
+      <div class="user-profile">
+        <div class="avatar" id="avatarInicial">A</div>
+        <div class="user-info">
+          <span class="user-name" id="nomeUser">Augusto</span>
+          <span class="user-role">Administrador</span>
         </div>
-        <button id="btnLogout" class="btn-logout" title="Sair do painel">
+        <button class="btn-logout" id="btnLogout" title="Sair">
           <i data-feather="log-out"></i>
         </button>
       </div>
     </aside>
 
     <main class="main-content">
-      
-      <header class="content-header">
-        <div>
-          <h1>Bem-vindo de volta, <span id="welcomeName">Augusto</span>!</h1>
-          <p class="subtitle">Selecione o que deseja atualizar nas páginas do site.</p>
-        </div>
+      <header class="page-header">
+        <h1 id="boasVindas">Bem-vindo de volta!</h1>
+        <p>Selecione uma página abaixo para editar seus textos e imagens em um só lugar.</p>
       </header>
 
-      <section class="dash-section">
-        <div class="section-title">
-          <i data-feather="file-text" class="icon-green"></i>
-          <h2>Alterar Textos do Site</h2>
-        </div>
-        
-        <div class="cards-grid">
-          
-          <a href="gerenciar_textos.html?pagina=home" class="dash-card">
-            <div class="card-header">
-              <span class="badge blue">Página</span>
-              <i data-feather="chevron-right"></i>
+      <div class="cards-grid">
+        <a href="editar_pagina.html?pagina=home" class="dash-card">
+          <div>
+            <div class="dash-card-top">
+              <span class="badge">PÁGINA PRINCIPAL</span>
+              <i data-feather="chevron-right" style="color: #94a3b8;"></i>
             </div>
-            <h3>Início</h3>
-            <p>Apresentação da cidade, história principal e boas-vindas.</p>
-          </a>
+            <h3>Início (Home)</h3>
+            <p>Edite a história da cidade, textos de boas-vindas e as fotos do carrossel principal.</p>
+          </div>
+        </a>
 
-          <a href="gerenciar_textos.html?pagina=ecologico" class="dash-card">
-            <div class="card-header">
-              <span class="badge green">Turismo</span>
-              <i data-feather="chevron-right"></i>
+        <a href="editar_pagina.html?pagina=ecologico" class="dash-card">
+          <div>
+            <div class="dash-card-top">
+              <span class="badge">TURISMO</span>
+              <i data-feather="chevron-right" style="color: #94a3b8;"></i>
             </div>
-            <h3>Ecológico</h3>
-            <p>Descrições de parques, cachoeiras e trilhas da região.</p>
-          </a>
+            <h3>Turismo Ecológico</h3>
+            <p>Gerencie textos e galeria de fotos dos parques, cachoeiras e trilhas.</p>
+          </div>
+        </a>
 
-          <a href="gerenciar_textos.html?pagina=religioso" class="dash-card">
-            <div class="card-header">
-              <span class="badge green">Turismo</span>
-              <i data-feather="chevron-right"></i>
+        <a href="editar_pagina.html?pagina=religioso" class="dash-card">
+          <div>
+            <div class="dash-card-top">
+              <span class="badge">TURISMO</span>
+              <i data-feather="chevron-right" style="color: #94a3b8;"></i>
             </div>
-            <h3>Religioso</h3>
-            <p>Informações de igrejas, santuários e rotas de fé.</p>
-          </a>
+            <h3>Turismo Religioso</h3>
+            <p>Atualize informações e imagens das igrejas, santuários e rotas de fé.</p>
+          </div>
+        </a>
 
-          <a href="gerenciar_textos.html?pagina=rural" class="dash-card">
-            <div class="card-header">
-              <span class="badge green">Turismo</span>
-              <i data-feather="chevron-right"></i>
+        <a href="editar_pagina.html?pagina=rural" class="dash-card">
+          <div>
+            <div class="dash-card-top">
+              <span class="badge">TURISMO</span>
+              <i data-feather="chevron-right" style="color: #94a3b8;"></i>
             </div>
-            <h3>Rural</h3>
-            <p>Locais de agroturismo, fazendas e passeios no campo.</p>
-          </a>
+            <h3>Turismo Rural</h3>
+            <p>Edite conteúdos e fotos de fazendas, agroturismo e passeios no campo.</p>
+          </div>
+        </a>
 
-          <a href="gerenciar_textos.html?pagina=gastronomia" class="dash-card">
-            <div class="card-header">
-              <span class="badge blue">Serviço</span>
-              <i data-feather="chevron-right"></i>
+        <a href="editar_pagina.html?pagina=gastronomia" class="dash-card">
+          <div>
+            <div class="dash-card-top">
+              <span class="badge">SERVIÇO</span>
+              <i data-feather="chevron-right" style="color: #94a3b8;"></i>
             </div>
             <h3>Gastronomia</h3>
-            <p>Textos e detalhes de restaurantes, lanchonetes e cafés.</p>
-          </a>
+            <p>Gerencie textos e fotos exclusivas dos restaurantes, lanchonetes e cafés.</p>
+          </div>
+        </a>
 
-          <a href="gerenciar_textos.html?pagina=hotelaria" class="dash-card">
-            <div class="card-header">
-              <span class="badge blue">Serviço</span>
-              <i data-feather="chevron-right"></i>
+        <a href="editar_pagina.html?pagina=hotelaria" class="dash-card">
+          <div>
+            <div class="dash-card-top">
+              <span class="badge">SERVIÇO</span>
+              <i data-feather="chevron-right" style="color: #94a3b8;"></i>
             </div>
             <h3>Hotelaria</h3>
-            <p>Informaçoes sobre pousadas, hotéis e acomodações.</p>
-          </a>
+            <p>Atualize informações e imagens exclusivas de pousadas, hotéis e acomodações.</p>
+          </div>
+        </a>
 
-          <a href="gerenciar_eventos.html" class="dash-card">
-            <div class="card-header">
-              <span class="badge green">Agenda</span>
-              <i data-feather="chevron-right"></i>
-            </div>
-            <h3>Agenda</h3>
-            <p>Programação cultural, festas locais e eventos da cidade.</p>
-          </a>
-
-          <a href="gerenciar_textos.html?pagina=telefones" class="dash-card">
-            <div class="card-header">
-              <span class="badge blue">Serviço</span>
-              <i data-feather="chevron-right"></i>
+        <a href="editar_pagina.html?pagina=telefones" class="dash-card">
+          <div>
+            <div class="dash-card-top">
+              <span class="badge">UTILIDADE</span>
+              <i data-feather="chevron-right" style="color: #94a3b8;"></i>
             </div>
             <h3>Telefones Úteis</h3>
-            <p>Números de emergência, prefeitura e serviços públicos.</p>
-          </a>
+            <p>Edite números de emergência, prefeitura e serviços públicos.</p>
+          </div>
+        </a>
 
-          <a href="gerenciar_textos.html?pagina=contato" class="dash-card">
-            <div class="card-header">
-              <span class="badge blue">Página</span>
-              <i data-feather="chevron-right"></i>
+        <a href="editar_pagina.html?pagina=contato" class="dash-card">
+          <div>
+            <div class="dash-card-top">
+              <span class="badge">PÁGINA</span>
+              <i data-feather="chevron-right" style="color: #94a3b8;"></i>
             </div>
             <h3>Contato</h3>
-            <p>Orientações de atendimento e formulário de contato.</p>
-          </a>
+            <p>Atualize orientações de atendimento e dados de contato da página.</p>
+          </div>
+        </a>
 
-        </div>
-      </section>
-
-      <section class="dash-section" style="margin-top: 40px;">
-        <div class="section-title">
-          <i data-feather="image" class="icon-blue"></i>
-          <h2>Alterar Imagens do Site</h2>
-        </div>
-
-        <div class="cards-grid">
-          
-          <a href="gerenciar_imagens.html?pagina=home" class="dash-card image-card">
-            <div class="card-header">
-              <span class="badge blue">Banner / Galeria</span>
-              <i data-feather="chevron-right"></i>
+        <a href="gerenciar_eventos.html" class="dash-card" style="border-color: #bbf7d0; background-color: #f0fdf4;">
+          <div>
+            <div class="dash-card-top">
+              <span class="badge" style="background: #15803d; color: #fff;">EVENTOS</span>
+              <i data-feather="calendar" style="color: #15803d;"></i>
             </div>
-            <h3>Fotos da Home</h3>
-            <p>Carrossel principal da página inicial e fotos de destaques.</p>
-          </a>
-
-          <a href="gerenciar_imagens.html?pagina=turismo" class="dash-card image-card">
-            <div class="card-header">
-              <span class="badge green">Galerias</span>
-              <i data-feather="chevron-right"></i>
-            </div>
-            <h3>Fotos de Turismo</h3>
-            <p>Galerias dos pontos Ecológicos, Religiosos e Rurais.</p>
-          </a>
-
-          <a href="gerenciar_imagens.html?pagina=comercio" class="dash-card image-card">
-            <div class="card-header">
-              <span class="badge blue">Galerias</span>
-              <i data-feather="chevron-right"></i>
-            </div>
-            <h3>Fotos de Gastronomia & Hotéis</h3>
-            <p>Fotos dos estabelecimentos cadastrados no site.</p>
-          </a>
-
-        </div>
-      </section>
-
+            <h3>Agenda de Eventos</h3>
+            <p>Cadastre, edite e exclua eventos culturais e festas locais da cidade.</p>
+          </div>
+        </a>
+      </div>
     </main>
-
   </div>
 
   <script>
     feather.replace();
-
     const usuario = localStorage.getItem('nomeUsuario') || 'Augusto';
+    document.getElementById('boasVindas').textContent = `Bem-vindo de volta, ${usuario}!`;
     document.getElementById('nomeUser').textContent = usuario;
-    document.getElementById('welcomeName').textContent = usuario;
     document.getElementById('avatarInicial').textContent = usuario.charAt(0).toUpperCase();
 
-    document.getElementById('btnLogout').addEventListener('click', function() {
+    document.getElementById('btnLogout').addEventListener('click', () => {
       localStorage.removeItem('usuarioLogado');
       localStorage.removeItem('nomeUsuario');
       window.location.href = 'login.html';
