@@ -790,7 +790,7 @@ async function carregarEventosCalendarioAdmin() {
       if (eventosAtualizados.length > 0) {
         eventosCalendarioMapa[dataChave] = eventosAtualizados;
       } else {
-        delete eventosCalendarioMapa[dataChave];
+        eventosCalendarioMapa[dataChave] = [];
       }
 
       try {

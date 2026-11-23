@@ -94,9 +94,21 @@ app.post('/api/textos/:pagina', async (req, res) => {
 
   try {
     for (const [chave, conteudo] of Object.entries(novosDados)) {
-      const valorFormatado = typeof conteudo === 'object' && conteudo !== null
-        ? JSON.stringify(conteudo)
-        : String(conteudo ?? '');
+      const arrayVazio =
+        (Array.isArray(conteudo) && conteudo.length === 0) ||
+        conteudo === '[]';
+
+      if (arrayVazio) {
+        await prisma.textoPagina.deleteMany({
+          where: { pagina, chave }
+        });
+        continue;
+      }
+
+      const valorFormatado =
+        typeof conteudo === 'object' && conteudo !== null
+          ? JSON.stringify(conteudo)
+          : String(conteudo ?? '');
 
       await prisma.textoPagina.upsert({
         where: {
