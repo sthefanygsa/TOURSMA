@@ -209,8 +209,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       console.error('Erro ao carregar eventos do calendário:', err);
     }
 
-    let currentDate = new Date(2026, 6, 5);
-    let selectedDateStr = '2026-07-05';
+    const hoje = new Date();
+let currentDate = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+let selectedDateStr = `${hoje.getFullYear()}-${String(hoje.getMonth() + 1).padStart(2, '0')}-${String(hoje.getDate()).padStart(2, '0')}`;
 
     const nomesMeses = [
       'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
@@ -330,6 +331,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     renderCalendar();
-    updateEventsDisplay(selectedDateStr, 5, 'Julho', 2026);
-  }
+updateEventsDisplay(selectedDateStr, hoje.getDate(), nomesMeses[hoje.getMonth()], hoje.getFullYear());  }
 });
