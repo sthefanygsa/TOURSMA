@@ -83,6 +83,10 @@ function normalizarCategoria(tipo) {
   if (valor.startsWith('grat')) return 'Gratuitos';
   if (valor.includes('urbana')) return 'Zona Urbana';
   if (valor.includes('rural')) return 'Zona Rural';
+  if (valor.startsWith('restaur')) return 'Restaurante';
+  if (valor.startsWith('lanchon')) return 'Lanchonete';
+  if (valor.startsWith('padar')) return 'Padaria';
+  if (valor.startsWith('mercad')) return 'Mercado';
   return tipo || 'Gratuitos';
 }
 
@@ -92,6 +96,10 @@ function normalizarLabelTag(tipo) {
   if (valor.startsWith('grat')) return 'Gratuito';
   if (valor.includes('urbana')) return 'Zona Urbana';
   if (valor.includes('rural')) return 'Zona Rural';
+  if (valor.startsWith('restaur')) return 'Restaurante';
+  if (valor.startsWith('lanchon')) return 'Lanchonete';
+  if (valor.startsWith('padar')) return 'Padaria';
+  if (valor.startsWith('mercad')) return 'Mercado';
   return tipo || 'Gratuito';
 }
 
@@ -141,7 +149,9 @@ async function carregarConteudoEcologico() {
       ? 'rural'
       : window.location.pathname.includes('hotelaria')
         ? 'hotelaria'
-        : 'ecologico';
+        : window.location.pathname.includes('gastronomia')
+          ? 'gastronomia'
+          : 'ecologico';
 
   try {
     const resTexto = await fetch(`${API_BASE_CARDS}/textos/${pagina}`);
@@ -169,7 +179,9 @@ let cardsParaRenderizar = pagina === 'ecologico'
         ? CARDS_PADRAO_RURAL
         : pagina === 'hotelaria'
           ? CARDS_PADRAO_HOTELARIA
-          : [];
+          : pagina === 'gastronomia'
+            ? CARDS_PADRAO_GASTRONOMIA
+            : [];
   try {
     const resCards = await fetch(`${API_BASE_CARDS}/imagens/${pagina}`);
     if (resCards.ok) {
@@ -399,6 +411,59 @@ const CARDS_PADRAO_HOTELARIA = [
     titulo: 'Hotel Arcanjo',
     descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica da Gruta do Arcanjo',
     descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+    endereco: 'Rua das Flores, 321',
+    horario: 'Qua - Dom: 18h às 23h',
+    telefone: '(15) 99999-5555'
+  }
+];
+
+const CARDS_PADRAO_GASTRONOMIA = [
+  {
+    imagem: 'assets/img/restaurante.jpg',
+    tipo: 'Restaurante',
+    titulo: 'Restaurante Sabor da Terra',
+    descricaoCurta: 'Culinária típica regional',
+    descricaoLonga: 'Uma descrição mais longa sobre o restaurante, seus pratos principais e o ambiente. Perfeito para um almoço em família.',
+    endereco: 'Rua Principal, 123',
+    horario: 'Ter - Dom: 11h às 22h',
+    telefone: '(15) 99999-1111'
+  },
+  {
+    imagem: 'assets/img/lanchonete.jpg',
+    tipo: 'Lanchonete',
+    titulo: 'Lanchonete do Zé',
+    descricaoCurta: 'Lanches rápidos e saborosos',
+    descricaoLonga: 'Famosa pelos seus hambúrgueres artesanais e porções generosas. Ambiente descontraído.',
+    endereco: 'Av. Central, 456',
+    horario: 'Seg - Sáb: 08h às 20h',
+    telefone: '(15) 99999-2222'
+  },
+  {
+    imagem: 'assets/img/padaria.jpg',
+    tipo: 'Padaria',
+    titulo: 'Padaria Pão Quente',
+    descricaoCurta: 'Pães frescos e café da manhã',
+    descricaoLonga: 'Além do pão francês sempre quentinho, serve um buffet de café da manhã completo nos finais de semana.',
+    endereco: 'Praça da Matriz, 78',
+    horario: 'Seg - Dom: 06h às 19h',
+    telefone: '(15) 99999-3333'
+  },
+  {
+    imagem: 'assets/img/mercado.jpg',
+    tipo: 'Mercado',
+    titulo: 'Mercado Central',
+    descricaoCurta: 'Produtos frescos e locais',
+    descricaoLonga: 'Aqui você encontra frutas, verduras e legumes direto do produtor, além de queijos e embutidos artesanais da região.',
+    endereco: 'Rua do Comércio, 90',
+    horario: 'Seg - Sex: 07h às 18h',
+    telefone: '(15) 99999-4444'
+  },
+  {
+    imagem: 'assets/img/pizzaria.jpg',
+    tipo: 'Restaurante',
+    titulo: 'Pizzaria Forno a Lenha',
+    descricaoCurta: 'As melhores pizzas da cidade',
+    descricaoLonga: 'Pizzas com massa de fermentação natural e ingredientes selecionados. Opções veganas disponíveis.',
     endereco: 'Rua das Flores, 321',
     horario: 'Qua - Dom: 18h às 23h',
     telefone: '(15) 99999-5555'

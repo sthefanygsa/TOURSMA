@@ -235,11 +235,69 @@ const CARDS_PADRAO_HOTELARIA = [
   }
 ];
 
-  const paginasComCards = ['ecologico', 'religioso', 'rural', 'hotelaria'];
+const CARDS_PADRAO_GASTRONOMIA = [
+  {
+    imagem: 'assets/img/restaurante.jpg',
+    tipo: 'Restaurante',
+    titulo: 'Restaurante Sabor da Terra',
+    descricaoCurta: 'Culinária típica regional',
+    descricaoLonga: 'Uma descrição mais longa sobre o restaurante, seus pratos principais e o ambiente. Perfeito para um almoço em família.',
+    endereco: 'Rua Principal, 123',
+    horario: 'Ter - Dom: 11h às 22h',
+    telefone: '(15) 99999-1111'
+  },
+  {
+    imagem: 'assets/img/lanchonete.jpg',
+    tipo: 'Lanchonete',
+    titulo: 'Lanchonete do Zé',
+    descricaoCurta: 'Lanches rápidos e saborosos',
+    descricaoLonga: 'Famosa pelos seus hambúrgueres artesanais e porções generosas. Ambiente descontraído.',
+    endereco: 'Av. Central, 456',
+    horario: 'Seg - Sáb: 08h às 20h',
+    telefone: '(15) 99999-2222'
+  },
+  {
+    imagem: 'assets/img/padaria.jpg',
+    tipo: 'Padaria',
+    titulo: 'Padaria Pão Quente',
+    descricaoCurta: 'Pães frescos e café da manhã',
+    descricaoLonga: 'Além do pão francês sempre quentinho, serve um buffet de café da manhã completo nos finais de semana.',
+    endereco: 'Praça da Matriz, 78',
+    horario: 'Seg - Dom: 06h às 19h',
+    telefone: '(15) 99999-3333'
+  },
+  {
+    imagem: 'assets/img/mercado.jpg',
+    tipo: 'Mercado',
+    titulo: 'Mercado Central',
+    descricaoCurta: 'Produtos frescos e locais',
+    descricaoLonga: 'Aqui você encontra frutas, verduras e legumes direto do produtor, além de queijos e embutidos artesanais da região.',
+    endereco: 'Rua do Comércio, 90',
+    horario: 'Seg - Sex: 07h às 18h',
+    telefone: '(15) 99999-4444'
+  },
+  {
+    imagem: 'assets/img/pizzaria.jpg',
+    tipo: 'Restaurante',
+    titulo: 'Pizzaria Forno a Lenha',
+    descricaoCurta: 'As melhores pizzas da cidade',
+    descricaoLonga: 'Pizzas com massa de fermentação natural e ingredientes selecionados. Opções veganas disponíveis.',
+    endereco: 'Rua das Flores, 321',
+    horario: 'Qua - Dom: 18h às 23h',
+    telefone: '(15) 99999-5555'
+  }
+];
+
+  const paginasComCards = ['ecologico', 'religioso', 'rural', 'hotelaria', 'gastronomia'];
 
   const params = new URLSearchParams(window.location.search);
   const paginaAtual = params.get('pagina') || 'home';
   const ehPaginaComCards = paginasComCards.includes(paginaAtual);
+  function obterOpcoesTipoPagina() {
+    if (paginaAtual === 'hotelaria') return ['Zona Urbana', 'Zona Rural'];
+    if (paginaAtual === 'gastronomia') return ['Restaurante', 'Lanchonete', 'Padaria', 'Mercado'];
+    return ['Gratuito', 'Pago'];
+  }
   const nomeAmigavel = nomesPaginas[paginaAtual] || paginaAtual.toUpperCase();
 
   document.getElementById('tituloPagina').textContent = `Editando: ${nomeAmigavel}`;
@@ -407,9 +465,7 @@ const CARDS_PADRAO_HOTELARIA = [
     const selectTipo = document.createElement('select');
     selectTipo.className = 'card-campo-tipo';
     selectTipo.style.cssText = 'padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff;';
-    const opcoesTipo = paginaAtual === 'hotelaria'
-      ? ['Zona Urbana', 'Zona Rural']
-      : ['Gratuito', 'Pago'];
+    const opcoesTipo = obterOpcoesTipoPagina();
     const valorInicialTipo = card.tipo || opcoesTipo[0];
 
     opcoesTipo.forEach(opcao => {
@@ -485,7 +541,7 @@ const CARDS_PADRAO_HOTELARIA = [
 
   btnAddImagem.addEventListener('click', () => {
     if (ehPaginaComCards) {
-      criarBlocoCard({ tipo: paginaAtual === 'hotelaria' ? 'Zona Urbana' : 'Gratuito' });
+      criarBlocoCard({ tipo: obterOpcoesTipoPagina()[0] });
     } else {
       criarLinhaImagem('');
     }
@@ -515,8 +571,10 @@ function carregarFallbackImagens() {
       CARDS_PADRAO_RURAL.forEach(card => criarBlocoCard(card));
     } else if (paginaAtual === 'hotelaria') {
       CARDS_PADRAO_HOTELARIA.forEach(card => criarBlocoCard(card));
+    } else if (paginaAtual === 'gastronomia') {
+      CARDS_PADRAO_GASTRONOMIA.forEach(card => criarBlocoCard(card));
     } else if (ehPaginaComCards) {
-      criarBlocoCard({ tipo: paginaAtual === 'hotelaria' ? 'Zona Urbana' : 'Gratuito' });
+      criarBlocoCard({ tipo: obterOpcoesTipoPagina()[0] });
     } else {
       criarLinhaImagem('');
     }
