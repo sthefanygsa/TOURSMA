@@ -3,6 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const API_BASE = 'http://localhost:3001/api';
 
+  const IMAGENS_PADRAO_HOME = [
+  'assets/img/img5.png',
+  'assets/img/img2.png',
+  'assets/img/img3.png',
+  'assets/img/img4.png',
+  'assets/img/img1.png',
+  'assets/img/img6.jpg'
+];
+
   const nomesPaginas = {
     home: 'Início (Home)',
     ecologico: 'Turismo Ecológico',
@@ -45,13 +54,62 @@ document.addEventListener('DOMContentLoaded', () => {
     linha.style.display = 'flex';
     linha.style.gap = '8px';
     linha.style.alignItems = 'center';
+    linha.style.flexWrap = 'wrap';
 
     const input = document.createElement('input');
     input.type = 'text';
     input.className = 'input-url-imagem';
     input.value = valor;
-    input.placeholder = 'Ex: assets/img/carrossel1.jpg ou URL da imagem';
+    input.placeholder = 'Escolha uma foto do dispositivo ou informe o caminho';
     input.style.flex = '1';
+    input.style.minWidth = '220px';
+
+    const inputArquivo = document.createElement('input');
+    inputArquivo.type = 'file';
+    inputArquivo.accept = 'image/*';
+    inputArquivo.style.display = 'none';
+
+    const btnUpload = document.createElement('button');
+    btnUpload.type = 'button';
+    btnUpload.className = 'btn-secondary';
+    btnUpload.innerHTML = '<i data-feather="upload"></i> Escolher Foto';
+
+    btnUpload.addEventListener('click', () => {
+      inputArquivo.click();
+    });
+
+    inputArquivo.addEventListener('change', async () => {
+      const arquivo = inputArquivo.files[0];
+      if (!arquivo) return;
+
+      const formData = new FormData();
+      formData.append('imagem', arquivo);
+
+      btnUpload.disabled = true;
+      btnUpload.textContent = 'Enviando...';
+
+      try {
+        const resposta = await fetch(`${API_BASE}/upload`, {
+          method: 'POST',
+          body: formData
+        });
+
+        const dados = await resposta.json();
+        if (resposta.ok && dados.url) {
+          input.value = dados.url;
+          mostrarAlerta('Foto enviada com sucesso! Clique em "Salvar Imagens" para confirmar.');
+        } else {
+          alert(dados.erro || 'Erro ao enviar a foto.');
+        }
+      } catch (erro) {
+        console.error('Erro no upload:', erro);
+        alert('Erro ao conectar com o servidor para enviar a foto.');
+      } finally {
+        btnUpload.disabled = false;
+        btnUpload.innerHTML = '<i data-feather="upload"></i> Escolher Foto';
+        if (window.feather) window.feather.replace();
+      }
+    });
 
     const btnExcluir = document.createElement('button');
     btnExcluir.type = 'button';
@@ -62,6 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     linha.appendChild(input);
+    linha.appendChild(inputArquivo);
+    linha.appendChild(btnUpload);
     linha.appendChild(btnExcluir);
     listaCamposImagens.appendChild(linha);
 
@@ -85,12 +145,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function carregarFallbackImagens() {
+    if (paginaAtual === 'home') {
+      IMAGENS_PADRAO_HOME.forEach(url => criarLinhaImagem(url));
+    } else {
+      criarLinhaImagem('');
+    }
+  }
+
   async function carregarImagens() {
     listaCamposImagens.innerHTML = '';
     try {
       const response = await fetch(`${API_BASE}/imagens/${paginaAtual}`);
       if (!response.ok) {
-        criarLinhaImagem('assets/img/img5.png');
+        carregarFallbackImagens();
         return;
       }
 
@@ -108,11 +176,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (urls.length > 0) {
         urls.forEach(url => criarLinhaImagem(url));
       } else {
-        criarLinhaImagem('assets/img/img5.png');
+        carregarFallbackImagens();
       }
     } catch (error) {
       console.error('Erro ao carregar imagens:', error);
-      criarLinhaImagem('assets/img/img5.png');
+      carregarFallbackImagens();
     }
   }
 

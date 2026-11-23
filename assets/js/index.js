@@ -1,14 +1,14 @@
 window.tailwind.config = {
-    darkMode: ["class", ".modo-escuro-bloqueado"], 
+    darkMode: ["class", ".modo-escuro-bloqueado"],
     theme: {
         extend: {
             colors: {
                 "primary": "#29763B",
                 "secondary": "#194C9B",
-                
+
                 "background-light": "#FFFFFF",
-                "background-dark": "#FFFFFF", 
-                
+                "background-dark": "#FFFFFF",
+
                 "text-light": "#121613",
                 "text-dark": "#121613",
                 "text-muted-light": "#6c757d",
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const menu = document.getElementById('turismo-menu');
     const mobileBtn = document.getElementById('menu-mobile-btn');
     const mobileMenu = document.getElementById('menu-mobile');
-    
+
     if (toggle && menu) {
         toggle.addEventListener('click', e => {
             e.stopPropagation();
@@ -88,14 +88,36 @@ document.addEventListener('DOMContentLoaded', () => {
             a.classList.add('active');
         }
     });
+
+    carregarHistoriaHome();
 });
+
+async function carregarHistoriaHome() {
+    try {
+        const response = await fetch('http://localhost:3001/api/textos/home');
+        if (!response.ok) return;
+        const dados = await response.json();
+
+        if (dados.titulo) {
+            const elementoTitulo = document.querySelector('#titulo-cidade');
+            if (elementoTitulo) elementoTitulo.textContent = dados.titulo;
+        }
+
+        if (dados.historia) {
+            const elementoHistoria = document.querySelector('#historia-cidade-paragrafo');
+            if (elementoHistoria) elementoHistoria.textContent = dados.historia;
+        }
+    } catch (error) {
+        console.error('Erro ao carregar história da home:', error);
+    }
+}
 
 const carousel = document.getElementById("carousel");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
 if (carousel) {
-    const imagens = [
+    const imagensPadrao = [
         "assets/img/img5.png",
         "assets/img/img2.png",
         "assets/img/img3.png",
@@ -103,16 +125,24 @@ if (carousel) {
         "assets/img/img1.png",
         "assets/img/img6.jpg"
     ];
+    let imagens = [...imagensPadrao];
     let index = 0;
-    const dots = document.querySelectorAll(".dot");
     let intervaloCarrossel;
 
+    function renderizarDots() {
+        const dotsContainer = document.querySelector('#carousel .w-full.max-w-6xl');
+        if (!dotsContainer) return;
+
+        dotsContainer.className = 'w-full max-w-6xl px-2 md:px-4 py-8 md:py-12 flex items-center justify-center gap-2 z-10';
+        dotsContainer.innerHTML = imagens.map((_, i) => `
+            <span class="dot size-2 rounded-full transition-all ${i === index ? 'bg-white scale-125' : 'bg-white/50'}"></span>
+        `).join('');
+    }
+
     function atualizarCarrossel() {
+        if (!imagens.length) return;
         carousel.style.backgroundImage = `linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url('${imagens[index]}')`;
-        dots.forEach((dot, i) => {
-            dot.classList.toggle("bg-white", i === index);
-            dot.classList.toggle("bg-white/50", i !== index);
-        });
+        renderizarDots();
     }
 
     function proximaImagem() {
@@ -130,11 +160,38 @@ if (carousel) {
         intervaloCarrossel = setInterval(proximaImagem, 4000);
     }
 
+    async function carregarImagensBanco() {
+        try {
+            const response = await fetch('http://localhost:3001/api/imagens/home');
+            if (!response.ok) return;
+
+            const dados = await response.json();
+            let urls = [];
+
+            if (Array.isArray(dados)) {
+                urls = dados;
+            } else if (dados && typeof dados === 'object') {
+                urls = Object.values(dados);
+            }
+
+            urls = urls.filter(u => typeof u === 'string' && u.trim() !== '');
+
+            if (urls.length > 0) {
+                imagens = urls;
+                index = 0;
+                atualizarCarrossel();
+                iniciarAutoPlay();
+            }
+        } catch (error) {
+            console.error('Erro ao carregar imagens do carrossel:', error);
+        }
+    }
+
     if (prevBtn) {
         prevBtn.addEventListener("click", (e) => {
-            e.stopPropagation(); 
+            e.stopPropagation();
             imagemAnterior();
-            iniciarAutoPlay(); 
+            iniciarAutoPlay();
         });
     }
 
@@ -148,6 +205,7 @@ if (carousel) {
 
     atualizarCarrossel();
     iniciarAutoPlay();
+    carregarImagensBanco();
 }
 
 const tempElement = document.getElementById("temperatura");
