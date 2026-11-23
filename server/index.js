@@ -74,7 +74,11 @@ app.get('/api/textos/:pagina', async (req, res) => {
 
     const resultado = {};
     registros.forEach(item => {
-      resultado[item.chave] = item.conteudo;
+      try {
+        resultado[item.chave] = JSON.parse(item.conteudo);
+      } catch {
+        resultado[item.chave] = item.conteudo;
+      }
     });
 
     res.json(resultado);
@@ -90,15 +94,19 @@ app.post('/api/textos/:pagina', async (req, res) => {
 
   try {
     for (const [chave, conteudo] of Object.entries(novosDados)) {
+      const valorFormatado = typeof conteudo === 'object' && conteudo !== null
+        ? JSON.stringify(conteudo)
+        : String(conteudo ?? '');
+
       await prisma.textoPagina.upsert({
         where: {
           pagina_chave: { pagina, chave }
         },
-        update: { conteudo: String(conteudo) },
+        update: { conteudo: valorFormatado },
         create: {
           pagina,
           chave,
-          conteudo: String(conteudo)
+          conteudo: valorFormatado
         }
       });
     }
