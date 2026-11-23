@@ -129,6 +129,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  const CARDS_PADRAO_RURAL = [
+  {
+    imagem: 'assets/img/vinicola.png',
+    tipo: 'Gratuito',
+    titulo: 'Vinícola Arcanjo Miguel',
+    descricaoCurta: 'Uma vinícola tradicional.',
+    descricaoLonga: 'Uma descrição mais longa sobre a vinícola, seus artefatos e a história da produção de vinhos. Perfeito para uma visita cultural e espiritual.',
+    endereco: 'Rua Principal, 123',
+    horario: 'Ter - Dom: 11h às 22h',
+    telefone: '(15) 99999-1111'
+  },
+  {
+    imagem: 'assets/img/fazenda.png',
+    tipo: 'Pago',
+    titulo: 'Fazenda Olíva',
+    descricaoCurta: 'Uma das mais importantes fazendas da região.',
+    descricaoLonga: 'Uma descrição mais longa sobre a fazenda, seus artefatos e a história rural. Perfeito para uma visita cultural e espiritual.',
+    endereco: 'Av. Central, 456',
+    horario: 'Seg - Sáb: 08h às 20h',
+    telefone: '(15) 99999-2222'
+  },
+  {
+    imagem: 'assets/img/plantacao.png',
+    tipo: 'Gratuito',
+    titulo: 'Plantação de Morangos',
+    descricaoCurta: 'Uma das mais importantes plantações da região.',
+    descricaoLonga: 'Uma descrição mais longa sobre a plantação, seus artefatos e a história rural. Perfeito para uma visita cultural e espiritual.',
+    endereco: 'Praça da Matriz, 78',
+    horario: 'Seg - Dom: 06h às 19h',
+    telefone: '(15) 99999-3333'
+  },
+  {
+    imagem: 'assets/img/cafetal.png',
+    tipo: 'Gratuito',
+    titulo: 'Cafetal da Serra',
+    descricaoCurta: 'Uma das mais importantes fazendas de café da região.',
+    descricaoLonga: 'Uma descrição mais longa sobre o cafetal, seus artefatos e a história rural. Perfeito para uma visita cultural e espiritual.',
+    endereco: 'Rua do Comércio, 90',
+    horario: 'Seg - Sex: 07h às 18h',
+    telefone: '(15) 99999-4444'
+  },
+  {
+    imagem: 'assets/img/queijaria.png',
+    tipo: 'Pago',
+    titulo: 'Queijaria Sabor do Campo',
+    descricaoCurta: 'Uma das mais importantes queijarias da região.',
+    descricaoLonga: 'Uma descrição mais longa sobre a queijaria, seus artefatos e a história rural. Perfeito para uma visita cultural e espiritual.',
+    endereco: 'Rua das Flores, 321',
+    horario: 'Qua - Dom: 18h às 23h',
+    telefone: '(15) 99999-5555'
+  }
+];
+
   const paginasComCards = ['ecologico', 'religioso', 'rural'];
 
   const params = new URLSearchParams(window.location.search);
@@ -393,13 +446,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function carregarFallbackImagens() {
+function carregarFallbackImagens() {
     if (paginaAtual === 'home') {
       IMAGENS_PADRAO_HOME.forEach(url => criarLinhaImagem(url));
     } else if (paginaAtual === 'ecologico') {
       CARDS_PADRAO_ECOLOGICO.forEach(card => criarBlocoCard(card));
     } else if (paginaAtual === 'religioso') {
       CARDS_PADRAO_RELIGIOSO.forEach(card => criarBlocoCard(card));
+    } else if (paginaAtual === 'rural') {
+      CARDS_PADRAO_RURAL.forEach(card => criarBlocoCard(card));
     } else if (ehPaginaComCards) {
       criarBlocoCard({ tipo: 'Gratuito' });
     } else {
