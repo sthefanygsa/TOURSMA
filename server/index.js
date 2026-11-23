@@ -1,5 +1,8 @@
 const express = require('express');
 const cors = require('cors');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 const { PrismaClient } = require('@prisma/client');
 
 const app = express();
@@ -8,8 +11,58 @@ const prisma = new PrismaClient();
 app.use(cors());
 app.use(express.json());
 
+const pastaUploads = path.join(__dirname, '..', 'assets', 'img');
+if (!fs.existsSync(pastaUploads)) {
+  fs.mkdirSync(pastaUploads, { recursive: true });
+}
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, pastaUploads);
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname).toLowerCase();
+    const nomeLimpo = path
+      .basename(file.originalname, ext)
+      .toLowerCase()
+      .replace(/[^a-z0-9-_]/g, '-');
+    cb(null, `${Date.now()}-${nomeLimpo}${ext}`);
+  }
+});
+
+const upload = multer({
+  storage,
+  limits: { fileSize: 5 * 1024 * 1024 }, // até 5MB
+  fileFilter: (req, file, cb) => {
+    const permitidos = /jpeg|jpg|png|webp/;
+    const extOk = permitidos.test(path.extname(file.originalname).toLowerCase());
+    const mimeOk = permitidos.test(file.mimetype);
+    if (extOk && mimeOk) {
+      cb(null, true);
+    } else {
+      cb(new Error('Apenas imagens JPG, PNG ou WEBP são permitidas.'));
+    }
+  }
+});
+
 app.get('/api/status', (req, res) => {
   res.json({ mensagem: 'API do TOUR São Miguel Arcanjo está rodando!' });
+});
+
+app.post('/api/upload', (req, res) => {
+  upload.single('imagem')(req, res, (err) => {
+    if (err) {
+      console.error('Erro no multer:', err);
+      return res.status(400).json({ erro: err.message || 'Erro ao processar a imagem.' });
+    }
+
+    if (!req.file) {
+      return res.status(400).json({ erro: 'Nenhuma imagem enviada.' });
+    }
+
+    const caminhoRelativo = `assets/img/${req.file.filename}`;
+    res.status(201).json({ url: caminhoRelativo });
+  });
 });
 
 app.get('/api/textos/:pagina', async (req, res) => {
@@ -33,7 +86,7 @@ app.get('/api/textos/:pagina', async (req, res) => {
 
 app.post('/api/textos/:pagina', async (req, res) => {
   const { pagina } = req.params;
-  const novosDados = req.body; 
+  const novosDados = req.body;
 
   try {
     for (const [chave, conteudo] of Object.entries(novosDados)) {
