@@ -99,6 +99,25 @@
             </button>
           </div>
         </form>
+        <div class="card" id="blocoAgendaCalendario" style="display: none; margin-top: 24px;">
+        <div class="card-header" style="flex-wrap: wrap; gap: 12px;">
+          <h2>3. Eventos do Calendário</h2>
+          <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+            <input type="date" id="dataEventoAgenda" value="2026-07-05" style="padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff;">
+            <button type="button" id="btnAddEventoAgenda" class="btn-secondary">
+              <i data-feather="plus"></i> Adicionar Evento
+            </button>
+          </div>
+        </div>
+
+        <div id="listaEventosAgenda" style="display: flex; flex-direction: column; gap: 12px; margin-top: 12px;"></div>
+
+        <div class="form-actions" style="margin-top: 16px;">
+          <button type="button" id="btnSalvarEventosAgenda" class="btn-primary">
+            <i data-feather="save"></i> Salvar Eventos do Dia
+          </button>
+        </div>
+      </div>
       </div>
     </main>
   </div>

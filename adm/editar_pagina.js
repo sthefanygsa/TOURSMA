@@ -65,17 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  const nomesPaginas = {
-    home: 'Início (Home)',
-    ecologico: 'Turismo Ecológico',
-    religioso: 'Turismo Religioso',
-    rural: 'Turismo Rural',
-    gastronomia: 'Gastronomia',
-    hotelaria: 'Hotelaria',
-    telefones: 'Telefones Úteis',
-    contato: 'Contato'
-  };
-
   const CARDS_PADRAO_RELIGIOSO = [
     {
       imagem: 'assets/img/basilica.png',
@@ -130,175 +119,263 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const CARDS_PADRAO_RURAL = [
-  {
-    imagem: 'assets/img/vinicola.png',
-    tipo: 'Gratuito',
-    titulo: 'Vinícola Arcanjo Miguel',
-    descricaoCurta: 'Uma vinícola tradicional.',
-    descricaoLonga: 'Uma descrição mais longa sobre a vinícola, seus artefatos e a história da produção de vinhos. Perfeito para uma visita cultural e espiritual.',
-    endereco: 'Rua Principal, 123',
-    horario: 'Ter - Dom: 11h às 22h',
-    telefone: '(15) 99999-1111'
-  },
-  {
-    imagem: 'assets/img/fazenda.png',
-    tipo: 'Pago',
-    titulo: 'Fazenda Olíva',
-    descricaoCurta: 'Uma das mais importantes fazendas da região.',
-    descricaoLonga: 'Uma descrição mais longa sobre a fazenda, seus artefatos e a história rural. Perfeito para uma visita cultural e espiritual.',
-    endereco: 'Av. Central, 456',
-    horario: 'Seg - Sáb: 08h às 20h',
-    telefone: '(15) 99999-2222'
-  },
-  {
-    imagem: 'assets/img/plantacao.png',
-    tipo: 'Gratuito',
-    titulo: 'Plantação de Morangos',
-    descricaoCurta: 'Uma das mais importantes plantações da região.',
-    descricaoLonga: 'Uma descrição mais longa sobre a plantação, seus artefatos e a história rural. Perfeito para uma visita cultural e espiritual.',
-    endereco: 'Praça da Matriz, 78',
-    horario: 'Seg - Dom: 06h às 19h',
-    telefone: '(15) 99999-3333'
-  },
-  {
-    imagem: 'assets/img/cafetal.png',
-    tipo: 'Gratuito',
-    titulo: 'Cafetal da Serra',
-    descricaoCurta: 'Uma das mais importantes fazendas de café da região.',
-    descricaoLonga: 'Uma descrição mais longa sobre o cafetal, seus artefatos e a história rural. Perfeito para uma visita cultural e espiritual.',
-    endereco: 'Rua do Comércio, 90',
-    horario: 'Seg - Sex: 07h às 18h',
-    telefone: '(15) 99999-4444'
-  },
-  {
-    imagem: 'assets/img/queijaria.png',
-    tipo: 'Pago',
-    titulo: 'Queijaria Sabor do Campo',
-    descricaoCurta: 'Uma das mais importantes queijarias da região.',
-    descricaoLonga: 'Uma descrição mais longa sobre a queijaria, seus artefatos e a história rural. Perfeito para uma visita cultural e espiritual.',
-    endereco: 'Rua das Flores, 321',
-    horario: 'Qua - Dom: 18h às 23h',
-    telefone: '(15) 99999-5555'
-  }
-];
+    {
+      imagem: 'assets/img/vinicola.png',
+      tipo: 'Gratuito',
+      titulo: 'Vinícola Arcanjo Miguel',
+      descricaoCurta: 'Uma vinícola tradicional.',
+      descricaoLonga: 'Uma descrição mais longa sobre a vinícola, seus artefatos e a história da produção de vinhos. Perfeito para uma visita cultural e espiritual.',
+      endereco: 'Rua Principal, 123',
+      horario: 'Ter - Dom: 11h às 22h',
+      telefone: '(15) 99999-1111'
+    },
+    {
+      imagem: 'assets/img/fazenda.png',
+      tipo: 'Pago',
+      titulo: 'Fazenda Olíva',
+      descricaoCurta: 'Uma das mais importantes fazendas da região.',
+      descricaoLonga: 'Uma descrição mais longa sobre a fazenda, seus artefatos e a história rural. Perfeito para uma visita cultural e espiritual.',
+      endereco: 'Av. Central, 456',
+      horario: 'Seg - Sáb: 08h às 20h',
+      telefone: '(15) 99999-2222'
+    },
+    {
+      imagem: 'assets/img/plantacao.png',
+      tipo: 'Gratuito',
+      titulo: 'Plantação de Morangos',
+      descricaoCurta: 'Uma das mais importantes plantações da região.',
+      descricaoLonga: 'Uma descrição mais longa sobre a plantação, seus artefatos e a história rural. Perfeito para uma visita cultural e espiritual.',
+      endereco: 'Praça da Matriz, 78',
+      horario: 'Seg - Dom: 06h às 19h',
+      telefone: '(15) 99999-3333'
+    },
+    {
+      imagem: 'assets/img/cafetal.png',
+      tipo: 'Gratuito',
+      titulo: 'Cafetal da Serra',
+      descricaoCurta: 'Uma das mais importantes fazendas de café da região.',
+      descricaoLonga: 'Uma descrição mais longa sobre o cafetal, seus artefatos e a história rural. Perfeito para uma visita cultural e espiritual.',
+      endereco: 'Rua do Comércio, 90',
+      horario: 'Seg - Sex: 07h às 18h',
+      telefone: '(15) 99999-4444'
+    },
+    {
+      imagem: 'assets/img/queijaria.png',
+      tipo: 'Pago',
+      titulo: 'Queijaria Sabor do Campo',
+      descricaoCurta: 'Uma das mais importantes queijarias da região.',
+      descricaoLonga: 'Uma descrição mais longa sobre a queijaria, seus artefatos e a história rural. Perfeito para uma visita cultural e espiritual.',
+      endereco: 'Rua das Flores, 321',
+      horario: 'Qua - Dom: 18h às 23h',
+      telefone: '(15) 99999-5555'
+    }
+  ];
 
-const CARDS_PADRAO_HOTELARIA = [
-  {
-    imagem: 'assets/img/pousada_serra_azul.png',
-    tipo: 'Zona Rural',
-    titulo: 'Pousada Serra Azul',
-    descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica das montanhas.',
-    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
-    endereco: 'Rua Principal, 123',
-    horario: 'Ter - Dom: 11h às 22h',
-    telefone: '(15) 99999-1111'
-  },
-  {
-    imagem: 'assets/img/hotel_central_garden.png',
-    tipo: 'Zona Urbana',
-    titulo: 'Hotel Central Garden',
-    descricaoCurta: 'No coração da cidade, ideal para quem busca conforto e praticidade.',
-    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
-    endereco: 'Av. Central, 456',
-    horario: 'Seg - Sáb: 08h às 20h',
-    telefone: '(15) 99999-2222'
-  },
-  {
-    imagem: 'assets/img/chacara_recanto_do_vinho.png',
-    tipo: 'Zona Rural',
-    titulo: 'Chácara Recanto do Vinho',
-    descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica das montanhas.',
-    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
-    endereco: 'Praça da Matriz, 78',
-    horario: 'Seg - Dom: 06h às 19h',
-    telefone: '(15) 99999-3333'
-  },
-  {
-    imagem: 'assets/img/casa_de_hospedes.png',
-    tipo: 'Zona Urbana',
-    titulo: 'Casa de Hóspedes',
-    descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica da cidade.',
-    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
-    endereco: 'Rua do Comércio, 90',
-    horario: 'Seg - Sex: 07h às 18h',
-    telefone: '(15) 99999-4444'
-  },
-  {
-    imagem: 'assets/img/hotel_arcanjo.png',
-    tipo: 'Zona Urbana',
-    titulo: 'Hotel Arcanjo',
-    descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica da Gruta do Arcanjo',
-    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
-    endereco: 'Rua das Flores, 321',
-    horario: 'Qua - Dom: 18h às 23h',
-    telefone: '(15) 99999-5555'
-  }
-];
+  const CARDS_PADRAO_HOTELARIA = [
+    {
+      imagem: 'assets/img/pousada_serra_azul.png',
+      tipo: 'Zona Rural',
+      titulo: 'Pousada Serra Azul',
+      descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica das montanhas.',
+      descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+      endereco: 'Rua Principal, 123',
+      horario: 'Ter - Dom: 11h às 22h',
+      telefone: '(15) 99999-1111'
+    },
+    {
+      imagem: 'assets/img/hotel_central_garden.png',
+      tipo: 'Zona Urbana',
+      titulo: 'Hotel Central Garden',
+      descricaoCurta: 'No coração da cidade, ideal para quem busca conforto e praticidade.',
+      descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+      endereco: 'Av. Central, 456',
+      horario: 'Seg - Sáb: 08h às 20h',
+      telefone: '(15) 99999-2222'
+    },
+    {
+      imagem: 'assets/img/chacara_recanto_do_vinho.png',
+      tipo: 'Zona Rural',
+      titulo: 'Chácara Recanto do Vinho',
+      descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica das montanhas.',
+      descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+      endereco: 'Praça da Matriz, 78',
+      horario: 'Seg - Dom: 06h às 19h',
+      telefone: '(15) 99999-3333'
+    },
+    {
+      imagem: 'assets/img/casa_de_hospedes.png',
+      tipo: 'Zona Urbana',
+      titulo: 'Casa de Hóspedes',
+      descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica da cidade.',
+      descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+      endereco: 'Rua do Comércio, 90',
+      horario: 'Seg - Sex: 07h às 18h',
+      telefone: '(15) 99999-4444'
+    },
+    {
+      imagem: 'assets/img/hotel_arcanjo.png',
+      tipo: 'Zona Urbana',
+      titulo: 'Hotel Arcanjo',
+      descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica da Gruta do Arcanjo',
+      descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+      endereco: 'Rua das Flores, 321',
+      horario: 'Qua - Dom: 18h às 23h',
+      telefone: '(15) 99999-5555'
+    }
+  ];
 
-const CARDS_PADRAO_GASTRONOMIA = [
-  {
-    imagem: 'assets/img/restaurante.jpg',
-    tipo: 'Restaurante',
-    titulo: 'Restaurante Sabor da Terra',
-    descricaoCurta: 'Culinária típica regional',
-    descricaoLonga: 'Uma descrição mais longa sobre o restaurante, seus pratos principais e o ambiente. Perfeito para um almoço em família.',
-    endereco: 'Rua Principal, 123',
-    horario: 'Ter - Dom: 11h às 22h',
-    telefone: '(15) 99999-1111'
-  },
-  {
-    imagem: 'assets/img/lanchonete.jpg',
-    tipo: 'Lanchonete',
-    titulo: 'Lanchonete do Zé',
-    descricaoCurta: 'Lanches rápidos e saborosos',
-    descricaoLonga: 'Famosa pelos seus hambúrgueres artesanais e porções generosas. Ambiente descontraído.',
-    endereco: 'Av. Central, 456',
-    horario: 'Seg - Sáb: 08h às 20h',
-    telefone: '(15) 99999-2222'
-  },
-  {
-    imagem: 'assets/img/padaria.jpg',
-    tipo: 'Padaria',
-    titulo: 'Padaria Pão Quente',
-    descricaoCurta: 'Pães frescos e café da manhã',
-    descricaoLonga: 'Além do pão francês sempre quentinho, serve um buffet de café da manhã completo nos finais de semana.',
-    endereco: 'Praça da Matriz, 78',
-    horario: 'Seg - Dom: 06h às 19h',
-    telefone: '(15) 99999-3333'
-  },
-  {
-    imagem: 'assets/img/mercado.jpg',
-    tipo: 'Mercado',
-    titulo: 'Mercado Central',
-    descricaoCurta: 'Produtos frescos e locais',
-    descricaoLonga: 'Aqui você encontra frutas, verduras e legumes direto do produtor, além de queijos e embutidos artesanais da região.',
-    endereco: 'Rua do Comércio, 90',
-    horario: 'Seg - Sex: 07h às 18h',
-    telefone: '(15) 99999-4444'
-  },
-  {
-    imagem: 'assets/img/pizzaria.jpg',
-    tipo: 'Restaurante',
-    titulo: 'Pizzaria Forno a Lenha',
-    descricaoCurta: 'As melhores pizzas da cidade',
-    descricaoLonga: 'Pizzas com massa de fermentação natural e ingredientes selecionados. Opções veganas disponíveis.',
-    endereco: 'Rua das Flores, 321',
-    horario: 'Qua - Dom: 18h às 23h',
-    telefone: '(15) 99999-5555'
-  }
-];
+  const CARDS_PADRAO_GASTRONOMIA = [
+    {
+      imagem: 'assets/img/restaurante.jpg',
+      tipo: 'Restaurante',
+      titulo: 'Restaurante Sabor da Terra',
+      descricaoCurta: 'Culinária típica regional',
+      descricaoLonga: 'Uma descrição mais longa sobre o restaurante, seus pratos principais e o ambiente. Perfeito para um almoço em família.',
+      endereco: 'Rua Principal, 123',
+      horario: 'Ter - Dom: 11h às 22h',
+      telefone: '(15) 99999-1111'
+    },
+    {
+      imagem: 'assets/img/lanchonete.jpg',
+      tipo: 'Lanchonete',
+      titulo: 'Lanchonete do Zé',
+      descricaoCurta: 'Lanches rápidos e saborosos',
+      descricaoLonga: 'Famosa pelos seus hambúrgueres artesanais e porções generosas. Ambiente descontraído.',
+      endereco: 'Av. Central, 456',
+      horario: 'Seg - Sáb: 08h às 20h',
+      telefone: '(15) 99999-2222'
+    },
+    {
+      imagem: 'assets/img/padaria.jpg',
+      tipo: 'Padaria',
+      titulo: 'Padaria Pão Quente',
+      descricaoCurta: 'Pães frescos e café da manhã',
+      descricaoLonga: 'Além do pão francês sempre quentinho, serve um buffet de café da manhã completo nos finais de semana.',
+      endereco: 'Praça da Matriz, 78',
+      horario: 'Seg - Dom: 06h às 19h',
+      telefone: '(15) 99999-3333'
+    },
+    {
+      imagem: 'assets/img/mercado.jpg',
+      tipo: 'Mercado',
+      titulo: 'Mercado Central',
+      descricaoCurta: 'Produtos frescos e locais',
+      descricaoLonga: 'Aqui você encontra frutas, verduras e legumes direto do produtor, além de queijos e embutidos artesanais da região.',
+      endereco: 'Rua do Comércio, 90',
+      horario: 'Seg - Sex: 07h às 18h',
+      telefone: '(15) 99999-4444'
+    },
+    {
+      imagem: 'assets/img/pizzaria.jpg',
+      tipo: 'Restaurante',
+      titulo: 'Pizzaria Forno a Lenha',
+      descricaoCurta: 'As melhores pizzas da cidade',
+      descricaoLonga: 'Pizzas com massa de fermentação natural e ingredientes selecionados. Opções veganas disponíveis.',
+      endereco: 'Rua das Flores, 321',
+      horario: 'Qua - Dom: 18h às 23h',
+      telefone: '(15) 99999-5555'
+    }
+  ];
 
-  const paginasComCards = ['ecologico', 'religioso', 'rural', 'hotelaria', 'gastronomia'];
+  const CARDS_PADRAO_AGENDA = [
+    {
+      imagem: 'assets/img/festadauva.png',
+      tipo: 'Gratuito',
+      titulo: 'Festa da Uva',
+      descricaoCurta: 'Uma festa em comemoração à colheita da uva, com música, comida e bebida.',
+      descricaoLonga: 'Uma descrição mais longa sobre a festa, seus eventos e atrações. Perfeito para uma saída em família.',
+      endereco: 'Rua Principal, 123',
+      horario: 'Ter - Dom: 11h às 22h',
+      telefone: '(15) 99999-1111'
+    },
+    {
+      imagem: 'assets/img/festivaldeinverno.png',
+      tipo: 'Pago',
+      titulo: 'Festival de Inverno',
+      descricaoCurta: 'Uma festa em comemoração à colheita da uva, com música, comida e bebida.',
+      descricaoLonga: 'Uma descrição mais longa sobre o festival, seus eventos e atrações. Perfeito para uma saída em família.',
+      endereco: 'Av. Central, 456',
+      horario: 'Seg - Sáb: 08h às 20h',
+      telefone: '(15) 99999-2222'
+    },
+    {
+      imagem: 'assets/img/cultural.png',
+      tipo: 'Gratuito',
+      titulo: 'Semana Cultural',
+      descricaoCurta: 'Uma semana de eventos culturais, com apresentações de teatro, música e artes plásticas.',
+      descricaoLonga: 'Uma descrição mais longa sobre a semana cultural, seus eventos e atrações. Perfeito para uma saída em família.',
+      endereco: 'Praça da Matriz, 78',
+      horario: 'Seg - Dom: 06h às 19h',
+      telefone: '(15) 99999-3333'
+    }
+  ];
+
+  const EVENTOS_PADRAO_CALENDARIO = {
+    '2026-07-04': [
+      {
+        title: 'Exposição de Fotografia',
+        location: 'Museu Histórico',
+        time: '10:00 - 18:00',
+        description: 'Mostra "Olhares de São Miguel", com fotos da natureza local.'
+      }
+    ],
+    '2026-07-05': [
+      {
+        title: 'Concerto na Praça Matriz',
+        location: 'Praça Matriz, Centro',
+        time: '19:00 - 21:00',
+        description: 'Aproveite uma noite agradável com música ao vivo da orquestra local, apresentando clássicos da música brasileira.'
+      },
+      {
+        title: 'Feira de Artesanato Local',
+        location: 'Ginásio Municipal de Esportes',
+        time: '09:00 - 17:00',
+        description: 'Descubra o talento dos artesãos da nossa cidade e encontre peças únicas para decorar sua casa ou presentear.'
+      }
+    ],
+    '2026-07-11': [
+      {
+        title: 'Festival Gastronômico',
+        location: 'Parque de Exposições',
+        time: '18:00 - 23:00',
+        description: 'Sabores da terra: experimente pratos típicos da culinária tropeira.'
+      }
+    ],
+    '2026-07-25': [
+      {
+        title: 'Caminhada Ecológica',
+        location: 'Trilha do Mirante',
+        time: '08:00 - 12:00',
+        description: 'Passeio guiado pela mata atlântica, com vista panorâmica da cidade.'
+      }
+    ]
+  };
+
+  const nomesPaginas = {
+    home: 'Início (Home)',
+    ecologico: 'Turismo Ecológico',
+    religioso: 'Turismo Religioso',
+    rural: 'Turismo Rural',
+    gastronomia: 'Gastronomia',
+    hotelaria: 'Hotelaria',
+    agenda: 'Agenda',
+    telefones: 'Telefones Úteis',
+    contato: 'Contato'
+  };
+
+  const paginasComCards = ['ecologico', 'religioso', 'rural', 'hotelaria', 'gastronomia', 'agenda'];
 
   const params = new URLSearchParams(window.location.search);
   const paginaAtual = params.get('pagina') || 'home';
   const ehPaginaComCards = paginasComCards.includes(paginaAtual);
+  const ehAgenda = paginaAtual === 'agenda';
+  const nomeAmigavel = nomesPaginas[paginaAtual] || paginaAtual.toUpperCase();
+
   function obterOpcoesTipoPagina() {
     if (paginaAtual === 'hotelaria') return ['Zona Urbana', 'Zona Rural'];
     if (paginaAtual === 'gastronomia') return ['Restaurante', 'Lanchonete', 'Padaria', 'Mercado'];
     return ['Gratuito', 'Pago'];
   }
-  const nomeAmigavel = nomesPaginas[paginaAtual] || paginaAtual.toUpperCase();
 
   document.getElementById('tituloPagina').textContent = `Editando: ${nomeAmigavel}`;
   document.getElementById('badgePaginaTexto').textContent = paginaAtual.toUpperCase();
@@ -308,18 +385,38 @@ const CARDS_PADRAO_GASTRONOMIA = [
   const formImagens = document.getElementById('formImagens');
   const btnSalvarImagens = formImagens.querySelector('button[type="submit"]');
 
+  const formTextos = document.getElementById('formTextos');
+  const blocoCardTextos = formTextos.closest('.card');
+  const tituloTexto = document.getElementById('tituloTexto');
+  const conteudoTexto = document.getElementById('conteudoTexto');
+  const listaCamposImagens = document.getElementById('listaCamposImagens');
+
+  const blocoAgendaCalendario = document.getElementById('blocoAgendaCalendario');
+  const dataEventoAgenda = document.getElementById('dataEventoAgenda');
+  const btnAddEventoAgenda = document.getElementById('btnAddEventoAgenda');
+  const listaEventosAgenda = document.getElementById('listaEventosAgenda');
+  const btnSalvarEventosAgenda = document.getElementById('btnSalvarEventosAgenda');
+
+  if (ehAgenda && blocoCardTextos) {
+    blocoCardTextos.style.display = 'none';
+  }
+
   if (paginaAtual === 'home') {
     tituloBlocoImagens.textContent = '2. Fotos do Carrossel (Início)';
+  } else if (ehAgenda) {
+    tituloBlocoImagens.textContent = '2. Destaques do Mês (Carrossel Lateral)';
+    btnAddImagem.innerHTML = '<i data-feather="plus"></i> Adicionar Destaque';
+    btnSalvarImagens.innerHTML = '<i data-feather="save"></i> Salvar Destaques';
+    listaCamposImagens.style.display = 'grid';
+    listaCamposImagens.style.gridTemplateColumns = 'repeat(auto-fill, minmax(280px, 1fr))';
+    listaCamposImagens.style.gap = '16px';
+    listaCamposImagens.style.alignItems = 'start';
+    if (blocoAgendaCalendario) blocoAgendaCalendario.style.display = 'block';
   } else if (ehPaginaComCards) {
     tituloBlocoImagens.textContent = '2. Cards da Página';
     btnAddImagem.innerHTML = '<i data-feather="plus"></i> Adicionar Card';
     btnSalvarImagens.innerHTML = '<i data-feather="save"></i> Salvar Cards';
   }
-
-  const formTextos = document.getElementById('formTextos');
-  const tituloTexto = document.getElementById('tituloTexto');
-  const conteudoTexto = document.getElementById('conteudoTexto');
-  const listaCamposImagens = document.getElementById('listaCamposImagens');
 
   function mostrarAlerta(mensagem) {
     const alertSuccess = document.getElementById('alertSuccess');
@@ -438,7 +535,7 @@ const CARDS_PADRAO_GASTRONOMIA = [
     inputImagem.className = 'card-campo-imagem';
     inputImagem.value = card.imagem || '';
     inputImagem.placeholder = 'Caminho ou URL da imagem (ex: assets/img/parque1.png)';
-    inputImagem.style.cssText = 'flex: 1; min-width: 220px;';
+    inputImagem.style.cssText = 'flex: 1; min-width: 180px;';
 
     const inputArquivo = document.createElement('input');
     inputArquivo.type = 'file';
@@ -482,8 +579,8 @@ const CARDS_PADRAO_GASTRONOMIA = [
     inputTitulo.type = 'text';
     inputTitulo.className = 'card-campo-titulo';
     inputTitulo.value = card.titulo || '';
-    inputTitulo.placeholder = 'Título do card (ex: Parque Estadual Carlos Botelho)';
-    inputTitulo.style.cssText = 'flex: 1; min-width: 220px;';
+    inputTitulo.placeholder = 'Título do card';
+    inputTitulo.style.cssText = 'flex: 1; min-width: 180px;';
     inputTitulo.addEventListener('input', () => {
       tituloBloco.textContent = inputTitulo.value.trim() || 'Novo Card';
     });
@@ -504,25 +601,25 @@ const CARDS_PADRAO_GASTRONOMIA = [
     textareaDescLonga.placeholder = 'Descrição maior (aparece ao clicar em Saiba mais)';
 
     const linhaDetalhes = document.createElement('div');
-    linhaDetalhes.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px;';
+    linhaDetalhes.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px;';
 
     const inputEndereco = document.createElement('input');
     inputEndereco.type = 'text';
     inputEndereco.className = 'card-campo-endereco';
     inputEndereco.value = card.endereco || '';
-    inputEndereco.placeholder = 'Endereço (ex: Rua Principal, 123)';
+    inputEndereco.placeholder = 'Endereço';
 
     const inputHorario = document.createElement('input');
     inputHorario.type = 'text';
     inputHorario.className = 'card-campo-horario';
     inputHorario.value = card.horario || '';
-    inputHorario.placeholder = 'Horário (ex: Ter - Dom: 11h às 22h)';
+    inputHorario.placeholder = 'Horário';
 
     const inputTelefone = document.createElement('input');
     inputTelefone.type = 'text';
     inputTelefone.className = 'card-campo-telefone';
     inputTelefone.value = card.telefone || '';
-    inputTelefone.placeholder = 'Telefone (ex: (15) 99999-1111)';
+    inputTelefone.placeholder = 'Telefone';
 
     linhaDetalhes.appendChild(inputEndereco);
     linhaDetalhes.appendChild(inputHorario);
@@ -547,7 +644,165 @@ const CARDS_PADRAO_GASTRONOMIA = [
     }
   });
 
+  // Gerenciamento de Eventos do Calendário (modo agenda)
+  let eventosCalendarioMapa = { ...EVENTOS_PADRAO_CALENDARIO };
+
+  function criarBlocoEventoCalendario(evento = {}) {
+    const box = document.createElement('div');
+    box.className = 'evento-calendario-item';
+    box.style.cssText = 'border: 1px solid #e5e7eb; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; background: #fafafa;';
+
+    const topo = document.createElement('div');
+    topo.style.cssText = 'display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;';
+
+    const tituloEvento = document.createElement('strong');
+    tituloEvento.textContent = evento.title || 'Novo Evento';
+    tituloEvento.style.fontSize = '15px';
+
+    const btnExcluirEvento = document.createElement('button');
+    btnExcluirEvento.type = 'button';
+    btnExcluirEvento.className = 'btn-danger';
+    btnExcluirEvento.innerHTML = '<i data-feather="trash-2"></i> Excluir Evento';
+    btnExcluirEvento.addEventListener('click', () => box.remove());
+
+    topo.appendChild(tituloEvento);
+    topo.appendChild(btnExcluirEvento);
+
+    const inputTitulo = document.createElement('input');
+    inputTitulo.type = 'text';
+    inputTitulo.className = 'evento-campo-titulo';
+    inputTitulo.value = evento.title || '';
+    inputTitulo.placeholder = 'Título do evento';
+    inputTitulo.addEventListener('input', () => {
+      tituloEvento.textContent = inputTitulo.value.trim() || 'Novo Evento';
+    });
+
+    const linhaLocalHora = document.createElement('div');
+    linhaLocalHora.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px;';
+
+    const inputLocal = document.createElement('input');
+    inputLocal.type = 'text';
+    inputLocal.className = 'evento-campo-local';
+    inputLocal.value = evento.location || '';
+    inputLocal.placeholder = 'Local do evento';
+
+    const inputHorario = document.createElement('input');
+    inputHorario.type = 'text';
+    inputHorario.className = 'evento-campo-horario';
+    inputHorario.value = evento.time || '';
+    inputHorario.placeholder = 'Horário (ex: 19:00 - 21:00)';
+
+    linhaLocalHora.appendChild(inputLocal);
+    linhaLocalHora.appendChild(inputHorario);
+
+    const textareaDescricao = document.createElement('textarea');
+    textareaDescricao.className = 'evento-campo-descricao';
+    textareaDescricao.rows = 3;
+    textareaDescricao.value = evento.description || '';
+    textareaDescricao.placeholder = 'Descrição do evento';
+
+    box.appendChild(topo);
+    box.appendChild(inputTitulo);
+    box.appendChild(linhaLocalHora);
+    box.appendChild(textareaDescricao);
+
+    if (listaEventosAgenda) {
+      listaEventosAgenda.appendChild(box);
+    }
+    if (window.feather) window.feather.replace();
+  }
+
+  function renderizarEventosDaDataSelecionada() {
+    if (!listaEventosAgenda || !dataEventoAgenda) return;
+    const dataChave = dataEventoAgenda.value || '2026-07-05';
+    const eventosDoDia = Array.isArray(eventosCalendarioMapa[dataChave]) ? eventosCalendarioMapa[dataChave] : [];
+    listaEventosAgenda.innerHTML = '';
+
+    if (eventosDoDia.length > 0) {
+      eventosDoDia.forEach(ev => criarBlocoEventoCalendario(ev));
+    } else {
+      const aviso = document.createElement('p');
+      aviso.textContent = 'Nenhum evento cadastrado para este dia. Clique em "Adicionar Evento" para criar um.';
+      aviso.style.cssText = 'color: #6b7280; font-size: 14px; margin: 4px 0;';
+      listaEventosAgenda.appendChild(aviso);
+    }
+  }
+
+  async function carregarEventosCalendarioAdmin() {
+    if (!ehAgenda) return;
+    try {
+      const response = await fetch(`${API_BASE}/textos/agenda`);
+      if (response.ok) {
+        const dados = await response.json();
+        if (dados && typeof dados === 'object' && !Array.isArray(dados)) {
+          const temChaveData = Object.keys(dados).some(k => /^\d{4}-\d{2}-\d{2}$/.test(k));
+          if (temChaveData) {
+            eventosCalendarioMapa = dados;
+          }
+        }
+      }
+    } catch (error) {
+      console.error('Erro ao carregar eventos do calendário:', error);
+    }
+    renderizarEventosDaDataSelecionada();
+  }
+
+  if (dataEventoAgenda) {
+    dataEventoAgenda.addEventListener('change', renderizarEventosDaDataSelecionada);
+  }
+
+  if (btnAddEventoAgenda) {
+    btnAddEventoAgenda.addEventListener('click', () => {
+      if (!listaEventosAgenda) return;
+      const avisoVazio = listaEventosAgenda.querySelector('p');
+      if (avisoVazio && !avisoVazio.className) avisoVazio.remove();
+      criarBlocoEventoCalendario({});
+    });
+  }
+
+  if (btnSalvarEventosAgenda) {
+    btnSalvarEventosAgenda.addEventListener('click', async () => {
+      if (!dataEventoAgenda || !listaEventosAgenda) return;
+      const dataChave = dataEventoAgenda.value || '2026-07-05';
+
+      const blocosEventos = [...listaEventosAgenda.querySelectorAll('.evento-calendario-item')];
+      const eventosAtualizados = blocosEventos
+        .map(box => ({
+          title: box.querySelector('.evento-campo-titulo').value.trim(),
+          location: box.querySelector('.evento-campo-local').value.trim(),
+          time: box.querySelector('.evento-campo-horario').value.trim(),
+          description: box.querySelector('.evento-campo-descricao').value.trim()
+        }))
+        .filter(ev => ev.title !== '' || ev.location !== '' || ev.time !== '' || ev.description !== '');
+
+      if (eventosAtualizados.length > 0) {
+        eventosCalendarioMapa[dataChave] = eventosAtualizados;
+      } else {
+        delete eventosCalendarioMapa[dataChave];
+      }
+
+      try {
+        const response = await fetch(`${API_BASE}/textos/agenda`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(eventosCalendarioMapa)
+        });
+
+        if (response.ok) {
+          mostrarAlerta(`Eventos do dia ${dataChave} salvos com sucesso!`);
+          renderizarEventosDaDataSelecionada();
+        } else {
+          alert('Erro ao salvar os eventos do calendário.');
+        }
+      } catch (error) {
+        console.error(error);
+        alert('Erro de conexão com o servidor Node.');
+      }
+    });
+  }
+
   async function carregarTextos() {
+    if (ehAgenda) return;
     try {
       const response = await fetch(`${API_BASE}/textos/${paginaAtual}`);
       if (!response.ok) return;
@@ -560,7 +815,7 @@ const CARDS_PADRAO_GASTRONOMIA = [
     }
   }
 
-function carregarFallbackImagens() {
+  function carregarFallbackImagens() {
     if (paginaAtual === 'home') {
       IMAGENS_PADRAO_HOME.forEach(url => criarLinhaImagem(url));
     } else if (paginaAtual === 'ecologico') {
@@ -573,6 +828,8 @@ function carregarFallbackImagens() {
       CARDS_PADRAO_HOTELARIA.forEach(card => criarBlocoCard(card));
     } else if (paginaAtual === 'gastronomia') {
       CARDS_PADRAO_GASTRONOMIA.forEach(card => criarBlocoCard(card));
+    } else if (paginaAtual === 'agenda') {
+      CARDS_PADRAO_AGENDA.forEach(card => criarBlocoCard(card));
     } else if (ehPaginaComCards) {
       criarBlocoCard({ tipo: obterOpcoesTipoPagina()[0] });
     } else {
@@ -711,4 +968,5 @@ function carregarFallbackImagens() {
 
   carregarTextos();
   carregarImagens();
+  carregarEventosCalendarioAdmin();
 });
