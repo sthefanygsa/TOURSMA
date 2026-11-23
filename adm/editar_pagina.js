@@ -351,6 +351,46 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   };
 
+  const CATEGORIAS_TELEFONES = [
+    { value: 'emergencia', label: 'Emergência' },
+    { value: 'saude', label: 'Saúde' },
+    { value: 'publicos', label: 'Órgãos Públicos' },
+    { value: 'transporte', label: 'Transporte' },
+    { value: 'farmacias', label: 'Farmácias' },
+    { value: 'servicos', label: 'Serviços' },
+    { value: 'mapa', label: 'Mapa' }
+  ];
+
+  const TELEFONES_PADRAO = [
+    {
+      titulo: 'Polícia Militar 190',
+      categoria: 'emergencia',
+      tag: 'Emergência',
+      descricao: 'Atendimento 24h para ocorrências.',
+      endereco: '',
+      telefone: '190',
+      horario: ''
+    },
+    {
+      titulo: 'Hospital Municipal',
+      categoria: 'saude',
+      tag: 'Saúde',
+      descricao: '',
+      endereco: 'Rua Principal, 123 - Centro',
+      telefone: '(15) 3279-1234',
+      horario: 'Atendimento 24h'
+    },
+    {
+      titulo: 'Posto de Saúde (UBS)',
+      categoria: 'saude',
+      tag: 'Saúde',
+      descricao: '',
+      endereco: 'Av. dos Plátanos, 456 - Jardim',
+      telefone: '(15) 3279-5678',
+      horario: 'Seg-Sex, 8h-17h'
+    }
+  ];
+
   const nomesPaginas = {
     home: 'Início (Home)',
     ecologico: 'Turismo Ecológico',
@@ -369,6 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const paginaAtual = params.get('pagina') || 'home';
   const ehPaginaComCards = paginasComCards.includes(paginaAtual);
   const ehAgenda = paginaAtual === 'agenda';
+  const ehTelefones = paginaAtual === 'telefones';
   const nomeAmigavel = nomesPaginas[paginaAtual] || paginaAtual.toUpperCase();
 
   function obterOpcoesTipoPagina() {
@@ -412,6 +453,14 @@ document.addEventListener('DOMContentLoaded', () => {
     listaCamposImagens.style.gap = '16px';
     listaCamposImagens.style.alignItems = 'start';
     if (blocoAgendaCalendario) blocoAgendaCalendario.style.display = 'block';
+  } else if (ehTelefones) {
+    tituloBlocoImagens.textContent = '2. Cards de Telefone';
+    btnAddImagem.innerHTML = '<i data-feather="plus"></i> Adicionar Telefone';
+    btnSalvarImagens.innerHTML = '<i data-feather="save"></i> Salvar Telefones';
+    listaCamposImagens.style.display = 'grid';
+    listaCamposImagens.style.gridTemplateColumns = 'repeat(auto-fill, minmax(280px, 1fr))';
+    listaCamposImagens.style.gap = '16px';
+    listaCamposImagens.style.alignItems = 'start';
   } else if (ehPaginaComCards) {
     tituloBlocoImagens.textContent = '2. Cards da Página';
     btnAddImagem.innerHTML = '<i data-feather="plus"></i> Adicionar Card';
@@ -636,15 +685,126 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.feather) window.feather.replace();
   }
 
+  function criarBlocoTelefone(item = {}) {
+    const box = document.createElement('div');
+    box.className = 'telefone-editor-item';
+    box.style.cssText = 'border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 8px; background: #fafafa;';
+
+    const topo = document.createElement('div');
+    topo.style.cssText = 'display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;';
+
+    const infoTituloTag = document.createElement('div');
+    infoTituloTag.style.cssText = 'display: flex; flex-direction: column; gap: 2px;';
+
+    const tituloPreview = document.createElement('strong');
+    tituloPreview.textContent = item.titulo || 'Novo Telefone';
+    tituloPreview.style.fontSize = '15px';
+
+    const tagPreview = document.createElement('span');
+    tagPreview.textContent = (item.tag || 'Emergência').toUpperCase();
+    tagPreview.style.cssText = 'font-size: 11px; font-weight: 700; color: #29763B; letter-spacing: 0.04em;';
+
+    infoTituloTag.appendChild(tituloPreview);
+    infoTituloTag.appendChild(tagPreview);
+
+    const btnExcluir = document.createElement('button');
+    btnExcluir.type = 'button';
+    btnExcluir.className = 'btn-danger';
+    btnExcluir.innerHTML = '<i data-feather="trash-2"></i> Excluir';
+    btnExcluir.addEventListener('click', () => box.remove());
+
+    topo.appendChild(infoTituloTag);
+    topo.appendChild(btnExcluir);
+
+    const inputTitulo = document.createElement('input');
+    inputTitulo.type = 'text';
+    inputTitulo.className = 'tel-campo-titulo';
+    inputTitulo.value = item.titulo || '';
+    inputTitulo.placeholder = 'Título (ex: Hospital Municipal)';
+    inputTitulo.addEventListener('input', () => {
+      tituloPreview.textContent = inputTitulo.value.trim() || 'Novo Telefone';
+    });
+
+    const selectCategoria = document.createElement('select');
+    selectCategoria.className = 'tel-campo-categoria';
+    selectCategoria.style.cssText = 'padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff;';
+
+    const inputTag = document.createElement('input');
+    inputTag.type = 'text';
+    inputTag.className = 'tel-campo-tag';
+    inputTag.value = item.tag || '';
+    inputTag.placeholder = 'Tag em verde (ex: Saúde)';
+    inputTag.addEventListener('input', () => {
+      tagPreview.textContent = (inputTag.value.trim() || 'TAG').toUpperCase();
+    });
+
+    CATEGORIAS_TELEFONES.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat.value;
+      opt.textContent = `Filtro: ${cat.label}`;
+      if ((item.categoria || '').toLowerCase() === cat.value) {
+        opt.selected = true;
+      }
+      selectCategoria.appendChild(opt);
+    });
+
+    selectCategoria.addEventListener('change', () => {
+      if (!inputTag.value.trim()) {
+        const escolhida = CATEGORIAS_TELEFONES.find(c => c.value === selectCategoria.value);
+        if (escolhida) {
+          inputTag.value = escolhida.label;
+          tagPreview.textContent = escolhida.label.toUpperCase();
+        }
+      }
+    });
+
+    const inputEndereco = document.createElement('input');
+    inputEndereco.type = 'text';
+    inputEndereco.className = 'tel-campo-endereco';
+    inputEndereco.value = item.endereco || '';
+    inputEndereco.placeholder = 'Endereço (ex: Rua Principal, 123)';
+
+    const inputTelefone = document.createElement('input');
+    inputTelefone.type = 'text';
+    inputTelefone.className = 'tel-campo-telefone';
+    inputTelefone.value = item.telefone || '';
+    inputTelefone.placeholder = 'Telefone (ex: (15) 3279-1234)';
+
+    const inputHorario = document.createElement('input');
+    inputHorario.type = 'text';
+    inputHorario.className = 'tel-campo-horario';
+    inputHorario.value = item.horario || '';
+    inputHorario.placeholder = 'Horário (ex: Atendimento 24h)';
+
+    const inputDescricao = document.createElement('input');
+    inputDescricao.type = 'text';
+    inputDescricao.className = 'tel-campo-descricao';
+    inputDescricao.value = item.descricao || '';
+    inputDescricao.placeholder = 'Descrição curta (opcional)';
+
+    box.appendChild(topo);
+    box.appendChild(inputTitulo);
+    box.appendChild(selectCategoria);
+    box.appendChild(inputTag);
+    box.appendChild(inputEndereco);
+    box.appendChild(inputTelefone);
+    box.appendChild(inputHorario);
+    box.appendChild(inputDescricao);
+
+    listaCamposImagens.appendChild(box);
+    if (window.feather) window.feather.replace();
+  }
+
   btnAddImagem.addEventListener('click', () => {
-    if (ehPaginaComCards) {
+    if (ehTelefones) {
+      criarBlocoTelefone({ categoria: 'emergencia', tag: 'Emergência' });
+    } else if (ehPaginaComCards) {
       criarBlocoCard({ tipo: obterOpcoesTipoPagina()[0] });
     } else {
       criarLinhaImagem('');
     }
   });
 
-  // Gerenciamento de Eventos do Calendário (modo agenda)
   let eventosCalendarioMapa = { ...EVENTOS_PADRAO_CALENDARIO };
 
   function criarBlocoEventoCalendario(evento = {}) {
@@ -728,7 +888,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-async function carregarEventosCalendarioAdmin() {
+  async function carregarEventosCalendarioAdmin() {
     if (!ehAgenda) return;
     try {
       const response = await fetch(`${API_BASE}/textos/agenda`);
@@ -828,7 +988,9 @@ async function carregarEventosCalendarioAdmin() {
   }
 
   function carregarFallbackImagens() {
-    if (paginaAtual === 'home') {
+    if (ehTelefones) {
+      TELEFONES_PADRAO.forEach(t => criarBlocoTelefone(t));
+    } else if (paginaAtual === 'home') {
       IMAGENS_PADRAO_HOME.forEach(url => criarLinhaImagem(url));
     } else if (paginaAtual === 'ecologico') {
       CARDS_PADRAO_ECOLOGICO.forEach(card => criarBlocoCard(card));
@@ -859,6 +1021,16 @@ async function carregarEventosCalendarioAdmin() {
       }
 
       const dados = await response.json();
+
+      if (ehTelefones) {
+        const telefones = Array.isArray(dados) ? dados.filter(item => item && typeof item === 'object') : [];
+        if (telefones.length > 0) {
+          telefones.forEach(t => criarBlocoTelefone(t));
+        } else {
+          carregarFallbackImagens();
+        }
+        return;
+      }
 
       if (ehPaginaComCards) {
         const cards = Array.isArray(dados) ? dados.filter(item => item && typeof item === 'object') : [];
@@ -924,7 +1096,20 @@ async function carregarEventosCalendarioAdmin() {
     e.preventDefault();
 
     let payload;
-    if (ehPaginaComCards) {
+    if (ehTelefones) {
+      const blocosTel = [...document.querySelectorAll('.telefone-editor-item')];
+      payload = blocosTel
+        .map(box => ({
+          titulo: box.querySelector('.tel-campo-titulo').value.trim(),
+          categoria: box.querySelector('.tel-campo-categoria').value,
+          tag: box.querySelector('.tel-campo-tag').value.trim() || 'Emergência',
+          endereco: box.querySelector('.tel-campo-endereco').value.trim(),
+          telefone: box.querySelector('.tel-campo-telefone').value.trim(),
+          horario: box.querySelector('.tel-campo-horario').value.trim(),
+          descricao: box.querySelector('.tel-campo-descricao').value.trim()
+        }))
+        .filter(t => t.titulo !== '' || t.telefone !== '' || t.endereco !== '');
+    } else if (ehPaginaComCards) {
       const blocos = [...document.querySelectorAll('.card-editor-item')];
       payload = blocos
         .map(box => ({
@@ -954,13 +1139,15 @@ async function carregarEventosCalendarioAdmin() {
 
       if (response.ok) {
         mostrarAlerta(
-          ehPaginaComCards
-            ? `Cards de "${nomeAmigavel}" salvos com sucesso!`
-            : `Imagens de "${nomeAmigavel}" salvas com sucesso!`
+          ehTelefones
+            ? `Telefones de "${nomeAmigavel}" salvos com sucesso!`
+            : ehPaginaComCards
+              ? `Cards de "${nomeAmigavel}" salvos com sucesso!`
+              : `Imagens de "${nomeAmigavel}" salvas com sucesso!`
         );
         carregarImagens();
       } else {
-        alert(ehPaginaComCards ? 'Erro ao salvar os cards.' : 'Erro ao salvar as imagens.');
+        alert(ehTelefones ? 'Erro ao salvar os telefones.' : ehPaginaComCards ? 'Erro ao salvar os cards.' : 'Erro ao salvar as imagens.');
       }
     } catch (error) {
       console.error(error);
