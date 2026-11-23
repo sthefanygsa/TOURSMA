@@ -484,3 +484,17 @@ document.addEventListener('DOMContentLoaded', () => {
   carregarTextos();
   carregarImagens();
 });
+
+function carregarFallbackImagens() {
+    if (paginaAtual === 'home') {
+      IMAGENS_PADRAO_HOME.forEach(url => criarLinhaImagem(url));
+    } else if (paginaAtual === 'ecologico') {
+      CARDS_PADRAO_ECOLOGICO.forEach(card => criarBlocoCard(card));
+    } else if (paginaAtual === 'religioso') {
+      CARDS_PADRAO_RELIGIOSO.forEach(card => criarBlocoCard(card));
+    } else if (ehPaginaComCards) {
+      criarBlocoCard({ tipo: 'Gratuito' });
+    } else {
+      criarLinhaImagem('');
+    }
+  }
