@@ -728,22 +728,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  async function carregarEventosCalendarioAdmin() {
+async function carregarEventosCalendarioAdmin() {
     if (!ehAgenda) return;
     try {
       const response = await fetch(`${API_BASE}/textos/agenda`);
       if (response.ok) {
         const dados = await response.json();
         if (dados && typeof dados === 'object' && !Array.isArray(dados)) {
-          const temChaveData = Object.keys(dados).some(k => /^\d{4}-\d{2}-\d{2}$/.test(k));
-          if (temChaveData) {
+          const datasComEventos = Object.keys(dados)
+            .filter(k => /^\d{4}-\d{2}-\d{2}$/.test(k) && Array.isArray(dados[k]) && dados[k].length > 0)
+            .sort();
+
+          if (datasComEventos.length > 0) {
             eventosCalendarioMapa = dados;
+            if (dataEventoAgenda && (!dataEventoAgenda.value || !eventosCalendarioMapa[dataEventoAgenda.value])) {
+              dataEventoAgenda.value = datasComEventos[datasComEventos.length - 1];
+            }
           }
         }
       }
     } catch (error) {
       console.error('Erro ao carregar eventos do calendário:', error);
     }
+
+    if (dataEventoAgenda && !dataEventoAgenda.value) {
+      const hoje = new Date();
+      dataEventoAgenda.value = `${hoje.getFullYear()}-${String(hoje.getMonth() + 1).padStart(2, '0')}-${String(hoje.getDate()).padStart(2, '0')}`;
+    }
+
     renderizarEventosDaDataSelecionada();
   }
 
