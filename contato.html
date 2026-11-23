@@ -105,34 +105,34 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div class="flex flex-col">
             <div class="flex flex-col gap-2">
-          <p class="text-6xl font-black tracking-tighter" style="color:#194C9B;">Fale Conosco</p>
-          <p class="text-text-secondary-light dark:text-text-secondary-dark text-lg font-normal leading-relaxed">Adoraríamos ouvir de você. Preencha o formulário abaixo ou utilize um dos nossos canais de contato.</p>
-        </div>
-        <br>
+              <p id="contato-titulo-principal" class="text-6xl font-black tracking-tighter" style="color:#194C9B;">Fale Conosco</p>
+              <p id="contato-subtitulo-principal" class="text-text-secondary-light dark:text-text-secondary-dark text-lg font-normal leading-relaxed">Adoraríamos ouvir de você. Preencha o formulário abaixo ou utilize um dos nossos canais de contato.</p>
+            </div>
+            <br>
 
             <form id="meu-formulario" class="flex flex-col gap-4">
-    <div>
-        <label class="block text-sm font-medium text-gray-700">Nome</label>
-        <input type="text" name="name" required class="w-full p-2 border rounded-lg mt-1">
-    </div>
-    <div>
-        <label class="block text-sm font-medium text-gray-700">E-mail</label>
-        <input type="email" name="email" required class="w-full p-2 border rounded-lg mt-1">
-    </div>
-    <div>
-        <label class="block text-sm font-medium text-gray-700">Mensagem</label>
-        <textarea name="message" required rows="4" class="w-full p-2 border rounded-lg mt-1"></textarea>
-    </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Nome</label>
+                <input type="text" name="name" required class="w-full p-2 border rounded-lg mt-1">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700">E-mail</label>
+                <input type="email" name="email" required class="w-full p-2 border rounded-lg mt-1">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700">Mensagem</label>
+                <textarea name="message" required rows="4" class="w-full p-2 border rounded-lg mt-1"></textarea>
+              </div>
 
-    <button type="submit" id="btn-enviar" class="bg-[#29753b] text-white font-bold p-3 rounded-lg hover:bg-opacity-90 transition-all">
-        Enviar Mensagem
-    </button>
-</form>
+              <button type="submit" id="btn-enviar" class="bg-[#29753b] text-white font-bold p-3 rounded-lg hover:bg-opacity-90 transition-all">
+                Enviar Mensagem
+              </button>
+            </form>
           </div>
           <div class="flex flex-col lg:pl-10">
             <div class="rounded-xl bg-background-light dark:bg-gray-800 p-8 lg:p-12 h-full">
-              <p class="text-4xl font-black tracking-tighter" style="color:#194C9B;">Outros contatos</p>
-          <p class="text-text-secondary-light dark:text-text-secondary-dark text-lg font-normal leading-relaxed">Entre em contato conosco diretamente através dos canais abaixo.</p>
+              <p id="contato-titulo-secundario" class="text-4xl font-black tracking-tighter" style="color:#194C9B;">Outros contatos</p>
+              <p id="contato-subtitulo-secundario" class="text-text-secondary-light dark:text-text-secondary-dark text-lg font-normal leading-relaxed">Entre em contato conosco diretamente através dos canais abaixo.</p>
               <div class="mt-10 space-y-8">
                 <div class="flex items-start gap-4">
                   <div
@@ -141,7 +141,7 @@
                   </div>
                   <div>
                     <h3 class="text-lg font-bold text-text-dark dark:text-white">Telefone</h3>
-                    <p class="text-gray-500 dark:text-gray-400">+55 (15) 99999-8888</p>
+                    <p id="contato-telefone" class="text-gray-500 dark:text-gray-400">+55 (15) 99999-8888</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-4">
@@ -151,7 +151,7 @@
                   </div>
                   <div>
                     <h3 class="text-lg font-bold text-text-dark dark:text-white">E-mail</h3>
-                    <p class="text-gray-500 dark:text-gray-400">contato@toursaomiguel.com</p>
+                    <p id="contato-email" class="text-gray-500 dark:text-gray-400">contato@toursaomiguel.com</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-4">
@@ -161,23 +161,23 @@
                   </div>
                   <div>
                     <h3 class="text-lg font-bold text-text-dark dark:text-white">Endereço</h3>
-                    <p class="text-gray-500 dark:text-gray-400">São Miguel Arcanjo, SP, Brasil</p>
+                    <p id="contato-endereco" class="text-gray-500 dark:text-gray-400">São Miguel Arcanjo, SP, Brasil</p>
                   </div>
                 </div>
               </div>
               <div class="mt-12 pt-8 border-t border-border-light/50 dark:border-gray-700">
                 <h3 class="text-lg font-bold text-text-dark dark:text-white">Siga-nos</h3>
                 <div class="flex items-center gap-4 mt-4">
-                  <a class="text-gray-500 dark:text-gray-400 hover:text-accent-blue dark:hover:text-white transition-colors"
-                    data-alt="Facebook icon" href="https://www.facebook.com/toursaomiguelarcanjo/">
+                  <a id="contato-link-facebook" class="text-gray-500 dark:text-gray-400 hover:text-accent-blue dark:hover:text-white transition-colors"
+                    data-alt="Facebook icon" href="https://www.facebook.com/toursaomiguelarcanjo/" target="_blank" rel="noopener noreferrer">
                     <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
                       <path clip-rule="evenodd"
                         d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
                         fill-rule="evenodd"></path>
                     </svg>
                   </a>
-                  <a class="text-gray-500 dark:text-gray-400 hover:text-accent-blue dark:hover:text-white transition-colors"
-                    data-alt="Instagram icon" href="https://www.instagram.com/toursaomiguelarcanjo/">
+                  <a id="contato-link-instagram" class="text-gray-500 dark:text-gray-400 hover:text-accent-blue dark:hover:text-white transition-colors"
+                    data-alt="Instagram icon" href="https://www.instagram.com/toursaomiguelarcanjo/" target="_blank" rel="noopener noreferrer">
                     <svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24">
                       <path clip-rule="evenodd"
                         d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.792 2.792c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-2.792 2.792c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.792-2.792c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 012.792-2.792c.636-.247 1.363.416 2.427.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-9.75a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z"

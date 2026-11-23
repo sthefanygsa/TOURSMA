@@ -21,7 +21,8 @@ window.tailwind.config = {
 
 (function () {
   document.addEventListener('DOMContentLoaded', () => {
-    
+    const API_BASE = 'http://localhost:3001/api';
+
     const current = window.location.pathname.split('/').pop();
     document.querySelectorAll('nav .nav-link').forEach(a => {
       const href = a.getAttribute('href');
@@ -40,6 +41,53 @@ window.tailwind.config = {
         }
       });
     });
+
+    async function carregarConteudoContato() {
+      try {
+        const respTextos = await fetch(`${API_BASE}/textos/contato`);
+        if (respTextos.ok) {
+          const textos = await respTextos.json();
+          const elTitulo = document.getElementById('contato-titulo-principal');
+          const elSubtitulo = document.getElementById('contato-subtitulo-principal');
+          const novoSubtitulo = textos.descricao || textos.historia || textos.conteudo;
+
+          if (elTitulo && textos.titulo) elTitulo.textContent = textos.titulo;
+          if (elSubtitulo && novoSubtitulo) elSubtitulo.textContent = novoSubtitulo;
+        }
+      } catch (e) {
+        console.error('Erro ao carregar textos de contato:', e);
+      }
+
+      try {
+        const respInfo = await fetch(`${API_BASE}/imagens/contato`);
+        if (respInfo.ok) {
+          const dados = await respInfo.json();
+          const info = Array.isArray(dados) ? dados[0] : dados;
+
+          if (info && typeof info === 'object') {
+            const elTitulo2 = document.getElementById('contato-titulo-secundario');
+            const elSubtitulo2 = document.getElementById('contato-subtitulo-secundario');
+            const elTelefone = document.getElementById('contato-telefone');
+            const elEmail = document.getElementById('contato-email');
+            const elEndereco = document.getElementById('contato-endereco');
+            const elFacebook = document.getElementById('contato-link-facebook');
+            const elInstagram = document.getElementById('contato-link-instagram');
+
+            if (elTitulo2 && info.titulo2) elTitulo2.textContent = info.titulo2;
+            if (elSubtitulo2 && info.subtitulo2) elSubtitulo2.textContent = info.subtitulo2;
+            if (elTelefone && info.telefone) elTelefone.textContent = info.telefone;
+            if (elEmail && info.email) elEmail.textContent = info.email;
+            if (elEndereco && info.endereco) elEndereco.textContent = info.endereco;
+            if (elFacebook && info.facebook) elFacebook.href = info.facebook;
+            if (elInstagram && info.instagram) elInstagram.href = info.instagram;
+          }
+        }
+      } catch (e) {
+        console.error('Erro ao carregar informações de contato:', e);
+      }
+    }
+
+    carregarConteudoContato();
 
     const contactForm = document.querySelector('form');
     

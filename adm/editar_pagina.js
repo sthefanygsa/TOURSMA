@@ -391,6 +391,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  const CONTATO_PADRAO = {
+    titulo2: 'Outros contatos',
+    subtitulo2: 'Entre em contato conosco diretamente através dos canais abaixo.',
+    telefone: '+55 (15) 99999-8888',
+    email: 'contato@toursaomiguel.com',
+    endereco: 'São Miguel Arcanjo, SP, Brasil',
+    facebook: 'https://www.facebook.com/toursaomiguelarcanjo/',
+    instagram: 'https://www.instagram.com/toursaomiguelarcanjo/'
+  };
+
   const nomesPaginas = {
     home: 'Início (Home)',
     ecologico: 'Turismo Ecológico',
@@ -410,6 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ehPaginaComCards = paginasComCards.includes(paginaAtual);
   const ehAgenda = paginaAtual === 'agenda';
   const ehTelefones = paginaAtual === 'telefones';
+  const ehContato = paginaAtual === 'contato';
   const nomeAmigavel = nomesPaginas[paginaAtual] || paginaAtual.toUpperCase();
 
   function obterOpcoesTipoPagina() {
@@ -461,6 +472,10 @@ document.addEventListener('DOMContentLoaded', () => {
     listaCamposImagens.style.gridTemplateColumns = 'repeat(auto-fill, minmax(280px, 1fr))';
     listaCamposImagens.style.gap = '16px';
     listaCamposImagens.style.alignItems = 'start';
+  } else if (ehContato) {
+    tituloBlocoImagens.textContent = '2. Outros Contatos e Redes Sociais';
+    btnAddImagem.style.display = 'none';
+    btnSalvarImagens.innerHTML = '<i data-feather="save"></i> Salvar Contatos';
   } else if (ehPaginaComCards) {
     tituloBlocoImagens.textContent = '2. Cards da Página';
     btnAddImagem.innerHTML = '<i data-feather="plus"></i> Adicionar Card';
@@ -793,12 +808,82 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.feather) window.feather.replace();
   }
 
+  function criarFormularioContato(dados = {}) {
+    const info = { ...CONTATO_PADRAO, ...(dados || {}) };
+
+    const container = document.createElement('div');
+    container.id = 'editor-contato-campos';
+    container.style.cssText = 'display: flex; flex-direction: column; gap: 14px;';
+
+    function criarCampo(labelTexto, idCampo, valor, placeholder, tipo = 'text') {
+      const grupo = document.createElement('div');
+      grupo.className = 'form-group';
+      grupo.style.marginBottom = '0';
+
+      const label = document.createElement('label');
+      label.setAttribute('for', idCampo);
+      label.textContent = labelTexto;
+
+      const campo = tipo === 'textarea' ? document.createElement('textarea') : document.createElement('input');
+      if (tipo !== 'textarea') campo.type = tipo;
+      else campo.rows = 3;
+      campo.id = idCampo;
+      campo.value = valor || '';
+      campo.placeholder = placeholder;
+
+      grupo.appendChild(label);
+      grupo.appendChild(campo);
+      return grupo;
+    }
+
+    container.appendChild(
+      criarCampo('Título 2 (Seção lateral):', 'contatoCampoTitulo2', info.titulo2, 'Ex: Outros contatos')
+    );
+    container.appendChild(
+      criarCampo(
+        'Subtítulo / Descrição 2:',
+        'contatoCampoSubtitulo2',
+        info.subtitulo2,
+        'Ex: Entre em contato conosco diretamente através dos canais abaixo.',
+        'textarea'
+      )
+    );
+
+    const gridCanais = document.createElement('div');
+    gridCanais.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;';
+
+    gridCanais.appendChild(
+      criarCampo('Telefone:', 'contatoCampoTelefone', info.telefone, 'Ex: +55 (15) 99999-8888')
+    );
+    gridCanais.appendChild(
+      criarCampo('E-mail:', 'contatoCampoEmail', info.email, 'Ex: contato@toursaomiguel.com', 'email')
+    );
+    gridCanais.appendChild(
+      criarCampo('Endereço:', 'contatoCampoEndereco', info.endereco, 'Ex: São Miguel Arcanjo, SP, Brasil')
+    );
+
+    container.appendChild(gridCanais);
+
+    const gridRedes = document.createElement('div');
+    gridRedes.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;';
+
+    gridRedes.appendChild(
+      criarCampo('Link do Facebook (Siga-nos):', 'contatoCampoFacebook', info.facebook, 'https://www.facebook.com/...', 'url')
+    );
+    gridRedes.appendChild(
+      criarCampo('Link do Instagram (Siga-nos):', 'contatoCampoInstagram', info.instagram, 'https://www.instagram.com/...', 'url')
+    );
+
+    container.appendChild(gridRedes);
+    listaCamposImagens.appendChild(container);
+  }
+
   btnAddImagem.addEventListener('click', () => {
     if (ehTelefones) {
       criarBlocoTelefone({ categoria: 'emergencia', tag: 'Emergência' });
     } else if (ehPaginaComCards) {
       criarBlocoCard({ tipo: obterOpcoesTipoPagina()[0] });
-    } else {
+    } else if (!ehContato) {
       criarLinhaImagem('');
     }
   });
@@ -978,15 +1063,21 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!response.ok) return;
       const dados = await response.json();
 
-      tituloTexto.value = dados.titulo || '';
-      conteudoTexto.value = dados.descricao || dados.historia || dados.conteudo || '';
+      tituloTexto.value = dados.titulo || (ehContato ? 'Fale Conosco' : '');
+      conteudoTexto.value =
+        dados.descricao ||
+        dados.historia ||
+        dados.conteudo ||
+        (ehContato ? 'Adoraríamos ouvir de você. Preencha o formulário abaixo ou utilize um dos nossos canais de contato.' : '');
     } catch (error) {
       console.error('Erro ao carregar textos:', error);
     }
   }
 
   function carregarFallbackImagens() {
-    if (ehTelefones) {
+    if (ehContato) {
+      criarFormularioContato(CONTATO_PADRAO);
+    } else if (ehTelefones) {
       TELEFONES_PADRAO.forEach(t => criarBlocoTelefone(t));
     } else if (paginaAtual === 'home') {
       IMAGENS_PADRAO_HOME.forEach(url => criarLinhaImagem(url));
@@ -1019,6 +1110,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const dados = await response.json();
+
+      if (ehContato) {
+        const info = Array.isArray(dados) ? dados[0] : dados;
+        if (info && typeof info === 'object' && Object.keys(info).length > 0) {
+          criarFormularioContato(info);
+        } else {
+          carregarFallbackImagens();
+        }
+        return;
+      }
 
       if (ehTelefones) {
         const telefones = Array.isArray(dados) ? dados.filter(item => item && typeof item === 'object') : [];
@@ -1062,7 +1163,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   formTextos.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const payload = ehPaginaComCards
+    const payload = (ehPaginaComCards || ehContato)
       ? {
           titulo: tituloTexto.value.trim(),
           descricao: conteudoTexto.value.trim()
@@ -1094,7 +1195,17 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     let payload;
-    if (ehTelefones) {
+    if (ehContato) {
+      payload = {
+        titulo2: document.getElementById('contatoCampoTitulo2').value.trim(),
+        subtitulo2: document.getElementById('contatoCampoSubtitulo2').value.trim(),
+        telefone: document.getElementById('contatoCampoTelefone').value.trim(),
+        email: document.getElementById('contatoCampoEmail').value.trim(),
+        endereco: document.getElementById('contatoCampoEndereco').value.trim(),
+        facebook: document.getElementById('contatoCampoFacebook').value.trim(),
+        instagram: document.getElementById('contatoCampoInstagram').value.trim()
+      };
+    } else if (ehTelefones) {
       const blocosTel = [...document.querySelectorAll('.telefone-editor-item')];
       payload = blocosTel
         .map(box => ({
@@ -1137,15 +1248,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (response.ok) {
         mostrarAlerta(
-          ehTelefones
-            ? `Telefones de "${nomeAmigavel}" salvos com sucesso!`
-            : ehPaginaComCards
-              ? `Cards de "${nomeAmigavel}" salvos com sucesso!`
-              : `Imagens de "${nomeAmigavel}" salvas com sucesso!`
+          ehContato
+            ? 'Informações de contato e redes sociais salvas com sucesso!'
+            : ehTelefones
+              ? `Telefones de "${nomeAmigavel}" salvos com sucesso!`
+              : ehPaginaComCards
+                ? `Cards de "${nomeAmigavel}" salvos com sucesso!`
+                : `Imagens de "${nomeAmigavel}" salvas com sucesso!`
         );
         carregarImagens();
       } else {
-        alert(ehTelefones ? 'Erro ao salvar os telefones.' : ehPaginaComCards ? 'Erro ao salvar os cards.' : 'Erro ao salvar as imagens.');
+        alert(
+          ehContato
+            ? 'Erro ao salvar as informações de contato.'
+            : ehTelefones
+              ? 'Erro ao salvar os telefones.'
+              : ehPaginaComCards
+                ? 'Erro ao salvar os cards.'
+                : 'Erro ao salvar as imagens.'
+        );
       }
     } catch (error) {
       console.error(error);
