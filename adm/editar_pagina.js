@@ -749,12 +749,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     selectCategoria.addEventListener('change', () => {
-      if (!inputTag.value.trim()) {
-        const escolhida = CATEGORIAS_TELEFONES.find(c => c.value === selectCategoria.value);
-        if (escolhida) {
-          inputTag.value = escolhida.label;
-          tagPreview.textContent = escolhida.label.toUpperCase();
-        }
+      const escolhida = CATEGORIAS_TELEFONES.find(c => c.value === selectCategoria.value);
+      if (escolhida) {
+        inputTag.value = escolhida.label;
+        tagPreview.textContent = escolhida.label.toUpperCase();
       }
     });
 

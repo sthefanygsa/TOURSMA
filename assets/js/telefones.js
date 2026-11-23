@@ -1,18 +1,18 @@
 window.tailwind.config = {
-  darkMode: "class", 
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
         "primary": "#29753b",
         "background-light": "#FFFFFF",
-        "background-dark": "#FFFFFF", 
+        "background-dark": "#FFFFFF",
         "accent-blue": "#194C9B",
         "text-primary-light": "#121613",
         "text-secondary-light": "#6a816f",
-        "text-primary-dark": "#121613",  
-        "text-secondary-dark": "#6a816f", 
+        "text-primary-dark": "#121613",
+        "text-secondary-dark": "#6a816f",
         "border-light": "#f1f4f2",
-        "border-dark": "#f1f4f2"          
+        "border-dark": "#f1f4f2"
       },
       fontFamily: {
         "display": ["Plus Jakarta Sans", "sans-serif"]
@@ -24,10 +24,10 @@ window.tailwind.config = {
 
 (function () {
   const current = window.location.pathname.split('/').pop();
-  document.querySelectorAll('nav .nav-link').forEach(a => { 
-    if (a.getAttribute('href') === current) a.classList.add('active'); 
+  document.querySelectorAll('nav .nav-link').forEach(a => {
+    if (a.getAttribute('href') === current) a.classList.add('active');
   });
-  
+
   document.querySelectorAll('a[href]').forEach(link => {
     link.addEventListener('click', e => {
       const target = link.getAttribute('href');
@@ -60,20 +60,21 @@ document.addEventListener('DOMContentLoaded', () => {
       servicos: 'call',
       mapa: 'map'
     };
-    return mapa[(categoria || '').toLowerCase()] || 'call';
+    return mapa[(categoria || '').trim().toLowerCase()] || 'call';
   }
 
   function criarElementoCardTelefone(item) {
+    const categoriaLimpa = (item.categoria || 'emergencia').trim().toLowerCase();
     const card = document.createElement('div');
     card.className = 'establishment-card group flex flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark shadow-md p-4 transition-all bg-white dark:bg-background-dark';
-    card.dataset.category = (item.categoria || 'emergencia').toLowerCase();
+    card.dataset.category = categoriaLimpa;
 
     const topo = document.createElement('div');
     topo.className = 'flex items-center gap-4';
 
     const iconeBox = document.createElement('div');
     iconeBox.className = 'flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary';
-    iconeBox.innerHTML = `<span class="material-symbols-outlined text-3xl">${iconePorCategoria(item.categoria)}</span>`;
+    iconeBox.innerHTML = `<span class="material-symbols-outlined text-3xl">${iconePorCategoria(categoriaLimpa)}</span>`;
 
     const infoTitulo = document.createElement('div');
     infoTitulo.className = 'flex flex-col';
@@ -84,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tagEl = document.createElement('span');
     tagEl.className = 'text-xs font-semibold uppercase tracking-wider text-primary';
-    tagEl.textContent = item.tag || item.categoria || '';
+    tagEl.textContent = item.tag || categoriaLimpa;
 
     infoTitulo.appendChild(tituloEl);
     infoTitulo.appendChild(tagEl);
@@ -144,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
-        const filter = button.dataset.filter;
+        const filter = (button.dataset.filter || 'all').trim().toLowerCase();
 
         filterButtons.forEach(btn => {
           btn.classList.remove(...activeClasses);
@@ -154,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         button.classList.remove(...inactiveClasses.filter(c => button.classList.contains(c)));
 
         cards.forEach(card => {
-          const category = card.dataset.category;
+          const category = (card.dataset.category || '').trim().toLowerCase();
           card.style.display = (filter === 'all' || filter === category) ? 'flex' : 'none';
         });
       });
@@ -193,8 +194,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const textos = await respTextos.json();
         const elTitulo = document.getElementById('titulo-telefones');
         const elSubtitulo = document.getElementById('subtitulo-telefones');
+        const novoSubtitulo = textos.descricao || textos.conteudo || textos.historia;
         if (elTitulo && textos.titulo) elTitulo.textContent = textos.titulo;
-        if (elSubtitulo && textos.descricao) elSubtitulo.textContent = textos.descricao;
+        if (elSubtitulo && novoSubtitulo) elSubtitulo.textContent = novoSubtitulo;
       }
     } catch (e) {
       console.error('Erro ao carregar textos de telefones:', e);
