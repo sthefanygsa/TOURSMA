@@ -182,7 +182,60 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 ];
 
-  const paginasComCards = ['ecologico', 'religioso', 'rural'];
+const CARDS_PADRAO_HOTELARIA = [
+  {
+    imagem: 'assets/img/pousada_serra_azul.png',
+    tipo: 'Zona Rural',
+    titulo: 'Pousada Serra Azul',
+    descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica das montanhas.',
+    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+    endereco: 'Rua Principal, 123',
+    horario: 'Ter - Dom: 11h às 22h',
+    telefone: '(15) 99999-1111'
+  },
+  {
+    imagem: 'assets/img/hotel_central_garden.png',
+    tipo: 'Zona Urbana',
+    titulo: 'Hotel Central Garden',
+    descricaoCurta: 'No coração da cidade, ideal para quem busca conforto e praticidade.',
+    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+    endereco: 'Av. Central, 456',
+    horario: 'Seg - Sáb: 08h às 20h',
+    telefone: '(15) 99999-2222'
+  },
+  {
+    imagem: 'assets/img/chacara_recanto_do_vinho.png',
+    tipo: 'Zona Rural',
+    titulo: 'Chácara Recanto do Vinho',
+    descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica das montanhas.',
+    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+    endereco: 'Praça da Matriz, 78',
+    horario: 'Seg - Dom: 06h às 19h',
+    telefone: '(15) 99999-3333'
+  },
+  {
+    imagem: 'assets/img/casa_de_hospedes.png',
+    tipo: 'Zona Urbana',
+    titulo: 'Casa de Hóspedes',
+    descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica da cidade.',
+    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+    endereco: 'Rua do Comércio, 90',
+    horario: 'Seg - Sex: 07h às 18h',
+    telefone: '(15) 99999-4444'
+  },
+  {
+    imagem: 'assets/img/hotel_arcanjo.png',
+    tipo: 'Zona Urbana',
+    titulo: 'Hotel Arcanjo',
+    descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica da Gruta do Arcanjo',
+    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+    endereco: 'Rua das Flores, 321',
+    horario: 'Qua - Dom: 18h às 23h',
+    telefone: '(15) 99999-5555'
+  }
+];
+
+  const paginasComCards = ['ecologico', 'religioso', 'rural', 'hotelaria'];
 
   const params = new URLSearchParams(window.location.search);
   const paginaAtual = params.get('pagina') || 'home';
@@ -354,11 +407,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectTipo = document.createElement('select');
     selectTipo.className = 'card-campo-tipo';
     selectTipo.style.cssText = 'padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff;';
-    ['Gratuito', 'Pago'].forEach(opcao => {
+    const opcoesTipo = paginaAtual === 'hotelaria'
+      ? ['Zona Urbana', 'Zona Rural']
+      : ['Gratuito', 'Pago'];
+    const valorInicialTipo = card.tipo || opcoesTipo[0];
+
+    opcoesTipo.forEach(opcao => {
       const opt = document.createElement('option');
       opt.value = opcao;
       opt.textContent = opcao;
-      if ((card.tipo || 'Gratuito').toLowerCase().startsWith(opcao.toLowerCase().slice(0, 3))) {
+      if (valorInicialTipo.toLowerCase() === opcao.toLowerCase()) {
         opt.selected = true;
       }
       selectTipo.appendChild(opt);
@@ -427,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   btnAddImagem.addEventListener('click', () => {
     if (ehPaginaComCards) {
-      criarBlocoCard({ tipo: 'Gratuito' });
+      criarBlocoCard({ tipo: paginaAtual === 'hotelaria' ? 'Zona Urbana' : 'Gratuito' });
     } else {
       criarLinhaImagem('');
     }
@@ -455,8 +513,10 @@ function carregarFallbackImagens() {
       CARDS_PADRAO_RELIGIOSO.forEach(card => criarBlocoCard(card));
     } else if (paginaAtual === 'rural') {
       CARDS_PADRAO_RURAL.forEach(card => criarBlocoCard(card));
+    } else if (paginaAtual === 'hotelaria') {
+      CARDS_PADRAO_HOTELARIA.forEach(card => criarBlocoCard(card));
     } else if (ehPaginaComCards) {
-      criarBlocoCard({ tipo: 'Gratuito' });
+      criarBlocoCard({ tipo: paginaAtual === 'hotelaria' ? 'Zona Urbana' : 'Gratuito' });
     } else {
       criarLinhaImagem('');
     }

@@ -78,13 +78,21 @@ const CARDS_PADRAO_ECOLOGICO = [
 ];
 
 function normalizarCategoria(tipo) {
-  const valor = String(tipo || '').toLowerCase();
-  return valor.startsWith('pag') ? 'Pagos' : 'Gratuitos';
+  const valor = String(tipo || '').toLowerCase().trim();
+  if (valor.startsWith('pag')) return 'Pagos';
+  if (valor.startsWith('grat')) return 'Gratuitos';
+  if (valor.includes('urbana')) return 'Zona Urbana';
+  if (valor.includes('rural')) return 'Zona Rural';
+  return tipo || 'Gratuitos';
 }
 
 function normalizarLabelTag(tipo) {
-  const valor = String(tipo || '').toLowerCase();
-  return valor.startsWith('pag') ? 'Pago' : 'Gratuito';
+  const valor = String(tipo || '').toLowerCase().trim();
+  if (valor.startsWith('pag')) return 'Pago';
+  if (valor.startsWith('grat')) return 'Gratuito';
+  if (valor.includes('urbana')) return 'Zona Urbana';
+  if (valor.includes('rural')) return 'Zona Rural';
+  return tipo || 'Gratuito';
 }
 
 function criarElementoCard(card) {
@@ -131,7 +139,9 @@ async function carregarConteudoEcologico() {
     ? 'religioso'
     : window.location.pathname.includes('rural')
       ? 'rural'
-      : 'ecologico';
+      : window.location.pathname.includes('hotelaria')
+        ? 'hotelaria'
+        : 'ecologico';
 
   try {
     const resTexto = await fetch(`${API_BASE_CARDS}/textos/${pagina}`);
@@ -157,7 +167,9 @@ let cardsParaRenderizar = pagina === 'ecologico'
       ? CARDS_PADRAO_RELIGIOSO
       : pagina === 'rural'
         ? CARDS_PADRAO_RURAL
-        : [];
+        : pagina === 'hotelaria'
+          ? CARDS_PADRAO_HOTELARIA
+          : [];
   try {
     const resCards = await fetch(`${API_BASE_CARDS}/imagens/${pagina}`);
     if (resCards.ok) {
@@ -334,6 +346,59 @@ const CARDS_PADRAO_RURAL = [
     titulo: 'Queijaria Sabor do Campo',
     descricaoCurta: 'Uma das mais importantes queijarias da região.',
     descricaoLonga: 'Uma descrição mais longa sobre a queijaria, seus artefatos e a história rural. Perfeito para uma visita cultural e espiritual.',
+    endereco: 'Rua das Flores, 321',
+    horario: 'Qua - Dom: 18h às 23h',
+    telefone: '(15) 99999-5555'
+  }
+];
+
+const CARDS_PADRAO_HOTELARIA = [
+  {
+    imagem: 'assets/img/pousada_serra_azul.png',
+    tipo: 'Zona Rural',
+    titulo: 'Pousada Serra Azul',
+    descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica das montanhas.',
+    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+    endereco: 'Rua Principal, 123',
+    horario: 'Ter - Dom: 11h às 22h',
+    telefone: '(15) 99999-1111'
+  },
+  {
+    imagem: 'assets/img/hotel_central_garden.png',
+    tipo: 'Zona Urbana',
+    titulo: 'Hotel Central Garden',
+    descricaoCurta: 'No coração da cidade, ideal para quem busca conforto e praticidade.',
+    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+    endereco: 'Av. Central, 456',
+    horario: 'Seg - Sáb: 08h às 20h',
+    telefone: '(15) 99999-2222'
+  },
+  {
+    imagem: 'assets/img/chacara_recanto_do_vinho.png',
+    tipo: 'Zona Rural',
+    titulo: 'Chácara Recanto do Vinho',
+    descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica das montanhas.',
+    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+    endereco: 'Praça da Matriz, 78',
+    horario: 'Seg - Dom: 06h às 19h',
+    telefone: '(15) 99999-3333'
+  },
+  {
+    imagem: 'assets/img/casa_de_hospedes.png',
+    tipo: 'Zona Urbana',
+    titulo: 'Casa de Hóspedes',
+    descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica da cidade.',
+    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
+    endereco: 'Rua do Comércio, 90',
+    horario: 'Seg - Sex: 07h às 18h',
+    telefone: '(15) 99999-4444'
+  },
+  {
+    imagem: 'assets/img/hotel_arcanjo.png',
+    tipo: 'Zona Urbana',
+    titulo: 'Hotel Arcanjo',
+    descricaoCurta: 'Aconchego e tranquilidade com vista panorâmica da Gruta do Arcanjo',
+    descricaoLonga: 'Uma descrição mais longa sobre a pousada, seus comodidades e o ambiente. Perfeito para um almoço em família.',
     endereco: 'Rua das Flores, 321',
     horario: 'Qua - Dom: 18h às 23h',
     telefone: '(15) 99999-5555'
