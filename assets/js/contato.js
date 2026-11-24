@@ -21,8 +21,7 @@ window.tailwind.config = {
 
 (function () {
   document.addEventListener('DOMContentLoaded', () => {
-    const API_BASE = 'http://localhost:3001/api';
-
+const API_BASE = 'https://toursma.onrender.com/api';
     const current = window.location.pathname.split('/').pop();
     document.querySelectorAll('nav .nav-link').forEach(a => {
       const href = a.getAttribute('href');

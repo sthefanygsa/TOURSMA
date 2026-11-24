@@ -22,8 +22,7 @@ window.tailwind.config = {
   },
 };
 
-const API_BASE_AGENDA = 'http://localhost:3001/api';
-
+const API_BASE = 'https://toursma.onrender.com/api';
 const DESTAQUES_PADRAO_AGENDA = [
   {
     imagem: 'assets/img/festadauva.png',

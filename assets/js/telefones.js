@@ -38,8 +38,7 @@ window.tailwind.config = {
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
-  const API_BASE = 'http://localhost:3001/api';
-  const grid = document.getElementById('establishment-grid');
+const API_BASE = 'https://toursma.onrender.com/api';  const grid = document.getElementById('establishment-grid');
   const filterButtons = document.querySelectorAll('.filter-btn');
 
   const activeClasses = ['bg-primary', 'text-white'];

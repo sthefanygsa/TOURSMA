@@ -22,8 +22,7 @@ window.tailwind.config = {
   },
 };
 
-const API_BASE_CARDS = 'http://localhost:3001/api';
-
+const API_BASE = 'https://toursma.onrender.com/api';
 const CARDS_PADRAO_ECOLOGICO = [
   {
     imagem: 'assets/img/parque1.png',

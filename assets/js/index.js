@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function carregarHistoriaHome() {
     try {
-        const response = await fetch('http://localhost:3001/api/textos/home');
+        const response = await fetch('https://toursma.onrender.com/api/textos/home');
         if (!response.ok) return;
         const dados = await response.json();
 
@@ -162,7 +162,7 @@ if (carousel) {
 
     async function carregarImagensBanco() {
         try {
-            const response = await fetch('http://localhost:3001/api/imagens/home');
+            const response = await fetch('https://toursma.onrender.com/api/imagens/home');
             if (!response.ok) return;
 
             const dados = await response.json();

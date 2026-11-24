@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   if (window.feather) window.feather.replace();
 
-  const API_BASE = 'http://localhost:3001/api';
-
+const API_BASE = 'https://toursma.onrender.com/api';
   const IMAGENS_PADRAO_HOME = [
     'assets/img/img5.png',
     'assets/img/img2.png',
