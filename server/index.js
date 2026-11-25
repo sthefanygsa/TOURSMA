@@ -2,37 +2,24 @@ const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
+const cloudinary = require('cloudinary').v2;
 const { PrismaClient } = require('@prisma/client');
 
 const app = express();
 const prisma = new PrismaClient();
 
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
 app.use(cors());
 app.use(express.json());
 app.use('/assets/img', express.static(path.join(__dirname, '..', 'assets', 'img')));
 
-const pastaUploads = path.join(__dirname, '..', 'assets', 'img');
-if (!fs.existsSync(pastaUploads)) {
-  fs.mkdirSync(pastaUploads, { recursive: true });
-}
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, pastaUploads);
-  },
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname).toLowerCase();
-    const nomeLimpo = path
-      .basename(file.originalname, ext)
-      .toLowerCase()
-      .replace(/[^a-z0-9-_]/g, '-');
-    cb(null, `${Date.now()}-${nomeLimpo}${ext}`);
-  }
-});
-
 const upload = multer({
-  storage,
+  storage: multer.memoryStorage(),
   limits: { fileSize: 5 * 1024 * 1024 }, // até 5MB
   fileFilter: (req, file, cb) => {
     const permitidos = /jpeg|jpg|png|webp/;
@@ -61,9 +48,18 @@ app.post('/api/upload', (req, res) => {
       return res.status(400).json({ erro: 'Nenhuma imagem enviada.' });
     }
 
-    const baseUrl = `${req.protocol}://${req.get('host')}`;
-const urlCompleta = `${baseUrl}/assets/img/${req.file.filename}`;
-res.status(201).json({ url: urlCompleta });
+    const stream = cloudinary.uploader.upload_stream(
+      { folder: 'toursma' },
+      (error, result) => {
+        if (error) {
+          console.error('Erro no upload para o Cloudinary:', error);
+          return res.status(500).json({ erro: 'Falha ao enviar imagem para o Cloudinary.' });
+        }
+        return res.status(201).json({ url: result.secure_url });
+      }
+    );
+
+    stream.end(req.file.buffer);
   });
 });
 
