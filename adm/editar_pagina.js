@@ -1121,8 +1121,8 @@ const API_BASE = 'https://toursma.onrender.com/api';
       }
 
       if (ehTelefones) {
-        const telefones = Array.isArray(dados) ? dados.filter(item => item && typeof item === 'object') : [];
-        if (telefones.length > 0) {
+        if (Array.isArray(dados)) {
+          const telefones = dados.filter(item => item && typeof item === 'object');
           telefones.forEach(t => criarBlocoTelefone(t));
         } else {
           carregarFallbackImagens();
@@ -1131,8 +1131,8 @@ const API_BASE = 'https://toursma.onrender.com/api';
       }
 
       if (ehPaginaComCards) {
-        const cards = Array.isArray(dados) ? dados.filter(item => item && typeof item === 'object') : [];
-        if (cards.length > 0) {
+        if (Array.isArray(dados)) {
+          const cards = dados.filter(item => item && typeof item === 'object');
           cards.forEach(card => criarBlocoCard(card));
         } else {
           carregarFallbackImagens();
@@ -1149,7 +1149,7 @@ const API_BASE = 'https://toursma.onrender.com/api';
 
       urls = urls.filter(u => typeof u === 'string' && u.trim() !== '');
 
-      if (urls.length > 0) {
+      if (urls.length > 0 || Array.isArray(dados)) {
         urls.forEach(url => criarLinhaImagem(url));
       } else {
         carregarFallbackImagens();

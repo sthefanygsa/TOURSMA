@@ -188,24 +188,10 @@ const API_BASE = 'https://toursma.onrender.com/api';  const grid = document.getE
 
   async function carregarConteudoTelefones() {
     try {
-      const respTextos = await fetch(`${API_BASE}/textos/telefones`);
-      if (respTextos.ok) {
-        const textos = await respTextos.json();
-        const elTitulo = document.getElementById('titulo-telefones');
-        const elSubtitulo = document.getElementById('subtitulo-telefones');
-        const novoSubtitulo = textos.descricao || textos.conteudo || textos.historia;
-        if (elTitulo && textos.titulo) elTitulo.textContent = textos.titulo;
-        if (elSubtitulo && novoSubtitulo) elSubtitulo.textContent = novoSubtitulo;
-      }
-    } catch (e) {
-      console.error('Erro ao carregar textos de telefones:', e);
-    }
-
-    try {
       const respCards = await fetch(`${API_BASE}/imagens/telefones`);
       if (respCards.ok && grid) {
         const lista = await respCards.json();
-        if (Array.isArray(lista) && lista.length > 0) {
+        if (Array.isArray(lista)) {
           grid.innerHTML = '';
           lista.forEach(item => {
             if (item && typeof item === 'object') {
