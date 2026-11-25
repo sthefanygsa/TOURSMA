@@ -23,6 +23,7 @@ window.tailwind.config = {
 };
 
 const API_BASE = 'https://toursma.onrender.com/api';
+
 const DESTAQUES_PADRAO_AGENDA = [
   {
     imagem: 'assets/img/festadauva.png',
@@ -150,12 +151,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   });
 
-  // 1. Carregar Destaques do Mês
   const gridDestaques = document.getElementById('establishment-grid');
   if (gridDestaques) {
     let destaques = DESTAQUES_PADRAO_AGENDA;
     try {
-      const res = await fetch(`${API_BASE_AGENDA}/imagens/agenda`);
+      const res = await fetch(`${API_BASE}/imagens/agenda`);
       if (res.ok) {
         const dados = await res.json();
         if (Array.isArray(dados) && dados.length > 0 && typeof dados[0] === 'object') {
@@ -183,7 +183,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  // 2. Carregar Calendário de Eventos
   const calendarGrid = document.getElementById('calendar-grid');
   if (calendarGrid) {
     const eventListContainer = document.getElementById('event-list-container');
@@ -194,7 +193,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let eventosPorDia = { ...EVENTOS_PADRAO_CALENDARIO };
     try {
-      const resEventos = await fetch(`${API_BASE_AGENDA}/textos/agenda`);
+      const resEventos = await fetch(`${API_BASE}/textos/agenda`);
       if (resEventos.ok) {
         const dadosEventos = await resEventos.json();
         if (dadosEventos && typeof dadosEventos === 'object' && !Array.isArray(dadosEventos)) {
@@ -209,8 +208,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const hoje = new Date();
-let currentDate = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
-let selectedDateStr = `${hoje.getFullYear()}-${String(hoje.getMonth() + 1).padStart(2, '0')}-${String(hoje.getDate()).padStart(2, '0')}`;
+    let currentDate = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+    let selectedDateStr = `${hoje.getFullYear()}-${String(hoje.getMonth() + 1).padStart(2, '0')}-${String(hoje.getDate()).padStart(2, '0')}`;
 
     const nomesMeses = [
       'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
@@ -330,5 +329,6 @@ let selectedDateStr = `${hoje.getFullYear()}-${String(hoje.getMonth() + 1).padSt
     }
 
     renderCalendar();
-updateEventsDisplay(selectedDateStr, hoje.getDate(), nomesMeses[hoje.getMonth()], hoje.getFullYear());  }
+    updateEventsDisplay(selectedDateStr, hoje.getDate(), nomesMeses[hoje.getMonth()], hoje.getFullYear());
+  }
 });

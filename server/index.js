@@ -10,6 +10,7 @@ const prisma = new PrismaClient();
 
 app.use(cors());
 app.use(express.json());
+app.use('/assets/img', express.static(path.join(__dirname, '..', 'assets', 'img')));
 
 const pastaUploads = path.join(__dirname, '..', 'assets', 'img');
 if (!fs.existsSync(pastaUploads)) {
@@ -60,8 +61,9 @@ app.post('/api/upload', (req, res) => {
       return res.status(400).json({ erro: 'Nenhuma imagem enviada.' });
     }
 
-    const caminhoRelativo = `assets/img/${req.file.filename}`;
-    res.status(201).json({ url: caminhoRelativo });
+    const baseUrl = `${req.protocol}://${req.get('host')}`;
+const urlCompleta = `${baseUrl}/assets/img/${req.file.filename}`;
+res.status(201).json({ url: urlCompleta });
   });
 });
 

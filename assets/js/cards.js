@@ -23,6 +23,7 @@ window.tailwind.config = {
 };
 
 const API_BASE = 'https://toursma.onrender.com/api';
+
 const CARDS_PADRAO_ECOLOGICO = [
   {
     imagem: 'assets/img/parque1.png',
@@ -75,187 +76,6 @@ const CARDS_PADRAO_ECOLOGICO = [
     telefone: '(15) 99999-5555'
   }
 ];
-
-function normalizarCategoria(tipo) {
-  const valor = String(tipo || '').toLowerCase().trim();
-  if (valor.startsWith('pag')) return 'Pagos';
-  if (valor.startsWith('grat')) return 'Gratuitos';
-  if (valor.includes('urbana')) return 'Zona Urbana';
-  if (valor.includes('rural')) return 'Zona Rural';
-  if (valor.startsWith('restaur')) return 'Restaurante';
-  if (valor.startsWith('lanchon')) return 'Lanchonete';
-  if (valor.startsWith('padar')) return 'Padaria';
-  if (valor.startsWith('mercad')) return 'Mercado';
-  return tipo || 'Gratuitos';
-}
-
-function normalizarLabelTag(tipo) {
-  const valor = String(tipo || '').toLowerCase().trim();
-  if (valor.startsWith('pag')) return 'Pago';
-  if (valor.startsWith('grat')) return 'Gratuito';
-  if (valor.includes('urbana')) return 'Zona Urbana';
-  if (valor.includes('rural')) return 'Zona Rural';
-  if (valor.startsWith('restaur')) return 'Restaurante';
-  if (valor.startsWith('lanchon')) return 'Lanchonete';
-  if (valor.startsWith('padar')) return 'Padaria';
-  if (valor.startsWith('mercad')) return 'Mercado';
-  return tipo || 'Gratuito';
-}
-
-function criarElementoCard(card) {
-  const categoria = normalizarCategoria(card.tipo);
-  const labelTag = normalizarLabelTag(card.tipo);
-  const imgUrl = card.imagem || 'assets/img/parque1.png';
-
-  const article = document.createElement('div');
-  article.className = 'establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20';
-  article.dataset.category = categoria;
-
-  article.innerHTML = `
-    <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" style="background-image: url('${imgUrl.replace(/'/g, "%27")}');"></div>
-    <div class="p-4 pt-0 flex flex-col gap-3">
-      <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">${labelTag}</span>
-      <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">${card.titulo || ''}</p>
-      <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">${card.descricaoCurta || ''}</p>
-      <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
-        <p class="text-text-secondary dark:text-gray-400">${card.descricaoLonga || ''}</p>
-        <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-          <span class="material-symbols-outlined text-base text-primary">location_on</span>
-          <span>${card.endereco || ''}</span>
-        </div>
-        <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-          <span class="material-symbols-outlined text-base text-primary">schedule</span>
-          <span>${card.horario || ''}</span>
-        </div>
-        <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
-          <span class="material-symbols-outlined text-base text-primary">call</span>
-          <span>${card.telefone || ''}</span>
-        </div>
-      </div>
-      <button type="button" class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
-        Saiba mais
-      </button>
-    </div>
-  `;
-
-  return article;
-}
-
-async function carregarConteudoEcologico() {
-  const pagina = window.location.pathname.includes('religioso')
-    ? 'religioso'
-    : window.location.pathname.includes('rural')
-      ? 'rural'
-      : window.location.pathname.includes('hotelaria')
-        ? 'hotelaria'
-        : window.location.pathname.includes('gastronomia')
-          ? 'gastronomia'
-          : 'ecologico';
-
-  try {
-    const resTexto = await fetch(`${API_BASE_CARDS}/textos/${pagina}`);
-    if (resTexto.ok) {
-      const dadosTexto = await resTexto.json();
-      const elTitulo = document.getElementById('pagina-titulo');
-      const elDesc = document.getElementById('pagina-descricao');
-      if (elTitulo && dadosTexto.titulo) elTitulo.textContent = dadosTexto.titulo;
-      if (elDesc && (dadosTexto.descricao || dadosTexto.historia)) {
-        elDesc.textContent = dadosTexto.descricao || dadosTexto.historia;
-      }
-    }
-  } catch (err) {
-    console.error('Erro ao carregar textos da página:', err);
-  }
-
-  const grid = document.getElementById('establishment-grid');
-  if (!grid) return;
-
-let cardsParaRenderizar = pagina === 'ecologico'
-    ? CARDS_PADRAO_ECOLOGICO
-    : pagina === 'religioso'
-      ? CARDS_PADRAO_RELIGIOSO
-      : pagina === 'rural'
-        ? CARDS_PADRAO_RURAL
-        : pagina === 'hotelaria'
-          ? CARDS_PADRAO_HOTELARIA
-          : pagina === 'gastronomia'
-            ? CARDS_PADRAO_GASTRONOMIA
-            : [];
-  try {
-    const resCards = await fetch(`${API_BASE_CARDS}/imagens/${pagina}`);
-    if (resCards.ok) {
-      const dadosCards = await resCards.json();
-      if (Array.isArray(dadosCards) && dadosCards.length > 0 && typeof dadosCards[0] === 'object') {
-        cardsParaRenderizar = dadosCards;
-      }
-    }
-  } catch (err) {
-    console.error('Erro ao carregar cards do banco:', err);
-  }
-
-  grid.innerHTML = '';
-  cardsParaRenderizar.forEach(card => {
-    grid.appendChild(criarElementoCard(card));
-  });
-}
-
-document.addEventListener('DOMContentLoaded', async () => {
-  const currentPath = window.location.pathname.split('/').pop();
-  document.querySelectorAll('nav .nav-link').forEach(a => {
-    if (a.getAttribute('href') === currentPath) {
-      a.classList.add('active');
-    }
-  });
-
-  document.querySelectorAll('a[href]').forEach(link => {
-    link.addEventListener('click', e => {
-      const target = link.getAttribute('href');
-      const current = window.location.pathname.split('/').pop();
-      if (target === current) {
-        e.preventDefault();
-        window.location.reload();
-      }
-    });
-  });
-
-  await carregarConteudoEcologico();
-
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const activeClasses = ['bg-primary', 'text-white'];
-  const inactiveClasses = ['bg-gray-100', 'text-secondary', 'hover:bg-primary/10', 'hover:text-primary'];
-
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.dataset.filter;
-      const cards = document.querySelectorAll('.establishment-card');
-
-      filterButtons.forEach(btn => {
-        btn.classList.remove(...activeClasses);
-        btn.classList.add(...inactiveClasses.filter(c => !btn.classList.contains(c)));
-      });
-      button.classList.add(...activeClasses);
-      button.classList.remove(...inactiveClasses);
-
-      cards.forEach(card => {
-        const category = card.dataset.category;
-        card.style.display = (filter === 'all' || filter === category) ? 'flex' : 'none';
-      });
-    });
-  });
-
-  document.addEventListener('click', (e) => {
-    const button = e.target.closest('.toggle-info-btn');
-    if (!button) return;
-
-    const card = button.closest('.establishment-card');
-    const hiddenContent = card?.querySelector('.hidden-info');
-    if (hiddenContent) {
-      hiddenContent.classList.toggle('hidden');
-      const isHidden = hiddenContent.classList.contains('hidden');
-      button.textContent = isHidden ? 'Saiba mais' : 'Ver menos';
-    }
-  });
-});
 
 const CARDS_PADRAO_RELIGIOSO = [
   {
@@ -468,3 +288,185 @@ const CARDS_PADRAO_GASTRONOMIA = [
     telefone: '(15) 99999-5555'
   }
 ];
+
+function normalizarCategoria(tipo) {
+  const valor = String(tipo || '').toLowerCase().trim();
+  if (valor.startsWith('pag')) return 'Pagos';
+  if (valor.startsWith('grat')) return 'Gratuitos';
+  if (valor.includes('urbana')) return 'Zona Urbana';
+  if (valor.includes('rural')) return 'Zona Rural';
+  if (valor.startsWith('restaur')) return 'Restaurante';
+  if (valor.startsWith('lanchon')) return 'Lanchonete';
+  if (valor.startsWith('padar')) return 'Padaria';
+  if (valor.startsWith('mercad')) return 'Mercado';
+  return tipo || 'Gratuitos';
+}
+
+function normalizarLabelTag(tipo) {
+  const valor = String(tipo || '').toLowerCase().trim();
+  if (valor.startsWith('pag')) return 'Pago';
+  if (valor.startsWith('grat')) return 'Gratuito';
+  if (valor.includes('urbana')) return 'Zona Urbana';
+  if (valor.includes('rural')) return 'Zona Rural';
+  if (valor.startsWith('restaur')) return 'Restaurante';
+  if (valor.startsWith('lanchon')) return 'Lanchonete';
+  if (valor.startsWith('padar')) return 'Padaria';
+  if (valor.startsWith('mercad')) return 'Mercado';
+  return tipo || 'Gratuito';
+}
+
+function criarElementoCard(card) {
+  const categoria = normalizarCategoria(card.tipo);
+  const labelTag = normalizarLabelTag(card.tipo);
+  const imgUrl = card.imagem || 'assets/img/parque1.png';
+
+  const article = document.createElement('div');
+  article.className = 'establishment-card flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-primary/20';
+  article.dataset.category = categoria;
+
+  article.innerHTML = `
+    <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" style="background-image: url('${imgUrl.replace(/'/g, "%27")}');"></div>
+    <div class="p-4 pt-0 flex flex-col gap-3">
+      <span class="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-full self-start">${labelTag}</span>
+      <p class="text-accent-blue dark:text-white text-xl font-bold leading-normal">${card.titulo || ''}</p>
+      <p class="text-text-secondary dark:text-gray-400 text-sm font-normal">${card.descricaoCurta || ''}</p>
+      <div class="hidden-info hidden pt-3 mt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col gap-3 text-sm">
+        <p class="text-text-secondary dark:text-gray-400">${card.descricaoLonga || ''}</p>
+        <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+          <span class="material-symbols-outlined text-base text-primary">location_on</span>
+          <span>${card.endereco || ''}</span>
+        </div>
+        <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+          <span class="material-symbols-outlined text-base text-primary">schedule</span>
+          <span>${card.horario || ''}</span>
+        </div>
+        <div class="flex items-center gap-2 text-text-secondary dark:text-gray-400">
+          <span class="material-symbols-outlined text-base text-primary">call</span>
+          <span>${card.telefone || ''}</span>
+        </div>
+      </div>
+      <button type="button" class="toggle-info-btn mt-3 w-full bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">
+        Saiba mais
+      </button>
+    </div>
+  `;
+
+  return article;
+}
+
+async function carregarConteudoEcologico() {
+  const pagina = window.location.pathname.includes('religioso')
+    ? 'religioso'
+    : window.location.pathname.includes('rural')
+      ? 'rural'
+      : window.location.pathname.includes('hotelaria')
+        ? 'hotelaria'
+        : window.location.pathname.includes('gastronomia')
+          ? 'gastronomia'
+          : 'ecologico';
+
+  try {
+    const resTexto = await fetch(`${API_BASE}/textos/${pagina}`);
+    if (resTexto.ok) {
+      const dadosTexto = await resTexto.json();
+      const elTitulo = document.getElementById('pagina-titulo');
+      const elDesc = document.getElementById('pagina-descricao');
+      if (elTitulo && dadosTexto.titulo) elTitulo.textContent = dadosTexto.titulo;
+      if (elDesc && (dadosTexto.descricao || dadosTexto.historia)) {
+        elDesc.textContent = dadosTexto.descricao || dadosTexto.historia;
+      }
+    }
+  } catch (err) {
+    console.error('Erro ao carregar textos da página:', err);
+  }
+
+  const grid = document.getElementById('establishment-grid');
+  if (!grid) return;
+
+  let cardsParaRenderizar = pagina === 'ecologico'
+    ? CARDS_PADRAO_ECOLOGICO
+    : pagina === 'religioso'
+      ? CARDS_PADRAO_RELIGIOSO
+      : pagina === 'rural'
+        ? CARDS_PADRAO_RURAL
+        : pagina === 'hotelaria'
+          ? CARDS_PADRAO_HOTELARIA
+          : pagina === 'gastronomia'
+            ? CARDS_PADRAO_GASTRONOMIA
+            : [];
+
+  try {
+    const resCards = await fetch(`${API_BASE}/imagens/${pagina}`);
+    if (resCards.ok) {
+      const dadosCards = await resCards.json();
+      if (Array.isArray(dadosCards) && dadosCards.length > 0 && typeof dadosCards[0] === 'object') {
+        cardsParaRenderizar = dadosCards;
+      }
+    }
+  } catch (err) {
+    console.error('Erro ao carregar cards do banco:', err);
+  }
+
+  grid.innerHTML = '';
+  cardsParaRenderizar.forEach(card => {
+    grid.appendChild(criarElementoCard(card));
+  });
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const currentPath = window.location.pathname.split('/').pop();
+  document.querySelectorAll('nav .nav-link').forEach(a => {
+    if (a.getAttribute('href') === currentPath) {
+      a.classList.add('active');
+    }
+  });
+
+  document.querySelectorAll('a[href]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = link.getAttribute('href');
+      const current = window.location.pathname.split('/').pop();
+      if (target === current) {
+        e.preventDefault();
+        window.location.reload();
+      }
+    });
+  });
+
+  await carregarConteudoEcologico();
+
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const activeClasses = ['bg-primary', 'text-white'];
+  const inactiveClasses = ['bg-gray-100', 'text-secondary', 'hover:bg-primary/10', 'hover:text-primary'];
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      const cards = document.querySelectorAll('.establishment-card');
+
+      filterButtons.forEach(btn => {
+        btn.classList.remove(...activeClasses);
+        btn.classList.add(...inactiveClasses.filter(c => !btn.classList.contains(c)));
+      });
+      button.classList.add(...activeClasses);
+      button.classList.remove(...inactiveClasses);
+
+      cards.forEach(card => {
+        const category = card.dataset.category;
+        card.style.display = (filter === 'all' || filter === category) ? 'flex' : 'none';
+      });
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    const button = e.target.closest('.toggle-info-btn');
+    if (!button) return;
+
+    const card = button.closest('.establishment-card');
+    const hiddenContent = card?.querySelector('.hidden-info');
+    if (hiddenContent) {
+      hiddenContent.classList.toggle('hidden');
+      const isHidden = hiddenContent.classList.contains('hidden');
+      button.textContent = isHidden ? 'Saiba mais' : 'Ver menos';
+    }
+  });
+});

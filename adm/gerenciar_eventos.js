@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-const API_BASE = 'https://toursma.onrender.com/api';
+  const API_BASE = 'https://toursma.onrender.com/api';
+  const API_URL = `${API_BASE}/eventos`;
+
   const formEvento = document.getElementById('formEvento');
   const eventoIdInput = document.getElementById('eventoId');
   const tituloInput = document.getElementById('titulo');
