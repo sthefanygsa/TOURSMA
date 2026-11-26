@@ -1255,7 +1255,7 @@ const API_BASE = 'https://toursma.onrender.com/api';
                 ? `Cards de "${nomeAmigavel}" salvos com sucesso!`
                 : `Imagens de "${nomeAmigavel}" salvas com sucesso!`
         );
-        carregarImagens();
+        //carregarImagens();
       } else {
         alert(
           ehContato
