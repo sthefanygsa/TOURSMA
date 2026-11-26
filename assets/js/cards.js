@@ -399,8 +399,8 @@ async function carregarConteudoEcologico() {
     const resCards = await fetch(`${API_BASE}/imagens/${pagina}`);
     if (resCards.ok) {
       const dadosCards = await resCards.json();
-      if (Array.isArray(dadosCards) && dadosCards.length > 0 && typeof dadosCards[0] === 'object') {
-        cardsParaRenderizar = dadosCards;
+      if (Array.isArray(dadosCards)) {
+        cardsParaRenderizar = dadosCards.filter(item => item && typeof item === 'object');
       }
     }
   } catch (err) {
