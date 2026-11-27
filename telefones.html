@@ -8,18 +8,18 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-        tailwind.config = {
-        theme: {
+    tailwind.config = {
+      theme: {
         extend: {
-        colors: {
-          "primary": "#29763B",
-          "secondary": "#194C9B",
-          "background-light": "#FFFFFF",
-            }
-            }
-            }
+          colors: {
+            "primary": "#29763B",
+            "secondary": "#194C9B",
+            "background-light": "#FFFFFF",
+          }
         }
-    </script>
+      }
+    }
+  </script>
   <script src="assets/js/telefones.js" defer></script>
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -31,7 +31,6 @@
 
 <body class="font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark">
   <div class="relative flex min-h-screen w-full flex-col">
-
     <header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-background-dark/80 backdrop-blur-sm">
       <div class="flex w-full max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 py-3 relative">
         <div class="flex items-center gap-1.5">
@@ -98,7 +97,6 @@
     </header>
 
     <main class="flex flex-col gap-8 py-10 px-6 max-w-7xl w-full mx-auto">
-
       <div class="flex flex-wrap items-center justify-between gap-6 py-4">
         <div class="flex max-w-3xl flex-col gap-3">
           <p id="titulo-telefones" class="text-5xl font-black tracking-tighter" style="color:#194C9B;">Telefones Úteis</p>
@@ -135,7 +133,11 @@
         </button>
       </div>
 
-      <div id="establishment-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 py-4"></div>
+      <div id="establishment-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 py-4">
+        <p class="col-span-full text-center text-gray-500 dark:text-gray-400 py-10 text-sm">
+          Carregando telefones úteis...
+        </p>
+      </div>
     </main>
 
     <footer class="flex flex-col gap-8 px-5 py-10 text-center border-t border-gray-200/80 dark:border-gray-800/80 mt-16">
@@ -145,19 +147,19 @@
       </div>
 
       <div class="flex flex-wrap justify-center gap-6">
-        <a class="text-text-secondary-light dark:text-text-secondary-dark transition-colors hover:text-primary" 
+        <span class="text-text-secondary-light dark:text-text-secondary-dark transition-colors hover:text-primary">
           <svg class="feather feather-facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
           </svg>
-        </a>
+        </span>
 
-        <a class="text-text-secondary-light dark:text-text-secondary-dark transition-colors hover:text-primary" 
+        <span class="text-text-secondary-light dark:text-text-secondary-dark transition-colors hover:text-primary">
           <svg class="feather feather-instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
             <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
             <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
           </svg>
-        </a>
+        </span>
       </div>
 
       <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">
@@ -167,3 +169,4 @@
   </div>
 </body>
 </html>
+
