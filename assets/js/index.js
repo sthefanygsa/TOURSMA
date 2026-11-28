@@ -3,7 +3,7 @@ window.tailwind.config = {
     theme: {
         extend: {
             colors: {
-                "primary": "#29763B",
+                "primary": "#004b23",
                 "secondary": "#194C9B",
 
                 "background-light": "#FFFFFF",
