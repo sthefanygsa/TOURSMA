@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const avatarInicialEl = document.getElementById('avatarInicial');
   const btnLogoutEl = document.getElementById('btnLogout');
 
-  const usuario = localStorage.getItem('nomeUsuario') || 'Augusto';
+  const usuario = localStorage.getItem('nomeUsuario') || 'Sthefany Alves';
   if (nomeUserEl) nomeUserEl.textContent = usuario;
   if (avatarInicialEl) avatarInicialEl.textContent = usuario.charAt(0).toUpperCase();
 

@@ -1273,7 +1273,7 @@ const API_BASE = 'https://toursma.onrender.com/api';
     }
   });
 
-  const usuario = localStorage.getItem('nomeUsuario') || 'Augusto';
+  const usuario = localStorage.getItem('nomeUsuario') || 'Sthefany Alves';
   document.getElementById('nomeUser').textContent = usuario;
   document.getElementById('avatarInicial').textContent = usuario.charAt(0).toUpperCase();
 
