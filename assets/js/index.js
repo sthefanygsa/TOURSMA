@@ -128,6 +128,16 @@ if (carousel) {
     let imagens = [...imagensPadrao];
     let index = 0;
     let intervaloCarrossel;
+    const preloadedImgs = [];
+
+    function precarregarImagens(lista) {
+        lista.forEach((src) => {
+            if (!src) return;
+            const img = new Image();
+            img.src = src;
+            preloadedImgs.push(img);
+        });
+    }
 
     function renderizarDots() {
         const dotsContainer = document.querySelector('#carousel .w-full.max-w-6xl');
@@ -139,9 +149,27 @@ if (carousel) {
         `).join('');
     }
 
+    function aplicarImagemNoCarrossel(src) {
+        carousel.style.backgroundImage = `linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url('${src}')`;
+    }
+
     function atualizarCarrossel() {
         if (!imagens.length) return;
-        carousel.style.backgroundImage = `linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 35%), url('${imagens[index]}')`;
+        const srcAtual = imagens[index];
+        const imgPronta = new Image();
+
+        imgPronta.onload = () => {
+            aplicarImagemNoCarrossel(srcAtual);
+        };
+        imgPronta.onerror = () => {
+            aplicarImagemNoCarrossel(srcAtual);
+        };
+        imgPronta.src = srcAtual;
+
+        if (imgPronta.complete) {
+            aplicarImagemNoCarrossel(srcAtual);
+        }
+
         renderizarDots();
     }
 
@@ -179,6 +207,7 @@ if (carousel) {
             if (urls.length > 0) {
                 imagens = urls;
                 index = 0;
+                precarregarImagens(imagens);
                 atualizarCarrossel();
                 iniciarAutoPlay();
             }
@@ -203,6 +232,7 @@ if (carousel) {
         });
     }
 
+    precarregarImagens(imagens);
     atualizarCarrossel();
     iniciarAutoPlay();
     carregarImagensBanco();
